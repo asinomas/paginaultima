@@ -2,12 +2,15 @@
   "name": "pagina-ultima",
   "version": "1.0.0",
   "private": true,
+
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "openai": "^4.24.1",
-    "react-helmet-async": "^2.0.4",
-    "@vercel/node": "^3.0.10"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "openai": "^4.0.0",
+    "react-helmet-async": "^2.0.0",
+    "@vercel/node": "^3.0.0"
+  }
+}
   },
   "devDependencies": {
     "typescript": "^5.0.0",
