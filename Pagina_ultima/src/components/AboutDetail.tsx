@@ -7,18 +7,20 @@ interface AboutDetailProps {
 
 const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate }) => {
   const team = [
+     {
+      name: 'Rodrigo Ledesma',
+      role: 'CEO, Arquitectura y Operaciones',
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+      bio: 'Experto en arquitectura de sistemas y gestión operativa, especializado en garantizar la continuidad de negocio.'
+    },
+    
     {
       name: 'Cristian Quezada',
       role: 'Estratega IT',
       image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
       bio: 'Estratega en consultoría IT con una trayectoria destacada en la dirección de proyectos complejos de transformación digital.'
     },
-    {
-      name: 'Rodrigo Ledesma',
-      role: 'Arquitectura y Operaciones',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      bio: 'Experto en arquitectura de sistemas y gestión operativa, especializado en garantizar la continuidad de negocio.'
-    },
+   
     {
       name: 'Héctor Aspée',
       role: 'Cloud Services',
