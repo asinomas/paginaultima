@@ -7,8 +7,5 @@ export default defineConfig({
   base: './', // Esto asegura que las rutas de CSS y JS sean relativas y no fallen en Vercel
   build: {
     outDir: 'dist',
-  },
-  server: {
-    port: 3000
   }
 })
