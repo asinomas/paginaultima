@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 
+import { Send, Bot, User, Loader2 } from 'lucide-react';
+
 
 interface Message {
   role: 'user' | 'model';
