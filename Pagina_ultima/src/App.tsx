@@ -1,4 +1,3 @@
-
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Logos, { logos } from './components/Logos';
@@ -15,7 +14,7 @@ function App() {
       <Navbar />
 
       <main>
-        {/* El Hero suele ser el Inicio */}
+        {/* Hero */}
         <section id="inicio">
           <Hero />
         </section>
@@ -47,7 +46,7 @@ function App() {
         </section>
       </main>
 
-      {/* Ticker corporativo gris cerca del Footer */}
+      {/* Ticker corporativo gris antes del Footer */}
       <LogoTicker logos={logos} />
 
       <Footer />
