@@ -1,4 +1,4 @@
-// src/components/LogoTicker.tsx
+
 import React from 'react';
 
 interface Logo {
@@ -15,7 +15,7 @@ const LogoTicker: React.FC<LogoTickerProps> = ({ logos, className = '' }) => {
   const duplicatedLogos = [...logos, ...logos, ...logos];
 
   return (
-    <div className={`relative w-full overflow-hidden bg-slate-100 py-16 border-y border-slate-200 ${className}`}>
+    <div className={`relative w-full overflow-hidden bg-slate-100 py-16 border-t border-slate-200 ${className}`}>
       {/* Fade izquierdo */}
       <div
         className="pointer-events-none absolute left-0 top-0 z-10 h-full"
