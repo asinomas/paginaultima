@@ -9,45 +9,34 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    /* Contenedor maestro con fondo blanco y texto oscuro por defecto */
-    <div className="min-h-screen w-full bg-white text-slate-900 selection:bg-blue-100">
-      
-      {/* Navegación superior */}
+    <div className="min-h-screen w-full bg-white text-slate-900">
       <Navbar />
 
       <main>
-        {/* Sección de impacto principal */}
-        <Hero />
+        {/* El Hero suele ser el Inicio */}
+        <section id="inicio">
+          <Hero />
+        </section>
 
-        {/* Carrusel de confianza / marcas */}
-        <div className="bg-gray-50 border-y border-gray-100">
-          <Logos />
-        </div>
+        <Logos />
 
-        {/* Información corporativa */}
-        <About />
+        {/* Sección Nosotros */}
+        <section id="nosotros" className="scroll-mt-20">
+          <About />
+          <Stats />
+        </section>
 
-        {/* Cifras y métricas clave */}
-        <Stats />
+        {/* Sección Servicios */}
+        <section id="servicios" className="scroll-mt-20">
+          <Services />
+        </section>
 
-        {/* Catálogo de servicios especializados */}
-        <Services />
-
-        {/* Consultor IA integrado con fondo sutil para resaltar */}
-        <section id="ai-consultant" className="py-24 bg-slate-50 border-t border-gray-200">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Sección Contacto / IA */}
+        <section id="contacto" className="py-24 bg-slate-50 scroll-mt-20">
+          <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                  Consultor IA BlackTI
-                </h2>
-                <p className="text-lg text-gray-600">
-                  Resuelve tus dudas tecnológicas en tiempo real con nuestra inteligencia especializada.
-                </p>
-              </div>
-              
-              {/* Contenedor del Chat con sombra para darle profundidad */}
-              <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+              <h2 className="text-3xl font-bold text-center mb-10">Contacto e IA</h2>
+              <div className="bg-white rounded-2xl shadow-xl border border-gray-100">
                 <AIConsultant />
               </div>
             </div>
@@ -55,9 +44,7 @@ function App() {
         </section>
       </main>
 
-      {/* Pie de página */}
       <Footer />
-      
     </div>
   );
 }
