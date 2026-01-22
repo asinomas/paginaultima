@@ -7,15 +7,14 @@ import Stats from './components/Stats';
 import Services from './components/Services';
 import Footer from './components/Footer';
 
-// Página Principal: Hero + Logos corporativos
+// Página Principal: Ahora solo tiene el Hero
 const Home = () => (
   <>
     <Hero />
-    <Logos />
   </>
 );
 
-// Página Nosotros: Historia + Estadísticas
+// Página Nosotros: Sobre la empresa y estadísticas
 const NosotrosPage = () => (
   <>
     <About />
@@ -26,19 +25,17 @@ const NosotrosPage = () => (
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-white selection:bg-blue-100 selection:text-blue-900">
         <Navbar />
         <main>
           <Routes>
-            {/* Ruta Raíz */}
             <Route path="/" element={<Home />} />
-            
-            {/* Ruta de Nosotros */}
             <Route path="/nosotros" element={<NosotrosPage />} />
-            
-            {/* Ruta de Servicios */}
             <Route path="/servicios" element={<Services />} />
           </Routes>
+          
+          {/* Los logos ahora están aquí: se verán en todas las páginas justo antes del footer */}
+          <Logos />
         </main>
         <Footer />
       </div>
