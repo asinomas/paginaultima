@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { Shield, Zap, Users, Globe, BarChart, Lock } from 'lucide-react';
+
+
 const Services: React.FC = () => {
   const serviceItems = [
     {
