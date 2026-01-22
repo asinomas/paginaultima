@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { Users, Award, Briefcase, Globe } from 'lucide-react';
+
+
 const Stats: React.FC = () => {
   const statsItems = [
     {
