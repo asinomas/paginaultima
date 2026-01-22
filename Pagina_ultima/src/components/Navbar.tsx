@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
+import { Menu, X } from 'lucide-react';
+
+
 interface NavbarProps {
   onContactClick: () => void;
   onNavigate: (page: 'home' | 'services' | 'about' | 'contact') => void;
