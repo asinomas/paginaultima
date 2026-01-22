@@ -1,7 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-
-import { Send, Bot, User, Loader2 } from 'lucide-react';
-
+import { GoogleGenerativeAI } from "@google/genai";
 
 interface Message {
   role: 'user' | 'model';
@@ -36,20 +34,21 @@ const AIConsultant: React.FC<AIConsultantProps> = ({ isOpen, onClose }) => {
     setIsLoading(true);
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
-      const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
-        contents: userMsg,
-        config: {
-          systemInstruction: 'Eres el Asistente Experto de BlackTI. Responde con tono ejecutivo, profesional y tecnológico. Ayuda a los usuarios con dudas sobre infraestructura, nube y gestión de proyectos. BlackTI es una consultora boutique de alto nivel.',
-        }
+      // Usamos la API Key desde las variables de entorno de Cloudflare
+      const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY || '');
+      const model = genAI.getGenerativeModel({ 
+        model: "gemini-1.5-flash",
+        systemInstruction: "Eres el Asistente Experto de BlackTI. Responde con tono ejecutivo, profesional y tecnológico. Ayuda a los usuarios con dudas sobre infraestructura, nube y gestión de proyectos. BlackTI es una consultora boutique de alto nivel de Chile."
       });
 
-      const modelText = response.text || 'Lo siento, no pude procesar tu solicitud. Intenta de nuevo.';
+      const result = await model.generateContent(userMsg);
+      const response = await result.response;
+      const modelText = response.text();
+
       setMessages(prev => [...prev, { role: 'model', text: modelText }]);
     } catch (error) {
       console.error('Error with Gemini API:', error);
-      setMessages(prev => [...prev, { role: 'model', text: 'Error de conexión. Por favor contacta a soporte@blackti.cl' }]);
+      setMessages(prev => [...prev, { role: 'model', text: 'Lo siento, estoy experimentando una alta demanda. Por favor contacta a soporte@blackti.cl para una atención directa.' }]);
     } finally {
       setIsLoading(false);
     }
@@ -89,9 +88,6 @@ const AIConsultant: React.FC<AIConsultantProps> = ({ isOpen, onClose }) => {
                   : 'bg-white border border-slate-200 text-slate-700 shadow-sm rounded-tl-none'
               }`}>
                 {msg.text}
-                <span className={`absolute bottom-[-18px] text-[9px] font-bold uppercase tracking-widest text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity ${msg.role === 'user' ? 'right-0' : 'left-0'}`}>
-                  {msg.role === 'user' ? 'Tú' : 'Consultor BlackTI'}
-                </span>
               </div>
             </div>
           ))}
@@ -128,6 +124,7 @@ const AIConsultant: React.FC<AIConsultantProps> = ({ isOpen, onClose }) => {
         </div>
       </div>
     </div>
+  );
 };
 
 export default AIConsultant;
