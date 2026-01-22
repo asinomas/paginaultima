@@ -7,36 +7,48 @@ import Stats from './components/Stats';
 import Services from './components/Services';
 import Footer from './components/Footer';
 
-// Página Principal: Ahora solo tiene el Hero
+// Página Principal: Hero de alto impacto
 const Home = () => (
-  <>
+  <div className="animate-in fade-in duration-700">
     <Hero />
-  </>
+  </div>
 );
 
-// Página Nosotros: Sobre la empresa y estadísticas
+// Página Nosotros: Información corporativa y métricas
 const NosotrosPage = () => (
-  <>
+  <div className="animate-in fade-in duration-700">
     <About />
     <Stats />
-  </>
+  </div>
+);
+
+// Página Servicios: Catálogo de soluciones
+const ServiciosPage = () => (
+  <div className="animate-in fade-in duration-700">
+    <Services />
+  </div>
 );
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-white selection:bg-blue-100 selection:text-blue-900">
+      <div className="min-h-screen bg-white flex flex-col">
         <Navbar />
-        <main>
+        
+        {/* El flex-grow asegura que el contenido empuje al footer hacia abajo */}
+        <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/nosotros" element={<NosotrosPage />} />
-            <Route path="/servicios" element={<Services />} />
+            <Route path="/servicios" element={<ServiciosPage />} />
           </Routes>
           
-          {/* Los logos ahora están aquí: se verán en todas las páginas justo antes del footer */}
-          <Logos />
+          {/* Franja de logos: Estará presente antes del footer en todas las páginas */}
+          <div className="border-t border-slate-100 bg-white">
+            <Logos />
+          </div>
         </main>
+
         <Footer />
       </div>
     </Router>
