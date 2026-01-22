@@ -1,11 +1,13 @@
+
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Logos from './components/Logos';
+import Logos, { logos } from './components/Logos';
 import Stats from './components/Stats';
 import About from './components/About';
 import Services from './components/Services';
 import AIConsultant from './components/AIConsultant'; 
 import Footer from './components/Footer';
+import LogoTicker from './components/LogoTicker';
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
           <Hero />
         </section>
 
+        {/* Logos originales */}
         <Logos />
 
         {/* Sección Nosotros */}
@@ -43,6 +46,9 @@ function App() {
           </div>
         </section>
       </main>
+
+      {/* Ticker corporativo gris cerca del Footer */}
+      <LogoTicker logos={logos} />
 
       <Footer />
     </div>
