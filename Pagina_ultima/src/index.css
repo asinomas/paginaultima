@@ -1,3 +1,4 @@
+/* src/index.css */
 html {
   scroll-behavior: smooth;
 }
@@ -10,8 +11,21 @@ html {
   button {
     @apply transition-all duration-200;
   }
+
   /* Esto asegura que si falta un color, al menos el texto sea legible */
   body {
     @apply bg-white text-slate-900;
   }
+}
+
+/* Animación marquee para el ticker */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: fit-content;
+  animation: marquee 50s linear infinite;
 }
