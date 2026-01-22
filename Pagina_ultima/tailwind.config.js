@@ -3,14 +3,27 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
-    "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       colors: {
-        // Colores por defecto para asegurar que no fallen
-        primary: "#000000",
-        secondary: "#1e293b",
+        // Estos nombres suelen ser los que usa la IA por defecto
+        primary: {
+          DEFAULT: '#000000',
+          foreground: '#ffffff',
+        },
+        secondary: {
+          DEFAULT: '#f1f5f9',
+          foreground: '#0f172a',
+        },
+        muted: {
+          DEFAULT: '#f1f5f9',
+          foreground: '#64748b',
+        },
+        accent: {
+          DEFAULT: '#3b82f6', // Un azul estándar
+          foreground: '#ffffff',
+        },
       },
     },
   },
