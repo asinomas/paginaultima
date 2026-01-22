@@ -9,24 +9,55 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white">
+    /* Contenedor maestro con fondo blanco y texto oscuro por defecto */
+    <div className="min-h-screen w-full bg-white text-slate-900 selection:bg-blue-100">
+      
+      {/* Navegación superior */}
       <Navbar />
-      <Hero />
-      <Logos />
+
       <main>
+        {/* Sección de impacto principal */}
+        <Hero />
+
+        {/* Carrusel de confianza / marcas */}
+        <div className="bg-gray-50 border-y border-gray-100">
+          <Logos />
+        </div>
+
+        {/* Información corporativa */}
         <About />
+
+        {/* Cifras y métricas clave */}
         <Stats />
+
+        {/* Catálogo de servicios especializados */}
         <Services />
-        <section id="ai-consultant" className="py-20 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-10 text-black">
-              Consultor IA BlackTI
-            </h2>
-            <AIConsultant />
+
+        {/* Consultor IA integrado con fondo sutil para resaltar */}
+        <section id="ai-consultant" className="py-24 bg-slate-50 border-t border-gray-200">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                  Consultor IA BlackTI
+                </h2>
+                <p className="text-lg text-gray-600">
+                  Resuelve tus dudas tecnológicas en tiempo real con nuestra inteligencia especializada.
+                </p>
+              </div>
+              
+              {/* Contenedor del Chat con sombra para darle profundidad */}
+              <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+                <AIConsultant />
+              </div>
+            </div>
           </div>
         </section>
       </main>
+
+      {/* Pie de página */}
       <Footer />
+      
     </div>
   );
 }
