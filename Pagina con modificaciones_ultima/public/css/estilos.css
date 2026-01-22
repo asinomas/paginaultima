@@ -1,0 +1,34 @@
+/* Estilos básicos para el Consultor de IA */
+.ai-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fdfdfd;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.ai-response {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f0f7ff;
+  border-left: 4px solid #0070f3;
+}
