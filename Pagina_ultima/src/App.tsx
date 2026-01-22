@@ -1,3 +1,8 @@
+function App() {
+  return (
+    <div className="bg-white text-slate-900 min-h-screen"> 
+      {/* El resto de tus componentes */}
+
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Logos from './components/Logos';
