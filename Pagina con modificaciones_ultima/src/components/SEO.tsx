@@ -1,5 +1,3 @@
-npm install react-helmet-async
-
 import { Helmet } from 'react-helmet-async';
 
 interface SEOProps {
