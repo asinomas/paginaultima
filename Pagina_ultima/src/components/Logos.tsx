@@ -5,9 +5,9 @@ const Logos: React.FC = () => {
     { name: 'Grupo Sura', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Grupo_Sura_logo.svg/1280px-Grupo_Sura_logo.svg.png' },
     { name: 'Casa&Ideas', src: 'https://static.wikia.nocookie.net/logopedia/images/0/01/Casaideas_logo.png/revision/latest?cb=20220120020452' },
     { name: 'Globant', src: 'https://upload.wikimedia.org/wikipedia/commons/5/56/Globant-LightBG-Color%403x.png' },
-    { name: 'Marubeni', src: 'https://companieslogo.com/img/orig/8002.T_BIG-8c9cf180.png?t=1720244490' }
-    { name: 'Everis', src: 'https://iconape.com/wp-content/png_logo_vector/everis-ntt-data-logo.png' }
-    { name: 'Compunet', src: 'https://www.compunetgroup.net/logo-compunet.png' }
+    { name: 'Marubeni', src: 'https://companieslogo.com/img/orig/8002.T_BIG-8c9cf180.png?t=1720244490' },
+    { name: 'Everis', src: 'https://iconape.com/wp-content/png_logo_vector/everis-ntt-data-logo.png' },
+    { name: 'Compunet', src: 'https://www.compunetgroup.net/logo-compunet.png' },
   
   ];
 
