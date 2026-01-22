@@ -2,10 +2,14 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}", // Esto le dice que busque en src y en subcarpetas
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+      , 
+      }
+    },
   },
   plugins: [],
 }
