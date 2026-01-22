@@ -22,7 +22,7 @@ const Logos: React.FC = () => {
             {logos.map((logo, idx) => (
               <div
                 key={idx}
-                className="flex-shrink-0 flex items-center justify-center p-4 filter grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+                className="flex-shrink-0 flex items-center justify-center p-4 filter grayscale opacity-40 transition-all duration-500"
                 style={{ minWidth: '150px' }}
               >
                 <img
