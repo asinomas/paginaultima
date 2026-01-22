@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import AIConsultant from './components/AIConsultant'
 import { HelmetProvider } from 'react-helmet-async'
 
-// Cambiamos 'root' por 'root-ia' para que NO borre todo tu HTML de BlackTI
+// Buscamos el div específico que creamos en el index.html
 const rootElement = document.getElementById('root-ia');
 
 if (rootElement) {
@@ -14,4 +14,6 @@ if (rootElement) {
       </HelmetProvider>
     </React.StrictMode>
   )
+} else {
+  console.error("No se encontró el elemento 'root-ia'. Revisa tu index.html");
 }
