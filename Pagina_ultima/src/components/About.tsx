@@ -1,79 +1,46 @@
 import React from 'react';
 
 const About: React.FC = () => {
-  const features = [
-    'Ingeniería de Clase Mundial',
-    'Seguridad Multicapa',
-    'Escalabilidad Sin Límites',
-    'Transparencia Radical'
-  ];
-
   return (
-    <section id="nosotros" className="bg-white py-32 overflow-hidden">
+    <section className="bg-white py-32 overflow-hidden">
       <div className="container mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-20 lg:grid-cols-2 lg:items-center">
-          
-          {/* Columna de Imagen con Efectos */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div className="relative">
-            <div className="relative z-10 overflow-hidden rounded-[2.5rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.15)] group">
+            <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl group">
               <img 
-                alt="Innovación y Propósito BlackTI" 
-                className="h-[600px] w-full object-cover transition-transform duration-[2s] group-hover:scale-110" 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" 
+                className="h-[600px] w-full object-cover transition-transform duration-[2s] group-hover:scale-105"
+                alt="Nosotros"
               />
-              {/* Gradiente sobre la imagen para legibilidad del texto */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent opacity-70"></div>
-              
-              <div className="absolute bottom-10 left-10 text-white">
-                <p className="text-xs font-bold uppercase tracking-widest mb-2 opacity-80">Fundada en 2014</p>
-                <p className="text-3xl font-extrabold tracking-tight">Sede Principal en Santiago</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent"></div>
+              <div className="absolute bottom-10 left-10">
+                <p className="text-blue-400 font-bold uppercase tracking-widest text-xs mb-2">Fundada en 2014</p>
+                <h4 className="text-3xl font-bold text-white tracking-tight">Estrategia y Resultados</h4>
               </div>
             </div>
-
-            {/* Elementos Decorativos Flotantes */}
-            <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-blue-600/10 rounded-full blur-[80px] -z-10 animate-pulse"></div>
-            <div className="absolute -top-10 -left-10 w-48 h-48 bg-blue-100/50 rounded-full blur-[60px] -z-10"></div>
+            <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-blue-100 rounded-full blur-[80px] -z-10"></div>
           </div>
 
-          {/* Columna de Contenido */}
-          <div className="flex flex-col">
-            <div className="mb-6 inline-flex w-fit items-center gap-2 rounded-full bg-blue-600/5 px-4 py-2 border border-blue-600/10">
-              <span className="flex h-2 w-2 rounded-full bg-blue-600 animate-pulse"></span>
-              <span className="text-xs font-extrabold uppercase tracking-widest text-blue-600">Nuestra Identidad</span>
+          <div>
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-2 border border-blue-100">
+              <span className="text-blue-600 text-xs font-bold uppercase tracking-widest">Nuestra Identidad</span>
             </div>
-            
-            <h2 className="mb-8 text-4xl font-extrabold tracking-tight text-slate-900 lg:text-6xl leading-[1.1]">
-              Liderando el Futuro con <span className="text-blue-600 italic">Propósito</span> Real
+            <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-8 leading-[1.1]">
+              Liderando con <span className="text-blue-600 italic">Propósito</span> Real
             </h2>
-            
-            <div className="space-y-6 mb-12">
-              <p className="text-lg leading-relaxed text-slate-500">
-                Somos una firma boutique de consultoría que trasciende la simple implementación técnica. Nos sumergimos en la cultura de nuestros clientes para convertir obstáculos en motores de crecimiento.
-              </p>
-              <p className="text-lg leading-relaxed text-slate-500">
-                Creemos que el éxito tecnológico solo es sostenible cuando está alineado con un Talento Humano excepcional y una visión estratégica clara.
-              </p>
-            </div>
-
-            {/* Lista de Features con Checks */}
-            <div className="grid grid-cols-1 gap-y-5 sm:grid-cols-2 mb-12">
-              {features.map((feature, idx) => (
-                <div key={idx} className="flex items-center gap-4 group">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-600/10 text-blue-600 transition-all duration-300 group-hover:bg-blue-600 group-hover:text-white group-hover:scale-110">
-                    <span className="material-symbols-outlined !text-xl">done_all</span>
+            <p className="text-lg text-slate-500 mb-8 leading-relaxed">
+              Somos una firma boutique de consultoría que trasciende la simple implementación técnica. Nos sumergimos en la cultura de nuestros clientes para convertir obstáculos en motores de crecimiento.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+              {['Ingeniería Superior', 'Seguridad Total', 'Escalabilidad', 'Transparencia'].map((item) => (
+                <div key={item} className="flex items-center gap-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-white">
+                    <span className="material-symbols-outlined !text-sm">done</span>
                   </div>
-                  <span className="text-sm font-bold text-slate-700 tracking-tight">{feature}</span>
+                  <span className="font-bold text-slate-700">{item}</span>
                 </div>
               ))}
             </div>
-
-            {/* Botón de Acción */}
-            <button className="group relative w-fit overflow-hidden rounded-2xl bg-slate-900 px-10 py-5 text-sm font-bold text-white shadow-2xl transition-all hover:bg-blue-600 hover:-translate-y-1">
-              <span className="relative z-10 flex items-center gap-3">
-                Nuestro Método Operativo
-                <span className="material-symbols-outlined !text-xl transition-transform group-hover:translate-x-1">arrow_right_alt</span>
-              </span>
-            </button>
           </div>
         </div>
       </div>
