@@ -1,71 +1,85 @@
 import React, { useState, useEffect } from 'react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 
-import { Menu, X } from 'lucide-react';
-
-
-interface NavbarProps {
-  onContactClick: () => void;
-  onNavigate: (page: 'home' | 'services' | 'about' | 'contact') => void;
-  currentPage: 'home' | 'services' | 'about' | 'contact';
-}
-
-const Navbar: React.FC<NavbarProps> = ({ onContactClick, onNavigate, currentPage }) => {
-  const [scrolled, setScrolled] = useState(false);
+const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return (
-    <header className={`fixed top-0 z-[80] w-full transition-all duration-300 ${scrolled ? 'bg-brand-dark/90 py-3 backdrop-blur-xl shadow-2xl border-b border-white/5' : 'bg-transparent py-6'}`}>
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8">
-        <div className="flex items-center">
-          <button onClick={() => onNavigate('home')} className="focus:outline-none flex items-center group">
-            <img 
-              alt="BlackTI Logo" 
-              className="h-12 w-auto white-logo-filter transition-transform group-hover:scale-105" 
-              src="https://www.blackti.cl/wp-content/uploads/2021/10/logo-black-ti.png" 
-            />
-          </button>
-        </div>
-        
-        <nav className="hidden items-center gap-10 lg:flex">
-          {[
-            { id: 'home', label: 'Inicio' },
-            { id: 'services', label: 'Servicios' },
-            { id: 'about', label: 'Nosotros' },
-            { id: 'contact', label: 'Contacto' }
-          ].map((item) => (
-            <button 
-              key={item.id}
-              onClick={() => onNavigate(item.id as any)}
-              className={`relative text-xs font-bold uppercase tracking-widest transition-all duration-300 ${
-                currentPage === item.id ? 'text-primary' : 'text-slate-400 hover:text-white'
-              }`}
-            >
-              {item.label}
-              {currentPage === item.id && (
-                <span className="absolute -bottom-2 left-0 h-0.5 w-full bg-primary rounded-full"></span>
-              )}
-            </button>
-          ))}
-        </nav>
+  const navLinks = [
+    { name: 'Inicio', href: '#inicio' },
+    { name: 'Nosotros', href: '#nosotros' },
+    { name: 'Servicios', href: '#servicios' },
+    { name: 'Contacto', href: '#contacto' },
+  ];
 
-        <div className="flex items-center gap-4">
-          <button 
-            onClick={onContactClick}
-            className="hidden sm:block rounded-xl bg-white/5 border border-white/10 px-6 py-2 text-xs font-bold uppercase tracking-widest text-white transition-all hover:bg-primary hover:border-primary hover:scale-105 active:scale-95 shadow-xl shadow-black/20"
-          >
-            Empezar Proyecto
-          </button>
-          <button className="lg:hidden text-white">
-            <span className="material-symbols-outlined">menu</span>
-          </button>
+  return (
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${
+      isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
+    }`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center">
+          {/* Logo */}
+          <div className="flex-shrink-0 flex items-center">
+            <span className="text-2xl font-bold text-black">BlackTI</span>
+          </div>
+
+          {/* Menú Escritorio */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-gray-700 hover:text-black font-medium transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
+            <a 
+              href="#contacto"
+              className="bg-black text-white px-5 py-2 rounded-full font-medium hover:bg-gray-800 transition-all"
+            >
+              Empezar ahora
+            </a>
+          </div>
+
+          {/* Botón Móvil */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-black p-2"
+            >
+              {isMobileMenuOpen ? <X /> : <Menu />}
+            </button>
+          </div>
         </div>
       </div>
-    </header>
+
+      {/* Menú desplegable Móvil */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-white border-t border-gray-100 shadow-lg">
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-md"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </nav>
   );
 };
 
