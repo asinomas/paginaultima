@@ -128,7 +128,6 @@ const AIConsultant: React.FC<AIConsultantProps> = ({ isOpen, onClose }) => {
         </div>
       </div>
     </div>
-  );
 };
 
 export default AIConsultant;
