@@ -1,4 +1,4 @@
-// src/components/Logos.tsx
+
 import grupoSura from '../assets/logos/grupo-sura.png';
 import casaIdeas from '../assets/logos/casa-ideas.png';
 import globant from '../assets/logos/globant.png';
