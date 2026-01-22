@@ -1,19 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import AIConsultant from './components/AIConsultant'
+import App from './App' // Importamos el ensamblador
 import { HelmetProvider } from 'react-helmet-async'
 
-// Buscamos el div específico que creamos en el index.html
-const rootElement = document.getElementById('root-ia');
+const rootElement = document.getElementById('root'); // Volvemos a usar 'root'
 
 if (rootElement) {
   ReactDOM.createRoot(rootElement).render(
     <React.StrictMode>
       <HelmetProvider>
-        <AIConsultant />
+        <App />
       </HelmetProvider>
     </React.StrictMode>
   )
-} else {
-  console.error("No se encontró el elemento 'root-ia'. Revisa tu index.html");
 }
