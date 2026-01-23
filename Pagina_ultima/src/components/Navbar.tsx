@@ -51,7 +51,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, onContactClick, currentPage
             </button>
           </div>
 
-          {/* Menú Escritorio */}
+          {/* Menú Escritorio - Centrado */}
           <div className="hidden lg:flex items-center justify-center space-x-12 flex-[2]">
             {navLinks.map((link) => (
               <button
@@ -73,13 +73,15 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, onContactClick, currentPage
             ))}
           </div>
           
-          {/* Botón Derecha - Hover con fondo gris slate-50 */}
+          {/* Botón Derecha - Lógica de Hover dual */}
           <div className="hidden lg:flex items-center justify-end flex-1">
             <button 
               onClick={onContactClick}
               className={`px-7 py-2.5 rounded-xl text-[11px] font-bold uppercase tracking-widest transition-all duration-300 border-2 active:scale-95 ${
                 isScrolled || currentPage !== 'home'
-                  ? 'bg-transparent border-[#135bec] text-[#135bec] hover:bg-slate-50 hover:text-[#135bec]'
+                  /* CUANDO HAY SCROLL (FONDO BLANCO) -> HOVER AZUL */
+                  ? 'bg-transparent border-[#135bec] text-[#135bec] hover:bg-[#135bec] hover:text-white'
+                  /* EN EL INICIO (FONDO NEGRO/OSCURO) -> HOVER GRIS SLATE-50 */
                   : 'bg-transparent border-white/40 text-white hover:bg-slate-50 hover:text-slate-900 hover:border-slate-50'
               }`}
             >
