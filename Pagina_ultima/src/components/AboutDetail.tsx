@@ -37,7 +37,6 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
       image: 'https://media.licdn.com/dms/image/v2/D4E03AQGfN2-yY6_X9g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1715694295995?e=1743033600&v=beta&t=mB0xNAnv256lC9nN8S4qL7hO_u3o2uD_V_15n6G3_I8',
       bio: 'Especialista FullStack en desarrollo, despliegue y mantención de aplicaciones web, BFFs, APIs y microservicios.',
       linkedin: 'https://linkedin.com/in/bmolinh'
-}
     },
     {
       name: 'Daniela Paredes',
