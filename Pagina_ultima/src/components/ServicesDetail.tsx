@@ -1,11 +1,18 @@
 import React from 'react';
-import { Terminal, Lightbulb, Network, Lock, Cloud, BarChart3, ArrowRight } from 'lucide-react';
+import { Terminal, Lightbulb, Network, Lock, Cloud, BarChart3, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 interface ServicesDetailProps {
   onContactClick: () => void;
 }
 
 const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
+  const collaborationModels = [
+    "Servicio Head Hunting",
+    "Servicio Staffing",
+    "Servicio Digital Factoring",
+    "Servicio Mesa de Ayuda"
+  ];
+
   const specialties = [
     {
       icon: Terminal,
@@ -41,10 +48,9 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
 
   return (
     <div className="bg-slate-50 min-h-screen pt-24 pb-32 antialiased">
-      {/* Hero de la sección de Detalles */}
+      {/* 1. HERO SECTION */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8 mb-24">
         <div className="relative overflow-hidden rounded-[3rem] bg-[#0b0e14] p-12 lg:p-24 text-center lg:text-left">
-          {/* Luces de ambiente de fondo */}
           <div className="absolute top-[-20%] right-[-10%] w-[50%] h-[50%] bg-[#135bec]/20 rounded-full blur-[100px]"></div>
           
           <div className="relative z-10 flex flex-col lg:flex-row items-center gap-12">
@@ -56,15 +62,11 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
               <p className="text-lg lg:text-xl text-slate-400 leading-relaxed max-w-2xl mb-10">
                 Impulsando la excelencia digital a través de soluciones tecnológicas estratégicas. Ayudamos a su empresa a escalar en el entorno moderno con BlackTI.
               </p>
-              <button 
-                onClick={onContactClick} 
-                className="rounded-2xl bg-[#135bec] px-10 py-5 text-base font-bold text-white shadow-2xl shadow-[#135bec]/30 hover:scale-105 active:scale-95 transition-all"
-              >
+              <button onClick={onContactClick} className="rounded-2xl bg-[#135bec] px-10 py-5 text-base font-bold text-white shadow-2xl shadow-[#135bec]/30 hover:scale-105 active:scale-95 transition-all">
                 Iniciar Transformación
               </button>
             </div>
             
-            {/* Stats flotantes */}
             <div className="lg:w-1/3 hidden lg:block">
               <div className="grid grid-cols-2 gap-4">
                  <div className="h-40 bg-white/5 rounded-3xl border border-white/10 flex flex-col items-center justify-center backdrop-blur-sm">
@@ -81,38 +83,49 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
         </div>
       </section>
 
-      {/* Grid de Especialización */}
+      {/* 2. ESPECIALIZACIÓN Y MODELO DE COLABORACIÓN */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mb-16 flex flex-col md:flex-row items-center justify-between gap-6">
+        {/* Cabecera */}
+        <div className="mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
            <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
              Nuestra <span className="text-[#135bec] italic">Especialización</span>
            </h2>
            <div className="h-0.5 flex-1 bg-slate-200 hidden md:block mx-10"></div>
            <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">Servicios End-to-End</p>
         </div>
+
+        {/* NUEVA SECCIÓN: Modelo de Colaboración */}
+        <div className="mb-20 bg-white p-8 md:p-12 rounded-[2.5rem] border border-slate-100 shadow-sm">
+          <h3 className="text-[10px] font-bold tracking-[0.4em] text-[#135bec] uppercase mb-10 text-center md:text-left">
+            Modelo de Colaboración
+          </h3>
+          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {collaborationModels.map((service, index) => (
+              <li key={index} className="flex items-center space-x-4 text-slate-700 border-l-4 border-[#135bec] bg-slate-50/50 pl-5 py-4 rounded-r-xl hover:bg-[#135bec]/5 transition-all duration-300">
+                <span className="text-lg font-bold tracking-tight text-slate-800">{service}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
         
+        {/* 3. GRID DE TARJETAS DETALLADAS */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {specialties.map((item, idx) => (
             <div key={idx} className="group relative bg-white p-12 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col h-full">
               
-              {/* Marca de agua de fondo */}
               <div className="absolute -top-6 -right-6 text-slate-100 group-hover:text-blue-50 transition-all duration-700 pointer-events-none z-0">
                 <item.icon size={180} strokeWidth={1} />
               </div>
 
-              {/* Icono Principal */}
               <div className="relative z-10 mb-8 flex size-14 items-center justify-center rounded-2xl bg-slate-50 text-[#135bec] group-hover:bg-[#135bec] group-hover:text-white transition-all duration-500 shadow-sm">
                 <item.icon size={28} />
               </div>
 
-              {/* Contenido */}
               <div className="relative z-10 flex flex-col h-full">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">{item.title}</h3>
                 <p className="text-slate-500 leading-relaxed text-sm mb-10 flex-grow">
                   {item.description}
                 </p>
-                
-                {/* Botón Detalles con animación escala */}
                 <button className="flex items-center text-[#135bec] text-[10px] font-bold uppercase tracking-[0.2em] group/btn transition-transform duration-300 hover:scale-105 origin-left w-fit">
                   <span>Detalles técnicos</span>
                   <ArrowRight className="ml-2 transition-transform duration-300 group-hover/btn:translate-x-2" size={14} />
