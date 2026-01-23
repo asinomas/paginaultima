@@ -10,6 +10,14 @@ export const OFFICE_LOCATIONS: OfficeLocation[] = [
     type: 'Headquarters'
   },
   {
+    id: 'buenos-aires',
+    city: 'Buenos Aires',
+    country: 'Argentina',
+    coordinates: [-58.3816, -34.6037],
+    address: 'Av. del Libertador 602, CABA',
+    type: 'Regional Office'
+  },
+  {
     id: 'miami',
     city: 'Miami',
     country: 'USA',
