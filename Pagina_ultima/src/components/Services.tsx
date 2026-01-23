@@ -47,22 +47,22 @@ const HighLevelConsulting: React.FC = () => {
           </div>
         </div>
 
-        {/* PARTE INFERIOR: Tarjetas con Efectos Premium */}
+        {/* PARTE INFERIOR: Tarjetas con Marca de Agua Corregida */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <ServiceCard 
             Icon={Target} 
             title="Consultoría Estratégica" 
-            description="Alineamos la tecnología con los objetivos de negocio para maximizar el retorno de inversión y la eficiencia operativa." 
+            description="Alineamos la tecnología con los objetivos de negocio para maximizar el retorno de inversión y la eficiencia operativa de su empresa." 
           />
           <ServiceCard 
             Icon={Layout} 
             title="Arquitectura de Sistemas" 
-            description="Diseñamos infraestructuras robustas y escalables preparadas para soportar el crecimiento continuo." 
+            description="Diseñamos infraestructuras robustas y escalables preparadas para soportar el crecimiento continuo y la demanda tecnológica actual." 
           />
           <ServiceCard 
             Icon={Shield} 
             title="Seguridad TI" 
-            description="Protegemos sus activos digitales mediante protocolos de vanguardia y análisis proactivo de amenazas." 
+            description="Protegemos sus activos digitales mediante protocolos de vanguardia, cifrado avanzado y análisis proactivo de amenazas." 
           />
         </div>
       </div>
@@ -70,13 +70,12 @@ const HighLevelConsulting: React.FC = () => {
   );
 };
 
-// Sub-componente con efectos de fondo y animaciones mejoradas
 const ServiceCard = ({ Icon, title, description }: { Icon: any, title: string, description: string }) => (
   <div className="relative bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500 group flex flex-col h-full overflow-hidden">
     
-    {/* Icono de fondo (Marca de agua suave) */}
-    <div className="absolute -top-4 -right-4 text-slate-50 opacity-[0.03] group-hover:opacity-[0.07] group-hover:scale-110 transition-all duration-700 pointer-events-none">
-      <Icon size={160} />
+    {/* ICONO DE FONDO (Marca de Agua) - Ahora más visible */}
+    <div className="absolute -top-6 -right-6 text-slate-100 group-hover:text-blue-50 group-hover:scale-110 transition-all duration-700 pointer-events-none z-0">
+      <Icon size={180} strokeWidth={1} />
     </div>
 
     {/* Icono Principal */}
@@ -85,14 +84,14 @@ const ServiceCard = ({ Icon, title, description }: { Icon: any, title: string, d
     </div>
 
     {/* Contenido */}
-    <div className="relative z-10">
+    <div className="relative z-10 flex flex-col h-full">
       <h4 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">{title}</h4>
       <p className="text-slate-500 leading-relaxed text-sm mb-10 flex-grow">
         {description}
       </p>
 
       {/* Botón con efecto de agrandado y flecha móvil */}
-      <button className="flex items-center text-[#135bec] font-bold text-[10px] uppercase tracking-[0.2em] group/btn transition-transform duration-300 hover:scale-105 origin-left">
+      <button className="flex items-center text-[#135bec] font-bold text-[10px] uppercase tracking-[0.2em] group/btn transition-transform duration-300 hover:scale-105 origin-left w-fit">
         <span>Saber más</span>
         <ArrowRight className="ml-2 transition-transform duration-300 group-hover/btn:translate-x-2" size={14} />
       </button>
