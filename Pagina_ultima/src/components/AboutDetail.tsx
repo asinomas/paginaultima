@@ -128,16 +128,16 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
       </section>
 
       {/* SECCIÓN MAPA GLOBAL */}
-      <section className="bg-slate-950 py-24 border-t border-slate-900">
+      <section className="bg-slate-50 py-24 border-t border-slate-200">
         <div className="container mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">
               Nuestro equipo se encuentra en las siguientes ubicaciones
             </h2>
             <div className="w-20 h-1 bg-[#135bec] rounded-full"></div>
           </div>
 
-          <div className="bg-slate-900/20 border border-slate-800/60 rounded-[3rem] overflow-hidden shadow-2xl backdrop-blur-sm">
+          <div className="bg-white border border-slate-200 rounded-[3rem] overflow-hidden shadow-xl">
             <div className="flex flex-col lg:flex-row min-h-[600px]">
               <div className="flex-[2.5] relative p-8 min-h-[500px]">
                 <WorldMap 
@@ -158,7 +158,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
                         onClick={() => setSelectedOffice(office)}
                         className={`px-4 py-3 rounded-xl text-[10px] font-bold uppercase tracking-wider transition-all duration-300 ${
                           selectedOffice.id === office.id
-                          ? 'bg-[#135bec] text-white shadow-lg shadow-[#135bec]/20'
+                          ? 'bg-[#135bec] text-slate-900 shadow-lg shadow-[#135bec]/20'
                           : 'bg-slate-800/40 text-slate-500 hover:text-slate-300 hover:bg-slate-800'
                         }`}
                       >
