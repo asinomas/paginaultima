@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 
 const Logos: React.FC = () => {
   const logos = [
@@ -10,24 +10,6 @@ const Logos: React.FC = () => {
     { name: 'Compunet', src: '/logos/compunet.png' },
   ];
 
-  const trackRef = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState(0);
-
-  useEffect(() => {
-    if (!trackRef.current) return;
-
-    const updateWidth = () => {
-      const track = trackRef.current!;
-      const half = track.scrollWidth / 2;
-      setWidth(half);
-    };
-
-    updateWidth();
-    window.addEventListener('resize', updateWidth);
-
-    return () => window.removeEventListener('resize', updateWidth);
-  }, []);
-
   return (
     <section className="bg-white py-20 border-t border-slate-100 overflow-hidden">
       <div className="container mx-auto px-6 mb-12">
@@ -36,27 +18,29 @@ const Logos: React.FC = () => {
         </p>
       </div>
 
-      <div className="relative overflow-hidden">
-        {/* Gradientes laterales */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10" />
+      {/* Contenedor del Carrusel */}
+      <div className="relative flex overflow-hidden">
+        {/* Máscaras de desvanecimiento laterales */}
+        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10"></div>
+        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10"></div>
 
-        <div
-          ref={trackRef}
-          className="flex gap-16 animate-scroll"
-          style={{
-            ['--scroll-width' as any]: `-${width}px`,
-          }}
-        >
+        {/* IMPORTANTE: Renderizamos la lista de logos dos veces. 
+            La animación moverá la tira hasta la mitad (-50%) y luego saltará al inicio.
+        */}
+        <div className="flex animate-infinite-scroll">
           {[...logos, ...logos].map((logo, idx) => (
-            <div
-              key={idx}
-              className="flex-shrink-0 flex items-center justify-center"
+            <div 
+              key={idx} 
+              className="flex-shrink-0 flex items-center justify-center grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 px-8"
+              style={{ width: '280px' }} // Aumentado para dar más aire a logos más grandes
             >
               <img
-                src={logo.src}
                 alt={logo.name}
-                className="h-12 md:h-16 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+                className="h-12 md:h-16 w-auto object-contain" // Aumentado un 50% (de h-10 a h-16)
+                src={logo.src}
+                onError={(e) => {
+                  (e.target as HTMLImageElement).style.display = 'none';
+                }}
               />
             </div>
           ))}
@@ -64,21 +48,17 @@ const Logos: React.FC = () => {
       </div>
 
       <style>{`
-        @keyframes scroll {
-          from {
-            transform: translateX(0);
-          }
-          to {
-            transform: translateX(var(--scroll-width));
-          }
+        @keyframes infinite-scroll {
+          from { transform: translateX(0); }
+          /* Se mueve exactamente el 50% (la primera lista completa) para que el salto sea invisible */
+          to { transform: translateX(-50%); }
         }
-
-        .animate-scroll {
-          animation: scroll 30s linear infinite;
+        .animate-infinite-scroll {
+          display: flex;
           width: max-content;
+          animation: infinite-scroll 30s linear infinite;
         }
-
-        .animate-scroll:hover {
+        .animate-infinite-scroll:hover {
           animation-play-state: paused;
         }
       `}</style>
