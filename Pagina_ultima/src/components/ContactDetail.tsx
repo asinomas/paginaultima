@@ -5,10 +5,10 @@ const ContactDetail: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSent, setIsSent] = useState(false);
 
-  
+
   // EDITAR AQUÍ EL CORREO ELECTRÓNICO
-  const EMAIL_DE_RECEPCION = "Pruebadel_Conctacto@Blackti.cl"; 
-  
+  const EMAIL_DE_RECEPCION = "Pruebadel_Contacto@Blackti.cl"; 
+
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -27,16 +27,21 @@ const ContactDetail: React.FC = () => {
       <div className="container mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           
-          {/* COLUMNA IZQUIERDA: TÍTULO EN TAMAÑO ORIGINAL */}
+          {/* COLUMNA IZQUIERDA: ESTILO "EXCELENCIA OPERATIVA" APLICADO */}
           <div className="lg:sticky lg:top-32">
-            <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-8 tracking-tighter leading-tight">
-              <span className="text-[#135bec]">Hablemos hoy</span> <br />
+            {/* "Hablemos hoy" con el estilo exacto de la frase del Hero */}
+            <h4 className="text-[#135bec] font-bold uppercase tracking-[0.2em] text-sm mb-4">
+              Hablemos hoy
+            </h4>
+            
+            {/* El resto del título según tus indicaciones de color */}
+            <h2 className="text-5xl lg:text-6xl font-black text-slate-900 mb-8 tracking-tighter leading-tight">
               diseñemos el <br />
               <span className="text-[#135bec]">futuro.</span>
             </h2>
             
             <p className="text-slate-500 text-lg mb-12 max-w-md leading-relaxed">
-              Estamos listos para transformar tus desafíos en ventajas competitivas. Déjanos un mensaje, te contactaremos en menos de 24 horas.
+              Estamos listos para transformar tus desafíos en ventajas competitivas. Déjanos un mensaje y nos contactaremos en menos de 24 horas.
             </p>
 
             <div className="space-y-8">
@@ -76,7 +81,6 @@ const ContactDetail: React.FC = () => {
           <div className="relative group">
             <div className="bg-slate-50 p-8 lg:p-12 rounded-[3rem] border border-slate-100 relative overflow-hidden min-h-[580px] flex flex-col justify-center shadow-sm">
               
-              {/* PANTALLA DE ÉXITO */}
               {isSent && (
                 <div className="absolute inset-0 bg-white/95 backdrop-blur-sm z-50 flex flex-col items-center justify-center text-center p-8 animate-[fadeIn_0.5s_ease-out]">
                   <div className="size-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-8 border border-green-200 shadow-lg shadow-green-500/10">
@@ -95,7 +99,6 @@ const ContactDetail: React.FC = () => {
                 </div>
               )}
 
-              {/* FORMULARIO */}
               <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
                 <div className="space-y-2">
                   <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Nombre Completo</label>
@@ -109,7 +112,7 @@ const ContactDetail: React.FC = () => {
 
                 <div className="space-y-2">
                   <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Mensaje</label>
-                  <textarea required rows={5} placeholder="¿En qué podemos ayudarte?" className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 focus:ring-2 focus:ring-[#135bec] focus:border-transparent outline-none transition-all placeholder:text-slate-300 resize-none"></textarea>
+                  <textarea required rows={5} placeholder="Cuentanos sobre tu proyecto..." className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 focus:ring-2 focus:ring-[#135bec] focus:border-transparent outline-none transition-all placeholder:text-slate-300 resize-none"></textarea>
                 </div>
 
                 <button 
