@@ -1,6 +1,11 @@
 import React from 'react';
 
-const Hero: React.FC = () => {
+// Definimos que el Hero recibe la función onNavigate
+interface HeroProps {
+  onNavigate: (page: 'home' | 'services' | 'about' | 'contact') => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-[#0b0e14] overflow-hidden pt-20 antialiased">
       
@@ -40,12 +45,20 @@ const Hero: React.FC = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="group relative overflow-hidden px-8 py-4 bg-[#135bec] text-white rounded-xl font-bold transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-[#135bec]/30">
+            {/* BOTÓN ACTUALIZADO: Agendar Consultoría */}
+            <button 
+              onClick={() => onNavigate('contact')}
+              className="group relative overflow-hidden px-8 py-4 bg-[#135bec] text-white rounded-xl font-bold transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-[#135bec]/30"
+            >
               <span className="relative z-10">Agendar Consultoría</span>
               <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-[#135bec] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </button>
 
-            <button className="px-8 py-4 bg-white/5 text-white border border-white/10 rounded-xl font-bold hover:bg-white/10 transition-all backdrop-blur-sm active:scale-95">
+            {/* BOTÓN ACTUALIZADO: Explorar Soluciones (Lleva a servicios) */}
+            <button 
+              onClick={() => onNavigate('services')}
+              className="px-8 py-4 bg-white/5 text-white border border-white/10 rounded-xl font-bold hover:bg-white/10 transition-all backdrop-blur-sm active:scale-95"
+            >
               Explorar Soluciones
             </button>
           </div>
