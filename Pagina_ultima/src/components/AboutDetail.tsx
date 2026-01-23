@@ -167,3 +167,4 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
 };
 
 export default AboutDetail;
+
