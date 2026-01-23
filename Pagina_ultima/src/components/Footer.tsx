@@ -1,21 +1,39 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  onNavigate: (page: 'home' | 'services' | 'about' | 'contact') => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   return (
-    <footer className="bg-[#0b0e14] text-white py-16 border-t border-white/5">
-      <div className="container mx-auto px-6 max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          <div className="col-span-1 md:col-span-2">
-            <span className="text-2xl font-bold tracking-tighter mb-4 block">BlackTI</span>
-            <p className="text-slate-500 text-sm max-w-xs">
-              Arquitectura cloud y transformación digital estratégica para empresas de alto rendimiento.
+    <footer className="bg-slate-900 text-white py-12 border-t border-white/10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+          
+          {/* Logo en el Footer */}
+          <div className="flex flex-col items-center md:items-start">
+            <img 
+              src="https://www.blackti.cl/wp-content/uploads/2021/10/logo-black-ti.png" 
+              alt="BlackTI Logo" 
+              className="h-10 w-auto brightness-0 invert mb-4" // Esto hace que el logo se vea blanco
+            />
+            <p className="text-slate-400 text-sm max-w-xs text-center md:text-left">
+              Consultoría tecnológica de alto nivel para empresas que buscan escala y seguridad.
             </p>
           </div>
-          {/* ... resto de columnas iguales ... */}
-        </div>
-        <div className="pt-8 border-t border-white/5 text-center text-[10px] text-slate-600 font-bold uppercase tracking-widest">
-          © 2026 BlackTI Technologies.
+
+          {/* Enlaces Rápidos */}
+          <div className="flex gap-8 text-sm font-medium">
+            <button onClick={() => onNavigate('home')} className="hover:text-blue-400 transition-colors">Inicio</button>
+            <button onClick={() => onNavigate('about')} className="hover:text-blue-400 transition-colors">Nosotros</button>
+            <button onClick={() => onNavigate('services')} className="hover:text-blue-400 transition-colors">Servicios</button>
+            <button onClick={() => onNavigate('contact')} className="hover:text-blue-400 transition-colors">Contacto</button>
+          </div>
+
+          {/* Copyright */}
+          <div className="text-slate-500 text-xs">
+            © {new Date().getFullYear()} BlackTI Global. Todos los derechos reservados.
+          </div>
         </div>
       </div>
     </footer>
