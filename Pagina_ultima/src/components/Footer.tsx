@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface FooterProps {
-  onNavigate?: (page: 'home' | 'services' | 'about' | 'contact') => void;
+  onNavigate?: (page: 'home' | 'services' | 'about' | 'contact' | 'privacy' | 'terms') => void;
 }
 
 const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
@@ -20,7 +20,6 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               onClick={() => onNavigate?.('home')} 
               className="mb-4 md:mb-6 flex items-center transition-transform hover:scale-105"
             >
-              {/* Logo adaptativo */}
               <img 
                 alt="BlackTI Logo" 
                 className="h-6 sm:h-8 md:h-10 w-auto" 
@@ -29,7 +28,6 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               />
             </button>
 
-            {/* Texto descriptivo adaptativo */}
             <p className="text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-400 max-w-sm leading-relaxed tracking-tight">
               Servicio de Consultoría TI, donde nuestro valor principal se centra en unir la tecnología de vanguardia con el talento humano.
             </p>
@@ -73,8 +71,18 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             © {new Date().getFullYear()} BlackTI. Todos los derechos reservados.
           </p>
           <div className="mt-4 md:mt-0 flex justify-center gap-4 md:gap-6">
-            <a className="text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-500 hover:text-white transition-colors" href="#">Privacidad</a>
-            <a className="text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-500 hover:text-white transition-colors" href="#">Términos</a>
+            <button 
+              onClick={() => onNavigate?.('privacy')} 
+              className="text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-500 hover:text-white transition-colors"
+            >
+              Privacidad
+            </button>
+            <button 
+              onClick={() => onNavigate?.('terms')} 
+              className="text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-500 hover:text-white transition-colors"
+            >
+              Términos
+            </button>
           </div>
         </div>
       </div>
