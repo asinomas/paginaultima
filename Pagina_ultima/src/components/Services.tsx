@@ -28,7 +28,7 @@ const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
       <div className="container mx-auto max-w-7xl px-6 lg:px-8">
         
         {/* Encabezado: Título bicolor + Línea + Frase de Experiencia */}
-        <div className="mb-20">
+        <div className="mb-16">
           <h2 className="text-xs font-bold uppercase tracking-[0.3em] text-[#135bec] mb-4">
             Nuestras Capacidades
           </h2>
@@ -46,7 +46,7 @@ const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
           </p>
         </div>
         
-        {/* Grid de Servicios con diseño de referencia (Gris de fondo, Tarjetas Blancas) */}
+        {/* Grid de Servicios con el tamaño exacto de tu código (p-10) */}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {serviceItems.map((item, idx) => (
             <div key={idx} className="group relative rounded-3xl bg-white p-10 shadow-sm border border-slate-100 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
@@ -57,7 +57,7 @@ const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
               </div>
 
               <div className="relative z-10">
-                {/* Icono con fondo azul translúcido */}
+                {/* Icono con tamaño size-16 */}
                 <div className="mb-8 flex size-16 items-center justify-center rounded-2xl bg-[#135bec]/10 text-[#135bec] transition-all duration-500 group-hover:bg-[#135bec] group-hover:text-white group-hover:rotate-[10deg] shadow-lg shadow-blue-500/5">
                   <span className="material-symbols-outlined !text-3xl">{item.icon}</span>
                 </div>
@@ -66,12 +66,12 @@ const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
                   {item.title}
                 </h4>
                 
-                <p className="text-slate-600 leading-relaxed text-sm">
+                <p className="text-slate-500 leading-relaxed text-sm">
                   {item.description}
                 </p>
               </div>
 
-              {/* Botón Saber más con la flecha */}
+              {/* Botón Saber más con la flecha y animación de subida */}
               <div className="mt-8 pt-8 border-t border-slate-50 opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0">
                  <button 
                   onClick={() => onNavigate?.('services')}
