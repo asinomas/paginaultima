@@ -35,9 +35,25 @@ const WorldMap: React.FC<WorldMapProps> = ({ onSelectOffice, selectedOfficeId })
       .then((data: any) => {
         const countries = feature(data, data.objects.countries) as any;
 
-        // 🔥 Ajusta el mapa automáticamente al tamaño del SVG
-        projection.fitSize([width, height], countries);
+        // 🔥 FeatureCollection SOLO con oficinas (lo relevante)
+        const officeFeatures = {
+          type: 'FeatureCollection',
+          features: OFFICE_LOCATIONS.map(o => ({
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: o.coordinates
+            }
+          }))
+        } as any;
 
+        // 🔥 El mapa se ajusta a las oficinas (no al mundo)
+        projection.fitExtent(
+          [[40, 20], [width - 40, height - 20]],
+          officeFeatures
+        );
+
+        // Dibujo de países (solo contexto visual)
         g.selectAll('path')
           .data(countries.features)
           .enter()
