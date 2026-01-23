@@ -27,30 +27,37 @@ const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
     <section id="servicios" className="bg-white py-32 border-t border-slate-100">
       <div className="container mx-auto max-w-7xl px-6 lg:px-8">
         
-        {/* Encabezado Clásico Recuperado */}
-        <div className="mb-16">
-          <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-            Servicios Especializados
-          </h3>
-          {/* Línea corta azul distintiva */}
-          <div className="h-1 w-12 bg-[#135bec] mb-6"></div>
+        {/* Encabezado: Título bicolor + Línea + Frase de Experiencia */}
+        <div className="mb-20">
+          <h2 className="text-xs font-bold uppercase tracking-[0.3em] text-[#135bec] mb-4">
+            Nuestras Capacidades
+          </h2>
           
-          {/* Frase solicitada con la tipografía y tamaño actual */}
-          <p className="text-slate-500 max-w-2xl text-sm leading-relaxed">
+          <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6">
+            Consultoría de <span className="text-[#135bec]">Alto Nivel</span>
+          </h3>
+          
+          {/* Línea azul distintiva */}
+          <div className="h-1 w-12 bg-[#135bec] mb-8"></div>
+          
+          {/* Frase de experiencia ubicada exactamente debajo de la línea */}
+          <p className="text-slate-500 max-w-2xl text-lg leading-relaxed font-light">
             Combinamos décadas de experiencia con las últimas innovaciones tecnológicas para entregar resultados que transforman industrias.
           </p>
         </div>
         
-        {/* Grid de Servicios (Manteniendo los cambios de títulos y botón que estaban bien) */}
+        {/* Grid de Servicios con diseño moderno */}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {serviceItems.map((item, idx) => (
             <div key={idx} className="group relative rounded-3xl bg-white p-10 shadow-sm border border-slate-100 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
               
+              {/* Icono decorativo gigante de fondo */}
               <div className="absolute top-0 right-0 p-8 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
                 <span className="material-symbols-outlined !text-9xl text-[#135bec]">{item.icon}</span>
               </div>
 
               <div className="relative z-10">
+                {/* Icono con fondo azul translúcido */}
                 <div className="mb-8 flex size-16 items-center justify-center rounded-2xl bg-[#135bec]/10 text-[#135bec] transition-all duration-500 group-hover:bg-[#135bec] group-hover:text-white group-hover:rotate-[10deg] shadow-lg shadow-blue-500/5">
                   <span className="material-symbols-outlined !text-3xl">{item.icon}</span>
                 </div>
@@ -58,11 +65,13 @@ const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
                 <h4 className="mb-4 text-2xl font-bold text-slate-900 group-hover:text-[#135bec] transition-colors">
                   {item.title}
                 </h4>
-                <p className="text-slate-500 leading-relaxed text-sm">
+                
+                <p className="text-slate-600 leading-relaxed text-sm">
                   {item.description}
                 </p>
               </div>
 
+              {/* Botón Saber más con la flecha */}
               <div className="mt-8 pt-8 border-t border-slate-50 opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0">
                  <button 
                   onClick={() => onNavigate?.('services')}
