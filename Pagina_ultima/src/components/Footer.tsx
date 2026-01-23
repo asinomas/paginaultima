@@ -28,8 +28,8 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               />
             </button>
 
-            {/* Texto descriptivo */}
-            <p className="text-sm md:text-sm font-normal text-slate-400 max-w-sm leading-relaxed tracking-tight">
+            {/* Texto descriptivo más pequeño y delgado */}
+            <p className="text-[11px] md:text-[11px] font-light text-slate-400 max-w-sm leading-relaxed tracking-tight">
               Servicio de Consultoría TI global, donde nuestro valor principal se centra en unir la tecnología de vanguardia con el Talento Humano.
             </p>
           </div>
@@ -37,12 +37,12 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           {/* Columna Capacidades */}
           <div className="md:col-span-3 lg:col-span-3 lg:ml-auto mt-6 md:mt-0">
             <h5
-              className="mb-4 md:mb-6 text-xs md:text-xs font-bold uppercase tracking-widest"
+              className="mb-4 md:mb-6 text-[10px] md:text-[10px] font-light uppercase tracking-widest"
               style={{ color: '#135bec' }}
             >
               Capacidades
             </h5>
-            <ul className="space-y-2 md:space-y-4 text-sm md:text-sm text-slate-300">
+            <ul className="space-y-2 md:space-y-4 text-[11px] md:text-[11px] font-light text-slate-300">
               <li><button onClick={() => onNavigate?.('services')} className="hover:text-white transition-colors">Arquitectura</button></li>
               <li><button onClick={() => onNavigate?.('services')} className="hover:text-white transition-colors">Desarrollo</button></li>
               <li><button onClick={() => onNavigate?.('services')} className="hover:text-white transition-colors">Infraestructura Cloud</button></li>
@@ -52,12 +52,12 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           {/* Columna Grupo BlackTI */}
           <div className="md:col-span-3 lg:col-span-3 lg:ml-auto mt-6 md:mt-0">
             <h5
-              className="mb-4 md:mb-6 text-xs md:text-xs font-bold uppercase tracking-widest"
+              className="mb-4 md:mb-6 text-[10px] md:text-[10px] font-light uppercase tracking-widest"
               style={{ color: '#135bec' }}
             >
               Grupo BlackTI
             </h5>
-            <ul className="space-y-2 md:space-y-4 text-sm md:text-sm text-slate-300">
+            <ul className="space-y-2 md:space-y-4 text-[11px] md:text-[11px] font-light text-slate-300">
               <li><button onClick={() => onNavigate?.('home')} className="hover:text-white transition-colors">Inicio</button></li>
               <li><button onClick={() => onNavigate?.('services')} className="hover:text-white transition-colors">Servicios</button></li>
               <li><button onClick={() => onNavigate?.('about')} className="hover:text-white transition-colors">Nosotros</button></li>
@@ -68,12 +68,12 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
         {/* Barra inferior */}
         <div className="mt-12 md:mt-16 border-t border-white/10 pt-6 md:pt-8 text-center md:flex md:justify-between md:text-left">
-          <p className="text-xs md:text-xs font-medium text-slate-500">
+          <p className="text-[11px] md:text-[11px] font-light text-slate-500">
             © {new Date().getFullYear()} BlackTI. Todos los derechos reservados.
           </p>
           <div className="mt-4 md:mt-0 flex justify-center gap-4 md:gap-6">
-            <a className="text-xs md:text-xs font-medium text-slate-500 hover:text-white transition-colors" href="#">Privacidad</a>
-            <a className="text-xs md:text-xs font-medium text-slate-500 hover:text-white transition-colors" href="#">Términos</a>
+            <a className="text-[11px] md:text-[11px] font-light text-slate-500 hover:text-white transition-colors" href="#">Privacidad</a>
+            <a className="text-[11px] md:text-[11px] font-light text-slate-500 hover:text-white transition-colors" href="#">Términos</a>
           </div>
         </div>
       </div>
