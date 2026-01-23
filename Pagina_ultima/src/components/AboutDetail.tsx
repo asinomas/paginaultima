@@ -1,113 +1,124 @@
 import React from 'react';
-import { Linkedin, ArrowRight } from 'lucide-react';
+import { Target, Users, Zap, Shield, MapPin, Mail, Phone, Globe } from 'lucide-react';
 
-interface AboutDetailProps {
-  onContactClick: () => void;
-  onNavigate: (page: 'home' | 'services' | 'about' | 'contact') => void;
-}
-
-const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate }) => {
-  const team = [
+const AboutDetail: React.FC = () => {
+  const values = [
     {
-      name: 'Rodrigo Ledesma',
-      role: 'CEO & Founder',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      bio: 'Experto en arquitectura de sistemas y gestión operativa, especializado en garantizar la continuidad de negocio.',
-      linkedin: 'https://linkedin.com/in/rodrigoledesma'
+      icon: <Target className="size-6" />,
+      title: "Misión",
+      desc: "Impulsar la evolución digital de las empresas a través de soluciones tecnológicas estratégicas y personalizadas."
     },
     {
-      name: 'Cristian Quezada',
-      role: 'Estratega IT',
-      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      bio: 'Estratega en consultoría IT con una trayectoria destacada en la dirección de proyectos complejos de transformación digital.',
-      linkedin: 'https://linkedin.com/in/cristianquezada'
+      icon: <Shield className="size-6" />,
+      title: "Confianza",
+      desc: "Construimos relaciones a largo plazo basadas en la transparencia y la entrega constante de valor real."
     },
     {
-      name: 'Héctor Aspée',
-      role: 'Cloud Services',
-      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      bio: 'Consultor senior especializado en servicios cloud y modernización de plataformas digitales.',
-      linkedin: 'https://linkedin.com/in/hectoraspee'
+      icon: <Zap className="size-6" />,
+      title: "Innovación",
+      desc: "Nos mantenemos a la vanguardia de las tendencias para ofrecer siempre la tecnología más eficiente."
     },
     {
-      name: 'Daniela Paredes',
-      role: 'Gestión Humana',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      bio: 'Líder de gestión humana y desarrollo organizacional, enfocada en equipos técnicos de alto rendimiento.',
-      linkedin: 'https://linkedin.com/in/danielaparedes'
+      icon: <Users className="size-6" />,
+      title: "Equipo",
+      desc: "Expertos apasionados por resolver problemas complejos con simplicidad y excelencia operativa."
     }
   ];
 
   return (
-    <div className="bg-white min-h-screen pt-24 pb-32 antialiased">
-      {/* SECCIÓN HERO / HISTORIA */}
-      <section className="container mx-auto max-w-7xl px-6 lg:px-8 mb-32">
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
-          <div className="lg:w-1/2">
-            <h4 className="text-xs font-bold uppercase tracking-[0.3em] text-[#135bec] mb-6">Nuestra Historia</h4>
-            <h1 className="text-5xl lg:text-7xl font-black text-slate-900 leading-[1.1] mb-8 tracking-tighter">
-              El Gen de la <span className="text-[#135bec] italic">Excelencia</span>
-            </h1>
-            <p className="text-lg lg:text-xl text-slate-500 leading-relaxed mb-10 max-w-xl">
-              Nacimos con la visión de cerrar la brecha entre la complejidad técnica y el éxito empresarial. Hoy, BlackTI es sinónimo de resiliencia y precisión.
-            </p>
-            <div className="flex gap-4">
-              <button 
-                onClick={onContactClick} 
-                className="bg-[#135bec] text-white font-bold px-10 py-5 rounded-2xl shadow-2xl shadow-[#135bec]/20 hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
-              >
-                Unirse al equipo <ArrowRight size={18} />
-              </button>
-            </div>
-          </div>
-          <div className="lg:w-1/2 relative">
-            <div className="aspect-square bg-slate-100 rounded-[3rem] overflow-hidden rotate-3 hover:rotate-0 transition-transform duration-700 shadow-2xl">
-              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Team Work" className="w-full h-full object-cover" />
-            </div>
-            <div className="absolute -bottom-10 -left-10 bg-white p-8 rounded-3xl shadow-2xl border border-slate-100 hidden md:block">
-              <p className="text-4xl font-black text-[#135bec] mb-1">2014</p>
-              <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Año de Fundación</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* DIRECTORIO EJECUTIVO */}
-      <section className="container mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="text-center mb-24">
-          <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">Directorio Ejecutivo</h2>
-          <p className="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">Líderes apasionados por la tecnología que dirigen el rumbo de cada proyecto con rigor y visión.</p>
-        </div>
+    <div className="bg-white min-h-screen pt-32 pb-24 antialiased">
+      <div className="container mx-auto max-w-7xl px-6 lg:px-8">
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
-          {team.map((member, i) => (
-            <div key={i} className="group flex flex-col items-center text-center">
-              <div className="aspect-[3/4] w-full rounded-[2.5rem] overflow-hidden mb-8 bg-slate-50 shadow-sm border border-slate-100 relative">
-                <img 
-                  alt={member.name} 
-                  className="grayscale w-full h-full object-cover transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105" 
-                  src={member.image} 
-                />
-                
-                {/* Botón LinkedIn: Abajo a la izquierda */}
-                <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                  <a 
-                    href={member.linkedin} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="size-10 rounded-xl bg-white/90 backdrop-blur-md flex items-center justify-center cursor-pointer hover:bg-[#135bec] hover:text-white transition-all text-[#135bec] shadow-lg border border-white/20"
-                  >
-                    <Linkedin size={18} />
-                  </a>
-                </div>
+        {/* SECCIÓN HERO NOSOTROS */}
+        <div className="max-w-3xl mb-24">
+          <h4 className="text-[#135bec] font-bold uppercase tracking-[0.2em] text-[11px] mb-4">
+            Sobre BlackTI
+          </h4>
+          <h2 className="text-5xl lg:text-7xl font-black text-slate-900 mb-8 tracking-tighter leading-tight">
+            Liderando la <br />
+            <span className="text-[#135bec]">transformación.</span>
+          </h2>
+          <p className="text-slate-500 text-xl leading-relaxed">
+            Somos un equipo multidisciplinario dedicado a redefinir el estándar de la consultoría tecnológica. 
+            No solo entregamos software, construimos la infraestructura del éxito para el mañana.
+          </p>
+        </div>
+
+        {/* GRILLA DE VALORES */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-32">
+          {values.map((v, i) => (
+            <div key={i} className="p-8 rounded-[2rem] bg-slate-50 border border-slate-100 hover:border-[#135bec]/20 hover:shadow-xl transition-all group">
+              <div className="size-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-[#135bec] mb-6 group-hover:bg-[#135bec] group-hover:text-white transition-colors">
+                {v.icon}
               </div>
-              <h4 className="text-2xl font-bold text-slate-900 mb-2">{member.name}</h4>
-              <p className="text-[11px] font-black text-[#135bec] mb-6 uppercase tracking-[0.2em]">{member.role}</p>
-              <p className="text-slate-500 text-sm leading-relaxed max-w-[220px]">{member.bio}</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">{v.title}</h3>
+              <p className="text-slate-500 leading-relaxed text-sm">{v.desc}</p>
             </div>
           ))}
         </div>
-      </section>
+
+        {/* SECCIÓN DE CONTACTO Y MAPA */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+          
+          {/* INFORMACIÓN DE CONTACTO */}
+          <div className="bg-slate-900 rounded-[3rem] p-8 lg:p-12 text-white flex flex-col justify-center">
+            <h3 className="text-3xl font-black mb-8 tracking-tight">Presencia Regional</h3>
+            
+            <div className="space-y-8">
+              <div className="flex items-start gap-6">
+                <div className="size-12 rounded-xl bg-white/10 flex items-center justify-center text-[#135bec] shrink-0">
+                  <MapPin size={24} />
+                </div>
+                <div>
+                  <p className="text-[10px] font-black text-white/40 uppercase tracking-widest mb-1">Oficina Central</p>
+                  <p className="text-lg font-medium">Santiago, Chile</p>
+                  <p className="text-white/50 text-sm">Av. Nueva Tajamar 481, Torre Norte</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-6">
+                <div className="size-12 rounded-xl bg-white/10 flex items-center justify-center text-[#135bec] shrink-0">
+                  <Globe size={24} />
+                </div>
+                <div>
+                  <p className="text-[10px] font-black text-white/40 uppercase tracking-widest mb-1">Alcance</p>
+                  <p className="text-lg font-medium">Operaciones en Latam</p>
+                  <p className="text-white/50 text-sm">Chile, Perú, Colombia y México</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-6 pt-4">
+                <div className="flex flex-col gap-1">
+                  <div className="flex items-center gap-2 text-white/70 hover:text-[#135bec] transition-colors cursor-pointer">
+                    <Mail size={16} />
+                    <span className="text-sm font-medium">contacto@blackti.cl</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-white/70">
+                    <Phone size={16} />
+                    <span className="text-sm font-medium">+56 2 2345 6789</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* GOOGLE MAPS INTEGRADO */}
+          <div className="h-[400px] lg:h-auto min-h-[450px] rounded-[3rem] overflow-hidden border border-slate-100 shadow-2xl relative">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.141528659223!2d-70.6067087!3d-33.4130095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf420d437f8f%3A0x868b199e44927b14!2sAv.%20Nueva%20Tajamar%20481%2C%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses-419!2scl!4v1700000000000!5m2!1ses-419!2scl" 
+              width="100%" 
+              height="100%" 
+              style={{ border: 0 }} 
+              allowFullScreen={true} 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              className="grayscale-[0.2] contrast-[1.1]"
+            ></iframe>
+            <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-black/5 rounded-[3rem]"></div>
+          </div>
+
+        </div>
+      </div>
     </div>
   );
 };
