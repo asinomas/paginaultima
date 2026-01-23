@@ -55,7 +55,7 @@ const Logos: React.FC = () => {
         .animate-infinite-scroll {
           display: flex;
           width: max-content;
-          animation: infinite-scroll 30s linear infinite;
+          animation: infinite-scroll 45s linear infinite;
         }
         .animate-infinite-scroll:hover {
           animation-play-state: paused;
