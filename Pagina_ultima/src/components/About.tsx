@@ -33,7 +33,7 @@ const About: React.FC = () => {
             </p>
             <div className="space-y-6 mb-12">
              <p className="text-lg leading-relaxed text-slate-500">
-                Creemos que el éxito del trabajo en equipo solo es sostenible cuando está alineado el talento con una visión estratégica clara para un logro de objetivos.
+                Creemos que el éxito del trabajo en equipo solo es sostenible cuando está alineado el talento con una visión estratégica clara.
               </p>
               </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
