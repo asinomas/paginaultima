@@ -33,8 +33,8 @@ const ContactDetail: React.FC = () => {
             </h4>
             
             <h2 className="text-5xl lg:text-6xl font-black text-slate-900 mb-8 tracking-tighter leading-tight">
-              diseñemos el <br />
-              <span className="text-[#135bec]">futuro.</span>
+              Diseñemos el <br />
+              <span className="text-[#135bec]">Futuro.</span>
             </h2>
             
             <p className="text-slate-500 text-lg mb-12 max-w-md leading-relaxed">
