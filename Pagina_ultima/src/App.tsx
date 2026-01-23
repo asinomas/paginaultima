@@ -11,10 +11,12 @@ import AIConsultant from './components/AIConsultant';
 import ServicesDetail from './components/ServicesDetail';
 import AboutDetail from './components/AboutDetail';
 import ContactDetail from './components/ContactDetail';
+import Privacy from './pages/privacy';
+import Terms from './pages/terms';
 
 const App: React.FC = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState<'home' | 'services' | 'about' | 'contact'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'services' | 'about' | 'contact' | 'privacy' | 'terms'>('home');
 
   const navigateTo = (page: 'home' | 'services' | 'about' | 'contact') => {
     setCurrentPage(page);
@@ -55,6 +57,12 @@ const App: React.FC = () => {
         {currentPage === 'contact' && (
           <ContactDetail />
         )}
+
+        
+        {currentPage === 'privacy' && <Privacy onBack={() => navigateTo('home')} />}
+        {currentPage === 'terms' && <Terms onBack={() => navigateTo('home')} />} 
+
+        
       </main>
       
       <Footer onNavigate={navigateTo} />
