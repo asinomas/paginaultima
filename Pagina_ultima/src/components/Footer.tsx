@@ -1,38 +1,76 @@
 import React from 'react';
 
 interface FooterProps {
-  onNavigate: (page: 'home' | 'services' | 'about' | 'contact') => void;
+  onNavigate?: (page: 'home' | 'services' | 'about' | 'contact') => void;
 }
 
 const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   return (
-    <footer className="bg-slate-900 text-white py-12 border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+    <footer id="contacto" className="bg-brand-dark text-white border-t border-white/5 py-16">
+      <div className="container mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-12 items-start">
           
-          {/* Logo en el Footer */}
-          <div className="flex flex-col items-center md:items-start">
-            <img 
-              src="https://www.blackti.cl/wp-content/uploads/2021/10/logo-black-ti.png" 
-              alt="BlackTI Logo" 
-              className="h-10 w-auto brightness-0 invert mb-4" // Esto hace que el logo se vea blanco
-            />
-            <p className="text-slate-400 text-sm max-w-xs text-center md:text-left">
-              Consultoría tecnológica de alto nivel para empresas que buscan escala y seguridad.
+          {/* Columna Logo y Descripción */}
+          <div className="col-span-1 md:col-span-6 lg:col-span-5 flex flex-col items-start">
+            <button 
+              onClick={() => onNavigate?.('home')} 
+              className="mb-6 focus:outline-none flex items-center transition-transform hover:scale-105"
+            >
+              <img 
+                alt="BlackTI Logo" 
+                className="h-12 w-auto brightness-0 invert" 
+                src="https://www.blackti.cl/wp-content/uploads/2021/10/logo-black-ti.png" 
+              />
+            </button>
+            <p className="text-sm font-normal text-slate-400 max-w-sm leading-relaxed tracking-tight">
+              Servicio de Consultoría TI global, donde nuestro valor principal se centra en unir la tecnología de vanguardia con el Talento Humano.
             </p>
           </div>
 
-          {/* Enlaces Rápidos */}
-          <div className="flex gap-8 text-sm font-medium">
-            <button onClick={() => onNavigate('home')} className="hover:text-blue-400 transition-colors">Inicio</button>
-            <button onClick={() => onNavigate('about')} className="hover:text-blue-400 transition-colors">Nosotros</button>
-            <button onClick={() => onNavigate('services')} className="hover:text-blue-400 transition-colors">Servicios</button>
-            <button onClick={() => onNavigate('contact')} className="hover:text-blue-400 transition-colors">Contacto</button>
+          {/* Columna Capacidades */}
+          <div className="md:col-span-3 lg:col-span-3 lg:ml-auto">
+            <h5 className="mb-6 text-xs font-bold uppercase tracking-widest text-primary">Capacidades</h5>
+            <ul className="space-y-4 text-sm text-slate-300">
+              <li>
+                <button onClick={() => onNavigate?.('services')} className="hover:text-white transition-colors">Arquitectura</button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate?.('services')} className="hover:text-white transition-colors">Desarrollo</button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate?.('services')} className="hover:text-white transition-colors">Infraestructura Cloud</button>
+              </li>
+            </ul>
           </div>
 
-          {/* Copyright */}
-          <div className="text-slate-500 text-xs">
-            © {new Date().getFullYear()} BlackTI Global. Todos los derechos reservados.
+          {/* Columna Grupo BlackTI */}
+          <div className="md:col-span-3 lg:col-span-3 lg:ml-auto">
+            <h5 className="mb-6 text-xs font-bold uppercase tracking-widest text-primary">Grupo BlackTI</h5>
+            <ul className="space-y-4 text-sm text-slate-300">
+              <li>
+                <button onClick={() => onNavigate?.('home')} className="hover:text-white transition-colors">Inicio</button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate?.('services')} className="hover:text-white transition-colors">Servicios</button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate?.('about')} className="hover:text-white transition-colors">Nosotros</button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate?.('contact')} className="hover:text-white transition-colors">Contacto</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Barra inferior de Copyright */}
+        <div className="mt-16 border-t border-white/10 pt-8 text-center md:flex md:justify-between md:text-left">
+          <p className="text-xs font-medium text-slate-500">
+            © {new Date().getFullYear()} BlackTI Global Consulting Group. Todos los derechos reservados.
+          </p>
+          <div className="mt-4 flex justify-center gap-6 md:mt-0">
+            <a className="text-xs font-medium text-slate-500 hover:text-white transition-colors" href="#">Privacidad</a>
+            <a className="text-xs font-medium text-slate-500 hover:text-white transition-colors" href="#">Términos</a>
           </div>
         </div>
       </div>
