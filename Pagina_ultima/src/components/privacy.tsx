@@ -1,8 +1,19 @@
 import React from "react";
 
-const Privacy: React.FC = () => {
+interface PrivacyProps {
+  onBack: () => void;
+}
+
+const Privacy: React.FC<PrivacyProps> = ({ onBack }) => {
   return (
     <div className="max-w-4xl mx-auto py-16 px-6 text-gray-200">
+      <button
+        onClick={onBack}
+        className="mb-6 text-sm text-blue-400 hover:underline"
+      >
+        ← Volver
+      </button>
+
       <h1 className="text-3xl font-bold mb-6">Política de Privacidad</h1>
 
       <p>
