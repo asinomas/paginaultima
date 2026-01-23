@@ -37,7 +37,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
     {
       icon: Cloud,
       title: 'Soluciones Cloud',
-      description: 'Migración y gestión de infraestructuras en la nube para mejorar la escalabilidad y reducir costes con BlackTI.'
+      description: 'Migración y gestión de infraestructuras en la nube para mejorar la escalabilidad y reducir costes.'
     },
     {
       icon: BarChart3,
@@ -60,7 +60,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
                 <span className="text-[#135bec] italic drop-shadow-[0_0_15px_rgba(19,91,236,0.3)]">Sin Compromisos</span>
               </h1>
               <p className="text-lg lg:text-xl text-slate-400 leading-relaxed max-w-2xl mb-10">
-                Impulsando la excelencia digital a través de soluciones tecnológicas estratégicas. Ayudamos a su empresa a escalar en el entorno moderno con BlackTI.
+                Impulsando la excelencia digital a través de soluciones tecnológicas estratégicas. En BlackTI ayudamos a su empresa a escalar en el entorno moderno.
               </p>
               <button onClick={onContactClick} className="rounded-2xl bg-[#135bec] px-10 py-5 text-base font-bold text-white shadow-2xl shadow-[#135bec]/30 hover:scale-105 active:scale-95 transition-all">
                 Iniciar Transformación
