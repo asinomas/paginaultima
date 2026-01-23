@@ -18,11 +18,19 @@ export const OFFICE_LOCATIONS: OfficeLocation[] = [
     type: 'Regional Office'
   },
   {
-    id: 'miami',
-    city: 'Miami',
+  id: 'bogota',
+    city: 'Bogotá',
+    country: 'Colombia',
+    coordinates: [-74.0721, 4.7110],
+    address: 'Carrera 7 # 71-21, Torre B, Chapinero',
+    type: 'Satellite'
+  },
+  {
+    id: 'dallas',
+    city: 'Dallas',
     country: 'USA',
-    coordinates: [-80.1918, 25.7617],
-    address: '800 Brickell Ave, Miami, FL 33131',
+    coordinates: [-96.7970, 32.7767],
+    address: '1717 Main St, Dallas, TX 75201',
     type: 'Regional Office'
   },
   {
@@ -32,14 +40,6 @@ export const OFFICE_LOCATIONS: OfficeLocation[] = [
     coordinates: [-3.7038, 40.4168],
     address: 'Paseo de la Castellana 200, Madrid',
     type: 'Regional Office'
-  },
-  {
-    id: 'mexico-city',
-    city: 'Ciudad de México',
-    country: 'México',
-    coordinates: [-99.1332, 19.4326],
-    address: 'Paseo de la Reforma 222, CDMX',
-    type: 'Satellite'
   },
   {
     id: 'lima',
