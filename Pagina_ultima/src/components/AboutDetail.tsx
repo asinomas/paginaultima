@@ -31,18 +31,17 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
       linkedin: 'https://linkedin.com/in/cristian-quezada-00372920'
     },
     {
-      
       name: 'Byron Molina',
       role: 'Backend Developer',
       image: '/team/byron.jpg',
-      bio: 'Especialista FullStack en desarrollo, despliegue y mantención de aplicaciones web, BFFs, APIs y microservicios.',
+      bio: 'Especialista en arquitecturas financieras con Golang y NestJS, liderando el cumplimiento normativo y despliegue escalable en GCP para la aplicación Tapp de Caja Los Andes.',
       linkedin: 'https://linkedin.com/in/bmolinh'
     },
     {
       name: 'Daniela Paredes',
       role: 'Project Management Office',
       image: '/team/daniela.jpg',
-      bio: 'Líder en planificacion, gestión, desarrollo y supervision organizacional, enfocada en equipos técnicos de alto rendimiento.',
+      bio: 'Líder en planificacion, gestión y desarrollo y supervision organizacional, enfocada en equipos técnicos de alto rendimiento.',
       linkedin: 'https://linkedin.com/in/daniela-paredes-vidal'
     }
   ];
@@ -69,13 +68,21 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
               </button>
             </div>
           </div>
-          <div className="lg:w-1/2 relative">
-            <div className="aspect-square bg-slate-100 rounded-[3rem] overflow-hidden rotate-3 hover:rotate-0 transition-transform duration-700 shadow-2xl border border-slate-200">
-              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Team Work" className="w-full h-full object-cover" />
-            </div>
-            <div className="absolute -bottom-10 -left-10 bg-white p-8 rounded-3xl shadow-2xl border border-slate-100 hidden md:block">
-              <p className="text-4xl font-black text-[#135bec] mb-1">2014</p>
-              <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Año de Fundación</p>
+          
+          <div className="lg:w-1/2 flex justify-center relative">
+            {/* Contenedor de imagen con tamaño controlado (max-w-md) */}
+            <div className="relative w-full max-w-md">
+              <div className="aspect-square bg-slate-100 rounded-[3rem] overflow-hidden rotate-3 hover:rotate-0 transition-transform duration-700 shadow-2xl border border-slate-200">
+                <img 
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
+                  alt="Team Work" 
+                  className="w-full h-full object-cover" 
+                />
+              </div>
+              <div className="absolute -bottom-6 -left-10 bg-white p-6 rounded-3xl shadow-xl border border-slate-100 hidden md:block">
+                <p className="text-3xl font-black text-[#135bec] mb-1">2014</p>
+                <p className="text-[9px] font-bold uppercase tracking-widest text-slate-400">Año de Fundación</p>
+              </div>
             </div>
           </div>
         </div>
@@ -96,6 +103,10 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
                   alt={member.name} 
                   className="grayscale w-full h-full object-cover transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105" 
                   src={member.image} 
+                  onError={(e) => {
+                    // Fallback por si la imagen no carga
+                    (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=800';
+                  }}
                 />
                 <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
                   <a 
@@ -119,11 +130,9 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
       {/* SECCIÓN MAPA GLOBAL */}
       <section className="bg-slate-950 py-24 border-t border-slate-900">
         <div className="container mx-auto max-w-7xl px-6 lg:px-8">
-          
-          {/* Título del Mapa solicitado */}
           <div className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
-              Nuestro equipo se encuentra en las siguientes ubicaciones
+              Nuestro equipo de trabajo se encuentra en las siguientes ubicaciones
             </h2>
             <div className="w-20 h-1 bg-[#135bec] rounded-full"></div>
           </div>
@@ -168,4 +177,3 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
 };
 
 export default AboutDetail;
-
