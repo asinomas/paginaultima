@@ -40,21 +40,18 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, onContactClick, currentPage
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center">
           
-          {/* Logo - Izquierda */}
-          <div className="flex-1 flex justify-start">
-            <button 
-              onClick={() => handleNavClick('home')} 
-              className="flex-shrink-0 flex items-center transition-transform hover:scale-105"
-            >
+          {/* Logo */}
+          <div className="flex-1">
+            <button onClick={() => handleNavClick('home')} className="flex items-center transition-transform hover:scale-105">
               <img 
                 alt="BlackTI Logo" 
-                className={`h-11 w-auto transition-all ${isScrolled || currentPage !== 'home' ? '' : 'brightness-0 invert'}`} 
+                className={`h-11 w-auto ${isScrolled || currentPage !== 'home' ? '' : 'brightness-0 invert'}`} 
                 src="https://www.blackti.cl/wp-content/uploads/2021/10/logo-black-ti.png" 
               />
             </button>
           </div>
 
-          {/* Menú Escritorio - Centrado y con Estilo Referencia */}
+          {/* Menú Escritorio */}
           <div className="hidden lg:flex items-center justify-center space-x-12 flex-[2]">
             {navLinks.map((link) => (
               <button
@@ -62,28 +59,28 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, onContactClick, currentPage
                 onClick={() => handleNavClick(link.id)}
                 className={`relative text-[11px] font-bold uppercase tracking-[0.25em] transition-all duration-300 ${
                   currentPage === link.id 
-                    ? 'text-blue-600' 
+                    ? 'text-[#135bec]' 
                     : isScrolled || currentPage !== 'home' 
-                      ? 'text-slate-600 hover:text-blue-600' 
-                      : 'text-slate-300 hover:text-white' // Gris suave en lugar de blanco puro
+                      ? 'text-slate-600 hover:text-[#135bec]' 
+                      : 'text-slate-300 hover:text-white'
                 }`}
               >
                 {link.name}
                 {currentPage === link.id && (
-                  <span className="absolute -bottom-2 left-0 h-0.5 w-full bg-blue-600 rounded-full"></span>
+                  <span className="absolute -bottom-2 left-0 h-0.5 w-full bg-[#135bec] rounded-full"></span>
                 )}
               </button>
             ))}
           </div>
           
-          {/* Botón Derecha */}
+          {/* Botón Derecha - Hover con fondo gris slate-50 */}
           <div className="hidden lg:flex items-center justify-end flex-1">
             <button 
               onClick={onContactClick}
-              className={`px-7 py-2.5 rounded-xl text-[11px] font-bold uppercase tracking-widest transition-all duration-300 border-2 active:scale-95 shadow-xl ${
+              className={`px-7 py-2.5 rounded-xl text-[11px] font-bold uppercase tracking-widest transition-all duration-300 border-2 active:scale-95 ${
                 isScrolled || currentPage !== 'home'
-                  ? 'bg-transparent border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white shadow-blue-600/10'
-                  : 'bg-transparent border-white/40 text-white hover:bg-white hover:text-blue-600 shadow-black/20'
+                  ? 'bg-transparent border-[#135bec] text-[#135bec] hover:bg-slate-50 hover:text-[#135bec]'
+                  : 'bg-transparent border-white/40 text-white hover:bg-slate-50 hover:text-slate-900 hover:border-slate-50'
               }`}
             >
               Empezar Proyecto
@@ -92,10 +89,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, onContactClick, currentPage
 
           {/* Botón Móvil */}
           <div className="lg:hidden">
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={isScrolled || currentPage !== 'home' ? 'text-slate-900' : 'text-white'}
-            >
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className={isScrolled || currentPage !== 'home' ? 'text-slate-900' : 'text-white'}>
               {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
@@ -104,27 +98,19 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, onContactClick, currentPage
 
       {/* Menú Móvil */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white border-t border-slate-100 shadow-2xl animate-in slide-in-from-top duration-300">
+        <div className="lg:hidden bg-white border-t border-slate-100 shadow-2xl">
           <div className="px-6 pt-4 pb-8 space-y-2">
             {navLinks.map((link) => (
               <button
                 key={link.id}
                 onClick={() => handleNavClick(link.id)}
                 className={`block w-full text-left px-4 py-4 rounded-xl text-[11px] font-bold uppercase tracking-widest ${
-                  currentPage === link.id 
-                    ? 'bg-blue-50 text-blue-600' 
-                    : 'text-slate-700 hover:bg-slate-50'
+                  currentPage === link.id ? 'bg-slate-50 text-[#135bec]' : 'text-slate-700'
                 }`}
               >
                 {link.name}
               </button>
             ))}
-            <button
-              onClick={onContactClick}
-              className="block w-full text-center border-2 border-blue-600 text-blue-600 px-4 py-4 rounded-xl text-[11px] font-bold uppercase tracking-widest mt-4"
-            >
-              Empezar Proyecto
-            </button>
           </div>
         </div>
       )}
