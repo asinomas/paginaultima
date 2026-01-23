@@ -19,36 +19,27 @@ const OfficeDetails: React.FC<OfficeDetailsProps> = ({ office }) => {
       </div>
 
       <h3 className="text-3xl font-bold text-white mb-2">{office.city}</h3>
-      <p className="text-slate-400 flex items-center gap-2 mb-8 italic">
+      <p className="text-slate-400 flex items-center gap-2 mb-8 italic text-sm">
         <Globe2 size={16} /> {office.country}
       </p>
 
       <div className="space-y-6">
         <div className="flex gap-4">
-          <div className="mt-1 text-slate-500">
-            <MapPin size={18} />
-          </div>
+          <div className="mt-1 text-slate-500"><MapPin size={18} /></div>
           <div>
-            <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Dirección</p>
+            <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">Dirección</p>
             <p className="text-slate-300 text-sm leading-relaxed">{office.address}</p>
           </div>
         </div>
 
         <div className="flex gap-4">
-          <div className="mt-1 text-slate-500">
-            <Mail size={18} />
-          </div>
+          <div className="mt-1 text-slate-500"><Mail size={18} /></div>
           <div>
-            <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Contacto</p>
+            <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">Contacto</p>
             <p className="text-slate-300 text-sm">soporte@blackti.cl</p>
           </div>
         </div>
       </div>
-
-      {/* Mini Mapa de adorno o Botón de acción */}
-      <button className="w-full mt-10 py-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-white text-xs font-bold uppercase tracking-widest transition-all">
-        Ver en Google Maps
-      </button>
     </div>
   );
 };
