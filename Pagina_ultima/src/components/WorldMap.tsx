@@ -17,13 +17,13 @@ const WorldMap: React.FC<WorldMapProps> = ({ onSelectOffice, selectedOfficeId })
         xmlns="http://www.w3.org/2000/svg"
       >
         {/* MAPA - CONTINENTES */}
-        <path
-          d="M250,150 L300,100 L400,120 L450,80 L600,100 L750,50 L850,100 L950,150 L900,300 L750,450 L600,400 L500,450 L400,350 L250,400 L150,300 L100,200 Z" // Este es un placeholder simplificado del mapa
-          /* CAMBIO AQUÍ: Relleno Gris Oscuro y Líneas Gris Claro */
-          fill="#334155" // slate-700 (Gris oscuro profesional)
-          stroke="#94a3b8" // slate-400 (Gris claro para fronteras)
-          strokeWidth="1"
-        />
+        
+      <path
+         d="M162.3,161.2c-2.3,1.4-4.8,2.7-7.3,4c-5.1,2.6-10.2,5.1-15.3,7.7..." // Aquí va el path real del mapa mundial
+         fill="#334155" /* Gris oscuro (Slate 700) */
+         stroke="#e2e8f0" /* Gris muy claro (Slate 200) para las líneas */
+          strokeWidth="0.5"
+       />
 
         {/* PUNTOS DE LAS OFICINAS */}
         {OFFICE_LOCATIONS.map((office) => {
