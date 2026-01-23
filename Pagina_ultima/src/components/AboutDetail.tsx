@@ -20,28 +20,28 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
       name: 'Rodrigo Ledesma',
       role: 'CEO & Founder',
       image: '/team/rodrigo.jpg',
-      bio: 'Experto en arquitectura de sistemas y gestión operativa, especializado en garantizar la continuidad de negocio.',
+      bio: 'Experto en arquitectura de sistemas y gestión operativa, especializado en garantizar la continuidad de negocios.',
       linkedin: 'https://linkedin.com/in/rodrigo-andres-ledesma-ritchie-6370aa26'
     },
     {
       name: 'Cristian Quezada',
       role: 'Arquitecto TI',
       image: '/team/cristian.jpg',
-      bio: 'Estratega en consultoría IT con una trayectoria destacada en la dirección de proyectos complejos de transformación digital.',
+      bio: 'Estratega en consultoría IT con una amplia trayectoria en la dirección de proyectos complejos de transformación digital.',
       linkedin: 'https://linkedin.com/in/cristian-quezada-00372920'
     },
     {
       name: 'Byron Molina',
       role: 'Backend Developer',
       image: '/team/byron.jpg',
-      bio: 'Especialista en arquitecturas financieras con Golang y NestJS, liderando el cumplimiento normativo y despliegue escalable en GCP para la aplicación Tapp de Caja Los Andes.',
+      bio: 'Especialista FullStack. Experto en desarrollo, despliegue y mantención de aplicaciones web, BFFs, APIs y microservicios.',
       linkedin: 'https://linkedin.com/in/bmolinh'
     },
     {
       name: 'Daniela Paredes',
       role: 'Project Management Office',
       image: '/team/daniela.jpg',
-      bio: 'Líder en planificacion, gestión y desarrollo y supervision organizacional, enfocada en equipos técnicos de alto rendimiento.',
+      bio: 'Líder en planificacion, gestión, desarrollo y supervision organizacional, enfocada en equipos técnicos de alto rendimiento.',
       linkedin: 'https://linkedin.com/in/daniela-paredes-vidal'
     }
   ];
