@@ -44,7 +44,6 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
       <section className="container mx-auto max-w-7xl px-6 lg:px-8 mb-32">
         <div className="flex flex-col lg:flex-row gap-16 items-center">
           <div className="lg:w-1/2">
-            {/* Sincronización de Identidad: Color exacto #135bec */}
             <h4 className="text-xs font-bold uppercase tracking-[0.3em] text-[#135bec] mb-6">Nuestra Historia</h4>
             <h1 className="text-5xl lg:text-7xl font-black text-slate-900 leading-[1.1] mb-8">
               El Gen de la <span className="text-[#135bec] italic">Excelencia</span>
@@ -53,7 +52,6 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
               Nacimos con la visión de cerrar la brecha entre la complejidad técnica y el éxito empresarial. Hoy, BlackTI es sinónimo de resiliencia y precisión.
             </p>
             <div className="flex gap-4">
-              {/* Botón Azul con Letras Blancas */}
               <button 
                 onClick={onContactClick} 
                 className="bg-[#135bec] text-white font-bold px-10 py-5 rounded-2xl shadow-2xl shadow-[#135bec]/20 hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
@@ -85,26 +83,23 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
           {team.map((member, i) => (
             <div key={i} className="group flex flex-col items-center text-center">
               <div className="aspect-[3/4] w-full rounded-[2rem] overflow-hidden mb-8 bg-slate-50 shadow-sm border border-slate-100 relative">
+                {/* Imagen: Solo cambia de grayscale a color al hover */}
                 <img 
                   alt={member.name} 
-                  className="grayscale w-full h-full object-cover transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110" 
+                  className="grayscale w-full h-full object-cover transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105" 
                   src={member.image} 
                 />
-                <div className="absolute inset-0 bg-[#135bec]/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
-                  <div className="text-white text-left w-full">
-                    <p className="text-[10px] font-bold uppercase tracking-widest mb-2">Connect via</p>
-                    <div className="flex gap-3">
-                      {/* Icono de LinkedIn abriendo en nueva pestaña */}
-                      <a 
-                        href={member.linkedin} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="size-10 rounded-lg bg-white/20 backdrop-blur-md flex items-center justify-center cursor-pointer hover:bg-white/40 transition-all text-white"
-                      >
-                        <Linkedin size={18} />
-                      </a>
-                    </div>
-                  </div>
+                
+                {/* Overlay transparente con solo el botón de LinkedIn */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <a 
+                    href={member.linkedin} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="size-12 rounded-2xl bg-white/90 backdrop-blur-sm flex items-center justify-center cursor-pointer hover:bg-[#135bec] hover:text-white transition-all text-[#135bec] shadow-xl"
+                  >
+                    <Linkedin size={22} />
+                  </a>
                 </div>
               </div>
               <h4 className="text-2xl font-bold text-slate-900 mb-2">{member.name}</h4>
