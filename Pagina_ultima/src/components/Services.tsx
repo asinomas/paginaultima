@@ -4,7 +4,7 @@ import { Shield, Layout, Target, ArrowRight } from 'lucide-react';
 const profiles = [
   "Líder Técnico", "Scrum Master", "Dev Android", "Dev Java",
   "BackEnd", "FrontEnd", "Fullstack", "Devops", "UX/UI",
-  "CiberSeguridad", "Mesa de Ayuda", "Python", "Dev IOS"
+  "CiberSeguridad", "Mesa de Ayuda", "Python", "Dev IOS", "QA Automation"
 ];
 
 const HighLevelConsulting: React.FC = () => {
@@ -12,10 +12,9 @@ const HighLevelConsulting: React.FC = () => {
     <section className="bg-slate-50 py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         
-        {/* PARTE SUPERIOR: Título (con salto de línea) y Perfiles */}
+        {/* PARTE SUPERIOR: Título y Perfiles */}
         <div className="flex flex-col lg:flex-row justify-between items-start gap-16 mb-24">
           
-          {/* Bloque de Texto con salto de línea */}
           <div className="max-w-xl">
             <span className="text-[10px] font-bold tracking-[0.4em] text-[#135bec] uppercase mb-6 block">
               Excelencia Operativa
@@ -30,13 +29,11 @@ const HighLevelConsulting: React.FC = () => {
             </p>
           </div>
 
-          {/* Bloque de Perfiles con MÁS espacio */}
           <div className="flex-1 w-full lg:max-w-xl">
             <h4 className="text-[10px] font-bold tracking-[0.3em] text-slate-400 uppercase mb-8 border-b border-slate-200 pb-2 inline-block">
               Perfiles Especializados
             </h4>
             
-            {/* gap-4 para más espacio entre globos */}
             <div className="flex flex-wrap gap-4 justify-start">
               {profiles.map((profile, index) => (
                 <span 
@@ -50,7 +47,7 @@ const HighLevelConsulting: React.FC = () => {
           </div>
         </div>
 
-        {/* PARTE INFERIOR: Tarjetas de Servicios */}
+        {/* PARTE INFERIOR: Tarjetas con Efectos Premium */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <ServiceCard 
             Icon={Target} 
@@ -73,19 +70,33 @@ const HighLevelConsulting: React.FC = () => {
   );
 };
 
+// Sub-componente con efectos de fondo y animaciones mejoradas
 const ServiceCard = ({ Icon, title, description }: { Icon: any, title: string, description: string }) => (
-  <div className="bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500 group flex flex-col h-full">
-    <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-8 group-hover:bg-[#135bec] transition-all duration-300">
+  <div className="relative bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500 group flex flex-col h-full overflow-hidden">
+    
+    {/* Icono de fondo (Marca de agua suave) */}
+    <div className="absolute -top-4 -right-4 text-slate-50 opacity-[0.03] group-hover:opacity-[0.07] group-hover:scale-110 transition-all duration-700 pointer-events-none">
+      <Icon size={160} />
+    </div>
+
+    {/* Icono Principal */}
+    <div className="relative z-10 w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-8 group-hover:bg-[#135bec] transition-all duration-300">
       <Icon className="text-[#135bec] group-hover:text-white" size={24} />
     </div>
-    <h4 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">{title}</h4>
-    <p className="text-slate-500 leading-relaxed text-sm mb-10 flex-grow">
-      {description}
-    </p>
-    <button className="flex items-center text-[#135bec] font-bold text-[10px] uppercase tracking-[0.2em] group/btn">
-      Saber más 
-      <ArrowRight className="ml-2 transition-transform group-hover/btn:translate-x-1" size={14} />
-    </button>
+
+    {/* Contenido */}
+    <div className="relative z-10">
+      <h4 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">{title}</h4>
+      <p className="text-slate-500 leading-relaxed text-sm mb-10 flex-grow">
+        {description}
+      </p>
+
+      {/* Botón con efecto de agrandado y flecha móvil */}
+      <button className="flex items-center text-[#135bec] font-bold text-[10px] uppercase tracking-[0.2em] group/btn transition-transform duration-300 hover:scale-105 origin-left">
+        <span>Saber más</span>
+        <ArrowRight className="ml-2 transition-transform duration-300 group-hover/btn:translate-x-2" size={14} />
+      </button>
+    </div>
   </div>
 );
 
