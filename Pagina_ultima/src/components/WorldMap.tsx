@@ -16,14 +16,12 @@ const WorldMap: React.FC<WorldMapProps> = ({ onSelectOffice, selectedOfficeId })
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        {/* MAPA MUNDIAL ESTILIZADO ORIGINAL */}
         <path
           d="M160,140 L180,120 L220,130 L250,100 L300,110 L350,90 L400,100 L450,80 L500,90 L550,70 L600,90 L650,80 L700,90 L750,70 L800,90 L850,80 L900,100 L950,120 L940,150 L920,200 L930,250 L900,300 L850,320 L800,350 L750,380 L700,400 L650,420 L600,410 L550,430 L500,440 L450,420 L400,400 L350,380 L300,370 L250,390 L200,400 L150,380 L120,350 L100,300 L90,250 L100,200 L120,160 Z"
           fill="currentColor"
           className="text-slate-800/40"
         />
         
-        {/* LÍNEAS DE RED / GRILLA */}
         <path
           d="M0,250 L1000,250 M500,0 L500,500"
           stroke="currentColor"
@@ -32,9 +30,7 @@ const WorldMap: React.FC<WorldMapProps> = ({ onSelectOffice, selectedOfficeId })
           strokeDasharray="4 4"
         />
 
-        {/* MARCADORES DE OFICINAS */}
         {OFFICE_LOCATIONS.map((office) => {
-          // Proyección de coordenadas a SVG
           const x = (office.coordinates[0] + 180) * (1000 / 360);
           const y = (90 - office.coordinates[1]) * (500 / 180);
           const isSelected = selectedOfficeId === office.id;
@@ -45,7 +41,6 @@ const WorldMap: React.FC<WorldMapProps> = ({ onSelectOffice, selectedOfficeId })
               className="cursor-pointer group"
               onClick={() => onSelectOffice(office)}
             >
-              {/* Efecto de resplandor (Glow) para el seleccionado */}
               {isSelected && (
                 <circle
                   cx={x}
@@ -55,7 +50,6 @@ const WorldMap: React.FC<WorldMapProps> = ({ onSelectOffice, selectedOfficeId })
                 />
               )}
               
-              {/* Punto de ubicación */}
               <circle
                 cx={x}
                 cy={y}
@@ -67,7 +61,6 @@ const WorldMap: React.FC<WorldMapProps> = ({ onSelectOffice, selectedOfficeId })
                 }`}
               />
               
-              {/* Anillo de pulso exterior */}
               {isSelected && (
                 <circle
                   cx={x}
