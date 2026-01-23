@@ -9,7 +9,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
   const team = [
      {
       name: 'Rodrigo Ledesma',
-      role: 'CEO, Arquitectura y Operaciones',
+      role: 'CEO & Founder',
       image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
       bio: 'Experto en arquitectura de sistemas y gestión operativa, especializado en garantizar la continuidad de negocio.'
     },
