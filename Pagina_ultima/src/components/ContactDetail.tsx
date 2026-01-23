@@ -8,9 +8,8 @@ const ContactDetail: React.FC = () => {
   
   // EDITAR AQUÍ EL CORREO ELECTRÓNICO
   
-  const EMAIL_DE_RECEPCION = "pruebadelcontactp@blackti.cl"; 
+  const EMAIL_DE_RECEPCION = "PruebadelContacto@Blackti.cl"; 
   
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -28,7 +27,7 @@ const ContactDetail: React.FC = () => {
       <div className="container mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           
-          {/* COLUMNA IZQUIERDA: DISEÑO DE TÍTULO MODIFICADO */}
+          {/* COLUMNA IZQUIERDA: TÍTULO Y CONTACTO */}
           <div className="lg:sticky lg:top-32">
             <h2 className="text-5xl lg:text-7xl font-black text-slate-900 mb-8 tracking-tighter leading-[1.1]">
               <span className="text-[#135bec]">Hablemos hoy</span> <br />
@@ -73,46 +72,48 @@ const ContactDetail: React.FC = () => {
             </div>
           </div>
 
-          {/* COLUMNA DERECHA: FORMULARIO CON SISTEMA DE ÉXITO */}
+          {/* COLUMNA DERECHA: FORMULARIO CLARO (RESTAURADO) */}
           <div className="relative group">
-            <div className="bg-slate-900 p-8 lg:p-12 rounded-[3rem] shadow-2xl relative overflow-hidden min-h-[580px] flex flex-col justify-center border border-white/5">
+            {/* Cambiamos bg-slate-900 por bg-slate-50 para volver al estilo claro */}
+            <div className="bg-slate-50 p-8 lg:p-12 rounded-[3rem] border border-slate-100 relative overflow-hidden min-h-[580px] flex flex-col justify-center shadow-sm">
               
-              {/* PANTALLA DE ÉXITO */}
+              {/* PANTALLA DE ÉXITO (Ahora en fondo blanco/claro) */}
               {isSent && (
-                <div className="absolute inset-0 bg-slate-900 z-50 flex flex-col items-center justify-center text-center p-8 animate-[fadeIn_0.5s_ease-out]">
-                  <div className="size-24 bg-green-500/10 text-green-400 rounded-full flex items-center justify-center mb-8 border border-green-500/20 shadow-[0_0_40px_rgba(34,197,94,0.15)]">
+                <div className="absolute inset-0 bg-white/95 backdrop-blur-sm z-50 flex flex-col items-center justify-center text-center p-8 animate-[fadeIn_0.5s_ease-out]">
+                  <div className="size-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-8 border border-green-200 shadow-lg shadow-green-500/10">
                     <CheckCircle2 size={52} strokeWidth={2.5} />
                   </div>
-                  <h3 className="text-3xl font-black text-white mb-4 tracking-tight">¡Mensaje Enviado!</h3>
-                  <p className="text-slate-400 text-lg max-w-[280px] mb-10 leading-relaxed">
+                  <h3 className="text-3xl font-black text-slate-900 mb-4 tracking-tight">¡Mensaje Enviado!</h3>
+                  <p className="text-slate-500 text-lg max-w-[280px] mb-10 leading-relaxed">
                     Gracias por confiar en nosotros. Te contactaremos a la brevedad.
                   </p>
                   <button 
                     onClick={() => setIsSent(false)}
-                    className="px-8 py-3 rounded-xl border border-white/10 text-white/50 font-bold text-xs uppercase tracking-widest hover:bg-white/5 hover:text-white transition-all"
+                    className="px-8 py-3 rounded-xl border border-slate-200 text-slate-400 font-bold text-xs uppercase tracking-widest hover:bg-slate-100 hover:text-slate-600 transition-all"
                   >
                     Enviar otro mensaje
                   </button>
                 </div>
               )}
 
-              {/* FORMULARIO */}
+              {/* FORMULARIO CLARO */}
               <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black text-[#135bec] uppercase tracking-[0.2em] ml-1">Nombre Completo</label>
-                  <input required type="text" placeholder="Tu nombre" className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:ring-2 focus:ring-[#135bec] outline-none transition-all placeholder:text-slate-600 focus:bg-white/10" />
+                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Nombre Completo</label>
+                  <input required type="text" placeholder="Tu nombre" className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 focus:ring-2 focus:ring-[#135bec] focus:border-transparent outline-none transition-all placeholder:text-slate-300" />
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black text-[#135bec] uppercase tracking-[0.2em] ml-1">Email Corporativo</label>
-                  <input required type="email" placeholder="ejemplo@empresa.com" className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:ring-2 focus:ring-[#135bec] outline-none transition-all placeholder:text-slate-600 focus:bg-white/10" />
+                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Email Corporativo</label>
+                  <input required type="email" placeholder="ejemplo@empresa.com" className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 focus:ring-2 focus:ring-[#135bec] focus:border-transparent outline-none transition-all placeholder:text-slate-300" />
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black text-[#135bec] uppercase tracking-[0.2em] ml-1">Mensaje</label>
-                  <textarea required rows={5} placeholder="¿En qué podemos ayudarte?" className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:ring-2 focus:ring-[#135bec] outline-none transition-all placeholder:text-slate-600 focus:bg-white/10 resize-none"></textarea>
+                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Mensaje</label>
+                  <textarea required rows={5} placeholder="¿En qué podemos ayudarte?" className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 focus:ring-2 focus:ring-[#135bec] focus:border-transparent outline-none transition-all placeholder:text-slate-300 resize-none"></textarea>
                 </div>
 
+                {/* BOTÓN AZUL (MANTENIDO) */}
                 <button 
                   type="submit" 
                   disabled={isSubmitting}
