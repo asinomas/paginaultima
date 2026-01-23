@@ -45,10 +45,10 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
         <div className="flex flex-col lg:flex-row gap-16 items-center">
           <div className="lg:w-1/2">
             <h4 className="text-xs font-bold uppercase tracking-[0.3em] text-[#135bec] mb-6">Nuestra Historia</h4>
-            <h1 className="text-5xl lg:text-7xl font-black text-slate-900 leading-[1.1] mb-8">
+            <h1 className="text-5xl lg:text-7xl font-black text-slate-900 leading-[1.1] mb-8 tracking-tighter">
               El Gen de la <span className="text-[#135bec] italic">Excelencia</span>
             </h1>
-            <p className="text-lg lg:text-xl text-slate-500 leading-relaxed mb-10">
+            <p className="text-lg lg:text-xl text-slate-500 leading-relaxed mb-10 max-w-xl">
               Nacimos con la visión de cerrar la brecha entre la complejidad técnica y el éxito empresarial. Hoy, BlackTI es sinónimo de resiliencia y precisión.
             </p>
             <div className="flex gap-4">
@@ -75,36 +75,35 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
       {/* DIRECTORIO EJECUTIVO */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8">
         <div className="text-center mb-24">
-          <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 mb-6">Directorio Ejecutivo</h2>
-          <p className="text-slate-500 max-w-2xl mx-auto">Líderes apasionados por la tecnología que dirigen el rumbo de cada proyecto con rigor y visión.</p>
+          <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">Directorio Ejecutivo</h2>
+          <p className="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">Líderes apasionados por la tecnología que dirigen el rumbo de cada proyecto con rigor y visión.</p>
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {team.map((member, i) => (
             <div key={i} className="group flex flex-col items-center text-center">
-              <div className="aspect-[3/4] w-full rounded-[2rem] overflow-hidden mb-8 bg-slate-50 shadow-sm border border-slate-100 relative">
-                {/* Imagen: Solo cambia de grayscale a color al hover */}
+              <div className="aspect-[3/4] w-full rounded-[2.5rem] overflow-hidden mb-8 bg-slate-50 shadow-sm border border-slate-100 relative">
                 <img 
                   alt={member.name} 
                   className="grayscale w-full h-full object-cover transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105" 
                   src={member.image} 
                 />
                 
-                {/* Overlay transparente con solo el botón de LinkedIn */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                {/* Botón LinkedIn: Abajo a la izquierda */}
+                <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
                   <a 
                     href={member.linkedin} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="size-12 rounded-2xl bg-white/90 backdrop-blur-sm flex items-center justify-center cursor-pointer hover:bg-[#135bec] hover:text-white transition-all text-[#135bec] shadow-xl"
+                    className="size-10 rounded-xl bg-white/90 backdrop-blur-md flex items-center justify-center cursor-pointer hover:bg-[#135bec] hover:text-white transition-all text-[#135bec] shadow-lg border border-white/20"
                   >
-                    <Linkedin size={22} />
+                    <Linkedin size={18} />
                   </a>
                 </div>
               </div>
               <h4 className="text-2xl font-bold text-slate-900 mb-2">{member.name}</h4>
-              <p className="text-xs font-extrabold text-[#135bec] mb-6 uppercase tracking-widest">{member.role}</p>
-              <p className="text-slate-500 text-sm leading-relaxed max-w-[200px]">{member.bio}</p>
+              <p className="text-[11px] font-black text-[#135bec] mb-6 uppercase tracking-[0.2em]">{member.role}</p>
+              <p className="text-slate-500 text-sm leading-relaxed max-w-[220px]">{member.bio}</p>
             </div>
           ))}
         </div>
