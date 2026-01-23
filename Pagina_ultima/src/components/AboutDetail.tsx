@@ -42,7 +42,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
       name: 'Daniela Paredes',
       role: 'Project Management Office',
       image: '/team/daniela.jpg',
-      bio: 'Líder en planificacion, gestión y desarrollo y supervision organizacional, enfocada en equipos técnicos de alto rendimiento.',
+      bio: 'Líder en planificacion, gestión, desarrollo y supervision organizacional, enfocada en equipos técnicos de alto rendimiento.',
       linkedin: 'https://linkedin.com/in/daniela-paredes-vidal'
     }
   ];
