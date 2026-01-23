@@ -24,7 +24,7 @@ const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
   ];
 
   return (
-    <section id="servicios" className="bg-white py-32 border-t border-slate-100">
+    <section id="servicios" className="bg-slate-50 py-32 border-t border-slate-100">
       <div className="container mx-auto max-w-7xl px-6 lg:px-8">
         
         {/* Encabezado: Título bicolor + Línea + Frase de Experiencia */}
@@ -40,13 +40,13 @@ const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
           {/* Línea azul distintiva */}
           <div className="h-1 w-12 bg-[#135bec] mb-8"></div>
           
-          {/* Frase de experiencia ubicada exactamente debajo de la línea */}
+          {/* Frase de experiencia debajo de la línea */}
           <p className="text-slate-500 max-w-2xl text-lg leading-relaxed font-light">
             Combinamos décadas de experiencia con las últimas innovaciones tecnológicas para entregar resultados que transforman industrias.
           </p>
         </div>
         
-        {/* Grid de Servicios con diseño moderno */}
+        {/* Grid de Servicios con diseño de referencia (Gris de fondo, Tarjetas Blancas) */}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {serviceItems.map((item, idx) => (
             <div key={idx} className="group relative rounded-3xl bg-white p-10 shadow-sm border border-slate-100 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
