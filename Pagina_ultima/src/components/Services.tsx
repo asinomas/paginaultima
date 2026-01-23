@@ -1,87 +1,86 @@
 import React from 'react';
 
-interface ServicesProps {
-  onNavigate?: (page: 'home' | 'services' | 'about' | 'contact') => void;
-}
+// Datos de tu componente Profiles
+const services = [
+  "Servicio Head Hunting",
+  "Servicio Staffing",
+  "Servicio Digital Factoring",
+  "Servicio Mesa de Ayuda"
+];
 
-const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
-  const serviceItems = [
-    {
-      icon: 'insights',
-      title: 'Consultoría Estratégica',
-      description: 'Alineamos sus objetivos de negocio con las posibilidades técnicas para maximizar el ROI y la eficiencia operativa.'
-    },
-    {
-      icon: 'terminal',
-      title: 'Tecnología y Arquitectura',
-      description: 'Diseño de cimientos técnicos resilientes y de alta disponibilidad que escalan perfectamente con las demandas de su empresa.'
-    },
-    {
-      icon: 'developer_board',
-      title: 'Transformación Digital',
-      description: 'Servicios de migración y gestión para ecosistemas digitales complejos, garantizando seguridad y un rendimiento óptimo.'
-    }
-  ];
+const profiles = [
+  "Líder Técnico", "Dev IOS", "Dev Android", "Dev Java", "Scrum Master",
+  "BackEnd", "FrontEnd", "Fullstack", "Devops", "UX/UI", "QA",
+  "Python", "CiberSeguridad", "Mesa de Ayuda"
+];
 
+const HighLevelConsulting: React.FC = () => {
   return (
-    <section id="servicios" className="bg-slate-50 py-32 border-t border-slate-100">
-      <div className="container mx-auto px-6 lg:px-8">
+    <section className="bg-white py-24">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         
-        {/* Encabezado con ajuste en el tamaño del título principal */}
-        <div className="max-w-6xl mx-auto mb-16">
-          <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#135bec] mb-4">
-            Nuestras Capacidades
-          </h2>
+        {/* Contenedor Principal en Grid (Título a la izq, Perfiles a la der) */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-20">
           
-          {/* Título: Ajustado de 6xl a 5xl para un equilibrio más sutil */}
-          <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
-            Consultoría de <span className="text-[#135bec] italic">Alto Nivel</span>
-          </h3>
-          
-          <div className="h-1 w-12 bg-[#135bec] mb-8"></div>
-          
-          <p className="text-slate-500 max-w-xl text-sm leading-relaxed font-normal">
-            Combinamos décadas de experiencia con las últimas innovaciones tecnológicas para entregar resultados que transforman industrias.
-          </p>
-        </div>
-        
-        {/* Grid de Servicios con el escalado del 10% que aplicamos anteriormente */}
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3 max-w-6xl mx-auto">
-          {serviceItems.map((item, idx) => (
-            <div key={idx} className="group relative rounded-[1.5rem] bg-white p-8 shadow-sm border border-slate-100 transition-all duration-500 hover:shadow-xl hover:-translate-y-1.5 overflow-hidden">
-              
-              <div className="absolute top-0 right-0 p-6 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity">
-                <span className="material-symbols-outlined !text-8xl text-[#135bec]">{item.icon}</span>
-              </div>
+          {/* LADO IZQUIERDO: Título y Descripción */}
+          <div className="max-w-xl">
+            <span className="text-[10px] font-bold tracking-[0.4em] text-[#135bec] uppercase mb-6 block">
+              Nuestras Capacidades
+            </span>
+            <h3 className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-8 tracking-tight leading-[1.1]">
+              Consultoría de <span className="text-[#135bec] italic">Alto Nivel</span>
+            </h3>
+            <div className="w-16 h-1 bg-[#135bec] mb-8"></div>
+            <p className="text-lg text-slate-500 leading-relaxed">
+              Combinamos décadas de experiencia con las últimas innovaciones tecnológicas para entregar resultados que transforman industrias.
+            </p>
+          </div>
 
-              <div className="relative z-10">
-                <div className="mb-6 flex size-14 items-center justify-center rounded-2xl bg-[#135bec]/10 text-[#135bec] transition-all duration-500 group-hover:bg-[#135bec] group-hover:text-white group-hover:rotate-[6deg]">
-                  <span className="material-symbols-outlined !text-2xl">{item.icon}</span>
+          {/* LADO DERECHO: Tu código de Perfiles (Zona Roja) */}
+          <div className="bg-slate-50/50 p-8 rounded-3xl border border-slate-100">
+            <div className="space-y-12">
+              {/* Sección: Modelo de Colaboración */}
+              <section className="text-left">
+                <h2 className="text-[10px] font-bold tracking-[0.4em] text-slate-400 uppercase mb-6 border-b border-slate-200 pb-2">
+                  Modelo de Colaboración
+                </h2>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {services.map((service, index) => (
+                    <li key={index} className="flex items-center space-x-3 text-slate-700 border-l-2 border-slate-900 pl-4 py-1 transition-all hover:bg-white hover:shadow-sm">
+                      <span className="text-sm font-medium tracking-tight">{service}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+
+              {/* Sección: Perfiles */}
+              <section className="text-left">
+                <h3 className="text-[10px] font-bold tracking-[0.4em] text-slate-400 uppercase mb-6 border-b border-slate-200 pb-2">
+                  Perfiles Especializados
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {profiles.map((profile, index) => (
+                    <span 
+                      key={index}
+                      className="px-3 py-1.5 bg-white border border-slate-200 text-slate-600 text-[11px] font-medium rounded-md hover:border-[#135bec] hover:text-[#135bec] transition-all duration-200 cursor-default shadow-sm"
+                    >
+                      {profile}
+                    </span>
+                  ))}
                 </div>
-                
-                <h4 className="mb-3 text-xl font-bold text-slate-900 group-hover:text-[#135bec] transition-colors leading-tight">
-                  {item.title}
-                </h4>
-                
-                <p className="text-slate-500 leading-relaxed text-sm">
-                  {item.description}
-                </p>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-slate-50 opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
-                 <button 
-                  onClick={() => onNavigate?.('services')}
-                  className="text-[11px] font-bold uppercase tracking-widest text-[#135bec] flex items-center gap-2"
-                >
-                   Saber más <span className="material-symbols-outlined !text-sm">arrow_forward</span>
-                 </button>
-              </div>
+              </section>
             </div>
-          ))}
+          </div>
         </div>
+
+        {/* Tarjetas inferiores (Las que ya tenías: Estratégica, Arquitectura, etc.) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+           {/* Aquí irían tus componentes de las 3 tarjetas blancas de la imagen */}
+        </div>
+
       </div>
     </section>
   );
 };
 
-export default Services;
+export default HighLevelConsulting;
