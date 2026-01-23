@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Linkedin, ArrowRight } from 'lucide-react';
-import WorldMap from './WorldMap'; 
+import WorldMap from './WorldMap';
 import OfficeDetails from './OfficeDetails';
-import { OFFICE_LOCATIONS } from '../constants'; // El ".." es para salir de components e ir a src
-import { OfficeLocation } from '../types';     // El ".." es para salir de components e ir a src
+import { OFFICE_LOCATIONS } from '../constants';
+import { OfficeLocation } from '../types';
 
 interface AboutDetailProps {
   onContactClick: () => void;
@@ -48,52 +48,95 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
 
   return (
     <div className="bg-white min-h-screen pt-24 pb-32 antialiased">
-      {/* SECCIÓN EQUIPO */}
+      {/* --- SECCIÓN HERO / HISTORIA (RESTURADA) --- */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8 mb-32">
+        <div className="flex flex-col lg:flex-row gap-16 items-center">
+          <div className="lg:w-1/2">
+            <h4 className="text-xs font-bold uppercase tracking-[0.3em] text-[#135bec] mb-6">Nuestra Historia</h4>
+            <h1 className="text-5xl lg:text-7xl font-black text-slate-900 leading-[1.1] mb-8 tracking-tighter">
+              El Gen de la <span className="text-[#135bec] italic">Excelencia</span>
+            </h1>
+            <p className="text-lg lg:text-xl text-slate-500 leading-relaxed mb-10 max-w-xl">
+              Nacimos con la visión de cerrar la brecha entre la complejidad técnica y el éxito empresarial. Hoy, BlackTI es sinónimo de resiliencia y precisión.
+            </p>
+            <div className="flex gap-4">
+              <button 
+                onClick={onContactClick} 
+                className="bg-[#135bec] text-white font-bold px-10 py-5 rounded-2xl shadow-2xl shadow-[#135bec]/20 hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
+              >
+                Unirse al equipo <ArrowRight size={18} />
+              </button>
+            </div>
+          </div>
+          <div className="lg:w-1/2 relative">
+            <div className="aspect-square bg-slate-100 rounded-[3rem] overflow-hidden rotate-3 hover:rotate-0 transition-transform duration-700 shadow-2xl border border-slate-200">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Team Work" className="w-full h-full object-cover" />
+            </div>
+            <div className="absolute -bottom-10 -left-10 bg-white p-8 rounded-3xl shadow-2xl border border-slate-100 hidden md:block">
+              <p className="text-4xl font-black text-[#135bec] mb-1">2014</p>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Año de Fundación</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- DIRECTORIO EJECUTIVO (CON EFECTO COLOR Y LINKEDIN) --- */}
+      <section className="container mx-auto max-w-7xl px-6 lg:px-8 mb-40">
         <div className="text-center mb-24">
-          <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 mb-6">Directorio Ejecutivo</h2>
-          <p className="text-slate-500 max-w-2xl mx-auto">Líderes apasionados por la tecnología que dirigen el rumbo de cada proyecto.</p>
+          <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">Directorio Ejecutivo</h2>
+          <p className="text-slate-500 max-w-2xl mx-auto text-lg">Líderes apasionados por la tecnología que dirigen el rumbo de cada proyecto.</p>
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {team.map((member, i) => (
             <div key={i} className="group flex flex-col items-center text-center">
-              <div className="aspect-[3/4] w-full rounded-[2.5rem] overflow-hidden mb-8 bg-slate-50 border border-slate-100 relative">
+              <div className="aspect-[3/4] w-full rounded-[2.5rem] overflow-hidden mb-8 bg-slate-50 shadow-sm border border-slate-100 relative">
                 <img 
                   alt={member.name} 
                   className="grayscale w-full h-full object-cover transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105" 
                   src={member.image} 
                 />
                 <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                  <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="size-10 rounded-xl bg-white flex items-center justify-center text-[#135bec] shadow-lg hover:bg-[#135bec] hover:text-white transition-all">
+                  <a 
+                    href={member.linkedin} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="size-10 rounded-xl bg-white/95 backdrop-blur-md flex items-center justify-center text-[#135bec] shadow-lg hover:bg-[#135bec] hover:text-white transition-all border border-white/20"
+                  >
                     <Linkedin size={18} />
                   </a>
                 </div>
               </div>
               <h4 className="text-2xl font-bold text-slate-900 mb-2">{member.name}</h4>
-              <p className="text-[11px] font-black text-[#135bec] mb-6 uppercase tracking-widest">{member.role}</p>
+              <p className="text-[11px] font-black text-[#135bec] mb-6 uppercase tracking-[0.2em]">{member.role}</p>
+              <p className="text-slate-500 text-sm leading-relaxed max-w-[220px]">{member.bio}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* SECCIÓN MAPA GLOBAL */}
-      <section className="bg-slate-950 py-24">
+      {/* --- SECCIÓN MAPA GLOBAL --- */}
+      <section className="bg-slate-950 py-24 border-t border-slate-900">
         <div className="container mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="bg-slate-900/40 border border-slate-800 rounded-[3rem] overflow-hidden shadow-2xl">
+          <div className="bg-slate-900/20 border border-slate-800/60 rounded-[3rem] overflow-hidden shadow-2xl backdrop-blur-sm">
             <div className="flex flex-col lg:flex-row min-h-[600px]">
-              <div className="flex-[2] p-8 relative min-h-[400px]">
-                <WorldMap onSelectOffice={setSelectedOffice} selectedOfficeId={selectedOffice.id} />
+              <div className="flex-[2.5] relative p-8 min-h-[500px]">
+                <WorldMap 
+                  onSelectOffice={setSelectedOffice} 
+                  selectedOfficeId={selectedOffice.id} 
+                />
               </div>
-              <div className="flex-1 bg-slate-900/50 border-l border-slate-800 p-10">
+              <div className="flex-1 bg-slate-900/40 border-l border-slate-800/40 p-10 flex flex-col justify-between">
                 <OfficeDetails office={selectedOffice} />
                 <div className="mt-12 grid grid-cols-2 gap-2">
                   {OFFICE_LOCATIONS.map(office => (
                     <button
                       key={office.id}
                       onClick={() => setSelectedOffice(office)}
-                      className={`px-4 py-2 rounded-lg text-[10px] font-bold uppercase transition-all ${
-                        selectedOffice.id === office.id ? 'bg-[#135bec] text-white' : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
+                      className={`px-4 py-3 rounded-xl text-[10px] font-bold uppercase tracking-wider transition-all duration-300 ${
+                        selectedOffice.id === office.id
+                        ? 'bg-[#135bec] text-white shadow-lg shadow-[#135bec]/20'
+                        : 'bg-slate-800/40 text-slate-500 hover:text-slate-300 hover:bg-slate-800'
                       }`}
                     >
                       {office.city}
