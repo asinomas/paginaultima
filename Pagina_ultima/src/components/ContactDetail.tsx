@@ -7,8 +7,8 @@ const ContactDetail: React.FC = () => {
 
   
   // EDITAR AQUÍ EL CORREO ELECTRÓNICO
- 
-  const EMAIL_DE_RECEPCION = "pruebadelcontacto@blackti.cl"; 
+  
+  const EMAIL_DE_RECEPCION = "pruebadelcontactp@blackti.cl"; 
   
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -28,14 +28,14 @@ const ContactDetail: React.FC = () => {
       <div className="container mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           
-          {/* COLUMNA IZQUIERDA: FRASE EXACTA CON DOBLE RESALTADO AZUL */}
+          {/* COLUMNA IZQUIERDA: DISEÑO DE TÍTULO MODIFICADO */}
           <div className="lg:sticky lg:top-32">
-            <h4 className="text-[#135bec] font-bold uppercase tracking-widest text-xs mb-4">Contacto</h4>
-            <h2 className="text-5xl lg:text-7xl font-black text-slate-900 mb-8 tracking-tighter leading-[0.9]">
+            <h2 className="text-5xl lg:text-7xl font-black text-slate-900 mb-8 tracking-tighter leading-[1.1]">
               <span className="text-[#135bec]">Hablemos hoy</span> <br />
-              y diseñemos el <br />
+              diseñemos el <br />
               <span className="text-[#135bec]">futuro.</span>
             </h2>
+            
             <p className="text-slate-500 text-lg mb-12 max-w-md leading-relaxed">
               Estamos listos para transformar tus desafíos tecnológicos en ventajas competitivas. Déjanos un mensaje y te contactaremos en menos de 24 horas.
             </p>
@@ -131,8 +131,6 @@ const ContactDetail: React.FC = () => {
                 </button>
               </form>
             </div>
-            {/* Efecto de luz decorativo */}
-            <div className="absolute -inset-4 bg-[#135bec]/10 blur-[100px] -z-10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
           </div>
 
         </div>
