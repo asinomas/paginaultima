@@ -5,10 +5,8 @@ const ContactDetail: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSent, setIsSent] = useState(false);
 
-
   // EDITAR AQUÍ EL CORREO ELECTRÓNICO
   const EMAIL_DE_RECEPCION = "Pruebadel_Contacto@Blackti.cl"; 
-
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -29,12 +27,11 @@ const ContactDetail: React.FC = () => {
           
           {/* COLUMNA IZQUIERDA: ESTILO "EXCELENCIA OPERATIVA" APLICADO */}
           <div className="lg:sticky lg:top-32">
-            {/* "Hablemos hoy" con el estilo exacto de la frase del Hero */}
-            <h4 className="text-[#135bec] font-bold uppercase tracking-[0.2em] text-sm mb-4">
+            {/* Texto ajustado a 11px para ser más pequeño y elegante */}
+            <h4 className="text-[#135bec] font-bold uppercase tracking-[0.2em] text-[11px] mb-4">
               Hablemos hoy
             </h4>
             
-            {/* El resto del título según tus indicaciones de color */}
             <h2 className="text-5xl lg:text-6xl font-black text-slate-900 mb-8 tracking-tighter leading-tight">
               diseñemos el <br />
               <span className="text-[#135bec]">futuro.</span>
