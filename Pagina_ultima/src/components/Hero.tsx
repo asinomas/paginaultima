@@ -1,6 +1,6 @@
 import React from 'react';
 
-// Definimos que el Hero recibe la función onNavigate
+
 interface HeroProps {
   onNavigate: (page: 'home' | 'services' | 'about' | 'contact') => void;
 }
@@ -31,7 +31,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             <span className="text-[#135bec] text-[10px] font-bold uppercase tracking-[0.2em]">Líderes en Innovación</span>
           </div>
           
-          {/* Título con corrección de renderizado en "Talento" */}
+          {/* Título con renderizado en "Talento" */}
           <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-8 leading-[1.1] selection:bg-[#135bec]/30">
             Potenciando el{' '}
             <span className="relative inline-block italic text-[#135bec] drop-shadow-[0_0_15px_rgba(19,91,236,0.3)] filter transition-all duration-700">
@@ -45,7 +45,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            {/* BOTÓN ACTUALIZADO: Agendar Consultoría */}
+            {/* Agendar Consultoría */}
             <button 
               onClick={() => onNavigate('contact')}
               className="group relative overflow-hidden px-8 py-4 bg-[#135bec] text-white rounded-xl font-bold transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-[#135bec]/30"
@@ -54,7 +54,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-[#135bec] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </button>
 
-            {/* BOTÓN ACTUALIZADO: Explorar Soluciones (Lleva a servicios) */}
+            {/* Explorar Soluciones (lleva a servicios) */}
             <button 
               onClick={() => onNavigate('services')}
               className="px-8 py-4 bg-white/5 text-white border border-white/10 rounded-xl font-bold hover:bg-white/10 transition-all backdrop-blur-sm active:scale-95"
