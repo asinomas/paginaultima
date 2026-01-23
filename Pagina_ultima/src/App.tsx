@@ -11,7 +11,7 @@ import AIConsultant from './components/AIConsultant';
 import ServicesDetail from './components/ServicesDetail';
 import AboutDetail from './components/AboutDetail';
 import ContactDetail from './components/ContactDetail';
-import Privacy from './pcomponents/Privacy';
+import Privacy from './components/Privacy';
 import Terms from './components/Terms';
 
 const App: React.FC = () => {
