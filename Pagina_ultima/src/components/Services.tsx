@@ -25,7 +25,7 @@ const HighLevelConsulting: React.FC = () => {
             </h3>
             <div className="w-16 h-1 bg-[#135bec] mb-8"></div>
             <p className="text-lg text-slate-600 leading-relaxed">
-              En BlackTI desarrollamos una confianza a largo plazo que nos permite ser parte del cumplimiento y logros de los objetivos de nuestros clientes
+              En BlackTI desarrollamos una confianza a largo plazo que nos permite ser parte del cumplimiento y logros de los objetivos de nuestros clientes.
             </p>
           </div>
 
