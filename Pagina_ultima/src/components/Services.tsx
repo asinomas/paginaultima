@@ -46,23 +46,24 @@ const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
           </p>
         </div>
         
-        {/* Grid de Servicios con el tamaño exacto de tu código (p-10) */}
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+        {/* Grid: Reducido proporcionalmente */}
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3 max-w-6xl mx-auto">
           {serviceItems.map((item, idx) => (
-            <div key={idx} className="group relative rounded-3xl bg-white p-10 shadow-sm border border-slate-100 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
+            <div key={idx} className="group relative rounded-[2rem] bg-white p-8 shadow-sm border border-slate-100 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
               
-              {/* Icono decorativo gigante de fondo */}
-              <div className="absolute top-0 right-0 p-8 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
-                <span className="material-symbols-outlined !text-9xl text-[#135bec]">{item.icon}</span>
+              {/* Icono decorativo de fondo ajustado */}
+              <div className="absolute top-0 right-0 p-6 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
+                <span className="material-symbols-outlined !text-8xl text-[#135bec]">{item.icon}</span>
               </div>
 
               <div className="relative z-10">
-                {/* Icono con tamaño size-16 */}
-                <div className="mb-8 flex size-16 items-center justify-center rounded-2xl bg-[#135bec]/10 text-[#135bec] transition-all duration-500 group-hover:bg-[#135bec] group-hover:text-white group-hover:rotate-[10deg] shadow-lg shadow-blue-500/5">
-                  <span className="material-symbols-outlined !text-3xl">{item.icon}</span>
+                {/* Icono ajustado de size-16 a size-14 */}
+                <div className="mb-7 flex size-14 items-center justify-center rounded-2xl bg-[#135bec]/10 text-[#135bec] transition-all duration-500 group-hover:bg-[#135bec] group-hover:text-white group-hover:rotate-[10deg] shadow-lg shadow-blue-500/5">
+                  <span className="material-symbols-outlined !text-2xl">{item.icon}</span>
                 </div>
                 
-                <h4 className="mb-4 text-2xl font-bold text-slate-900 group-hover:text-[#135bec] transition-colors">
+                {/* Título ajustado de text-2xl a text-xl */}
+                <h4 className="mb-4 text-xl font-bold text-slate-900 group-hover:text-[#135bec] transition-colors leading-tight">
                   {item.title}
                 </h4>
                 
@@ -71,11 +72,11 @@ const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
                 </p>
               </div>
 
-              {/* Botón Saber más con la flecha y animación de subida */}
-              <div className="mt-8 pt-8 border-t border-slate-50 opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0">
+              {/* Botón Saber más con la flecha */}
+              <div className="mt-8 pt-7 border-t border-slate-50 opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0">
                  <button 
                   onClick={() => onNavigate?.('services')}
-                  className="text-xs font-bold uppercase tracking-widest text-[#135bec] flex items-center gap-2"
+                  className="text-[11px] font-bold uppercase tracking-widest text-[#135bec] flex items-center gap-2"
                 >
                    Saber más <span className="material-symbols-outlined !text-sm">arrow_forward</span>
                  </button>
