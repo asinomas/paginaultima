@@ -29,8 +29,13 @@ const About: React.FC = () => {
               Liderando con <span className="text-blue-600 italic">Propósito</span> Real
             </h2>
             <p className="text-lg text-slate-500 mb-8 leading-relaxed">
-              Somos una firma boutique de consultoría que trasciende la simple implementación técnica. Nos sumergimos en la cultura de nuestros clientes para convertir obstáculos en motores de crecimiento.
+              Somos una Start Up que trasciende la simple implementación técnica. Nos sumergimos en la cultura de nuestros clientes para convertir obstáculos en motores de crecimiento sin perder la continuidad operativa. 
             </p>
+            <div className="space-y-6 mb-12">
+             <p className="text-lg leading-relaxed text-slate-500">
+                Creemos que el éxito del trabajo en equipo solo es sostenible cuando está alineado el talento con una visión estratégica clara para un logro de objetivos.
+              </p>
+              </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
               {['Ingeniería Superior', 'Seguridad Total', 'Escalabilidad', 'Transparencia'].map((item) => (
                 <div key={item} className="flex items-center gap-3">
