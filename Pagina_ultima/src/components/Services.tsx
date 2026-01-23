@@ -4,7 +4,7 @@ import { Shield, Layout, Target, ArrowRight } from 'lucide-react';
 const profiles = [
   "Líder Técnico", "Scrum Master", "Dev Android", "Dev Java",
   "BackEnd", "FrontEnd", "Fullstack", "Devops", "UX/UI",
-  "CiberSeguridad", "Mesa de Ayuda", "Python", "Dev IOS", "QA Automation"
+  "CiberSeguridad", "Mesa de Ayuda", "Python", "Dev IOS"
 ];
 
 const HighLevelConsulting: React.FC = () => {
