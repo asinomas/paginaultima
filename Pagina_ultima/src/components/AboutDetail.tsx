@@ -123,7 +123,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
           {/* Título del Mapa solicitado */}
           <div className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
-              Nuestro equipo de trabajo se encuentra en las siguientes ubicaciones
+              Nuestro equipo se encuentra en las siguientes ubicaciones
             </h2>
             <div className="w-20 h-1 bg-[#135bec] rounded-full"></div>
           </div>
