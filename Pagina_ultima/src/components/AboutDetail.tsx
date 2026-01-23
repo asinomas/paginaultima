@@ -36,7 +36,7 @@ const ContactDetail: React.FC = () => {
             <h4 className="text-[#135bec] font-bold uppercase tracking-[0.2em] text-xs mb-4">Contacto Directo</h4>
             <h2 className="text-5xl lg:text-6xl font-black text-slate-900 mb-8 tracking-tighter leading-none">
               Impulsemos tu <br />
-              <span className="text-[#135bec]">visión digital.</span>
+              <span className="text-[#135bec] italic">Visión.</span>
             </h2>
             <p className="text-slate-500 text-lg mb-12 max-w-md leading-relaxed">
               ¿Tienes un desafío técnico o una idea innovadora? Nuestro equipo de expertos está listo para asesorarte.
