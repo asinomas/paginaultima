@@ -4,7 +4,7 @@ import { Shield, Layout, Target, ArrowRight } from 'lucide-react';
 const profiles = [
   "Líder Técnico", "Scrum Master", "Dev Android", "Dev Java",
   "BackEnd", "FrontEnd", "Fullstack", "Devops", "UX/UI",
-  "CiberSeguridad", "Mesa de Ayuda", "Python", "Dev IOS", "QA Automation" // Agregué uno para equilibrar
+  "CiberSeguridad", "Mesa de Ayuda", "Python", "Dev IOS", "QA Automation"
 ];
 
 const HighLevelConsulting: React.FC = () => {
@@ -12,34 +12,36 @@ const HighLevelConsulting: React.FC = () => {
     <section className="bg-slate-50 py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         
-        {/* PARTE SUPERIOR: Título (Izquierda) y Perfiles Sueltos (Derecha) */}
+        {/* PARTE SUPERIOR: Título (con salto de línea) y Perfiles */}
         <div className="flex flex-col lg:flex-row justify-between items-start gap-16 mb-24">
           
-          {/* Bloque de Texto */}
+          {/* Bloque de Texto con salto de línea */}
           <div className="max-w-xl">
             <span className="text-[10px] font-bold tracking-[0.4em] text-[#135bec] uppercase mb-6 block">
               Excelencia Operativa
             </span>
             <h3 className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-8 tracking-tight leading-[1.1]">
-              Consultoría de <span className="text-[#135bec] italic">Alto Nivel</span>
+              Consultoría de <br /> 
+              <span className="text-[#135bec] italic">Alto Nivel</span>
             </h3>
             <div className="w-16 h-1 bg-[#135bec] mb-8"></div>
             <p className="text-lg text-slate-600 leading-relaxed">
-              En BlackTI conectamos el mejor talento técnico con los desafíos más complejos de la industria, asegurando una ejecución impecable.
+              En BlackTI conectamos el mejor talento técnico con los desafíos más complejos de la industria.
             </p>
           </div>
 
-          {/* Bloque de Perfiles SUELTOS y ALINEADOS */}
+          {/* Bloque de Perfiles con MÁS espacio */}
           <div className="flex-1 w-full lg:max-w-xl">
             <h4 className="text-[10px] font-bold tracking-[0.3em] text-slate-400 uppercase mb-8 border-b border-slate-200 pb-2 inline-block">
               Perfiles Especializados
             </h4>
-            {/* Usamos justify-start para alineación natural, o justify-between para llenar el ancho */}
-            <div className="flex flex-wrap gap-3 justify-start lg:justify-start">
+            
+            {/* gap-4 para más espacio entre globos */}
+            <div className="flex flex-wrap gap-4 justify-start">
               {profiles.map((profile, index) => (
                 <span 
                   key={index}
-                  className="px-4 py-2 bg-white text-slate-500 text-[12px] font-semibold rounded-xl border border-transparent shadow-sm hover:border-[#135bec] hover:text-[#135bec] transition-all duration-300 cursor-default hover:shadow-md hover:-translate-y-0.5"
+                  className="px-5 py-2.5 bg-white text-slate-500 text-[12px] font-semibold rounded-xl border border-transparent shadow-sm hover:border-[#135bec] hover:text-[#135bec] transition-all duration-300 cursor-default hover:shadow-md hover:-translate-y-1"
                 >
                   {profile}
                 </span>
