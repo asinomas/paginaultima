@@ -4,10 +4,10 @@ import { ArrowUp } from 'lucide-react';
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Mostrar el botón cuando se baja más de 300px
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
+      // Aparece cuando el usuario baja más de 400px
+      if (window.pageYOffset > 400) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
@@ -30,10 +30,11 @@ const ScrollToTop = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-24 right-8 z-50 p-4 rounded-full bg-white text-[#135bec] shadow-2xl border border-slate-100 hover:bg-[#135bec] hover:text-white transition-all duration-300 hover:scale-110 active:scale-90 group"
+          /* bottom-28 lo posiciona sobre el botón del chat (que tiene bottom-8) */
+          className="fixed bottom-28 right-10 z-50 p-3 rounded-full bg-white text-[#135bec] shadow-xl border border-slate-100 hover:bg-[#135bec] hover:text-white transition-all duration-300 hover:scale-110 active:scale-90 group"
           aria-label="Volver arriba"
         >
-          <ArrowUp size={24} className="group-hover:-translate-y-1 transition-transform" />
+          <ArrowUp size={20} className="group-hover:-translate-y-1 transition-transform" />
         </button>
       )}
     </>
