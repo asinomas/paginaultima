@@ -87,10 +87,10 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
         </div>
       </section>
 
-      {/* DIRECTORIO EJECUTIVO */}
+      {/* QUIENES SOMOS */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8 mb-40">
         <div className="text-center mb-24">
-          <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">Directorio Ejecutivo</h2>
+          <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">¿Quienes Somos?</h2>
           <p className="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">Líderes apasionados por la tecnología que dirigen el rumbo de cada proyecto con rigor y visión.</p>
         </div>
         
