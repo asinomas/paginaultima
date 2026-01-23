@@ -1,65 +1,42 @@
-import { useState } from 'react';
-import Hero from './components/Hero';
-import ServicesOverview from './components/ServicesOverview';
-import Stats from './components/Stats';
-import AboutPreview from './components/AboutPreview';
-import Logos from './components/Logos';
-import ServicesDetail from './components/ServicesDetail';
-import AboutDetail from './components/AboutDetail';
-import ContactDetail from './components/ContactDetail';
-import Footer from './components/Footer';
-import Privacy from './components/Privacy';
-import Terms from './components/Terms';
+// src/App.tsx
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-function App() {
-  // Estado de navegación
-  const [currentPage, setCurrentPage] = useState<
-    'home' | 'services' | 'about' | 'contact' | 'privacy' | 'terms'
-  >('home');
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Hero from "./components/Hero";
+import Services from "./components/Services";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Privacy from "./components/Privacy";
+import Terms from "./components/Terms";
 
-  // Función para navegar entre páginas
-  const navigateTo = (
-    page: 'home' | 'services' | 'about' | 'contact' | 'privacy' | 'terms'
-  ) => {
-    setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
+const App: React.FC = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-gray-900 text-white">
-      {/* Contenido principal */}
-      <main className="flex-grow">
-        {currentPage === 'home' && (
-          <>
-            <Hero onNavigate={navigateTo} />
-            <ServicesOverview />
-            <Stats />
-            <AboutPreview />
-            <Logos />
-          </>
-        )}
+    <Router>
+      <div className="app">
+        <Navbar />
 
-        {currentPage === 'services' && (
-          <ServicesDetail onContactClick={() => navigateTo('contact')} />
-        )}
-
-        {currentPage === 'about' && (
-          <AboutDetail
-            onContactClick={() => navigateTo('contact')}
-            onNavigate={navigateTo}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <Services />
+                <About />
+                <Contact />
+              </>
+            }
           />
-        )}
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+        </Routes>
 
-        {currentPage === 'contact' && <ContactDetail />}
-
-        {currentPage === 'privacy' && <Privacy />}
-        {currentPage === 'terms' && <Terms />}
-      </main>
-
-      {/* Footer */}
-      <Footer onNavigate={navigateTo} />
-    </div>
+        <Footer />
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
