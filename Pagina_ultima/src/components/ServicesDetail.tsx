@@ -32,7 +32,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
     {
       icon: Lock,
       title: 'Ciberseguridad',
-      description: 'Protección integral de sus activos digitales mediante firewalls avanzados y protocolos de encriptación de grado militar.'
+      description: 'Protección integral de sus activos digitales mediante firewalls avanzados y protocolos de encriptación de alto grado.'
     },
     {
       icon: Cloud,
