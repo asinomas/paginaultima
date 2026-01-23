@@ -16,14 +16,18 @@ const WorldMap: React.FC<WorldMapProps> = ({ onSelectOffice, selectedOfficeId })
   useEffect(() => {
     if (!svgRef.current) return;
 
-    const width = 1000;
-    const height = 450;
+    // 🔥 MEDIMOS EL CONTENEDOR REAL
+    const container = svgRef.current.parentElement;
+    if (!container) return;
+
+    const { width, height } = container.getBoundingClientRect();
 
     const svg = d3
       .select(svgRef.current)
       .attr('viewBox', `0 0 ${width} ${height}`)
+      .attr('preserveAspectRatio', 'xMidYMid meet')
       .style('width', '100%')
-      .style('height', 'auto');
+      .style('height', '100%');
 
     svg.selectAll('*').remove();
 
@@ -35,7 +39,7 @@ const WorldMap: React.FC<WorldMapProps> = ({ onSelectOffice, selectedOfficeId })
       .then((data: any) => {
         const countries = feature(data, data.objects.countries) as any;
 
-        // 🔥 FeatureCollection SOLO con oficinas (lo relevante)
+        // 🔥 SOLO LO RELEVANTE: oficinas
         const officeFeatures = {
           type: 'FeatureCollection',
           features: OFFICE_LOCATIONS.map(o => ({
@@ -47,13 +51,13 @@ const WorldMap: React.FC<WorldMapProps> = ({ onSelectOffice, selectedOfficeId })
           }))
         } as any;
 
-        // 🔥 El mapa se ajusta a las oficinas (no al mundo)
+        // 🔥 ENCUADRE INTELIGENTE (sin recortes)
         projection.fitExtent(
-          [[40, 20], [width - 40, height - 20]],
+          [[40, 30], [width - 40, height - 30]],
           officeFeatures
         );
 
-        // Dibujo de países (solo contexto visual)
+        // Países (solo contexto visual)
         g.selectAll('path')
           .data(countries.features)
           .enter()
@@ -61,8 +65,7 @@ const WorldMap: React.FC<WorldMapProps> = ({ onSelectOffice, selectedOfficeId })
           .attr('d', path as any)
           .attr('fill', '#0f172a')
           .attr('stroke', '#1e293b')
-          .attr('stroke-width', 0.5)
-          .attr('class', 'country');
+          .attr('stroke-width', 0.5);
 
         const headquarters = OFFICE_LOCATIONS.find(o => o.type === 'Headquarters');
 
@@ -85,7 +88,7 @@ const WorldMap: React.FC<WorldMapProps> = ({ onSelectOffice, selectedOfficeId })
                     `M${hqCoords[0]},${hqCoords[1]} A${dr},${dr} 0 0,1 ${officeCoords[0]},${officeCoords[1]}`
                   )
                   .attr('fill', 'none')
-                  .attr('stroke', 'rgba(59, 130, 246, 0.1)')
+                  .attr('stroke', 'rgba(59, 130, 246, 0.12)')
                   .attr('stroke-width', 1)
                   .attr('stroke-dasharray', '3,5');
               }
@@ -112,8 +115,8 @@ const WorldMap: React.FC<WorldMapProps> = ({ onSelectOffice, selectedOfficeId })
           .attr('r', 10)
           .attr('fill', d =>
             d.type === 'Headquarters'
-              ? 'rgba(59, 130, 246, 0.25)'
-              : 'rgba(148, 163, 184, 0.1)'
+              ? 'rgba(59,130,246,0.25)'
+              : 'rgba(148,163,184,0.1)'
           )
           .append('animate')
           .attr('attributeName', 'r')
@@ -139,8 +142,7 @@ const WorldMap: React.FC<WorldMapProps> = ({ onSelectOffice, selectedOfficeId })
           .attr('opacity', 0)
           .attr('class', 'label')
           .style('pointer-events', 'none')
-          .style('text-shadow', '0 2px 4px rgba(0,0,0,0.9)')
-          .style('transition', 'opacity 0.2s ease');
+          .style('text-shadow', '0 2px 4px rgba(0,0,0,0.9)');
       });
   }, [onSelectOffice]);
 
@@ -174,22 +176,8 @@ const WorldMap: React.FC<WorldMapProps> = ({ onSelectOffice, selectedOfficeId })
   }, [selectedOfficeId, hoveredOffice]);
 
   return (
-    <div className="relative w-full h-full bg-slate-950/40 rounded-2xl overflow-hidden border border-slate-800 shadow-inner group">
+    <div className="relative w-full h-full bg-slate-950/40 rounded-2xl overflow-hidden border border-slate-800 shadow-inner">
       <svg ref={svgRef} className="w-full h-full block min-h-[400px]" />
-      <div className="absolute top-6 left-6 flex flex-col gap-2.5 pointer-events-none">
-        <div className="flex items-center gap-3">
-          <div className="w-3 h-3 rounded-full bg-blue-500 border border-white/90 shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
-          <span className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">
-            Sede Central
-          </span>
-        </div>
-        <div className="flex items-center gap-3">
-          <div className="w-3 h-3 rounded-full bg-slate-600 border border-white/90" />
-          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
-            Sucursales
-          </span>
-        </div>
-      </div>
     </div>
   );
 };
