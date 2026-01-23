@@ -2,24 +2,14 @@ import React from 'react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-[#0b0e14] overflow-hidden pt-20">
+    <section className="relative min-h-screen flex items-center justify-center bg-[#0b0e14] overflow-hidden pt-20 antialiased">
       
       {/* Sistema de Luces Dinámicas en 4 Esquinas */}
       <div className="absolute inset-0 overflow-hidden">
-        
-        {/* LUZ 1: Animada entre Arriba-Izquierda y Abajo-Derecha */}
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#135bec]/20 rounded-full blur-[120px] animate-[pulse_8s_infinite] mix-blend-screen"></div>
-        
-        {/* LUZ 2: Animada entre Abajo-Izquierda y Arriba-Derecha */}
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#135bec]/20 rounded-full blur-[120px] animate-[pulse_8s_infinite]"></div>
         <div className="absolute bottom-[-10%] left-[-10%] w-[45%] h-[45%] bg-blue-600/10 rounded-full blur-[100px] animate-[pulse_12s_infinite_reverse] opacity-70"></div>
-        
-        {/* LUZ 3: Brillo en Arriba-Derecha */}
         <div className="absolute top-[-5%] right-[-10%] w-[40%] h-[40%] bg-[#135bec]/15 rounded-full blur-[110px] animate-[pulse_10s_infinite_2s]"></div>
-
-        {/* LUZ 4: Brillo en Abajo-Derecha (para cerrar el ciclo) */}
         <div className="absolute bottom-[-5%] right-[-5%] w-[35%] h-[35%] bg-blue-500/10 rounded-full blur-[90px] animate-[pulse_7s_infinite_1s]"></div>
-
-        {/* Capa de textura y profundidad fija */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#135bec]/10 via-transparent to-transparent opacity-60"></div>
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 pointer-events-none"></div>
       </div>
@@ -36,8 +26,13 @@ const Hero: React.FC = () => {
             <span className="text-[#135bec] text-[10px] font-bold uppercase tracking-[0.2em]">Líderes en Innovación</span>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-8 leading-[1.1]">
-            Potenciando el <span className="text-[#135bec]">Talento</span> con Inteligencia
+          {/* Título con corrección de renderizado en "Talento" */}
+          <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-8 leading-[1.1] selection:bg-[#135bec]/30">
+            Potenciando el{' '}
+            <span className="relative inline-block text-[#135bec] drop-shadow-[0_0_15px_rgba(19,91,236,0.3)] filter transition-all duration-700">
+              Talento
+            </span>{' '}
+            con Inteligencia
           </h1>
           
           <p className="text-lg text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed">
