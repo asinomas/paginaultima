@@ -35,7 +35,7 @@ const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
           
           {/* Título: Ajustado de 6xl a 5xl para un equilibrio más sutil */}
           <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
-            Consultoría de <span className="text-[#135bec]">Alto Nivel</span>
+            Consultoría de <span className="text-[#135bec] italic">Alto Nivel</span>
           </h3>
           
           <div className="h-1 w-12 bg-[#135bec] mb-8"></div>
