@@ -1,5 +1,5 @@
 import React from 'react';
-import { Terminal, Lightbulb, Network, Lock, Cloud, BarChart3, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Terminal, Lightbulb, Network, Lock, Cloud, BarChart3, ArrowRight } from 'lucide-react';
 
 interface ServicesDetailProps {
   onContactClick: () => void;
@@ -83,9 +83,10 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
         </div>
       </section>
 
-      {/* 2. ESPECIALIZACIÓN Y MODELO DE COLABORACIÓN */}
+      {/* 2. SECCIÓN TÉCNICA: MODELO DE COLABORACIÓN */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Cabecera */}
+        
+        {/* Cabecera Principal */}
         <div className="mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
            <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
              Nuestra <span className="text-[#135bec] italic">Especialización</span>
@@ -94,21 +95,23 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
            <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">Servicios End-to-End</p>
         </div>
 
-        {/* NUEVA SECCIÓN: Modelo de Colaboración */}
-        <div className="mb-20 bg-white p-8 md:p-12 rounded-[2.5rem] border border-slate-100 shadow-sm">
-          <h3 className="text-[10px] font-bold tracking-[0.4em] text-[#135bec] uppercase mb-10 text-center md:text-left">
+        {/* LISTA DE MODELO DE COLABORACIÓN: Línea azul + Oscurecido al hover */}
+        <div className="mb-24">
+          <h3 className="text-[10px] font-bold tracking-[0.4em] text-slate-400 uppercase mb-8 border-b border-slate-200 pb-2">
             Modelo de Colaboración
           </h3>
-          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-8">
             {collaborationModels.map((service, index) => (
-              <li key={index} className="flex items-center space-x-4 text-slate-700 border-l-4 border-[#135bec] bg-slate-50/50 pl-5 py-4 rounded-r-xl hover:bg-[#135bec]/5 transition-all duration-300">
-                <span className="text-lg font-bold tracking-tight text-slate-800">{service}</span>
-              </li>
+              <div key={index} className="group cursor-default">
+                <span className="text-xl md:text-2xl font-light text-slate-600 tracking-tight border-l-2 border-[#135bec] pl-5 group-hover:text-slate-950 group-hover:border-slate-900 transition-all duration-300 block">
+                  {service}
+                </span>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
         
-        {/* 3. GRID DE TARJETAS DETALLADAS */}
+        {/* 3. GRID DE TARJETAS DE ESPECIALIDAD */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {specialties.map((item, idx) => (
             <div key={idx} className="group relative bg-white p-12 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col h-full">
@@ -122,7 +125,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
               </div>
 
               <div className="relative z-10 flex flex-col h-full">
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">{item.title}</h3>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4 tracking-tight">{item.title}</h3>
                 <p className="text-slate-500 leading-relaxed text-sm mb-10 flex-grow">
                   {item.description}
                 </p>
