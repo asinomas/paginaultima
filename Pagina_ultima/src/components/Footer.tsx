@@ -57,7 +57,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         {/* Barra inferior */}
         <div className="mt-16 border-t border-white/10 pt-8 text-center md:flex md:justify-between md:text-left">
           <p className="text-xs font-medium text-slate-500">
-            © {new Date().getFullYear()} BlackTI Global Consulting Group. Todos los derechos reservados.
+            © {new Date().getFullYear()} BlackTI. Todos los derechos reservados.
           </p>
           <div className="mt-4 flex justify-center gap-6 md:mt-0">
             <a className="text-xs font-medium text-slate-500 hover:text-white transition-colors" href="#">Privacidad</a>
