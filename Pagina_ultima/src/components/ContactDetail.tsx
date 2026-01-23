@@ -36,7 +36,7 @@ const ContactDetail: React.FC = () => {
             </h2>
             
             <p className="text-slate-500 text-lg mb-12 max-w-md leading-relaxed">
-              Estamos listos para transformar tus desafíos tecnológicos en ventajas competitivas. Déjanos un mensaje y te contactaremos en menos de 24 horas.
+              Estamos listos para transformar tus desafíos en ventajas competitivas. Déjanos un mensaje y te contactaremos en menos de 24 horas.
             </p>
 
             <div className="space-y-8">
