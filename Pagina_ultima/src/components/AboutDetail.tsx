@@ -125,17 +125,17 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
         </div>
       </section>
 
-      {/* SECCIÓN MAPA GLOBAL - ESTILO GRIS CLARO */}
-      <section className="bg-slate-50 py-24 border-t border-slate-200">
+      {/* SECCIÓN MAPA GLOBAL - VERSIÓN DARK ORIGINAL */}
+      <section className="bg-slate-950 py-24 border-t border-slate-900">
         <div className="container mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
               Nuestro equipo de trabajo se encuentra en las siguientes ubicaciones
             </h2>
             <div className="w-20 h-1 bg-[#135bec] rounded-full"></div>
           </div>
 
-          <div className="bg-white border border-slate-200 rounded-[3rem] overflow-hidden shadow-xl">
+          <div className="bg-slate-900/20 border border-slate-800/60 rounded-[3rem] overflow-hidden backdrop-blur-sm">
             <div className="flex flex-col lg:flex-row min-h-[600px]">
               <div className="flex-[2.5] relative p-8 min-h-[500px]">
                 <WorldMap 
@@ -144,11 +144,11 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
                 />
               </div>
 
-              <div className="flex-1 bg-white border-l border-slate-100 p-10 flex flex-col justify-between">
+              <div className="flex-1 bg-slate-900/40 border-l border-slate-800/60 p-10 flex flex-col justify-between">
                 <OfficeDetails office={selectedOffice} />
 
                 <div className="mt-12">
-                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-6">Navegar Ubicaciones</p>
+                  <p className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-6">Navegar Ubicaciones</p>
                   <div className="grid grid-cols-2 gap-2">
                     {OFFICE_LOCATIONS.map(office => (
                       <button
@@ -157,7 +157,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
                         className={`px-4 py-3 rounded-xl text-[10px] font-bold uppercase tracking-wider transition-all duration-300 ${
                           selectedOffice.id === office.id
                           ? 'bg-[#135bec] text-white shadow-lg shadow-[#135bec]/20'
-                          : 'bg-slate-100 text-slate-600 hover:text-[#135bec] hover:bg-slate-200'
+                          : 'bg-slate-800/40 text-slate-400 hover:text-white hover:bg-slate-800'
                         }`}
                       >
                         {office.city}
