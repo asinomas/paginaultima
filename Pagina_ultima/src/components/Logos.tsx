@@ -20,15 +20,26 @@ const Logos: React.FC = () => {
 
       {/* Contenedor del Carrusel */}
       <div className="relative flex overflow-hidden">
-        <div className="flex animate-infinite-scroll gap-16 items-center">
-          {/* Renderizamos dos veces para el efecto infinito */}
-          {[...logos, ...logos, ...logos].map((logo, idx) => (
-            <div key={idx} className="flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+        {/* Agregamos una máscara de desvanecimiento a los lados para que se vea más profesional */}
+        <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white to-transparent z-10"></div>
+        <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white to-transparent z-10"></div>
+
+        <div className="flex animate-infinite-scroll gap-12 items-center">
+          {/* Duplicamos los logos para el loop infinito */}
+          {[...logos, ...logos, ...logos, ...logos].map((logo, idx) => (
+            <div 
+              key={idx} 
+              className="flex-shrink-0 flex items-center justify-center grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 px-4"
+              style={{ width: '180px' }} // Esto garantiza que la distancia sea igual para todos
+            >
               <img
                 alt={logo.name}
                 className="h-8 md:h-10 w-auto object-contain"
                 src={logo.src}
-                style={{ minWidth: '120px' }}
+                onError={(e) => {
+                  // Esto evita que se vea un icono roto si el archivo no existe
+                  (e.target as HTMLImageElement).style.display = 'none';
+                }}
               />
             </div>
           ))}
@@ -38,10 +49,16 @@ const Logos: React.FC = () => {
       <style>{`
         @keyframes infinite-scroll {
           from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
+          to { transform: translateX(-33.33%); }
         }
         .animate-infinite-scroll {
-          animation: infinite-scroll 25s linear infinite;
+          display: flex;
+          width: max-content;
+          animation: infinite-scroll 40s linear infinite;
+        }
+        /* Pausar al pasar el mouse */
+        .animate-infinite-scroll:hover {
+          animation-play-state: paused;
         }
       `}</style>
     </section>
