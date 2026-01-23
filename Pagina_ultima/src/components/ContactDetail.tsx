@@ -7,9 +7,9 @@ const ContactDetail: React.FC = () => {
 
   
   // EDITAR AQUÍ EL CORREO ELECTRÓNICO
+  const EMAIL_DE_RECEPCION = "Pruebadel_Conctacto@Blackti.cl"; 
   
-  const EMAIL_DE_RECEPCION = "PruebadelContacto@Blackti.cl"; 
-  
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -27,16 +27,16 @@ const ContactDetail: React.FC = () => {
       <div className="container mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           
-          {/* COLUMNA IZQUIERDA: TÍTULO Y CONTACTO */}
+          {/* COLUMNA IZQUIERDA: TÍTULO EN TAMAÑO ORIGINAL */}
           <div className="lg:sticky lg:top-32">
-            <h2 className="text-5xl lg:text-7xl font-black text-slate-900 mb-8 tracking-tighter leading-[1.1]">
+            <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-8 tracking-tighter leading-tight">
               <span className="text-[#135bec]">Hablemos hoy</span> <br />
               diseñemos el <br />
               <span className="text-[#135bec]">futuro.</span>
             </h2>
             
             <p className="text-slate-500 text-lg mb-12 max-w-md leading-relaxed">
-              Estamos listos para transformar tus desafíos en ventajas competitivas. Déjanos un mensaje y te contactaremos en menos de 24 horas.
+              Estamos listos para transformar tus desafíos en ventajas competitivas. Déjanos un mensaje, te contactaremos en menos de 24 horas.
             </p>
 
             <div className="space-y-8">
@@ -72,12 +72,11 @@ const ContactDetail: React.FC = () => {
             </div>
           </div>
 
-          {/* COLUMNA DERECHA: FORMULARIO CLARO (RESTAURADO) */}
+          {/* COLUMNA DERECHA: FORMULARIO CLARO */}
           <div className="relative group">
-            {/* Cambiamos bg-slate-900 por bg-slate-50 para volver al estilo claro */}
             <div className="bg-slate-50 p-8 lg:p-12 rounded-[3rem] border border-slate-100 relative overflow-hidden min-h-[580px] flex flex-col justify-center shadow-sm">
               
-              {/* PANTALLA DE ÉXITO (Ahora en fondo blanco/claro) */}
+              {/* PANTALLA DE ÉXITO */}
               {isSent && (
                 <div className="absolute inset-0 bg-white/95 backdrop-blur-sm z-50 flex flex-col items-center justify-center text-center p-8 animate-[fadeIn_0.5s_ease-out]">
                   <div className="size-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-8 border border-green-200 shadow-lg shadow-green-500/10">
@@ -96,7 +95,7 @@ const ContactDetail: React.FC = () => {
                 </div>
               )}
 
-              {/* FORMULARIO CLARO */}
+              {/* FORMULARIO */}
               <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
                 <div className="space-y-2">
                   <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Nombre Completo</label>
@@ -113,7 +112,6 @@ const ContactDetail: React.FC = () => {
                   <textarea required rows={5} placeholder="¿En qué podemos ayudarte?" className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 focus:ring-2 focus:ring-[#135bec] focus:border-transparent outline-none transition-all placeholder:text-slate-300 resize-none"></textarea>
                 </div>
 
-                {/* BOTÓN AZUL (MANTENIDO) */}
                 <button 
                   type="submit" 
                   disabled={isSubmitting}
