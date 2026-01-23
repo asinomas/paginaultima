@@ -31,7 +31,8 @@ const App: React.FC = () => {
       <main className="flex-grow">
         {currentPage === 'home' && (
           <>
-            <Hero onConsultingClick={() => navigateTo('contact')} />
+            {/* Se cambió onConsultingClick por onNavigate para conectar con Hero.tsx */}
+            <Hero onNavigate={navigateTo} />
             <ServicesOverview />
             <Stats />
             <AboutPreview />
@@ -57,9 +58,10 @@ const App: React.FC = () => {
       
       <Footer onNavigate={navigateTo} />
       
+      {/* Botón Flotante del Asistente IA */}
       <button 
         onClick={() => setIsChatOpen(true)}
-        className="fixed bottom-8 right-8 z-40 bg-primary text-white size-16 rounded-full shadow-2xl shadow-primary/40 flex items-center justify-center hover:scale-110 active:scale-95 transition-all"
+        className="fixed bottom-8 right-8 z-40 bg-[#135bec] text-white size-16 rounded-full shadow-2xl shadow-[#135bec]/40 flex items-center justify-center hover:scale-110 active:scale-95 transition-all"
       >
         <span className="material-symbols-outlined !text-3xl">smart_toy</span>
       </button>
