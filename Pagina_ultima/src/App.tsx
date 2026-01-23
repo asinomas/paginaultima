@@ -11,14 +11,18 @@ import AIConsultant from './components/AIConsultant';
 import ServicesDetail from './components/ServicesDetail';
 import AboutDetail from './components/AboutDetail';
 import ContactDetail from './components/ContactDetail';
-import Privacy from './pages/privacy';
-import Terms from './pages/terms';
+
+// NUEVAS PÁGINAS
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
 
 const App: React.FC = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState<'home' | 'services' | 'about' | 'contact' | 'privacy' | 'terms'>('home');
+  const [currentPage, setCurrentPage] = useState<
+    'home' | 'services' | 'about' | 'contact' | 'privacy' | 'terms'
+  >('home');
 
-  const navigateTo = (page: 'home' | 'services' | 'about' | 'contact') => {
+  const navigateTo = (page: 'home' | 'services' | 'about' | 'contact' | 'privacy' | 'terms') => {
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -34,7 +38,6 @@ const App: React.FC = () => {
       <main className="flex-grow">
         {currentPage === 'home' && (
           <>
-            {/* Se cambió onConsultingClick por onNavigate para conectar con Hero.tsx */}
             <Hero onNavigate={navigateTo} />
             <ServicesOverview />
             <Stats />
@@ -43,26 +46,11 @@ const App: React.FC = () => {
           </>
         )}
         
-        {currentPage === 'services' && (
-          <ServicesDetail onContactClick={() => navigateTo('contact')} />
-        )}
-
-        {currentPage === 'about' && (
-          <AboutDetail 
-            onContactClick={() => navigateTo('contact')} 
-            onNavigate={navigateTo} 
-          />
-        )}
-
-        {currentPage === 'contact' && (
-          <ContactDetail />
-        )}
-
-        
-        {currentPage === 'privacy' && <Privacy onBack={() => navigateTo('home')} />}
-        {currentPage === 'terms' && <Terms onBack={() => navigateTo('home')} />} 
-
-        
+        {currentPage === 'services' && <ServicesDetail onContactClick={() => navigateTo('contact')} />}
+        {currentPage === 'about' && <AboutDetail onContactClick={() => navigateTo('contact')} onNavigate={navigateTo} />}
+        {currentPage === 'contact' && <ContactDetail />}
+        {currentPage === 'privacy' && <Privacy />}
+        {currentPage === 'terms' && <Terms />}
       </main>
       
       <Footer onNavigate={navigateTo} />
