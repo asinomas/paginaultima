@@ -17,29 +17,29 @@ const WorldMap: React.FC<WorldMapProps> = ({ onSelectOffice, selectedOfficeId })
     if (!svgRef.current) return;
 
     const width = 1000;
-    const height = 450; 
-    const svg = d3.select(svgRef.current)
+    const height = 450;
+
+    const svg = d3
+      .select(svgRef.current)
       .attr('viewBox', `0 0 ${width} ${height}`)
       .style('width', '100%')
       .style('height', 'auto');
 
     svg.selectAll('*').remove();
 
-    // Proyección Mercator con zoom (scale) y centrado estratégico
-    const projection = d3.geoMercator()
-      .scale(360) 
-      .center([-50, 5]) 
-      .translate([width / 2, height / 2]);
-
+    const projection = d3.geoMercator();
     const path = d3.geoPath().projection(projection);
     const g = svg.append('g');
 
     d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
       .then((data: any) => {
-        const countries = feature(data, data.objects.countries);
+        const countries = feature(data, data.objects.countries) as any;
+
+        // 🔥 Ajusta el mapa automáticamente al tamaño del SVG
+        projection.fitSize([width, height], countries);
 
         g.selectAll('path')
-          .data((countries as any).features)
+          .data(countries.features)
           .enter()
           .append('path')
           .attr('d', path as any)
@@ -49,26 +49,35 @@ const WorldMap: React.FC<WorldMapProps> = ({ onSelectOffice, selectedOfficeId })
           .attr('class', 'country');
 
         const headquarters = OFFICE_LOCATIONS.find(o => o.type === 'Headquarters');
+
         if (headquarters) {
           const hqCoords = projection(headquarters.coordinates as [number, number]);
-          OFFICE_LOCATIONS.filter(o => o.id !== headquarters.id).forEach(office => {
-            const officeCoords = projection(office.coordinates as [number, number]);
-            if (hqCoords && officeCoords) {
-              const dx = officeCoords[0] - hqCoords[0];
-              const dy = officeCoords[1] - hqCoords[1];
-              const dr = Math.sqrt(dx * dx + dy * dy);
-              
-              g.append('path')
-                .attr('d', `M${hqCoords[0]},${hqCoords[1]} A${dr},${dr} 0 0,1 ${officeCoords[0]},${officeCoords[1]}`)
-                .attr('fill', 'none')
-                .attr('stroke', 'rgba(59, 130, 246, 0.1)')
-                .attr('stroke-width', 1)
-                .attr('stroke-dasharray', '3,5');
-            }
-          });
+
+          OFFICE_LOCATIONS
+            .filter(o => o.id !== headquarters.id)
+            .forEach(office => {
+              const officeCoords = projection(office.coordinates as [number, number]);
+
+              if (hqCoords && officeCoords) {
+                const dx = officeCoords[0] - hqCoords[0];
+                const dy = officeCoords[1] - hqCoords[1];
+                const dr = Math.sqrt(dx * dx + dy * dy);
+
+                g.append('path')
+                  .attr(
+                    'd',
+                    `M${hqCoords[0]},${hqCoords[1]} A${dr},${dr} 0 0,1 ${officeCoords[0]},${officeCoords[1]}`
+                  )
+                  .attr('fill', 'none')
+                  .attr('stroke', 'rgba(59, 130, 246, 0.1)')
+                  .attr('stroke-width', 1)
+                  .attr('stroke-dasharray', '3,5');
+              }
+            });
         }
 
-        const markers = g.selectAll('.office-marker')
+        const markers = g
+          .selectAll('.office-marker')
           .data(OFFICE_LOCATIONS)
           .enter()
           .append('g')
@@ -78,26 +87,33 @@ const WorldMap: React.FC<WorldMapProps> = ({ onSelectOffice, selectedOfficeId })
             return p ? `translate(${p[0]}, ${p[1]})` : 'translate(0,0)';
           })
           .style('cursor', 'pointer')
-          .on('click', (event, d) => onSelectOffice(d))
-          .on('mouseenter', (event, d) => setHoveredOffice(d))
+          .on('click', (_, d) => onSelectOffice(d))
+          .on('mouseenter', (_, d) => setHoveredOffice(d))
           .on('mouseleave', () => setHoveredOffice(null));
 
-        markers.append('circle')
+        markers
+          .append('circle')
           .attr('r', 10)
-          .attr('fill', d => d.type === 'Headquarters' ? 'rgba(59, 130, 246, 0.25)' : 'rgba(148, 163, 184, 0.1)')
+          .attr('fill', d =>
+            d.type === 'Headquarters'
+              ? 'rgba(59, 130, 246, 0.25)'
+              : 'rgba(148, 163, 184, 0.1)'
+          )
           .append('animate')
           .attr('attributeName', 'r')
           .attr('values', '8;15;8')
           .attr('dur', '4s')
           .attr('repeatCount', 'indefinite');
 
-        markers.append('circle')
-          .attr('r', d => d.type === 'Headquarters' ? 5 : 4)
-          .attr('fill', d => d.type === 'Headquarters' ? '#3b82f6' : '#475569')
+        markers
+          .append('circle')
+          .attr('r', d => (d.type === 'Headquarters' ? 5 : 4))
+          .attr('fill', d => (d.type === 'Headquarters' ? '#3b82f6' : '#475569'))
           .attr('stroke', '#fff')
           .attr('stroke-width', 1.5);
 
-        markers.append('text')
+        markers
+          .append('text')
           .attr('dy', -18)
           .attr('text-anchor', 'middle')
           .attr('font-size', '11px')
@@ -114,8 +130,13 @@ const WorldMap: React.FC<WorldMapProps> = ({ onSelectOffice, selectedOfficeId })
 
   useEffect(() => {
     d3.selectAll('.office-marker .label')
-      .attr('opacity', (d: any) => (d.id === selectedOfficeId || (hoveredOffice && d.id === hoveredOffice.id)) ? 1 : 0);
-    
+      .attr('opacity', (d: any) =>
+        d.id === selectedOfficeId ||
+        (hoveredOffice && d.id === hoveredOffice.id)
+          ? 1
+          : 0
+      );
+
     d3.selectAll('.office-marker circle:last-of-type')
       .transition()
       .duration(200)
@@ -124,20 +145,33 @@ const WorldMap: React.FC<WorldMapProps> = ({ onSelectOffice, selectedOfficeId })
         if (hoveredOffice && d.id === hoveredOffice.id) return '#60a5fa';
         return d.type === 'Headquarters' ? '#3b82f6' : '#475569';
       })
-      .attr('r', (d: any) => (d.id === selectedOfficeId || (hoveredOffice && d.id === hoveredOffice.id)) ? 6.5 : (d.type === 'Headquarters' ? 5 : 4));
+      .attr(
+        'r',
+        (d: any) =>
+          d.id === selectedOfficeId ||
+          (hoveredOffice && d.id === hoveredOffice.id)
+            ? 6.5
+            : d.type === 'Headquarters'
+            ? 5
+            : 4
+      );
   }, [selectedOfficeId, hoveredOffice]);
 
   return (
     <div className="relative w-full h-full bg-slate-950/40 rounded-2xl overflow-hidden border border-slate-800 shadow-inner group">
-      <svg ref={svgRef} className="w-full h-full block min-h-[400px]"></svg>
+      <svg ref={svgRef} className="w-full h-full block min-h-[400px]" />
       <div className="absolute top-6 left-6 flex flex-col gap-2.5 pointer-events-none">
         <div className="flex items-center gap-3">
-          <div className="w-3 h-3 rounded-full bg-blue-500 border border-white/90 shadow-[0_0_8px_rgba(59,130,246,0.5)]"></div>
-          <span className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">Sede Central</span>
+          <div className="w-3 h-3 rounded-full bg-blue-500 border border-white/90 shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
+          <span className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">
+            Sede Central
+          </span>
         </div>
         <div className="flex items-center gap-3">
-          <div className="w-3 h-3 rounded-full bg-slate-600 border border-white/90"></div>
-          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Sucursales</span>
+          <div className="w-3 h-3 rounded-full bg-slate-600 border border-white/90" />
+          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+            Sucursales
+          </span>
         </div>
       </div>
     </div>
