@@ -19,30 +19,32 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
     {
       name: 'Rodrigo Ledesma',
       role: 'CEO & Founder',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+      image: 'https://media.licdn.com/dms/image/v2/C4D03AQFjeFkgTtV7SQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1605242288865?e=2147483647&v=beta&t=kEG2NEC8TI3k0RcIxQS_jpH0teun4jy6dJ4nBBbPQ4Q',
       bio: 'Experto en arquitectura de sistemas y gestión operativa, especializado en garantizar la continuidad de negocio.',
-      linkedin: 'https://linkedin.com/in/rodrigoledesma'
+      linkedin: 'https://linkedin.com/in/rodrigo-andres-ledesma-ritchie-6370aa26'
     },
     {
       name: 'Cristian Quezada',
-      role: 'Estratega IT',
-      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+      role: 'Arquitecto TI',
+      image: 'https://media.licdn.com/dms/image/v2/D4E03AQFackArDO9r-w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1731850706787?e=2147483647&v=beta&t=pb7RnSyuuSy6kA804V1ea1JGiZgErpX9weRmGcWubT0',
       bio: 'Estratega en consultoría IT con una trayectoria destacada en la dirección de proyectos complejos de transformación digital.',
-      linkedin: 'https://linkedin.com/in/cristianquezada'
+      linkedin: 'https://linkedin.com/in/cristian-quezada-00372920'
     },
     {
-      name: 'Héctor Aspée',
-      role: 'Cloud Services',
-      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      bio: 'Consultor senior especializado en servicios cloud y modernización de plataformas digitales.',
-      linkedin: 'https://linkedin.com/in/hectoraspee'
+      
+      name: 'Byron Molina',
+      role: 'Backend Developer',
+      image: 'https://media.licdn.com/dms/image/v2/D4E03AQGfN2-yY6_X9g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1715694295995?e=1743033600&v=beta&t=mB0xNAnv256lC9nN8S4qL7hO_u3o2uD_V_15n6G3_I8',
+      bio: 'Especialista FullStack en desarrollo, despliegue y mantención de aplicaciones web, BFFs, APIs y microservicios.',
+      linkedin: 'https://linkedin.com/in/bmolinh'
+}
     },
     {
       name: 'Daniela Paredes',
-      role: 'Gestión Humana',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      bio: 'Líder de gestión humana y desarrollo organizacional, enfocada en equipos técnicos de alto rendimiento.',
-      linkedin: 'https://linkedin.com/in/danielaparedes'
+      role: 'Project Management Office',
+      image: 'https://media.licdn.com/dms/image/v2/D4E03AQGs1xRRhA61Ng/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1704582678797?e=2147483647&v=beta&t=tX6zscxIOm2vlLZdMJ348i731ft-leE-nnb-S6-GRlE',
+      bio: 'Líder en planificacion, gestión y desarrollo y supervision organizacional, enfocada en equipos técnicos de alto rendimiento.',
+      linkedin: 'https://linkedin.com/in/daniela-paredes-vidal'
     }
   ];
 
