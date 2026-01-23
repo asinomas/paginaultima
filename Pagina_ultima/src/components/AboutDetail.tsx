@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Linkedin, ArrowRight } from 'lucide-react';
-import WorldMap from './WorldMap'; // Antes decía ./components/WorldMap
-import OfficeDetails from './OfficeDetails'; // Antes decía ./components/OfficeDetails
-import { OFFICE_LOCATIONS } from '../constants'; // Subimos un nivel a src
-import { OfficeLocation } from '../types'; // Subimos un nivel a src
+import WorldMap from './WorldMap'; 
+import OfficeDetails from './OfficeDetails';
+import { OFFICE_LOCATIONS } from '../constants'; // El ".." es para salir de components e ir a src
+import { OfficeLocation } from '../types';     // El ".." es para salir de components e ir a src
 
 interface AboutDetailProps {
   onContactClick: () => void;
