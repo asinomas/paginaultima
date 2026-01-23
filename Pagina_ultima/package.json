@@ -9,12 +9,13 @@
     "lint": "eslint . --ext js,jsx,ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
-"dependencies": {
+  "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "lucide-react": "^0.446.0",
     "d3": "^7.9.0",
-    "topojson-client": "^3.1.0"
+    "topojson-client": "^3.1.0",
+    "react-router-dom": "^6.17.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.56",
