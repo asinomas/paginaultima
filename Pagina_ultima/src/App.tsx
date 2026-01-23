@@ -6,6 +6,7 @@ import Stats from './components/Stats';
 import AboutPreview from './components/About';
 import Logos from './components/Logos';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 import AIConsultant from './components/AIConsultant';
 import ServicesDetail from './components/ServicesDetail';
 import AboutDetail from './components/AboutDetail';
@@ -57,6 +58,8 @@ const App: React.FC = () => {
       </main>
       
       <Footer onNavigate={navigateTo} />
+
+      <ScrollToTop /> 
       
       {/* Botón Flotante del Asistente IA */}
       <button 
