@@ -23,7 +23,7 @@ const Terms: React.FC<TermsProps> = ({ onNavigate }) => {
         <div className="text-gray-800 space-y-8">
           
           <section>
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">="text-2xl font-bold text-[#135bec] mb-4">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">
               1. Aceptación de los Términos
             </h2>
             <p className="text-justify leading-relaxed">
