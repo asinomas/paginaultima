@@ -20,11 +20,11 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
       title: 'Consultoría TI',
       description: 'Asesoramiento experto de nuestro equipo para optimizar su infraestructura y procesos tecnológicos mediante auditorías profundas.',
       details: [
-        'Auditorías completas de infraestructura tecnológica',
+        'Auditorías profundas de infraestructura',
         'Optimización de procesos y flujos de trabajo',
         'Evaluación de arquitecturas existentes',
-        'Recomendaciones estratégicas personalizadas',
-        'Plan de mejora continua y roadmap tecnológico'
+        'Recomendaciones de seguridad y escalabilidad',
+        'Plan de mejora continua'
       ]
     },
     {
@@ -32,11 +32,10 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
       title: 'Estrategia Digital',
       description: 'Transformamos su visión en resultados tangibles mediante planes de digitalización avanzados alineados con su negocio.',
       details: [
-        'Análisis de madurez digital de la organización',
-        'Diseño de roadmap de transformación digital',
-        'Definición de KPIs y métricas de éxito',
+        'Planes de digitalización estratégicos',
+        'Implementación de KPIs y métricas de éxito',
         'Gestión del cambio organizacional',
-        'Capacitación y acompañamiento continuo'
+        'Soporte en marketing digital'
       ]
     },
     {
@@ -44,11 +43,11 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
       title: 'Gestión de Proyectos',
       description: 'Ejecución precisa y eficiente de iniciativas complejas con metodologías ágiles que garantizan tiempos de entrega.',
       details: [
-        'Implementación de metodologías ágiles (Scrum, Kanban)',
-        'Gestión de equipos multidisciplinarios',
-        'Control de costos, tiempos y alcance',
+        'Implementación de metodologías Scrum, Kanban',
+        'Reporting ejecutivo',
+        'Planificación y seguimiento de proyectos',
         'Reportes ejecutivos y seguimiento continuo',
-        'Mitigación proactiva de riesgos'
+        'Coordinacion de equipos'
       ]
     },
     {
@@ -58,9 +57,8 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
       details: [
         'Auditorías de seguridad y pentesting',
         'Implementación de políticas de seguridad ISO 27001',
-        'Monitoreo 24/7 de amenazas y vulnerabilidades',
-        'Respuesta a incidentes y recuperación',
-        'Capacitación en concienciación de seguridad'
+        'Firewall y encriptación de datos',
+        'Monitoreo 24/7 y respuesta ante incidentes'
       ]
     },
     {
@@ -70,9 +68,8 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
       details: [
         'Migración a AWS, Azure, Google Cloud',
         'Arquitecturas cloud-native y serverless',
-        'Optimización de costos en la nube',
         'Implementación de DevOps y CI/CD',
-        'Monitoreo y gestión de recursos cloud'
+        'Gestión y monitoreo continuo de recursos cloud'
       ]
     },
     {
@@ -80,10 +77,10 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
       title: 'Análisis de Datos',
       description: 'Convertimos sus datos en decisiones inteligentes mediante herramientas de Business Intelligence y Big Data.',
       details: [
-        'Implementación de soluciones de BI (Power BI, Tableau)',
+        'Implementación de Business Intelligence y Big Data (Power BI, Tableau)',
         'Desarrollo de pipelines de datos ETL/ELT',
         'Análisis predictivo y machine learning',
-        'Dashboards ejecutivos y reportería avanzada',
+        'Dashboards ejecutivos y reporting',
         'Gobierno de datos y calidad de información'
       ]
     }
