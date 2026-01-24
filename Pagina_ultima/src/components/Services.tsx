@@ -87,14 +87,14 @@ const HighLevelConsulting: React.FC = () => {
             ))}
           </div>
 
-          {/* DERECHA: IMAGEN CON EFECTO BRILLO Y ZOOM */}
-          <div className="relative group">
+          {/* DERECHA: IMAGEN MÁS GRANDE, CENTRADA Y PROPORCIONAL */}
+          <div className="relative group flex justify-center">
             <div className="absolute -inset-6 bg-[#135bec]/10 blur-3xl rounded-[3rem]"></div>
-            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
+            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl w-[90%]">
               <img
                 src="/images/team-collaboration.gif"
                 alt="Equipo colaborando en sesión estratégica"
-                className="w-full h-[280px] md:h-[320px] object-contain transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-[272px] md:h-[306px] object-contain transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-slate-50/10 transition-all duration-500 group-hover:bg-slate-50/20"></div>
             </div>
