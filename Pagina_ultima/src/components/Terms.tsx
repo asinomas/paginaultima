@@ -2,7 +2,7 @@ import React from 'react';
 
 const Terms: React.FC = () => {
   return (
-    <div className="min-h-screen py-16 px-4" style={{ backgroundColor: '#060918' }}>
+    <div className="min-h-screen py-16 px-4 bg-[#0b0e14]">
       <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl p-8 md:p-12">
         
         {/* Header */}
