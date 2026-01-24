@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Terms: React.FC = () => {
+interface TermsProps {
+  onNavigate?: (page: 'home' | 'services' | 'about' | 'contact' | 'terms' | 'privacy') => void;
+}
+
+const Terms: React.FC<TermsProps> = ({ onNavigate }) => {
   return (
     <div className="min-h-screen py-16 px-4 bg-slate-50">
       <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl p-8 md:p-12">
@@ -146,6 +150,16 @@ const Terms: React.FC = () => {
             </p>
           </section>
 
+        </div>
+
+        {/* Botón para volver al inicio */}
+        <div className="text-center mt-12">
+          <button
+            onClick={() => onNavigate?.('home')}
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#135bec] text-white rounded-xl font-bold hover:scale-105 active:scale-95 transition-all shadow-lg shadow-[#135bec]/30"
+          >
+            <span>← Volver al Inicio</span>
+          </button>
         </div>
       </div>
     </div>
