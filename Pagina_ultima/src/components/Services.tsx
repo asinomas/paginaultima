@@ -1,101 +1,172 @@
 import React, { useState } from 'react';
-import { Shield, Layout, Target, ArrowRight, ChevronDown } from 'lucide-react';
+import { Terminal, Lightbulb, Network, Lock, Cloud, BarChart3, ArrowRight, ChevronDown } from 'lucide-react';
 
-const profiles = [
-  "Líder Técnico", "Scrum Master", "Dev Android", "Dev Java",
-  "BackEnd", "FrontEnd", "Fullstack", "Devops", "UX/UI",
-  "CiberSeguridad", "Mesa de Ayuda", "Python", "Dev IOS"
-];
+interface ServicesDetailProps {
+  onContactClick?: () => void;
+}
 
-const servicesData = [
-  {
-    Icon: Target,
-    title: "Consultoría Estratégica",
-    description: "Alineamos la tecnología con los objetivos de negocio para maximizar la inversión y la eficiencia operativa de su empresa.",
-    details: [
-      "Evaluamos la situación actual de la empresa, identificamos oportunidades de mejora y diseñamos un roadmap tecnológico alineado a los objetivos del negocio, enfocado en la eficiencia operativa y el retorno de inversión"
-    ]
-  },
-  {
-    Icon: Layout,
-    title: "Arquitectura de Sistemas",
-    description: "Diseñamos infraestructuras robustas y escalables preparadas para soportar el crecimiento continuo y la demanda tecnológica actual.",
-    details: [
-      "Diseño de arquitecturas cloud-native y microservicios",
-      "Integración de sistemas legacy con nuevas plataformas",
-      "Soluciones de alta disponibilidad y recuperación ante desastres",
-      "Optimización de rendimiento y escalabilidad horizontal",
-      "Documentación técnica completa y transfer de conocimiento"
-    ]
-  },
-  {
-    Icon: Shield,
-    title: "Seguridad TI",
-    description: "Protegemos sus activos digitales mediante protocolos de vanguardia, cifrado avanzado y análisis proactivo de amenazas.",
-    details: [
-      "Auditorías de seguridad y evaluación de vulnerabilidades",
-      "Implementación de políticas de seguridad y compliance",
-      "Monitoreo 24/7 y respuesta a incidentes",
-      "Cifrado de datos en tránsito y en reposo",
-      "Capacitación en concienciación de seguridad para equipos"
-    ]
-  }
-];
+const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => {} }) => {
+  const collaborationModels = [
+    "Servicio Head Hunting",
+    "Servicio Staffing",
+    "Servicio Digital Factoring",
+    "Servicio Mesa de Ayuda"
+  ];
 
-const HighLevelConsulting: React.FC = () => {
+  const specialties = [
+    {
+      icon: Terminal,
+      title: 'Consultoría TI',
+      description: 'Asesoramiento experto de nuestro equipo para optimizar su infraestructura y procesos tecnológicos mediante auditorías profundas.',
+      details: [
+        'Auditorías completas de infraestructura tecnológica',
+        'Optimización de procesos y flujos de trabajo',
+        'Evaluación de arquitecturas existentes',
+        'Recomendaciones estratégicas personalizadas',
+        'Plan de mejora continua y roadmap tecnológico'
+      ]
+    },
+    {
+      icon: Lightbulb,
+      title: 'Estrategia Digital',
+      description: 'Transformamos su visión en resultados tangibles mediante planes de digitalización avanzados alineados con su negocio.',
+      details: [
+        'Análisis de madurez digital de la organización',
+        'Diseño de roadmap de transformación digital',
+        'Definición de KPIs y métricas de éxito',
+        'Gestión del cambio organizacional',
+        'Capacitación y acompañamiento continuo'
+      ]
+    },
+    {
+      icon: Network,
+      title: 'Gestión de Proyectos',
+      description: 'Ejecución precisa y eficiente de iniciativas complejas con metodologías ágiles que garantizan tiempos de entrega.',
+      details: [
+        'Implementación de metodologías ágiles (Scrum, Kanban)',
+        'Gestión de equipos multidisciplinarios',
+        'Control de costos, tiempos y alcance',
+        'Reportes ejecutivos y seguimiento continuo',
+        'Mitigación proactiva de riesgos'
+      ]
+    },
+    {
+      icon: Lock,
+      title: 'Ciberseguridad',
+      description: 'Protección integral de sus activos digitales mediante firewalls avanzados y protocolos de encriptación de alto grado.',
+      details: [
+        'Auditorías de seguridad y pentesting',
+        'Implementación de políticas de seguridad ISO 27001',
+        'Monitoreo 24/7 de amenazas y vulnerabilidades',
+        'Respuesta a incidentes y recuperación',
+        'Capacitación en concienciación de seguridad'
+      ]
+    },
+    {
+      icon: Cloud,
+      title: 'Soluciones Cloud',
+      description: 'Migración y gestión de infraestructuras en la nube para mejorar la escalabilidad y reducir costes.',
+      details: [
+        'Migración a AWS, Azure, Google Cloud',
+        'Arquitecturas cloud-native y serverless',
+        'Optimización de costos en la nube',
+        'Implementación de DevOps y CI/CD',
+        'Monitoreo y gestión de recursos cloud'
+      ]
+    },
+    {
+      icon: BarChart3,
+      title: 'Análisis de Datos',
+      description: 'Convertimos sus datos en decisiones inteligentes mediante herramientas de Business Intelligence y Big Data.',
+      details: [
+        'Implementación de soluciones de BI (Power BI, Tableau)',
+        'Desarrollo de pipelines de datos ETL/ELT',
+        'Análisis predictivo y machine learning',
+        'Dashboards ejecutivos y reportería avanzada',
+        'Gobierno de datos y calidad de información'
+      ]
+    }
+  ];
+
   return (
-    <section className="bg-slate-50 py-24 md:py-32">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        
-        {/* PARTE SUPERIOR: Título y Perfiles */}
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-16 mb-24">
+    <div className="bg-slate-50 min-h-screen pt-24 pb-32 antialiased">
+      {/* 1. HERO SECTION */}
+      <section className="container mx-auto max-w-7xl px-6 lg:px-8 mb-24">
+        <div className="relative overflow-hidden rounded-[3rem] bg-[#0b0e14] p-12 lg:p-24 text-center lg:text-left">
+          <div className="absolute top-[-20%] right-[-10%] w-[50%] h-[50%] bg-[#135bec]/20 rounded-full blur-[100px]"></div>
           
-          <div className="max-w-xl">
-            <span className="text-[10px] font-bold tracking-[0.4em] text-[#135bec] uppercase mb-6 block">
-              Excelencia Operativa
-            </span>
-            <h3 className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-8 tracking-tight leading-[1.1]">
-              Consultoría de <br /> 
-              <span className="text-[#135bec] italic">Alto Nivel</span>
-            </h3>
-            <div className="w-16 h-1 bg-[#135bec] mb-8"></div>
-            <p className="text-lg text-slate-600 leading-relaxed">
-              En BlackTI desarrollamos una confianza a largo plazo que nos permite ser parte del cumplimiento y logro de los objetivos de nuestros clientes.
-            </p>
-          </div>
-
-          <div className="flex-1 w-full lg:max-w-xl">
-            <h4 className="text-[10px] font-bold tracking-[0.3em] text-slate-400 uppercase mb-8 border-b border-slate-200 pb-2 inline-block">
-              Perfiles Especializados
-            </h4>
+          <div className="relative z-10 flex flex-col lg:flex-row items-center gap-12">
+            <div className="lg:w-2/3">
+              <h1 className="text-4xl lg:text-7xl font-black text-white leading-tight mb-8 tracking-tighter">
+                Arquitectura <br />
+                <span className="text-[#135bec] italic drop-shadow-[0_0_15px_rgba(19,91,236,0.3)]">Sin Compromisos</span>
+              </h1>
+              <p className="text-lg lg:text-xl text-slate-400 leading-relaxed max-w-2xl mb-10">
+                Impulsando la excelencia digital a través de soluciones tecnológicas estratégicas. En BlackTI ayudamos a su empresa a escalar en el entorno moderno.
+              </p>
+              <button onClick={onContactClick} className="rounded-2xl bg-[#135bec] px-10 py-5 text-base font-bold text-white shadow-2xl shadow-[#135bec]/30 hover:scale-105 active:scale-95 transition-all">
+                Iniciar Transformación
+              </button>
+            </div>
             
-            <div className="flex flex-wrap gap-4 justify-start">
-              {profiles.map((profile, index) => (
-                <span 
-                  key={index}
-                  className="px-5 py-2.5 bg-white text-slate-500 text-[12px] font-semibold rounded-xl border border-transparent shadow-sm hover:border-[#135bec] hover:text-[#135bec] transition-all duration-300 cursor-default hover:shadow-md hover:-translate-y-1"
-                >
-                  {profile}
-                </span>
-              ))}
+            <div className="lg:w-1/3 hidden lg:block">
+              <div className="grid grid-cols-2 gap-4">
+                 <div className="h-40 bg-white/5 rounded-3xl border border-white/10 flex flex-col items-center justify-center backdrop-blur-sm">
+                    <span className="text-3xl font-black text-[#135bec]">10+</span>
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Años Exp.</span>
+                 </div>
+                 <div className="h-40 bg-white/5 rounded-3xl border border-white/10 flex flex-col items-center justify-center backdrop-blur-sm translate-y-8">
+                    <span className="text-3xl font-black text-[#135bec]">500+</span>
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Proyectos</span>
+                 </div>
+              </div>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* PARTE INFERIOR: Tarjetas con Acordeón */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {servicesData.map((service, index) => (
+      {/* 2. SECCIÓN TÉCNICA: MODELO DE COLABORACIÓN */}
+      <section className="container mx-auto max-w-7xl px-6 lg:px-8">
+        
+        {/* Cabecera Principal */}
+        <div className="mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
+           <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+             Nuestra <span className="text-[#135bec] italic">Especialización</span>
+           </h2>
+           <div className="h-0.5 flex-1 bg-slate-200 hidden md:block mx-10"></div>
+           <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">Servicios End-to-End</p>
+        </div>
+
+        {/* LISTA DE MODELO DE COLABORACIÓN */}
+        <div className="mb-24">
+          <h3 className="text-[10px] font-bold tracking-[0.4em] text-slate-400 uppercase mb-8 border-b border-slate-200 pb-2">
+            Modelo de Colaboración
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-8">
+            {collaborationModels.map((service, index) => (
+              <div key={index} className="group cursor-default">
+                <span className="text-xl md:text-2xl font-light text-slate-600 tracking-tight border-l-2 border-[#135bec] pl-5 group-hover:text-slate-950 group-hover:border-slate-900 transition-all duration-300 block">
+                  {service}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        {/* 3. GRID DE TARJETAS DE ESPECIALIDAD CON ACORDEÓN */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {specialties.map((item, idx) => (
             <ServiceCard 
-              key={index}
-              Icon={service.Icon}
-              title={service.title}
-              description={service.description}
-              details={service.details}
+              key={idx}
+              Icon={item.icon}
+              title={item.title}
+              description={item.description}
+              details={item.details}
             />
           ))}
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 
@@ -176,4 +247,4 @@ const ServiceCard = ({ Icon, title, description, details }: {
   );
 };
 
-export default HighLevelConsulting;
+export default ServicesDetail;
