@@ -4,7 +4,7 @@ import App from './App'
 import './index.css'
 import { HelmetProvider } from 'react-helmet-async'
 
-// Solo definimos rootElement UNA VEZ
+
 const rootElement = document.getElementById('root');
 
 if (rootElement) {
