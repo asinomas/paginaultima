@@ -10,7 +10,7 @@ const Terms: React.FC<TermsProps> = ({ onNavigate }) => {
       <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl p-8 md:p-12">
         
         {/* Header */}
-        <header className="text-center mb-12 pb-8 border-b-4 border-[#135bec]">
+        <header className="text-center mb-8 pb-6 border-b-4 border-[#135bec]">
           <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
             Términos y Condiciones
           </h1>
@@ -20,10 +20,10 @@ const Terms: React.FC<TermsProps> = ({ onNavigate }) => {
         </header>
 
         {/* Contenido */}
-        <div className="text-gray-800 space-y-8 text-sm">
+        <div className="text-gray-800 space-y-4 text-sm">
           
           <section>
-            <h2 className="text-xl font-bold text-slate-900 mb-4">
+            <h2 className="text-xl font-bold text-slate-900 mb-2">
               1. Aceptación de los Términos
             </h2>
             <p className="text-justify leading-relaxed">
