@@ -164,6 +164,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
               description={item.description}
               details={item.details}
               buttonText="Detalles del servicio"
+              detailsTitle=""
             />
           ))}
         </div>
