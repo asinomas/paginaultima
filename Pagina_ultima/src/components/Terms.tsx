@@ -32,7 +32,7 @@ const Terms: React.FC<TermsProps> = ({ onNavigate }) => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#135bec] mb-4">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">
               2. Descripción del Servicio
             </h2>
             <p className="text-justify leading-relaxed">
@@ -41,7 +41,7 @@ const Terms: React.FC<TermsProps> = ({ onNavigate }) => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#135bec] mb-4">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">
               3. Uso del Sitio Web
             </h2>
             <p className="text-justify leading-relaxed mb-4">
@@ -57,7 +57,7 @@ const Terms: React.FC<TermsProps> = ({ onNavigate }) => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#135bec] mb-4">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">
               4. Propiedad Intelectual
             </h2>
             <p className="text-justify leading-relaxed mb-4">
@@ -69,7 +69,7 @@ const Terms: React.FC<TermsProps> = ({ onNavigate }) => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#135bec] mb-4">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">
               5. Información y Presupuestos
             </h2>
             <p className="text-justify leading-relaxed mb-4">
@@ -83,7 +83,7 @@ const Terms: React.FC<TermsProps> = ({ onNavigate }) => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#135bec] mb-4">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">
               6. Privacidad y Protección de Datos
             </h2>
             <p className="text-justify leading-relaxed mb-4">
@@ -100,7 +100,7 @@ const Terms: React.FC<TermsProps> = ({ onNavigate }) => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#135bec] mb-4">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">
               7. Enlaces a Sitios de Terceros
             </h2>
             <p className="text-justify leading-relaxed">
@@ -109,7 +109,7 @@ const Terms: React.FC<TermsProps> = ({ onNavigate }) => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#135bec] mb-4">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">
               8. Limitación de Responsabilidad
             </h2>
             <p className="text-justify leading-relaxed mb-4">
@@ -124,7 +124,7 @@ const Terms: React.FC<TermsProps> = ({ onNavigate }) => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#135bec] mb-4">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">
               9. Modificaciones
             </h2>
             <p className="text-justify leading-relaxed">
@@ -133,7 +133,7 @@ const Terms: React.FC<TermsProps> = ({ onNavigate }) => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#135bec] mb-4">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">
               10. Ley Aplicable y Jurisdicción
             </h2>
             <p className="text-justify leading-relaxed">
@@ -142,7 +142,7 @@ const Terms: React.FC<TermsProps> = ({ onNavigate }) => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#135bec] mb-4">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">
               11. Contacto
             </h2>
             <p className="text-justify leading-relaxed">
