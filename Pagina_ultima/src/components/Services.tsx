@@ -12,7 +12,7 @@ const servicesData = [
   {
     Icon: Compass,
     title: "Visión de negocio",
-    description: "La tecnología no es el fin, es el medio. Diseñamos un roadmap alineadas a los objetivos reales de la empresa.",
+    description: "La tecnología no es el fin, es el medio. Diseñamos un roadmap alineado a los objetivos reales de la empresa.",
     details: [
       "Decisiones basadas en impacto y ROI",
       "Priorización estratégica",
