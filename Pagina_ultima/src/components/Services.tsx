@@ -1,6 +1,6 @@
 import React from 'react';
-import { Compass, Layers, Handshake } from 'lucide-react';
-import ServiceCard from './ServiceCard'; 
+import { Compass, Layers } from 'lucide-react';
+import ServiceCard from './ServiceCard'; // Importar el componente
 
 const profiles = [
   "Líder Técnico", "Scrum Master", "Dev Android", "Dev Java",
@@ -11,32 +11,22 @@ const profiles = [
 const servicesData = [
   {
     Icon: Compass,
-    title: "Visión de negocio",
-    description: "La tecnología no es el fin, es el medio. Diseñamos un roadmap alineado a los objetivos reales de la empresa.",
+    title: "Visión Estratégica",
+    description: "Alineamos la tecnología con los objetivos reales del negocio, priorizando decisiones que generen impacto y crecimiento sostenible.",
     details: [
-      "Decisiones basadas en impacto y ROI",
-      "Priorización estratégica",
-      "Comunicación ejecutiva clara"
+      "Priorización basada en impacto y ROI",
+      "Roadmap tecnológico alineado al negocio",
+      "Soporte a la toma de decisiones"
     ]
   },
   {
     Icon: Layers,
     title: "Excelencia Técnica",
-    description: "Diseñamos con altos estándares para construir soluciones robustas y escalables, preparadas para crecer en el tiempo.",
+    description: "Diseñamos soluciones tecnológicas con altos estándares de calidad, enfocadas en arquitecturas limpias, escalables y sostenibles.",
     details: [
       "Buenas prácticas y estándares",
-      "Pensamiento a largo plazo",
+      "Diseño mantenible y escalable",
       "Transferencia de conocimiento"
-    ]
-  },
-  {
-    Icon: Handshake,
-    title: "Compromiso Real",
-    description: "No somos proveedores, somos parte del equipo y asumimos responsabilidad sobre los resultados.",
-    details: [
-      "Acompañamiento continuo",
-      "Liderazgo técnico",
-      "Responsabilidad compartida"
     ]
   }
 ];
@@ -81,17 +71,35 @@ const HighLevelConsulting: React.FC = () => {
           </div>
         </div>
 
-        {/* PARTE INFERIOR: Tarjetas con Acordeón */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {servicesData.map((service, index) => (
-            <ServiceCard 
-              key={index}
-              Icon={service.Icon}
-              title={service.title}
-              description={service.description}
-              details={service.details}
-            />
-          ))}
+        {/* PARTE INFERIOR: 2 TARJETAS + IMAGEN */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+          
+          {/* IZQUIERDA: TARJETAS */}
+          <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8">
+            {servicesData.map((service, index) => (
+              <ServiceCard 
+                key={index}
+                Icon={service.Icon}
+                title={service.title}
+                description={service.description}
+                details={service.details}
+              />
+            ))}
+          </div>
+
+          {/* DERECHA: IMAGEN */}
+          <div className="relative">
+            <div className="absolute -inset-6 bg-[#135bec]/10 blur-3xl rounded-[3rem]"></div>
+            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
+              <img
+                src="/images/team-collaboration.gif"
+                alt="Equipo colaborando en sesión estratégica"
+                className="w-full h-[400px] object-cover"
+              />
+              <div className="absolute inset-0 bg-slate-900/20"></div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
