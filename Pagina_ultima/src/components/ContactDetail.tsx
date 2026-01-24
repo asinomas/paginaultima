@@ -6,7 +6,7 @@ const ContactDetail: React.FC = () => {
   const [isSent, setIsSent] = useState(false);
 
   // EDITAR AQUÍ EL CORREO ELECTRÓNICO
-  const EMAIL_DE_RECEPCION = "Contacto@Blackti.cl"; 
+  const EMAIL_DE_RECEPCION = "contacto@blackti.cl"; 
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
