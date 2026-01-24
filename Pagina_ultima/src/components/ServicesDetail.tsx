@@ -55,7 +55,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
       description: 'Protección integral de sus activos digitales mediante firewalls avanzados y protocolos de encriptación de alto grado.',
       details: [
         'Auditorías de seguridad y pentesting',
-        'Implementación de políticas de seguridad ISO 27001',
+        'Implementación de políticas de seguridad ISO 27001 y compliance',
         'Firewall y encriptación de datos',
         'Monitoreo 24/7 y respuesta ante incidentes'
       ]
