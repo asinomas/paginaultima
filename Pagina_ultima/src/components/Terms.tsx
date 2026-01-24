@@ -32,16 +32,16 @@ const Terms: React.FC<TermsProps> = ({ onNavigate }) => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">
+            <h2 className="text-sm font-bold text-slate-900 mb-1">
               2. Descripción del Servicio
             </h2>
-            <p className="text-justify leading-relaxed">
+            <p className="text-justify leading-snug">
               BlackTI es una empresa de consultoría en tecnologías de la información que ofrece servicios profesionales especializados. Este sitio web tiene fines informativos y de contacto para potenciales clientes interesados en nuestros servicios de consultoría TI.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">
+            <h2 className="text-sm font-bold text-slate-900 mb-1">
               3. Uso del Sitio Web
             </h2>
             <p className="text-justify leading-snug mb-2">
@@ -57,39 +57,39 @@ const Terms: React.FC<TermsProps> = ({ onNavigate }) => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">
+            <h2 className="text-sm font-bold text-slate-900 mb-1">
               4. Propiedad Intelectual
             </h2>
-            <p className="text-justify leading-relaxed mb-4">
+            <p className="text-justify leading-snug mb-2">
               Todo el contenido presente en este sitio web, incluyendo pero no limitado a textos, gráficos, logotipos, imágenes, clips de audio, descargas digitales y compilaciones de datos, es propiedad de BlackTI o de sus proveedores de contenido y está protegido por las leyes de propiedad intelectual aplicables.
             </p>
-            <p className="text-justify leading-relaxed">
+            <p className="text-justify leading-snug">
               Queda prohibida la reproducción, distribución, modificación o uso comercial del contenido sin autorización expresa por escrito de BlackTI.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">
+            <h2 className="text-sm font-bold text-slate-900 mb-1">
               5. Información y Presupuestos
             </h2>
-            <p className="text-justify leading-relaxed mb-4">
+            <p className="text-justify leading-snug mb-2">
               La información proporcionada en este sitio web sobre nuestros servicios de consultoría TI es de carácter general e informativo. Los presupuestos y propuestas comerciales específicas serán proporcionados de forma personalizada según las necesidades de cada cliente.
             </p>
             <div className="bg-blue-50 border-l-4 border-[#135bec] p-4 rounded">
-              <p className="font-semibold text-gray-800">
+              <p className="font-semibold text-gray-800 text-xs">
                 Importante: La información en este sitio no constituye una oferta vinculante. Todos los servicios están sujetos a disponibilidad y evaluación previa.
               </p>
             </div>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">
+            <h2 className="text-sm font-bold text-slate-900 mb-1">
               6. Privacidad y Protección de Datos
             </h2>
-            <p className="text-justify leading-relaxed mb-4">
+            <p className="text-justify leading-snug mb-2">
               BlackTI respeta su privacidad y se compromete a proteger sus datos personales. La información recopilada a través de formularios de contacto será utilizada únicamente para:
             </p>
-            <ul className="list-disc ml-8 space-y-2 text-justify">
+            <ul className="list-disc ml-8 space-y-1 text-justify">
               <li>Responder a sus consultas y solicitudes</li>
               <li>Proporcionar información sobre nuestros servicios</li>
               <li>Enviar comunicaciones relacionadas con nuestros servicios (si usted lo autoriza)</li>
@@ -100,22 +100,22 @@ const Terms: React.FC<TermsProps> = ({ onNavigate }) => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">
+            <h2 className="text-sm font-bold text-slate-900 mb-1">
               7. Enlaces a Sitios de Terceros
             </h2>
-            <p className="text-justify leading-relaxed">
+            <p className="text-justify leading-snug">
               Este sitio web puede contener enlaces a sitios web de terceros. BlackTI no se hace responsable del contenido, políticas de privacidad o prácticas de sitios web de terceros. El acceso a estos enlaces es bajo su propia responsabilidad.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">
+            <h2 className="text-sm font-bold text-slate-900 mb-1">
               8. Limitación de Responsabilidad
             </h2>
-            <p className="text-justify leading-relaxed mb-4">
+            <p className="text-justify leading-snug mb-2">
               BlackTI no será responsable por:
             </p>
-            <ul className="list-disc ml-8 space-y-2 text-justify">
+            <ul className="list-disc ml-8 space-y-1 text-justify">
               <li>Interrupciones o errores en el funcionamiento del sitio web</li>
               <li>Pérdida de datos o información transmitida a través del sitio</li>
               <li>Daños indirectos, incidentales o consecuentes derivados del uso del sitio</li>
@@ -124,28 +124,28 @@ const Terms: React.FC<TermsProps> = ({ onNavigate }) => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">
+            <h2 className="text-sm font-bold text-slate-900 mb-1">
               9. Modificaciones
             </h2>
-            <p className="text-justify leading-relaxed">
+            <p className="text-justify leading-snug">
               BlackTI se reserva el derecho de modificar estos términos y condiciones en cualquier momento. Las modificaciones entrarán en vigor inmediatamente después de su publicación en el sitio web. Es responsabilidad del usuario revisar periódicamente estos términos.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">
+            <h2 className="text-sm font-bold text-slate-900 mb-1">
               10. Ley Aplicable y Jurisdicción
             </h2>
-            <p className="text-justify leading-relaxed">
+            <p className="text-justify leading-snug">
               Estos términos y condiciones se rigen por las leyes de Chile. Cualquier disputa relacionada con estos términos será sometida a la jurisdicción exclusiva de los tribunales competentes de Santiago, Chile.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">
+            <h2 className="text-sm font-bold text-slate-900 mb-1">
               11. Contacto
             </h2>
-            <p className="text-justify leading-relaxed">
+            <p className="text-justify leading-snug">
               Si tiene alguna pregunta sobre estos Términos y Condiciones, puede contactarnos a través de los medios proporcionados en nuestro sitio web principal.
             </p>
           </section>
