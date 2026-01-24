@@ -17,6 +17,14 @@ export const OFFICE_LOCATIONS: OfficeLocation[] = [
     address: 'Av. del Libertador 602, CABA',
     type: 'Regional Office'
   },
+   {
+    id: 'lima',
+    city: 'Lima',
+    country: 'Perú',
+    coordinates: [-77.0428, -12.0464],
+    address: 'Av. Víctor Andrés Belaúnde 147, San Isidro',
+    type: 'Satellite'
+  },
   {
   id: 'bogota',
     city: 'Bogotá',
@@ -41,12 +49,5 @@ export const OFFICE_LOCATIONS: OfficeLocation[] = [
     address: 'Paseo de la Castellana 200, Madrid',
     type: 'Regional Office'
   },
-  {
-    id: 'lima',
-    city: 'Lima',
-    country: 'Perú',
-    coordinates: [-77.0428, -12.0464],
-    address: 'Av. Víctor Andrés Belaúnde 147, San Isidro',
-    type: 'Satellite'
-  }
+ 
 ];
