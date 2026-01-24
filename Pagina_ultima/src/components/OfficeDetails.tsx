@@ -36,7 +36,7 @@ const OfficeDetails: React.FC<OfficeDetailsProps> = ({ office }) => {
           <div className="mt-1 text-slate-500"><Mail size={18} /></div>
           <div>
             <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">Contacto</p>
-            <p className="text-slate-300 text-sm">soporte@blackti.cl</p>
+            <p className="text-slate-300 text-sm">contacto@blackti.cl</p>
           </div>
         </div>
       </div>
