@@ -164,7 +164,7 @@ const ServiceCard = ({ Icon, title, description, details }: {
           </h5>
           <ul className="space-y-2">
             {details.map((detail, idx) => (
-              <li key={idx} className="flex items-start text-xs text-slate-600">
+              <li key={idx} className="flex items-start text-sm text-slate-600">
                 <ArrowRight className="text-[#135bec] mr-2 mt-0.5 flex-shrink-0" size={12} />
                 <span>{detail}</span>
               </li>
