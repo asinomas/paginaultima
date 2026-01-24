@@ -14,12 +14,12 @@ import ContactDetail from './components/ContactDetail';
 
 const App: React.FC = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState<'home' | 'services' | 'about' | 'contact'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'services' | 'about' | 'contact' | 'terms' | 'privacy'>('home');
 
-  const navigateTo = (page: 'home' | 'services' | 'about' | 'contact') => {
-    setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const navigateTo = (page: 'home' | 'services' | 'about' | 'contact' | 'terms' | 'privacy') => {
+  setCurrentPage(page);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
 
   return (
     <div className="flex flex-col min-h-screen">
