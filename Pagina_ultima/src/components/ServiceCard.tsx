@@ -1,10 +1,10 @@
 const ServiceCard: React.FC<ServiceCardProps> = ({ specialty }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
   const handleToggle = () => {
-    setIsOpen(!isOpen);
-    if (!isOpen) {
+    setIsExpanded(!isExpanded);
+    if (!isExpanded) {
       setTimeout(() => {
         cardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }, 100);
@@ -12,49 +12,55 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ specialty }) => {
   };
 
   return (
-    <div ref={cardRef} className="group relative rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col">
+    <div ref={cardRef} className="relative bg-white rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500 group flex flex-col overflow-hidden">
       
-      {/* Marca de agua */}
-      <div className="absolute -top-6 -right-6 text-slate-100 group-hover:text-blue-50 transition-all duration-700 pointer-events-none z-0 group-hover:scale-125">
-        <specialty.icon size={180} strokeWidth={1} />
-      </div>
-      
-      {/* Contenido superior con fondo blanco y padding */}
-      <div className="bg-white p-12 relative z-10">
-        {/* Icono principal */}
-        <div className="mb-8 flex size-14 items-center justify-center rounded-2xl bg-slate-50 text-[#135bec] group-hover:bg-[#135bec] group-hover:text-white transition-all duration-500 shadow-sm">
-          <specialty.icon size={28} />
+      <div className="p-10">
+        {/* ICONO DE FONDO (Marca de Agua) */}
+        <div className="absolute -top-6 -right-6 text-slate-100 group-hover:text-blue-50 group-hover:scale-125 transition-all duration-700 pointer-events-none z-0">
+          <specialty.icon size={180} strokeWidth={1} />
+        </div>
+        
+        {/* Icono Principal */}
+        <div className="relative z-10 w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-8 group-hover:bg-[#135bec] transition-all duration-300">
+          <specialty.icon className="text-[#135bec] group-hover:text-white" size={24} />
         </div>
 
         {/* Contenido */}
-        <h3 className="text-2xl font-bold text-slate-900 mb-4 tracking-tight">{specialty.title}</h3>
-        <p className="text-slate-500 leading-relaxed text-sm mb-6">{specialty.description}</p>
+        <div className="relative z-10">
+          <h4 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">{specialty.title}</h4>
+          <p className="text-slate-500 leading-relaxed text-sm mb-6">
+            {specialty.description}
+          </p>
 
-        {/* Botón */}
-        <button 
-          onClick={handleToggle}
-          className="flex items-center text-[#135bec] text-[10px] font-bold uppercase tracking-[0.2em] group/btn transition-transform duration-300 hover:scale-105 origin-left w-fit"
-        >
-          <span>Detalles técnicos</span>
-          <ChevronRight 
-            className={`ml-2 transition-all duration-300 ${isOpen ? 'rotate-90' : ''}`} 
-            size={14} 
-          />
-        </button>
+          {/* Botón Saber Más */}
+          <button 
+            onClick={handleToggle}
+            className="flex items-center text-[#135bec] font-bold text-[10px] uppercase tracking-[0.2em] group/btn transition-transform duration-300 hover:scale-105 origin-left w-fit"
+          >
+            <span>Detalles técnicos</span>
+            <ChevronDown 
+              className={`ml-2 transition-all duration-300 ${isExpanded ? 'rotate-180' : ''}`} 
+              size={14} 
+            />
+          </button>
+        </div>
       </div>
 
-      {/* Acordeón - el gris llega hasta los bordes */}
+      {/* Acordeón con detalles */}
       <div 
-        className={`overflow-hidden transition-all duration-500 bg-slate-50 ${
-          isOpen ? 'max-h-96' : 'max-h-0'
+        className={`overflow-hidden transition-all duration-500 ${
+          isExpanded ? 'max-h-96' : 'max-h-0'
         }`}
       >
-        <div className="border-t border-slate-100 px-12 py-6">
-          <ul className="text-sm text-slate-500 space-y-2">
+        <div className="px-10 pb-10 pt-2 relative z-10 bg-slate-50/50 border-t border-slate-100">
+          <h5 className="text-xs font-bold text-slate-900 mb-4 uppercase tracking-wider">
+            Servicios:
+          </h5>
+          <ul className="space-y-2">
             {specialty.details.map((detail, idx) => (
-              <li key={idx} className="flex items-center">
-                <ChevronRight className="mr-2 w-3 h-3 text-[#135bec] flex-shrink-0" />
-                {detail}
+              <li key={idx} className="flex items-start text-sm text-slate-600">
+                <ChevronRight className="text-[#135bec] mr-2 mt-0.5 flex-shrink-0" size={12} />
+                <span>{detail}</span>
               </li>
             ))}
           </ul>
