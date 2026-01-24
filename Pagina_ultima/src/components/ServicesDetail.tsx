@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Terminal, Lightbulb, Network, Lock, Cloud, BarChart3, ArrowRight, ChevronRight } from 'lucide-react';
 
 interface ServicesDetailProps {
@@ -18,6 +18,14 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ specialty }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setHeight(isOpen ? contentRef.current.scrollHeight : 0);
+    }
+  }, [isOpen]);
 
   return (
     <div className="group relative bg-white p-12 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col">
@@ -51,8 +59,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ specialty }) => {
 
         {/* Contenido acordeón */}
         <div
+          ref={contentRef}
           className="overflow-hidden transition-all duration-500"
-          style={{ maxHeight: isOpen ? `${specialty.details.length * 24 + 10}px` : 0 }}
+          style={{ maxHeight: height }}
         >
           <ul className="pl-5 text-sm text-slate-500">
             {specialty.details.map((detail, idx) => (
@@ -82,9 +91,9 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
       title: 'Consultoría TI',
       description: 'Asesoramiento experto de nuestro equipo para optimizar su infraestructura y procesos tecnológicos mediante auditorías profundas.',
       details: [
-        'Auditorías completas de infraestructura',
-        'Optimización de procesos TI',
-        'Recomendaciones de seguridad'
+        'Auditorías completas de infraestructura y redes',
+        'Optimización de infraestructura',
+        'Recomendaciones de seguridad y escalabilidad'
       ]
     },
     {
@@ -92,8 +101,8 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
       title: 'Estrategia Digital',
       description: 'Transformamos su visión en resultados tangibles mediante planes de digitalización avanzados alineados con su negocio.',
       details: [
-        'Planificación de digitalización',
-        'Automatización de procesos',
+        'Planificación de digitalización estrategica',
+        'Optimización de flujos de trabajos',
         'Implementación de métricas KPI',
         'Soporte en marketing digital'
       ]
@@ -103,8 +112,9 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
       title: 'Gestión de Proyectos',
       description: 'Ejecución precisa y eficiente de iniciativas complejas con metodologías ágiles que garantizan tiempos de entrega.',
       details: [
-        'Metodologías ágiles',
-        'Gestión de riesgos',
+        'Metodologías ágiles y Scrum',
+        'Planificación y seguimiento de proyectos', 
+        'Reporting ejecutivo',
         'Coordinación de equipos'
       ]
     },
@@ -113,10 +123,10 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
       title: 'Ciberseguridad',
       description: 'Protección integral de sus activos digitales mediante firewalls avanzados y protocolos de encriptación de alto grado.',
       details: [
-        'Firewall avanzado',
-        'Monitoreo de amenazas',
-        'Encriptación de datos',
-        'Planes de contingencia'
+        'Auditorías de seguridad', 
+        'Pentesting', 
+        'Firewall y encriptación de datos', 
+        'Monitoreo y respuesta ante incidentes'
       ]
     },
     {
@@ -124,9 +134,9 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
       title: 'Soluciones Cloud',
       description: 'Migración y gestión de infraestructuras en la nube para mejorar la escalabilidad y reducir costes.',
       details: [
-        'Migración a la nube',
-        'Optimización de costos',
-        'Soporte en multi-nube'
+        'Migración y gestión de infraestructuras',
+        'Gestión y monitoreo continuo de servidores',
+        'Optimización de recursos'
       ]
     },
     {
@@ -134,9 +144,9 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
       title: 'Análisis de Datos',
       description: 'Convertimos sus datos en decisiones inteligentes mediante herramientas de Business Intelligence y Big Data.',
       details: [
-        'Integración de datos',
+        'Implementación de Business Intelligence y Big Data',
         'Dashboards personalizados',
-        'Análisis predictivo'
+        'Análisis predictivo y reporting'
       ]
     }
   ];
