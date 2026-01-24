@@ -1,6 +1,16 @@
-const ServiceCard: React.FC<ServiceCardProps> = ({ specialty }) => {
+import React, { useState } from 'react';
+import { ChevronDown } from 'lucide-react';
+
+interface ServiceCardProps {
+  Icon: any;
+  title: string;
+  description: string;
+  details: string[];
+}
+
+const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, details }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
+  const cardRef = React.useRef<HTMLDivElement>(null);
 
   const handleToggle = () => {
     setIsExpanded(!isExpanded);
@@ -12,24 +22,27 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ specialty }) => {
   };
 
   return (
-    <div ref={cardRef} className="relative bg-white rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500 group flex flex-col overflow-hidden">
+    <div 
+      ref={cardRef} 
+      className="relative bg-white rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500 group flex flex-col overflow-hidden"
+    >
       
       <div className="p-10">
         {/* ICONO DE FONDO (Marca de Agua) */}
         <div className="absolute -top-6 -right-6 text-slate-100 group-hover:text-blue-50 group-hover:scale-125 transition-all duration-700 pointer-events-none z-0">
-          <specialty.icon size={180} strokeWidth={1} />
+          <Icon size={180} strokeWidth={1} />
         </div>
         
         {/* Icono Principal */}
         <div className="relative z-10 w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-8 group-hover:bg-[#135bec] transition-all duration-300">
-          <specialty.icon className="text-[#135bec] group-hover:text-white" size={24} />
+          <Icon className="text-[#135bec] group-hover:text-white" size={24} />
         </div>
 
         {/* Contenido */}
         <div className="relative z-10">
-          <h4 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">{specialty.title}</h4>
+          <h4 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">{title}</h4>
           <p className="text-slate-500 leading-relaxed text-sm mb-6">
-            {specialty.description}
+            {description}
           </p>
 
           {/* Botón Saber Más */}
@@ -37,7 +50,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ specialty }) => {
             onClick={handleToggle}
             className="flex items-center text-[#135bec] font-bold text-[10px] uppercase tracking-[0.2em] group/btn transition-transform duration-300 hover:scale-105 origin-left w-fit"
           >
-            <span>Detalles técnicos</span>
+            <span>Saber más</span>
             <ChevronDown 
               className={`ml-2 transition-all duration-300 ${isExpanded ? 'rotate-180' : ''}`} 
               size={14} 
@@ -57,9 +70,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ specialty }) => {
             Servicios:
           </h5>
           <ul className="space-y-2">
-            {specialty.details.map((detail, idx) => (
+            {details.map((detail, idx) => (
               <li key={idx} className="flex items-start text-sm text-slate-600">
-                <ChevronRight className="text-[#135bec] mr-2 mt-0.5 flex-shrink-0" size={12} />
+                <span className="text-[#135bec] mr-2 mt-0.5 flex-shrink-0 font-bold">›</span>
                 <span>{detail}</span>
               </li>
             ))}
@@ -69,3 +82,5 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ specialty }) => {
     </div>
   );
 };
+
+export default ServiceCard;
