@@ -126,7 +126,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
         'Auditorías de seguridad', 
         'Pentesting', 
         'Firewall y encriptación de datos', 
-        'Monitoreo y respuesta ante incidentes'
+        'Monitoreo y respuesta ante incidentes',
         'Implementación de políticas de seguridad y compliance'
       ]
     },
