@@ -1,62 +1,76 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { ArrowRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 
 interface ServiceCardProps {
-  icon: React.ElementType;
+  Icon: any;
   title: string;
   description: string;
   details: string[];
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ icon: Icon, title, description, details }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const [height, setHeight] = useState<number | null>(null);
+const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, details }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const cardRef = React.useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (contentRef.current) {
-      setHeight(contentRef.current.scrollHeight);
+  const handleToggle = () => {
+    setIsExpanded(!isExpanded);
+    if (!isExpanded) {
+      setTimeout(() => {
+        cardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 100);
     }
-  }, [isOpen]);
+  };
 
   return (
-    <div className="group relative bg-white p-12 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col">
-      {/* Marca de agua */}
-      <div className="absolute -top-6 -right-6 text-slate-100 group-hover:text-blue-50 transition-all duration-700 pointer-events-none z-0 group-hover:scale-125">
-        <Icon size={180} strokeWidth={1} />
+    <div
+      ref={cardRef}
+      className="relative bg-white rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500 group flex flex-col overflow-hidden"
+    >
+      <div className="p-10">
+        {/* ICONO DE FONDO (Marca de Agua) */}
+        <div className="absolute -top-6 -right-6 text-slate-100 group-hover:text-blue-50 group-hover:scale-125 transition-all duration-700 pointer-events-none z-0">
+          <Icon size={180} strokeWidth={1} />
+        </div>
+
+        {/* Icono Principal */}
+        <div className="relative z-10 w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-8 group-hover:bg-[#135bec] transition-all duration-300">
+          <Icon className="text-[#135bec] group-hover:text-white" size={24} />
+        </div>
+
+        {/* Contenido */}
+        <div className="relative z-10">
+          <h4 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">{title}</h4>
+          <p className="text-slate-500 leading-relaxed text-sm mb-6">{description}</p>
+
+          {/* Botón Saber Más */}
+          <button
+            onClick={handleToggle}
+            className="flex items-center text-[#135bec] font-bold text-[10px] uppercase tracking-[0.2em] group/btn transition-transform duration-300 hover:scale-105 origin-left w-fit"
+          >
+            <span>Saber más</span>
+            <ChevronDown
+              className={`ml-2 transition-all duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+              size={14}
+            />
+          </button>
+        </div>
       </div>
 
-      <div className="relative z-10 mb-8 flex items-center justify-center rounded-2xl bg-slate-50 text-[#135bec] group-hover:bg-[#135bec] group-hover:text-white transition-all duration-500 shadow-sm">
-        <Icon size={28} />
-      </div>
-
-      <div className="relative z-10 flex flex-col">
-        <h3 className="text-2xl font-bold text-slate-900 mb-4 tracking-tight">{title}</h3>
-        <p className="text-slate-500 leading-relaxed text-sm mb-6">{description}</p>
-
-        {/* Botón de acordeón */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center text-[#135bec] text-[10px] font-bold uppercase tracking-[0.2em] w-fit transition-transform duration-300 hover:scale-105"
-        >
-          <span>Detalles técnicos</span>
-          <ArrowRight
-            className={`ml-2 transition-transform duration-300 ${isOpen ? 'rotate-90' : 'rotate-0'}`}
-            size={14}
-          />
-        </button>
-
-        {/* Contenedor del detalle con slide */}
-        <div
-          ref={contentRef}
-          style={{ maxHeight: isOpen ? `${height}px` : '0px' }}
-          className="overflow-hidden transition-[max-height] duration-500"
-        >
-          <ul className="mt-4 space-y-2">
+      {/* Acordeón con detalles */}
+      <div
+        className={`overflow-hidden transition-all duration-500 ${
+          isExpanded ? 'max-h-96' : 'max-h-0'
+        }`}
+      >
+        <div className="px-10 pb-10 pt-2 relative z-10 bg-slate-50/50 border-t border-slate-100">
+          <h5 className="text-xs font-bold text-slate-900 mb-4 uppercase tracking-wider">
+            Servicios:
+          </h5>
+          <ul className="space-y-2">
             {details.map((detail, idx) => (
-              <li key={idx} className="flex items-center text-slate-500 text-sm">
-                <ArrowRight className="mr-2 text-[#135bec] w-4 h-4 flex-shrink-0" />
-                {detail}
+              <li key={idx} className="flex items-start text-sm text-slate-600">
+                <ArrowRight className="text-[#135bec] mr-2 mt-0.5 flex-shrink-0" size={12} />
+                <span>{detail}</span>
               </li>
             ))}
           </ul>
