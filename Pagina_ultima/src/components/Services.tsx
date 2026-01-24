@@ -87,14 +87,14 @@ const HighLevelConsulting: React.FC = () => {
             ))}
           </div>
 
-          {/* DERECHA: IMAGEN MÁS GRANDE, CENTRADA Y PROPORCIONAL */}
+          {/* DERECHA: IMAGEN LLENANDO TODA LA TARJETA */}
           <div className="relative group flex justify-center">
             <div className="absolute -inset-6 bg-[#135bec]/10 blur-3xl rounded-[3rem]"></div>
-            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl w-[90%]">
+            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl w-full h-[360px] md:h-[400px]">
               <img
                 src="/images/team-collaboration.gif"
                 alt="Equipo colaborando en sesión estratégica"
-                className="w-full h-[272px] md:h-[306px] object-contain transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-slate-50/10 transition-all duration-500 group-hover:bg-slate-50/20"></div>
             </div>
