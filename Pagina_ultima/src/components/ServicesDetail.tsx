@@ -1,6 +1,6 @@
 import React from 'react';
 import { Terminal, Lightbulb, Network, Lock, Cloud, BarChart3 } from 'lucide-react';
-import ServiceCard from './ServiceCard'; // Asegúrate de que la ruta sea correcta
+import ServiceCard from './ServiceCard'; // Asegúrate de la ruta
 
 interface ServicesDetailProps {
   onContactClick: () => void;
@@ -18,32 +18,62 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
     {
       icon: Terminal,
       title: 'Consultoría TI',
-      description: 'Asesoramiento experto de nuestroequipo para optimizar su infraestructura y procesos tecnológicos mediante auditorías profundas.'
+      description: 'Asesoramiento experto de nuestro equipo para optimizar su infraestructura y procesos tecnológicos mediante auditorías profundas.',
+      details: [
+        'Auditorías de infraestructura tecnológica',
+        'Optimización de procesos TI',
+        'Recomendaciones de seguridad y escalabilidad'
+      ]
     },
     {
       icon: Lightbulb,
       title: 'Estrategia Digital',
-      description: 'Transformamos su visión en resultados tangibles mediante planes de digitalización avanzados alineados con su negocio.'
+      description: 'Transformamos su visión en resultados tangibles mediante planes de digitalización avanzados alineados con su negocio.',
+      details: [
+        'Planes de digitalización estratégicos',
+        'Optimización de procesos digitales',
+        'Implementación de herramientas digitales'
+      ]
     },
     {
       icon: Network,
       title: 'Gestión de Proyectos',
-      description: 'Ejecución precisa y eficiente de iniciativas complejas con metodologías ágiles que garantizan tiempos de entrega.'
+      description: 'Ejecución precisa y eficiente de iniciativas complejas con metodologías ágiles que garantizan tiempos de entrega.',
+      details: [
+        'Metodologías ágiles y Scrum',
+        'Planificación y seguimiento de proyectos',
+        'Control de riesgos y entregables'
+      ]
     },
     {
       icon: Lock,
       title: 'Ciberseguridad',
-      description: 'Protección integral de sus activos digitales mediante firewalls avanzados y protocolos de encriptación de alto grado.'
+      description: 'Protección integral de sus activos digitales mediante firewalls avanzados y protocolos de encriptación de alto grado.',
+      details: [
+        'Firewalls y protección perimetral',
+        'Encriptación de datos sensible',
+        'Monitoreo y respuesta ante incidentes'
+      ]
     },
     {
       icon: Cloud,
       title: 'Soluciones Cloud',
-      description: 'Migración y gestión de infraestructuras en la nube para mejorar la escalabilidad y reducir costes.'
+      description: 'Migración y gestión de infraestructuras en la nube para mejorar la escalabilidad y reducir costes.',
+      details: [
+        'Migración a la nube segura',
+        'Optimización de recursos cloud',
+        'Gestión y monitoreo continuo'
+      ]
     },
     {
       icon: BarChart3,
       title: 'Análisis de Datos',
-      description: 'Convertimos sus datos en decisiones inteligentes mediante herramientas de Business Intelligence y Big Data.'
+      description: 'Convertimos sus datos en decisiones inteligentes mediante herramientas de Business Intelligence y Big Data.',
+      details: [
+        'Implementación de BI y Big Data',
+        'Visualización y dashboards inteligentes',
+        'Análisis predictivo y reportes estratégicos'
+      ]
     }
   ];
 
@@ -120,7 +150,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
               icon={item.icon}
               title={item.title}
               description={item.description}
-              details={[item.description]} // Aquí puedes agregar más detalles si quieres
+              details={item.details} // ahora con detalles reales
             />
           ))}
         </div>
