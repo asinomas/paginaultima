@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Terminal, Lightbulb, Network, Lock, Cloud, BarChart3, ArrowRight, ChevronRight } from 'lucide-react';
+import { Terminal, Lightbulb, Network, Lock, Cloud, BarChart3, ChevronRight } from 'lucide-react';
 
 interface ServicesDetailProps {
   onContactClick: () => void;
@@ -63,14 +63,17 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ specialty }) => {
           className="overflow-hidden transition-all duration-500"
           style={{ maxHeight: height }}
         >
-          <ul className="pl-5 text-sm text-slate-500">
-            {specialty.details.map((detail, idx) => (
-              <li key={idx} className="flex items-center mb-1">
-                <ChevronRight className="mr-2 w-3 h-3 text-[#135bec] flex-shrink-0" />
-                {detail}
-              </li>
-            ))}
-          </ul>
+          {/* Fondo gris semi-transparente + línea superior */}
+          <div className="bg-slate-50/50 border-t border-slate-100 px-5 py-4">
+            <ul className="pl-5 text-sm text-slate-500">
+              {specialty.details.map((detail, idx) => (
+                <li key={idx} className="flex items-center mb-1">
+                  <ChevronRight className="mr-2 w-3 h-3 text-[#135bec] flex-shrink-0" />
+                  {detail}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -101,8 +104,8 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
       title: 'Estrategia Digital',
       description: 'Transformamos su visión en resultados tangibles mediante planes de digitalización avanzados alineados con su negocio.',
       details: [
-        'Planificación de digitalización estrategica',
-        'Optimización de flujos de trabajos',
+        'Planificación de digitalización estratégica',
+        'Optimización de flujos de trabajo',
         'Implementación de métricas KPI',
         'Soporte en marketing digital'
       ]
@@ -158,7 +161,6 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
       <section className="container mx-auto max-w-7xl px-6 lg:px-8 mb-24">
         <div className="relative overflow-hidden rounded-[3rem] bg-[#0b0e14] p-12 lg:p-24 text-center lg:text-left">
           <div className="absolute top-[-20%] right-[-10%] w-[50%] h-[50%] bg-[#135bec]/20 rounded-full blur-[100px]"></div>
-          
           <div className="relative z-10 flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-2/3">
               <h1 className="text-4xl lg:text-7xl font-black text-white leading-tight mb-8 tracking-tighter">
@@ -172,7 +174,6 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
                 Iniciar Transformación
               </button>
             </div>
-            
             <div className="lg:w-1/3 hidden lg:block">
               <div className="grid grid-cols-2 gap-4">
                  <div className="h-40 bg-white/5 rounded-3xl border border-white/10 flex flex-col items-center justify-center backdrop-blur-sm">
@@ -191,7 +192,6 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
 
       {/* 2. SECCIÓN TÉCNICA: MODELO DE COLABORACIÓN */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8">
-        
         {/* Cabecera Principal */}
         <div className="mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
            <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
@@ -217,7 +217,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
           </div>
         </div>
         
-        {/* 3. GRID DE TARJETAS DE ESPECIALIDAD CON MARCA DE AGUA ANIMADA */}
+        {/* 3. GRID DE TARJETAS DE ESPECIALIDAD */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {specialties.map((item, idx) => (
             <ServiceCard key={idx} specialty={item} />
