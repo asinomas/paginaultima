@@ -1,10 +1,45 @@
-import React from 'react';
-import { Shield, Layout, Target, ArrowRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { Shield, Layout, Target, ArrowRight, ChevronDown } from 'lucide-react';
 
 const profiles = [
   "Líder Técnico", "Scrum Master", "Dev Android", "Dev Java",
   "BackEnd", "FrontEnd", "Fullstack", "Devops", "UX/UI",
   "CiberSeguridad", "Mesa de Ayuda", "Python", "Dev IOS"
+];
+
+const servicesData = [
+  {
+    Icon: Target,
+    title: "Consultoría Estratégica",
+    description: "Alineamos la tecnología con los objetivos de negocio para maximizar el retorno de inversión y la eficiencia operativa de su empresa.",
+    details: [
+      "Evaluamos la situación actual de la empresa, identificamos oportunidades de mejora y diseñamos un roadmap tecnológico alineado a los objetivos del negocio, enfocado en la eficiencia operativa y el retorno de inversión."
+    ]
+  },
+  {
+    Icon: Layout,
+    title: "Arquitectura de Sistemas",
+    description: "Diseñamos infraestructuras robustas y escalables preparadas para soportar el crecimiento continuo y la demanda tecnológica actual.",
+    details: [
+      "Diseño de arquitecturas cloud-native y microservicios",
+      "Integración de sistemas legacy con nuevas plataformas",
+      "Soluciones de alta disponibilidad y recuperación ante desastres",
+      "Optimización de rendimiento y escalabilidad horizontal",
+      "Documentación técnica completa y transfer de conocimiento"
+    ]
+  },
+  {
+    Icon: Shield,
+    title: "Seguridad TI",
+    description: "Protegemos sus activos digitales mediante protocolos de vanguardia, cifrado avanzado y análisis proactivo de amenazas.",
+    details: [
+      "Auditorías de seguridad y evaluación de vulnerabilidades",
+      "Implementación de políticas de seguridad y compliance",
+      "Monitoreo 24/7 y respuesta a incidentes",
+      "Cifrado de datos en tránsito y en reposo",
+      "Capacitación en concienciación de seguridad para equipos"
+    ]
+  }
 ];
 
 const HighLevelConsulting: React.FC = () => {
@@ -47,56 +82,98 @@ const HighLevelConsulting: React.FC = () => {
           </div>
         </div>
 
-        {/* PARTE INFERIOR: Tarjetas con Marca de Agua Corregida */}
+        {/* PARTE INFERIOR: Tarjetas con Acordeón */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <ServiceCard 
-            Icon={Target} 
-            title="Consultoría Estratégica" 
-            description="Alineamos la tecnología con los objetivos de negocio para maximizar el retorno de inversión y la eficiencia operativa de su empresa." 
-          />
-          <ServiceCard 
-            Icon={Layout} 
-            title="Arquitectura de Sistemas" 
-            description="Diseñamos infraestructuras robustas y escalables preparadas para soportar el crecimiento continuo y la demanda tecnológica actual." 
-          />
-          <ServiceCard 
-            Icon={Shield} 
-            title="Seguridad TI" 
-            description="Protegemos sus activos digitales mediante protocolos de vanguardia, cifrado avanzado y análisis proactivo de amenazas." 
-          />
+          {servicesData.map((service, index) => (
+            <ServiceCard 
+              key={index}
+              Icon={service.Icon}
+              title={service.title}
+              description={service.description}
+              details={service.details}
+            />
+          ))}
         </div>
       </div>
     </section>
   );
 };
 
-const ServiceCard = ({ Icon, title, description }: { Icon: any, title: string, description: string }) => (
-  <div className="relative bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500 group flex flex-col h-full overflow-hidden">
-    
-    {/* ICONO DE FONDO (Marca de Agua) - Ahora más visible */}
-    <div className="absolute -top-6 -right-6 text-slate-100 group-hover:text-blue-50 group-hover:scale-125 transition-all duration-700 pointer-events-none z-0">
-      <Icon size={180} strokeWidth={1} />
-    </div>
-    
-    {/* Icono Principal */}
-    <div className="relative z-10 w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-8 group-hover:bg-[#135bec] transition-all duration-300">
-      <Icon className="text-[#135bec] group-hover:text-white" size={24} />
-    </div>
+const ServiceCard = ({ Icon, title, description, details }: { 
+  Icon: any, 
+  title: string, 
+  description: string,
+  details: string[]
+}) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const cardRef = React.useRef<HTMLDivElement>(null);
 
-    {/* Contenido */}
-    <div className="relative z-10 flex flex-col h-full">
-      <h4 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">{title}</h4>
-      <p className="text-slate-500 leading-relaxed text-sm mb-10 flex-grow">
-        {description}
-      </p>
+  const handleToggle = () => {
+    setIsExpanded(!isExpanded);
+    if (!isExpanded) {
+      setTimeout(() => {
+        cardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 100);
+    }
+  };
 
-      {/* Botón con efecto de agrandado y flecha móvil */}
-      <button className="flex items-center text-[#135bec] font-bold text-[10px] uppercase tracking-[0.2em] group/btn transition-transform duration-300 hover:scale-105 origin-left w-fit">
-        <span>Saber más</span>
-        <ArrowRight className="ml-2 transition-transform duration-300 group-hover/btn:translate-x-2" size={14} />
-      </button>
+  return (
+    <div ref={cardRef} className="relative bg-white rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500 group flex flex-col overflow-hidden">
+      
+      <div className="p-10">
+        {/* ICONO DE FONDO (Marca de Agua) */}
+        <div className="absolute -top-6 -right-6 text-slate-100 group-hover:text-blue-50 group-hover:scale-125 transition-all duration-700 pointer-events-none z-0">
+          <Icon size={180} strokeWidth={1} />
+        </div>
+        
+        {/* Icono Principal */}
+        <div className="relative z-10 w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-8 group-hover:bg-[#135bec] transition-all duration-300">
+          <Icon className="text-[#135bec] group-hover:text-white" size={24} />
+        </div>
+
+        {/* Contenido */}
+        <div className="relative z-10">
+          <h4 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">{title}</h4>
+          <p className="text-slate-500 leading-relaxed text-sm mb-6">
+            {description}
+          </p>
+
+          {/* Botón Saber Más */}
+          <button 
+            onClick={handleToggle}
+            className="flex items-center text-[#135bec] font-bold text-[10px] uppercase tracking-[0.2em] group/btn transition-transform duration-300 hover:scale-105 origin-left w-fit"
+          >
+            <span>Saber más</span>
+            <ChevronDown 
+              className={`ml-2 transition-all duration-300 ${isExpanded ? 'rotate-180' : ''}`} 
+              size={14} 
+            />
+          </button>
+        </div>
+      </div>
+
+      {/* Acordeón con detalles */}
+      <div 
+        className={`overflow-hidden transition-all duration-500 ${
+          isExpanded ? 'max-h-96' : 'max-h-0'
+        }`}
+      >
+        <div className="px-10 pb-10 pt-2 relative z-10 bg-slate-50/50 border-t border-slate-100">
+          <h5 className="text-xs font-bold text-slate-900 mb-4 uppercase tracking-wider">
+            Servicios incluidos:
+          </h5>
+          <ul className="space-y-2">
+            {details.map((detail, idx) => (
+              <li key={idx} className="flex items-start text-xs text-slate-600">
+                <ArrowRight className="text-[#135bec] mr-2 mt-0.5 flex-shrink-0" size={12} />
+                <span>{detail}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default HighLevelConsulting;
