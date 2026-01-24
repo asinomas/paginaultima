@@ -74,10 +74,10 @@ const ServiceCard = ({ Icon, title, description }: { Icon: any, title: string, d
   <div className="relative bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500 group flex flex-col h-full overflow-hidden">
     
     {/* ICONO DE FONDO (Marca de Agua) - Ahora más visible */}
-    <div className="absolute -top-6 -right-6 text-slate-100 group-hover:text-blue-50 group-hover:scale-110 transition-all duration-700 pointer-events-none z-0">
+    <div className="absolute -top-6 -right-6 text-slate-100 group-hover:text-blue-50 group-hover:scale-125 transition-all duration-700 pointer-events-none z-0">
       <Icon size={180} strokeWidth={1} />
     </div>
-
+    
     {/* Icono Principal */}
     <div className="relative z-10 w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-8 group-hover:bg-[#135bec] transition-all duration-300">
       <Icon className="text-[#135bec] group-hover:text-white" size={24} />
