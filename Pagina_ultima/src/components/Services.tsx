@@ -1,6 +1,6 @@
 import React from 'react';
 import { Compass, Layers, Handshake } from 'lucide-react';
-import ServiceCard from './ServiceCard'; // Importar el componente
+import ServiceCard from './ServiceCard'; 
 
 const profiles = [
   "Líder Técnico", "Scrum Master", "Dev Android", "Dev Java",
