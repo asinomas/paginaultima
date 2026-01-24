@@ -22,7 +22,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           
-          {/* Badge: Líderes en Innovación */}
+          {/* Badge: Servicio de Consultoría TI */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#135bec]/10 border border-[#135bec]/20 mb-8">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#135bec] opacity-75"></span>
