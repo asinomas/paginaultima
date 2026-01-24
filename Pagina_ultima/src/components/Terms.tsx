@@ -10,23 +10,23 @@ const Terms: React.FC<TermsProps> = ({ onNavigate }) => {
       <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl p-8 md:p-12">
         
         {/* Header */}
-        <header className="text-center mb-8 pb-6 border-b-4 border-[#135bec]">
-          <h1 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">
+        <header className="text-center mb-4 pb-3 border-b-4 border-[#135bec]">
+          <h1 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">
             Términos y Condiciones
           </h1>
-          <p className="text-gray-600 text-sm italic">
+          <p className="text-gray-600 text-xs italic">
             Última actualización: Enero 2026
           </p>
         </header>
 
         {/* Contenido */}
-        <div className="text-gray-800 space-y-4 text-sm">
+        <div className="text-gray-800 space-y-2 text-xs leading-snug">
           
           <section>
-            <h2 className="text-lg font-bold text-slate-900 mb-2">
+            <h2 className="text-base font-bold text-slate-900 mb-1">
               1. Aceptación de los Términos
             </h2>
-            <p className="text-justify leading-relaxed">
+            <p className="text-justify leading-snug">
               Bienvenido a BlackTI. Al acceder y utilizar este sitio web, usted acepta cumplir y estar sujeto a los siguientes términos y condiciones de uso. Si no está de acuerdo con alguna parte de estos términos, le recomendamos no utilizar nuestro sitio web.
             </p>
           </section>
@@ -44,10 +44,10 @@ const Terms: React.FC<TermsProps> = ({ onNavigate }) => {
             <h2 className="text-2xl font-bold text-slate-900 mb-4">
               3. Uso del Sitio Web
             </h2>
-            <p className="text-justify leading-relaxed mb-4">
+            <p className="text-justify leading-snug mb-2">
               Al utilizar este sitio web, usted se compromete a:
             </p>
-            <ul className="list-disc ml-8 space-y-2 text-justify">
+            <ul className="list-disc ml-8 space-y-1 text-justify">
               <li>Utilizar el sitio únicamente con fines legales y legítimos</li>
               <li>No intentar acceder a áreas restringidas del sitio web</li>
               <li>No transmitir material malicioso, virus o código dañino</li>
@@ -94,7 +94,7 @@ const Terms: React.FC<TermsProps> = ({ onNavigate }) => {
               <li>Proporcionar información sobre nuestros servicios</li>
               <li>Enviar comunicaciones relacionadas con nuestros servicios (si usted lo autoriza)</li>
             </ul>
-            <p className="text-justify leading-relaxed mt-4">
+            <p className="text-justify leading-snug mt-2">
               No compartiremos su información personal con terceros sin su consentimiento, excepto cuando sea requerido por ley.
             </p>
           </section>
