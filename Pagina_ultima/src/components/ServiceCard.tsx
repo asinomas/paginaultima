@@ -12,22 +12,30 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, det
   const [isExpanded, setIsExpanded] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const [contentHeight, setContentHeight] = useState(0);
+  const [maxHeight, setMaxHeight] = useState('0px');
+  const [opacity, setOpacity] = useState(0);
+
+  // Calcula altura y opacidad cuando se expande o contrae
+  useEffect(() => {
+    if (contentRef.current) {
+      if (isExpanded) {
+        setMaxHeight(`${contentRef.current.scrollHeight}px`);
+        setTimeout(() => setOpacity(1), 50); // Fade-in
+      } else {
+        setOpacity(0); // Fade-out
+        setMaxHeight('0px');
+      }
+    }
+  }, [isExpanded]);
 
   const handleToggle = () => {
     setIsExpanded(!isExpanded);
     if (!isExpanded) {
       setTimeout(() => {
         cardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }, 100);
+      }, 150);
     }
   };
-
-  useEffect(() => {
-    if (contentRef.current) {
-      setContentHeight(contentRef.current.scrollHeight);
-    }
-  }, [details, isExpanded]);
 
   return (
     <div
@@ -57,19 +65,23 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, det
           >
             <span>Saber más</span>
             <ChevronDown
-              className={`ml-2 transition-all duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+              className={`ml-2 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
               size={14}
             />
           </button>
         </div>
       </div>
 
-      {/* Acordeón con fondo gris solo en la parte que se expande */}
+      {/* Acordeón con efecto slide + fade */}
       <div
-        className="overflow-hidden transition-all duration-500 border-t border-slate-100 bg-slate-50/50"
-        style={{ maxHeight: isExpanded ? `${contentHeight}px` : '0px' }}
+        style={{ maxHeight }}
+        className="overflow-hidden transition-max-height duration-500 ease-in-out"
       >
-        <div ref={contentRef} className="px-10 py-6">
+        <div
+          ref={contentRef}
+          className="px-10 pt-2 pb-10 relative z-10 bg-slate-50/50 border-t border-slate-100 transition-opacity duration-500"
+          style={{ opacity }}
+        >
           <h5 className="text-xs font-bold text-slate-900 mb-4 uppercase tracking-wider">
             Servicios:
           </h5>
