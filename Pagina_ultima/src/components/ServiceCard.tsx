@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
 interface ServiceCardProps {
@@ -10,7 +10,9 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, details }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const cardRef = React.useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [contentHeight, setContentHeight] = useState(0);
 
   const handleToggle = () => {
     setIsExpanded(!isExpanded);
@@ -20,6 +22,12 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, det
       }, 100);
     }
   };
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setContentHeight(contentRef.current.scrollHeight);
+    }
+  }, [details, isExpanded]);
 
   return (
     <div
@@ -58,10 +66,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, det
 
       {/* Acordeón con fondo gris solo en la parte que se expande */}
       <div
-        className={`overflow-hidden transition-all duration-500 border-t border-slate-100 bg-slate-50/50`}
-        style={{ maxHeight: isExpanded ? '500px' : '0' }}
+        className="overflow-hidden transition-all duration-500 border-t border-slate-100 bg-slate-50/50"
+        style={{ maxHeight: isExpanded ? `${contentHeight}px` : '0px' }}
       >
-        <div className="px-10 py-6">
+        <div ref={contentRef} className="px-10 py-6">
           <h5 className="text-xs font-bold text-slate-900 mb-4 uppercase tracking-wider">
             Servicios:
           </h5>
