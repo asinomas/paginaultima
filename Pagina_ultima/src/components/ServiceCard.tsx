@@ -1,7 +1,7 @@
 const ServiceCard: React.FC<ServiceCardProps> = ({ specialty }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const contentRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (contentRef.current) {
@@ -11,14 +11,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ specialty }) => {
 
   return (
     <div className="group relative bg-white rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col">
-      
+
       {/* Marca de agua */}
       <div className="absolute -top-6 -right-6 text-slate-100 group-hover:text-blue-50 transition-all duration-700 pointer-events-none z-0 group-hover:scale-125">
         <specialty.icon size={180} strokeWidth={1} />
       </div>
 
       {/* Icono principal */}
-      <div className="relative z-10 mb-8 flex size-14 items-center justify-center rounded-2xl bg-slate-50 text-[#135bec] group-hover:bg-[#135bec] group-hover:text-white transition-all duration-500 shadow-sm">
+      <div className="relative z-10 mb-8 flex items-center justify-center rounded-2xl bg-slate-50 text-[#135bec] group-hover:bg-[#135bec] group-hover:text-white transition-all duration-500 shadow-sm w-14 h-14">
         <specialty.icon size={28} />
       </div>
 
@@ -40,15 +40,18 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ specialty }) => {
         </button>
       </div>
 
-      {/* Contenedor acordeón con fondo gris que rellena todo */}
+      {/* Contenedor acordeón completo con fondo gris */}
       <div
         style={{ maxHeight: height }}
-        className="overflow-hidden transition-all duration-500 bg-slate-50/50 border-t border-slate-100"
+        className="transition-all duration-500 overflow-hidden w-full"
       >
-        <div ref={contentRef} className="px-12 py-4">
-          <ul className="pl-5 text-sm text-slate-500">
+        <div
+          ref={contentRef}
+          className="bg-slate-50/50 border-t border-slate-100 px-12 py-6 w-full box-border"
+        >
+          <ul className="text-sm text-slate-500 space-y-2">
             {specialty.details.map((detail, idx) => (
-              <li key={idx} className="flex items-center mb-1">
+              <li key={idx} className="flex items-center">
                 <ChevronRight className="mr-2 w-3 h-3 text-[#135bec] flex-shrink-0" />
                 {detail}
               </li>
@@ -59,4 +62,3 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ specialty }) => {
     </div>
   );
 };
-
