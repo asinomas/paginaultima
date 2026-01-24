@@ -23,7 +23,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, det
     }
   };
 
-  // Calcula altura dinámica del contenido para expandir correctamente
   useEffect(() => {
     if (contentRef.current) {
       setMaxHeight(isExpanded ? contentRef.current.scrollHeight : 0);
@@ -35,40 +34,38 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, det
       ref={cardRef}
       className="relative bg-white rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500 group flex flex-col overflow-hidden"
     >
-      <div className="p-10">
-        {/* ICONO DE FONDO (Marca de Agua) */}
+      <div className="p-10 relative z-10">
+        {/* ICONO DE FONDO */}
         <div className="absolute -top-6 -right-6 text-slate-100 group-hover:text-blue-50 group-hover:scale-125 transition-all duration-700 pointer-events-none z-0">
           <Icon size={180} strokeWidth={1} />
         </div>
 
-        {/* Icono Principal */}
-        <div className="relative z-10 w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-8 group-hover:bg-[#135bec] transition-all duration-300">
+        {/* Icono principal */}
+        <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-8 group-hover:bg-[#135bec] transition-all duration-300">
           <Icon className="text-[#135bec] group-hover:text-white" size={24} />
         </div>
 
         {/* Contenido */}
-        <div className="relative z-10">
-          <h4 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">{title}</h4>
-          <p className="text-slate-500 leading-relaxed text-sm mb-6">{description}</p>
+        <h4 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">{title}</h4>
+        <p className="text-slate-500 leading-relaxed text-sm mb-6">{description}</p>
 
-          {/* Botón Saber Más */}
-          <button
-            onClick={handleToggle}
-            className="flex items-center text-[#135bec] font-bold text-[10px] uppercase tracking-[0.2em] group/btn transition-transform duration-300 hover:scale-105 origin-left w-fit"
-          >
-            <span>Saber más</span>
-            <ChevronDown
-              className={`ml-2 transition-all duration-300 ${isExpanded ? 'rotate-180' : ''}`}
-              size={14}
-            />
-          </button>
-        </div>
+        {/* Botón Saber Más */}
+        <button
+          onClick={handleToggle}
+          className="flex items-center text-[#135bec] font-bold text-[10px] uppercase tracking-[0.2em] group/btn transition-transform duration-300 hover:scale-105 origin-left w-fit"
+        >
+          <span>Saber más</span>
+          <ChevronDown
+            className={`ml-2 transition-all duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+            size={14}
+          />
+        </button>
       </div>
 
-      {/* Acordeón con fondo gris que cubre todo */}
+      {/* Acordeón con fondo gris que rellena todo */}
       <div
         style={{ maxHeight }}
-        className="overflow-hidden transition-[max-height] duration-500 ease-in-out bg-slate-50/50 border-t border-slate-100"
+        className={`overflow-hidden transition-[max-height] duration-500 ease-in-out bg-slate-50/50 border-t border-slate-100`}
       >
         <div ref={contentRef} className="px-10 pt-2 pb-10">
           <h5 className="text-xs font-bold text-slate-900 mb-4 uppercase tracking-wider">
