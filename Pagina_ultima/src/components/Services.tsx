@@ -35,9 +35,7 @@ const servicesData = [
     description: "No somos proveedores, somos parte del equipo y asumimos responsabilidad sobre los resultados.",
     details: [
       "Acompañamiento continuo",
-      "Implementación de políticas de seguridad y compliance",
       "Liderazgo técnico",
-      "Cifrado de datos en tránsito y en reposo",
       "Responsabilidad compartida"
     ]
   }
