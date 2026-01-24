@@ -16,7 +16,7 @@ const WorldMap: React.FC<WorldMapProps> = ({ onSelectOffice, selectedOfficeId })
   useEffect(() => {
     if (!svgRef.current) return;
 
-    // 🔥 MEDIMOS EL CONTENEDOR REAL
+    // MEDIMOS EL CONTENEDOR REAL
     const container = svgRef.current.parentElement;
     if (!container) return;
 
@@ -39,7 +39,7 @@ const WorldMap: React.FC<WorldMapProps> = ({ onSelectOffice, selectedOfficeId })
       .then((data: any) => {
         const countries = feature(data, data.objects.countries) as any;
 
-        // 🔥 SOLO LO RELEVANTE: oficinas
+        // SOLO LO RELEVANTE: oficinas
         const officeFeatures = {
           type: 'FeatureCollection',
           features: OFFICE_LOCATIONS.map(o => ({
@@ -51,7 +51,7 @@ const WorldMap: React.FC<WorldMapProps> = ({ onSelectOffice, selectedOfficeId })
           }))
         } as any;
 
-        // 🔥 ENCUADRE INTELIGENTE (sin recortes)
+        // ENCUADRE INTELIGENTE (sin recortes)
         projection.fitExtent(
           [[40, 30], [width - 40, height - 30]],
           officeFeatures
