@@ -5,7 +5,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ specialty }) => {
 
   useEffect(() => {
     if (contentRef.current) {
-      // Aumentamos el margen de altura para asegurar que todo el contenido se muestre
       setHeight(isOpen ? contentRef.current.scrollHeight + 20 : 0);
     }
   }, [isOpen]);
@@ -42,13 +41,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ specialty }) => {
         </button>
       </div>
 
-      {/* Contenido acordeón */}
+      {/* Contenido acordeón - PEGADO AL BORDE */}
       <div
-        className="transition-all duration-500 overflow-hidden"
+        className="transition-all duration-500 overflow-hidden relative z-10"
         style={{ maxHeight: `${height}px` }}
       >
-        <div ref={contentRef} className="bg-slate-50 border-t border-slate-100">
-          <div className="px-12 py-6">
+        <div ref={contentRef} className="bg-slate-50 border-t border-slate-100 -mx-0">
+          <div className="px-12 pb-12 pt-6">
             <ul className="text-sm text-slate-500 space-y-2">
               {specialty.details.map((detail, idx) => (
                 <li key={idx} className="flex items-start">
