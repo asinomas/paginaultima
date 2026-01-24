@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Terminal, Lightbulb, Network, Lock, Cloud, BarChart3, ArrowRight, ChevronDown } from 'lucide-react';
+import React from 'react';
+import { Terminal, Lightbulb, Network, Lock, Cloud, BarChart3, ArrowRight } from 'lucide-react';
 
 interface ServicesDetailProps {
   onContactClick: () => void;
@@ -17,38 +17,32 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
     {
       icon: Terminal,
       title: 'Consultoría TI',
-      description: 'Asesoramiento experto de nuestroequipo para optimizar su infraestructura y procesos tecnológicos mediante auditorías profundas.',
-      details: ['Auditorías tecnológicas', 'Optimización de procesos', 'Roadmap tecnológico']
+      description: 'Asesoramiento experto de nuestroequipo para optimizar su infraestructura y procesos tecnológicos mediante auditorías profundas.'
     },
     {
       icon: Lightbulb,
       title: 'Estrategia Digital',
-      description: 'Transformamos su visión en resultados tangibles mediante planes de digitalización avanzados alineados con su negocio.',
-      details: ['Estrategia digital', 'Transformación tecnológica', 'Innovación y adopción']
+      description: 'Transformamos su visión en resultados tangibles mediante planes de digitalización avanzados alineados con su negocio.'
     },
     {
       icon: Network,
       title: 'Gestión de Proyectos',
-      description: 'Ejecución precisa y eficiente de iniciativas complejas con metodologías ágiles que garantizan tiempos de entrega.',
-      details: ['Gestión ágil', 'Control de alcance y tiempos', 'Reporting ejecutivo']
+      description: 'Ejecución precisa y eficiente de iniciativas complejas con metodologías ágiles que garantizan tiempos de entrega.'
     },
     {
       icon: Lock,
       title: 'Ciberseguridad',
-      description: 'Protección integral de sus activos digitales mediante firewalls avanzados y protocolos de encriptación de alto grado.',
-      details: ['Auditorías de seguridad', 'Pentesting', 'Monitoreo y respuesta']
+      description: 'Protección integral de sus activos digitales mediante firewalls avanzados y protocolos de encriptación de alto grado.'
     },
     {
       icon: Cloud,
       title: 'Soluciones Cloud',
-      description: 'Migración y gestión de infraestructuras en la nube para mejorar la escalabilidad y reducir costes.',
-      details: ['Migraciones cloud', 'Arquitecturas escalables', 'Optimización de costos']
+      description: 'Migración y gestión de infraestructuras en la nube para mejorar la escalabilidad y reducir costes.'
     },
     {
       icon: BarChart3,
       title: 'Análisis de Datos',
-      description: 'Convertimos sus datos en decisiones inteligentes mediante herramientas de Business Intelligence y Big Data.',
-      details: ['Business Intelligence', 'Big Data', 'Dashboards ejecutivos']
+      description: 'Convertimos sus datos en decisiones inteligentes mediante herramientas de Business Intelligence y Big Data.'
     }
   ];
 
@@ -91,6 +85,8 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
 
       {/* 2. SECCIÓN TÉCNICA: MODELO DE COLABORACIÓN */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8">
+        
+        {/* Cabecera Principal */}
         <div className="mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
            <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
              Nuestra <span className="text-[#135bec] italic">Especialización</span>
@@ -99,6 +95,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
            <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">Servicios End-to-End</p>
         </div>
 
+        {/* LISTA DE MODELO DE COLABORACIÓN */}
         <div className="mb-24">
           <h3 className="text-[10px] font-bold tracking-[0.4em] text-slate-400 uppercase mb-8 border-b border-slate-200 pb-2">
             Modelo de Colaboración
@@ -114,53 +111,32 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
           </div>
         </div>
         
-        {/* 3. GRID DE TARJETAS CON ACORDEÓN */}
+        {/* 3. GRID DE TARJETAS DE ESPECIALIDAD CON MARCA DE AGUA ANIMADA */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {specialties.map((item, idx) => {
-            const [isExpanded, setIsExpanded] = useState(false);
-
-            return (
-              <div key={idx} className="group relative bg-white p-12 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col h-full">
-                
-                <div className="absolute -top-6 -right-6 text-slate-100 group-hover:text-blue-50 transition-all duration-700 pointer-events-none z-0 group-hover:scale-125">
-                  <item.icon size={180} strokeWidth={1} />
-                </div>
-
-                <div className="relative z-10 mb-8 flex size-14 items-center justify-center rounded-2xl bg-slate-50 text-[#135bec] group-hover:bg-[#135bec] group-hover:text-white transition-all duration-500 shadow-sm">
-                  <item.icon size={28} />
-                </div>
-
-                <div className="relative z-10 flex flex-col h-full">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-4 tracking-tight">{item.title}</h3>
-                  <p className="text-slate-500 leading-relaxed text-sm mb-6 flex-grow">
-                    {item.description}
-                  </p>
-                  
-                  <button
-                    onClick={() => setIsExpanded(!isExpanded)}
-                    className="flex items-center text-[#135bec] text-[10px] font-bold uppercase tracking-[0.2em] transition-transform duration-300 hover:scale-105 origin-left w-fit"
-                  >
-                    <span>Detalles técnicos</span>
-                    <ChevronDown
-                      className={`ml-2 transition-all duration-300 ${isExpanded ? 'rotate-180' : ''}`}
-                      size={14}
-                    />
-                  </button>
-
-                  <div className={`overflow-hidden transition-all duration-500 ${isExpanded ? 'max-h-96 mt-6' : 'max-h-0'}`}>
-                    <ul className="space-y-2 pt-4 border-t border-slate-100">
-                      {item.details.map((detail, i) => (
-                        <li key={i} className="flex items-start text-sm text-slate-600">
-                          <ArrowRight className="text-[#135bec] mr-2 mt-0.5" size={12} />
-                          <span>{detail}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
+          {specialties.map((item, idx) => (
+            <div key={idx} className="group relative bg-white p-12 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col h-full">
+              
+              {/* Marca de agua que se agranda al pasar el cursor (group-hover:scale-125) */}
+              <div className="absolute -top-6 -right-6 text-slate-100 group-hover:text-blue-50 transition-all duration-700 pointer-events-none z-0 group-hover:scale-125">
+                <item.icon size={180} strokeWidth={1} />
               </div>
-            );
-          })}
+
+              <div className="relative z-10 mb-8 flex size-14 items-center justify-center rounded-2xl bg-slate-50 text-[#135bec] group-hover:bg-[#135bec] group-hover:text-white transition-all duration-500 shadow-sm">
+                <item.icon size={28} />
+              </div>
+
+              <div className="relative z-10 flex flex-col h-full">
+                <h3 className="text-2xl font-bold text-slate-900 mb-4 tracking-tight">{item.title}</h3>
+                <p className="text-slate-500 leading-relaxed text-sm mb-10 flex-grow">
+                  {item.description}
+                </p>
+                <button className="flex items-center text-[#135bec] text-[10px] font-bold uppercase tracking-[0.2em] group/btn transition-transform duration-300 hover:scale-105 origin-left w-fit">
+                  <span>Detalles técnicos</span>
+                  <ArrowRight className="ml-2 transition-transform duration-300 group-hover/btn:translate-x-2" size={14} />
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </div>
