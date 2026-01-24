@@ -5,12 +5,12 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ specialty }) => {
 
   useEffect(() => {
     if (contentRef.current) {
-      setHeight(isOpen ? contentRef.current.scrollHeight + 20 : 0);
+      setHeight(isOpen ? contentRef.current.scrollHeight : 0);
     }
   }, [isOpen]);
 
   return (
-    <div className="group relative rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col">
+    <div className="group relative rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col bg-white">
       
       {/* Marca de agua */}
       <div className="absolute -top-6 -right-6 text-slate-100 group-hover:text-blue-50 transition-all duration-700 pointer-events-none z-0 group-hover:scale-125">
@@ -18,7 +18,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ specialty }) => {
       </div>
 
       {/* Contenido superior */}
-      <div className="p-12 relative z-10 bg-white">
+      <div className="p-12 relative z-10">
         {/* Icono principal */}
         <div className="mb-8 flex size-14 items-center justify-center rounded-2xl bg-slate-50 text-[#135bec] group-hover:bg-[#135bec] group-hover:text-white transition-all duration-500 shadow-sm">
           <specialty.icon size={28} />
@@ -41,22 +41,20 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ specialty }) => {
         </button>
       </div>
 
-      {/* Contenido acordeón - PEGADO AL BORDE */}
+      {/* Contenido acordeón - RELLENA TODO */}
       <div
-        className="transition-all duration-500 overflow-hidden relative z-10"
+        className="transition-all duration-500 overflow-hidden relative z-10 bg-slate-50"
         style={{ maxHeight: `${height}px` }}
       >
-        <div ref={contentRef} className="bg-slate-50 border-t border-slate-100 -mx-0">
-          <div className="px-12 pb-12 pt-6">
-            <ul className="text-sm text-slate-500 space-y-2">
-              {specialty.details.map((detail, idx) => (
-                <li key={idx} className="flex items-start">
-                  <ChevronRight className="mr-2 w-3 h-3 text-[#135bec] flex-shrink-0 mt-0.5" />
-                  <span>{detail}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div ref={contentRef} className="border-t border-slate-100 px-12 py-6">
+          <ul className="text-sm text-slate-500 space-y-2">
+            {specialty.details.map((detail, idx) => (
+              <li key={idx} className="flex items-start">
+                <ChevronRight className="mr-2 w-3 h-3 text-[#135bec] flex-shrink-0 mt-0.5" />
+                <span>{detail}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
