@@ -7,7 +7,7 @@ interface ServiceCardProps {
   description: string;
   details: string[];
   buttonText?: string;
-  detailsTitle?: string;    /-----*titulo del acordeon*-----/
+  detailsTitle?: string;   
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, details, buttonText = "Saber más", detailsTitle = "Servicios:" }) => {
