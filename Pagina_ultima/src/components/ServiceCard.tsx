@@ -6,9 +6,10 @@ interface ServiceCardProps {
   title: string;
   description: string;
   details: string[];
+  buttonText?: string;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, details }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, details, buttonText = "Saber más" }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const cardRef = React.useRef<HTMLDivElement>(null);
 
@@ -50,7 +51,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, det
             onClick={handleToggle}
             className="flex items-center text-[#135bec] font-bold text-[10px] uppercase tracking-[0.2em] group/btn transition-transform duration-300 hover:scale-105 origin-left w-fit"
           >
-            <span>Saber más</span>
+            <span>{buttonText}</span>
             <ChevronDown 
               className={`ml-2 transition-all duration-300 ${isExpanded ? 'rotate-180' : ''}`} 
               size={14} 
