@@ -5,7 +5,7 @@ import ServiceCard from './ServiceCard'; // Importar el componente
 const profiles = [
   "Líder Técnico", "Scrum Master", "Dev Android", "Dev Java",
   "BackEnd", "FrontEnd", "Fullstack", "Devops", "UX/UI",
-  "Ciberseguridad", "Mesa de Ayuda", "Python", "Dev IOS"
+  "CiberSeguridad", "Mesa de Ayuda", "Python", "Dev IOS"
 ];
 
 const servicesData = [
@@ -87,7 +87,7 @@ const HighLevelConsulting: React.FC = () => {
             ))}
           </div>
 
-          {/* DERECHA: IMAGEN CON 35% MÁS DE ZOOM */}
+          {/* DERECHA: IMAGEN CON EL ZOOM ACTUAL */}
           <div className="relative group flex justify-center">
             <div className="absolute -inset-6 bg-[#135bec]/10 blur-3xl rounded-[3rem]"></div>
             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl w-full h-[360px] md:h-[400px]">
