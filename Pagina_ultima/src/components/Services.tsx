@@ -11,7 +11,7 @@ const servicesData = [
   {
     Icon: Target,
     title: "Consultoría Estratégica",
-    description: "Alineamos la tecnología con los objetivos de negocio para maximizar el retorno de inversión y la eficiencia operativa de su empresa.",
+    description: "Alineamos la tecnología con los objetivos de negocio para maximizar la inversión y la eficiencia operativa de su empresa.",
     details: [
       "Evaluamos la situación actual de la empresa, identificamos oportunidades de mejora y diseñamos un roadmap tecnológico alineado a los objetivos del negocio, enfocado en la eficiencia operativa y el retorno de inversión."
     ]
@@ -160,7 +160,7 @@ const ServiceCard = ({ Icon, title, description, details }: {
       >
         <div className="px-10 pb-10 pt-2 relative z-10 bg-slate-50/50 border-t border-slate-100">
           <h5 className="text-xs font-bold text-slate-900 mb-4 uppercase tracking-wider">
-            Servicios incluidos:
+            Servicios:
           </h5>
           <ul className="space-y-2">
             {details.map((detail, idx) => (
