@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 
 interface ServiceCardProps {
@@ -10,6 +10,14 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ icon: Icon, title, description, details }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const contentRef = useRef<HTMLUListElement>(null);
+  const [height, setHeight] = useState<string>('0px');
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setHeight(isOpen ? `${contentRef.current.scrollHeight}px` : '0px');
+    }
+  }, [isOpen]);
 
   return (
     <div className="group relative bg-white p-12 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col h-full">
@@ -35,20 +43,25 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon: Icon, title, descriptio
           className="flex items-center text-[#135bec] text-[10px] font-bold uppercase tracking-[0.2em] group/btn transition-transform duration-300 hover:scale-105 origin-left w-fit mb-2"
         >
           <span>{isOpen ? 'Ocultar detalles' : 'Detalles técnicos'}</span>
-          <ArrowRight className={`ml-2 transition-transform duration-300 ${isOpen ? 'rotate-90' : ''}`} size={14} />
+          <ArrowRight
+            className={`ml-2 transition-transform duration-300 ${isOpen ? 'rotate-90' : ''}`}
+            size={14}
+          />
         </button>
 
-        {/* Contenido acordeón */}
-        {isOpen && (
-          <ul className="text-slate-500 text-sm mt-2 space-y-1">
-            {details.map((item, idx) => (
-              <li key={idx} className="flex items-start">
-                <ArrowRight size={12} className="mt-1 mr-2 text-[#135bec]" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        )}
+        {/* Contenido acordeón con slide */}
+        <ul
+          ref={contentRef}
+          style={{ maxHeight: height }}
+          className="overflow-hidden transition-max-height duration-500 ease-in-out text-slate-500 text-sm mt-2 space-y-1"
+        >
+          {details.map((item, idx) => (
+            <li key={idx} className="flex items-start">
+              <ArrowRight size={12} className="mt-1 mr-2 text-[#135bec]" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
