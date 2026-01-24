@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Layout, Target } from 'lucide-react';
+import { Compass, Layers, Handshake } from 'lucide-react';
 import ServiceCard from './ServiceCard'; // Importar el componente
 
 const profiles = [
@@ -10,35 +10,35 @@ const profiles = [
 
 const servicesData = [
   {
-    Icon: Target,
-    title: "Consultoría Estratégica",
-    description: "Alineamos la tecnología con los objetivos de negocio para maximizar la inversión y la eficiencia operativa de su empresa.",
+    Icon: Compass,
+    title: "Visión de negocio",
+    description: "La tecnología no es el fin, es el medio. Diseñamos un roadmap alineadas a los objetivos reales de la empresa.",
     details: [
-      "Evaluamos la situación actual de la empresa, identificamos oportunidades de mejora y diseñamos un roadmap tecnológico alineado a los objetivos del negocio, enfocado en la eficiencia operativa y el retorno de inversión"
+      "Decisiones basadas en impacto y ROI",
+      "Priorización estratégica",
+      "Comunicación ejecutiva clara"
     ]
   },
   {
-    Icon: Layout,
-    title: "Arquitectura de Sistemas",
-    description: "Diseñamos infraestructuras robustas y escalables preparadas para soportar el crecimiento continuo y la demanda tecnológica actual.",
+    Icon: Layers,
+    title: "Excelencia Técnica",
+    description: "Arquitecturas robustas, escalables y sostenibles que soportan crecimiento real.",
     details: [
-      "Diseño de arquitecturas cloud-native y microservicios",
-      "Integración de sistemas legacy con nuevas plataformas",
-      "Soluciones de alta disponibilidad y recuperación ante desastres",
-      "Optimización de rendimiento y escalabilidad horizontal",
-      "Documentación técnica completa y transfer de conocimiento"
+      "Buenas prácticas y estándares",
+      "Pensamiento a largo plazo",
+      "Transferencia de conocimiento"
     ]
   },
   {
-    Icon: Shield,
-    title: "Seguridad TI",
-    description: "Protegemos sus activos digitales mediante protocolos de vanguardia, cifrado avanzado y análisis proactivo de amenazas.",
+    Icon: Handshake,
+    title: "Compromiso Real",
+    description: "No somos proveedores, somos parte del equipo y asumimos responsabilidad sobre los resultados.",
     details: [
-      "Auditorías de seguridad y evaluación de vulnerabilidades",
+      "Acompañamiento continuo",
       "Implementación de políticas de seguridad y compliance",
-      "Monitoreo 24/7 y respuesta a incidentes",
+      "Liderazgo técnico",
       "Cifrado de datos en tránsito y en reposo",
-      "Capacitación en concienciación de seguridad para equipos"
+      "Responsabilidad compartida"
     ]
   }
 ];
