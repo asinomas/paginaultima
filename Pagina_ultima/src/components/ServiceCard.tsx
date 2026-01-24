@@ -29,7 +29,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon: Icon, title, descriptio
           {description}
         </p>
 
-        {/* Botón de acordeón */}
+        {/* Botón acordeón */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="flex items-center text-[#135bec] text-[10px] font-bold uppercase tracking-[0.2em] group/btn transition-transform duration-300 hover:scale-105 origin-left w-fit mb-2"
@@ -38,11 +38,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon: Icon, title, descriptio
           <ArrowRight className={`ml-2 transition-transform duration-300 ${isOpen ? 'rotate-90' : ''}`} size={14} />
         </button>
 
-        {/* Contenido del acordeón */}
+        {/* Contenido acordeón */}
         {isOpen && (
           <ul className="text-slate-500 text-sm mt-2 space-y-1">
             {details.map((item, idx) => (
-              <li key={idx}>• {item}</li>
+              <li key={idx} className="flex items-start">
+                <ArrowRight size={12} className="mt-1 mr-2 text-[#135bec]" />
+                <span>{item}</span>
+              </li>
             ))}
           </ul>
         )}
