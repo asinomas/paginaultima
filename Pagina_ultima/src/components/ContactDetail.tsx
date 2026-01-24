@@ -6,7 +6,7 @@ const ContactDetail: React.FC = () => {
   const [isSent, setIsSent] = useState(false);
 
   // EDITAR AQUÍ EL CORREO ELECTRÓNICO
-  const EMAIL_DE_RECEPCION = "contacto@blackti.cl"; 
+  const EMAIL_DE_RECEPCION = "Ccontacto@blackti.cl"; 
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -34,7 +34,7 @@ const ContactDetail: React.FC = () => {
             
             <h2 className="text-5xl lg:text-6xl font-black text-slate-900 mb-8 tracking-tighter leading-tight">
               Diseñemos el <br />
-              <span className="text-[#135bec] italic">Futuro.</span>
+              <span className="text-[#135bec] italic">Futuro</span>
             </h2>
             
             <p className="text-slate-500 text-lg mb-12 max-w-md leading-relaxed">
