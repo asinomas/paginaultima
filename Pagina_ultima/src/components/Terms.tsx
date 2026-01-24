@@ -7,7 +7,7 @@ const Terms: React.FC = () => {
         
         {/* Header */}
         <header className="text-center mb-12 pb-8 border-b-4 border-[#135bec]">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#135bec] mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
             Términos y Condiciones
           </h1>
           <p className="text-gray-600 text-sm italic">
@@ -19,7 +19,7 @@ const Terms: React.FC = () => {
         <div className="text-gray-800 space-y-8">
           
           <section>
-            <h2 className="text-2xl font-bold text-[#135bec] mb-4">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">="text-2xl font-bold text-[#135bec] mb-4">
               1. Aceptación de los Términos
             </h2>
             <p className="text-justify leading-relaxed">
