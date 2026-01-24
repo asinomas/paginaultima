@@ -7,9 +7,10 @@ interface ServiceCardProps {
   description: string;
   details: string[];
   buttonText?: string;
+  detailsTitle?: string;    /-----*titulo del acordeon*-----/
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, details, buttonText = "Saber más" }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, details, buttonText = "Saber más", detailsTitle = "Servicios:" }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const cardRef = React.useRef<HTMLDivElement>(null);
 
@@ -67,9 +68,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, det
         }`}
       >
         <div className="px-10 pb-10 pt-2 relative z-10 bg-slate-50/50 border-t border-slate-100">
-          <h5 className="text-xs font-bold text-slate-900 mb-4 uppercase tracking-wider">
-            Servicios:
-          </h5>
+          {detailsTitle && (
+            <h5 className="text-xs font-bold text-slate-900 mb-4 uppercase tracking-wider">
+              {detailsTitle}
+            </h5>
+          )}
           <ul className="space-y-2">
             {details.map((detail, idx) => (
               <li key={idx} className="flex items-start text-sm text-slate-600">
