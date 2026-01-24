@@ -52,6 +52,13 @@ const App: React.FC = () => {
         )}
 
         {currentPage === 'contact' && <ContactDetail />}
+
+
+       {currentPage === 'terms' && <Terms />}
+      {currentPage === 'privacy' && <Privacy />} 
+        
+
+        
       </main>
 
       <Footer onNavigate={navigateTo} />
