@@ -5,12 +5,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ specialty }) => {
 
   useEffect(() => {
     if (contentRef.current) {
-      setHeight(isOpen ? contentRef.current.scrollHeight : 0);
+      // Aumentamos el margen de altura para asegurar que todo el contenido se muestre
+      setHeight(isOpen ? contentRef.current.scrollHeight + 20 : 0);
     }
   }, [isOpen]);
 
   return (
-    <div className="group relative rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col bg-white">
+    <div className="group relative rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col">
       
       {/* Marca de agua */}
       <div className="absolute -top-6 -right-6 text-slate-100 group-hover:text-blue-50 transition-all duration-700 pointer-events-none z-0 group-hover:scale-125">
@@ -41,13 +42,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ specialty }) => {
         </button>
       </div>
 
-      {/* Contenido acordeón - Sin márgenes ni padding externo */}
+      {/* Contenido acordeón */}
       <div
-        className="transition-all duration-500 relative z-10 w-full"
-        style={{ maxHeight: height, overflow: 'hidden' }}
+        className="transition-all duration-500 overflow-hidden"
+        style={{ maxHeight: `${height}px` }}
       >
-        <div ref={contentRef} className="w-full">
-          <div className="bg-slate-50 border-t border-slate-100 px-12 py-6 w-full">
+        <div ref={contentRef} className="bg-slate-50 border-t border-slate-100">
+          <div className="px-12 py-6">
             <ul className="text-sm text-slate-500 space-y-2">
               {specialty.details.map((detail, idx) => (
                 <li key={idx} className="flex items-start">
