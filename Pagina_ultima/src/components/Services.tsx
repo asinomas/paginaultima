@@ -94,7 +94,7 @@ const HighLevelConsulting: React.FC = () => {
               <img
                 src="/images/team-collaboration.gif"
                 alt="Equipo colaborando en sesión estratégica"
-                className="w-full h-[320px] md:h-[360px] object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-[280px] md:h-[320px] object-contain transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-slate-50/10 transition-all duration-500 group-hover:bg-slate-50/20"></div>
             </div>
