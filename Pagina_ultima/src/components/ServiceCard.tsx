@@ -13,11 +13,27 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon: Icon, title, descriptio
   const contentRef = useRef<HTMLUListElement>(null);
   const [height, setHeight] = useState<string>('0px');
 
-  useEffect(() => {
+  // Función para actualizar la altura según contenido real
+  const updateHeight = () => {
     if (contentRef.current) {
       setHeight(isOpen ? `${contentRef.current.scrollHeight}px` : '0px');
     }
+  };
+
+  // Actualiza altura al abrir/cerrar
+  useEffect(() => {
+    updateHeight();
   }, [isOpen]);
+
+  // Observa cambios en el contenido interno para animar correctamente
+  useEffect(() => {
+    if (!contentRef.current) return;
+    const resizeObserver = new ResizeObserver(() => {
+      updateHeight();
+    });
+    resizeObserver.observe(contentRef.current);
+    return () => resizeObserver.disconnect();
+  }, [contentRef.current, isOpen]);
 
   return (
     <div className="group relative bg-white p-12 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col h-full">
@@ -53,7 +69,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon: Icon, title, descriptio
         <ul
           ref={contentRef}
           style={{ maxHeight: height }}
-          className="overflow-hidden transition-max-height duration-500 ease-in-out text-slate-500 text-sm mt-2 space-y-1"
+          className="overflow-hidden transition-[max-height] duration-500 ease-in-out text-slate-500 text-sm mt-2 space-y-1"
         >
           {details.map((item, idx) => (
             <li key={idx} className="flex items-start">
