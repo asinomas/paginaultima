@@ -17,7 +17,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
     {
       icon: Terminal,
       title: 'Consultoría TI',
-      description: 'Asesoramiento experto de BlackTI para optimizar su infraestructura y procesos tecnológicos mediante auditorías profundas.'
+      description: 'Asesoramiento experto de nuestroequipo para optimizar su infraestructura y procesos tecnológicos mediante auditorías profundas.'
     },
     {
       icon: Lightbulb,
