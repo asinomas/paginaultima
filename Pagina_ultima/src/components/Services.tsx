@@ -22,7 +22,7 @@ const servicesData = [
   {
     Icon: Layers,
     title: "Excelencia Técnica",
-    description: "Arquitecturas robustas, escalables y sostenibles que soportan crecimiento real.",
+    description: "Diseñamos con altos estandares para construir soluciones robustas, escalables y mantenibles, preparadas para crecer en el tiempo.",
     details: [
       "Buenas prácticas y estándares",
       "Pensamiento a largo plazo",
