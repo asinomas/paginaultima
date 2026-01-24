@@ -11,6 +11,11 @@ import AIConsultant from './components/AIConsultant';
 import ServicesDetail from './components/ServicesDetail';
 import AboutDetail from './components/AboutDetail';
 import ContactDetail from './components/ContactDetail';
+import Terms from './components/Terms';
+import Privacy from './components/Privacy';
+
+
+
 
 const App: React.FC = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
