@@ -80,7 +80,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
         'Implementación de Business Intelligence y Big Data (Power BI, Tableau)',
         'Desarrollo de pipelines de datos ETL/ELT',
         'Análisis predictivo y machine learning',
-        'Dashboards ejecutivos y reporting',
+        'Dashboards ejecutivos',
         'Gobierno de datos y calidad de información'
       ]
     }
