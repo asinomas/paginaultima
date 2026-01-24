@@ -1,86 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Terminal, Lightbulb, Network, Lock, Cloud, BarChart3, ChevronRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { Terminal, Lightbulb, Network, Lock, Cloud, BarChart3, ArrowRight, ChevronDown } from 'lucide-react';
 
 interface ServicesDetailProps {
-  onContactClick: () => void;
+  onContactClick?: () => void;
 }
 
-interface Specialty {
-  icon: React.ElementType;
-  title: string;
-  description: string;
-  details: string[];
-}
-
-interface ServiceCardProps {
-  specialty: Specialty;
-}
-
-const ServiceCard: React.FC<ServiceCardProps> = ({ specialty }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const [height, setHeight] = useState(0);
-
-  useEffect(() => {
-    if (contentRef.current) {
-      setHeight(isOpen ? contentRef.current.scrollHeight : 0);
-    }
-  }, [isOpen]);
-
-  return (
-    <div className="group relative bg-white p-12 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col">
-      
-      {/* Marca de agua */}
-      <div className="absolute -top-6 -right-6 text-slate-100 group-hover:text-blue-50 transition-all duration-700 pointer-events-none z-0 group-hover:scale-125">
-        <specialty.icon size={180} strokeWidth={1} />
-      </div>
-
-      {/* Icono principal */}
-      <div className="relative z-10 mb-8 flex size-14 items-center justify-center rounded-2xl bg-slate-50 text-[#135bec] group-hover:bg-[#135bec] group-hover:text-white transition-all duration-500 shadow-sm">
-        <specialty.icon size={28} />
-      </div>
-
-      {/* Título y descripción */}
-      <div className="relative z-10 flex flex-col">
-        <h3 className="text-2xl font-bold text-slate-900 mb-4 tracking-tight">{specialty.title}</h3>
-        <p className="text-slate-500 leading-relaxed text-sm mb-4">{specialty.description}</p>
-
-        {/* Botón acordeón */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center text-[#135bec] text-[10px] font-bold uppercase tracking-[0.2em] group/btn transition-transform duration-300 hover:scale-105 origin-left w-fit mb-4"
-        >
-          <span>Detalles técnicos</span>
-          <ChevronRight
-            className={`ml-2 transition-transform duration-300 ${isOpen ? 'rotate-90' : ''}`}
-            size={14}
-          />
-        </button>
-
-        {/* Contenido acordeón */}
-        <div
-          ref={contentRef}
-          className="overflow-hidden transition-all duration-500"
-          style={{ maxHeight: height }}
-        >
-          {/* Fondo gris semi-transparente + línea superior */}
-          <div className="bg-slate-50/50 border-t border-slate-100 px-5 py-4">
-            <ul className="pl-5 text-sm text-slate-500">
-              {specialty.details.map((detail, idx) => (
-                <li key={idx} className="flex items-center mb-1">
-                  <ChevronRight className="mr-2 w-3 h-3 text-[#135bec] flex-shrink-0" />
-                  {detail}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
+const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => {} }) => {
   const collaborationModels = [
     "Servicio Head Hunting",
     "Servicio Staffing",
@@ -88,15 +13,17 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
     "Servicio Mesa de Ayuda"
   ];
 
-  const specialties: Specialty[] = [
+  const specialties = [
     {
       icon: Terminal,
       title: 'Consultoría TI',
       description: 'Asesoramiento experto de nuestro equipo para optimizar su infraestructura y procesos tecnológicos mediante auditorías profundas.',
       details: [
-        'Auditorías completas de infraestructura y redes',
-        'Optimización de infraestructura',
-        'Recomendaciones de seguridad y escalabilidad'
+        'Auditorías completas de infraestructura tecnológica',
+        'Optimización de procesos y flujos de trabajo',
+        'Evaluación de arquitecturas existentes',
+        'Recomendaciones estratégicas personalizadas',
+        'Plan de mejora continua y roadmap tecnológico'
       ]
     },
     {
@@ -104,10 +31,11 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
       title: 'Estrategia Digital',
       description: 'Transformamos su visión en resultados tangibles mediante planes de digitalización avanzados alineados con su negocio.',
       details: [
-        'Planificación de digitalización estratégica',
-        'Optimización de flujos de trabajo',
-        'Implementación de métricas KPI',
-        'Soporte en marketing digital'
+        'Análisis de madurez digital de la organización',
+        'Diseño de roadmap de transformación digital',
+        'Definición de KPIs y métricas de éxito',
+        'Gestión del cambio organizacional',
+        'Capacitación y acompañamiento continuo'
       ]
     },
     {
@@ -115,10 +43,11 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
       title: 'Gestión de Proyectos',
       description: 'Ejecución precisa y eficiente de iniciativas complejas con metodologías ágiles que garantizan tiempos de entrega.',
       details: [
-        'Metodologías ágiles y Scrum',
-        'Planificación y seguimiento de proyectos', 
-        'Reporting ejecutivo',
-        'Coordinación de equipos'
+        'Implementación de metodologías ágiles (Scrum, Kanban)',
+        'Gestión de equipos multidisciplinarios',
+        'Control de costos, tiempos y alcance',
+        'Reportes ejecutivos y seguimiento continuo',
+        'Mitigación proactiva de riesgos'
       ]
     },
     {
@@ -126,11 +55,11 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
       title: 'Ciberseguridad',
       description: 'Protección integral de sus activos digitales mediante firewalls avanzados y protocolos de encriptación de alto grado.',
       details: [
-        'Auditorías de seguridad', 
-        'Pentesting', 
-        'Firewall y encriptación de datos', 
-        'Monitoreo y respuesta ante incidentes',
-        'Implementación de políticas de seguridad y compliance'
+        'Auditorías de seguridad y pentesting',
+        'Implementación de políticas de seguridad ISO 27001',
+        'Monitoreo 24/7 de amenazas y vulnerabilidades',
+        'Respuesta a incidentes y recuperación',
+        'Capacitación en concienciación de seguridad'
       ]
     },
     {
@@ -138,9 +67,11 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
       title: 'Soluciones Cloud',
       description: 'Migración y gestión de infraestructuras en la nube para mejorar la escalabilidad y reducir costes.',
       details: [
-        'Migración y gestión de infraestructuras',
-        'Gestión y monitoreo continuo de servidores',
-        'Optimización de recursos'
+        'Migración a AWS, Azure, Google Cloud',
+        'Arquitecturas cloud-native y serverless',
+        'Optimización de costos en la nube',
+        'Implementación de DevOps y CI/CD',
+        'Monitoreo y gestión de recursos cloud'
       ]
     },
     {
@@ -148,9 +79,11 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
       title: 'Análisis de Datos',
       description: 'Convertimos sus datos en decisiones inteligentes mediante herramientas de Business Intelligence y Big Data.',
       details: [
-        'Implementación de Business Intelligence y Big Data',
-        'Dashboards personalizados',
-        'Análisis predictivo y reporting'
+        'Implementación de soluciones de BI (Power BI, Tableau)',
+        'Desarrollo de pipelines de datos ETL/ELT',
+        'Análisis predictivo y machine learning',
+        'Dashboards ejecutivos y reportería avanzada',
+        'Gobierno de datos y calidad de información'
       ]
     }
   ];
@@ -161,6 +94,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
       <section className="container mx-auto max-w-7xl px-6 lg:px-8 mb-24">
         <div className="relative overflow-hidden rounded-[3rem] bg-[#0b0e14] p-12 lg:p-24 text-center lg:text-left">
           <div className="absolute top-[-20%] right-[-10%] w-[50%] h-[50%] bg-[#135bec]/20 rounded-full blur-[100px]"></div>
+          
           <div className="relative z-10 flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-2/3">
               <h1 className="text-4xl lg:text-7xl font-black text-white leading-tight mb-8 tracking-tighter">
@@ -174,6 +108,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
                 Iniciar Transformación
               </button>
             </div>
+            
             <div className="lg:w-1/3 hidden lg:block">
               <div className="grid grid-cols-2 gap-4">
                  <div className="h-40 bg-white/5 rounded-3xl border border-white/10 flex flex-col items-center justify-center backdrop-blur-sm">
@@ -192,6 +127,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
 
       {/* 2. SECCIÓN TÉCNICA: MODELO DE COLABORACIÓN */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8">
+        
         {/* Cabecera Principal */}
         <div className="mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
            <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
@@ -217,13 +153,96 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick }) => {
           </div>
         </div>
         
-        {/* 3. GRID DE TARJETAS DE ESPECIALIDAD */}
+        {/* 3. GRID DE TARJETAS DE ESPECIALIDAD CON ACORDEÓN */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {specialties.map((item, idx) => (
-            <ServiceCard key={idx} specialty={item} />
+            <ServiceCard 
+              key={idx}
+              Icon={item.icon}
+              title={item.title}
+              description={item.description}
+              details={item.details}
+            />
           ))}
         </div>
       </section>
+    </div>
+  );
+};
+
+const ServiceCard = ({ Icon, title, description, details }: { 
+  Icon: any, 
+  title: string, 
+  description: string,
+  details: string[]
+}) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const cardRef = React.useRef<HTMLDivElement>(null);
+
+  const handleToggle = () => {
+    setIsExpanded(!isExpanded);
+    if (!isExpanded) {
+      setTimeout(() => {
+        cardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 100);
+    }
+  };
+
+  return (
+    <div ref={cardRef} className="relative bg-white rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500 group flex flex-col overflow-hidden">
+      
+      <div className="p-10">
+        {/* ICONO DE FONDO (Marca de Agua) */}
+        <div className="absolute -top-6 -right-6 text-slate-100 group-hover:text-blue-50 group-hover:scale-125 transition-all duration-700 pointer-events-none z-0">
+          <Icon size={180} strokeWidth={1} />
+        </div>
+        
+        {/* Icono Principal */}
+        <div className="relative z-10 w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-8 group-hover:bg-[#135bec] transition-all duration-300">
+          <Icon className="text-[#135bec] group-hover:text-white" size={24} />
+        </div>
+
+        {/* Contenido */}
+        <div className="relative z-10">
+          <h4 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">{title}</h4>
+          <p className="text-slate-500 leading-relaxed text-sm mb-6">
+            {description}
+          </p>
+
+          {/* Botón Saber Más */}
+          <button 
+            onClick={handleToggle}
+            className="flex items-center text-[#135bec] font-bold text-[10px] uppercase tracking-[0.2em] group/btn transition-transform duration-300 hover:scale-105 origin-left w-fit"
+          >
+            <span>Saber más</span>
+            <ChevronDown 
+              className={`ml-2 transition-all duration-300 ${isExpanded ? 'rotate-180' : ''}`} 
+              size={14} 
+            />
+          </button>
+        </div>
+      </div>
+
+      {/* Acordeón con detalles */}
+      <div 
+        className={`overflow-hidden transition-all duration-500 ${
+          isExpanded ? 'max-h-96' : 'max-h-0'
+        }`}
+      >
+        <div className="px-10 pb-10 pt-2 relative z-10 bg-slate-50/50 border-t border-slate-100">
+          <h5 className="text-xs font-bold text-slate-900 mb-4 uppercase tracking-wider">
+            Servicios:
+          </h5>
+          <ul className="space-y-2">
+            {details.map((detail, idx) => (
+              <li key={idx} className="flex items-start text-sm text-slate-600">
+                <ArrowRight className="text-[#135bec] mr-2 mt-0.5 flex-shrink-0" size={12} />
+                <span>{detail}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };
