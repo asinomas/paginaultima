@@ -46,7 +46,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
         'Implementación de metodologías Scrum, Kanban',
         'Reporting ejecutivo',
         'Planificación y seguimiento de proyectos',
-        'Coordinacion de equipos'
+        'Coordinación de equipos'
       ]
     },
     {
