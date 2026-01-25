@@ -100,7 +100,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
               <div className="aspect-[3/4] w-3/4 mx-auto rounded-[2.5rem] overflow-hidden mb-8 bg-slate-50 shadow-sm border border-slate-100 relative">
                 
                 
-                 {/* Cambio velocidd hover usando s y no ms/}
+                 {/* Cambio velocidd hover usando s y no ms */}
                 <img 
                   alt={member.name} 
                   className="grayscale w-full h-full object-cover transition-all duration-[1.5s] group-hover:grayscale-0 group-hover:scale-105" 
