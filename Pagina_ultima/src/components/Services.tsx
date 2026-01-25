@@ -83,7 +83,7 @@ const HighLevelConsulting: React.FC = () => {
             ))}
           </div>
 
-          {/* TARJETA DE IMAGEN USANDO EL MISMO PATRÓN QUE ServiceCard */}
+          {/* Tarjeta de imagen con EXACTAMENTE el mismo tipo de tarjeta */}
           <div className="bg-white rounded-xl p-6 transition-all hover:shadow-lg h-full">
             <img
               src="/images/team-collaboration.gif"
