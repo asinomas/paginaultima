@@ -1,59 +1,54 @@
 import React, { useMemo } from 'react';
 
-const durations = ['5s', '6s', '8s', '10s'];
-const delays = ['0s', '1s', '2s'];
-const opacities = ['10', '15', '20'];
-const colors = ['#135bec', 'blue'];
+const LIGHTS = 4;
 
-const getRandomItem = (arr: string[]) => arr[Math.floor(Math.random() * arr.length)];
+const pulseDurations = ['5s', '6s', '8s', '10s'] as const;
+const pulseDelays = ['0s', '1s', '2s', '0.5s'] as const;
+const opacities = ['10', '15', '20'] as const; // Tailwind opacity /10 /15 /20
+const colors = ['#135bec', 'blue'] as const;
+
+function getRandom<T>(arr: readonly T[]) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
 
 const HeroLights: React.FC = () => {
+  // Generamos aleatoriamente las luces solo una vez
   const lights = useMemo(() => {
-    return Array(4)
-      .fill(0)
-      .map(() => ({
-        duration: getRandomItem(durations),
-        delay: getRandomItem(delays),
-        opacity: getRandomItem(opacities),
-        color: getRandomItem(colors),
-      }));
+    return Array.from({ length: LIGHTS }, (_, i) => ({
+      top: `${Math.random() * 15 - 10}%`,      // valores entre -10% y 5%
+      left: `${Math.random() * 15 - 10}%`,
+      right: `${Math.random() * 15 - 10}%`,
+      bottom: `${Math.random() * 15 - 10}%`,
+      w: `${35 + Math.random() * 20}%`,       // ancho entre 35% y 55%
+      h: `${35 + Math.random() * 20}%`,       // alto entre 35% y 55%
+      color: getRandom(colors),
+      opacity: getRandom(opacities),
+      duration: getRandom(pulseDurations),
+      delay: getRandom(pulseDelays),
+    }));
   }, []);
 
   return (
     <div className="absolute inset-0 overflow-hidden">
-      {lights.map((light, i) => {
-        // Posiciones fijas de las 4 esquinas
-        const positions = [
-          { top: '-10%', left: '-10%' },
-          { bottom: '-10%', left: '-10%' },
-          { top: '-5%', right: '-10%' },
-          { bottom: '-5%', right: '-5%' },
-        ];
+      {lights.map((l, i) => (
+        <div
+          key={i}
+          className={`absolute rounded-full blur-[100px] animate-[pulse_${l.duration}_infinite]`}
+          style={{
+            top: l.top,
+            left: l.left,
+            right: l.right,
+            bottom: l.bottom,
+            width: l.w,
+            height: l.h,
+            backgroundColor: l.color,
+            opacity: parseInt(l.opacity) / 100,
+            animationDelay: l.delay,
+          }}
+        />
+      ))}
 
-        // Tamaños y blur aproximados al original
-        const sizes = ['50%', '45%', '40%', '35%'];
-        const blurs = ['120px', '100px', '110px', '90px'];
-
-        const pos = positions[i];
-        const size = sizes[i];
-        const blur = blurs[i];
-
-        return (
-          <div
-            key={i}
-            className={`absolute rounded-full blur-[${blur}] animate-[pulse_${light.duration}_infinite]`}
-            style={{
-              ...pos,
-              width: size,
-              height: size,
-              backgroundColor: `${light.color}/` + light.opacity,
-              animationDelay: light.delay,
-            }}
-          />
-        );
-      })}
-
-      {/* Gradiente y textura de fondo */}
+      {/* Gradiente y textura de fondo intactos */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#135bec]/10 via-transparent to-transparent opacity-60"></div>
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 pointer-events-none"></div>
     </div>
