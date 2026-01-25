@@ -69,7 +69,6 @@ const HighLevelConsulting: React.FC = () => {
           </div>
         </div>
 
-        {/* SOLO AQUÍ ESTÁ LA CORRECCIÓN */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-stretch">
 
           <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -86,11 +85,11 @@ const HighLevelConsulting: React.FC = () => {
 
           <div className="relative group h-full">
             <div className="absolute -inset-6 bg-[#135bec]/10 blur-3xl rounded-[3rem]"></div>
-            <div className="relative h-full rounded-[2.5rem] overflow-hidden shadow-2xl">
+            <div className="relative h-full rounded-[2.5rem] overflow-hidden shadow-2xl p-8">
               <img
                 src="/images/team-collaboration.gif"
                 alt="Equipo colaborando en sesión estratégica"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 rounded-[2rem]"
               />
               <div className="absolute inset-0 bg-slate-50/10 transition-all duration-500 group-hover:bg-slate-50/20"></div>
             </div>
