@@ -1,80 +1,80 @@
 import React, { useEffect, useState } from 'react';
 
 interface Light {
-  top: string;
-  left: string;
+  top?: string;
+  bottom?: string;
+  left?: string;
+  right?: string;
   width: string;
   height: string;
-  bgColor: string;
+  color: string;
   blur: string;
-  duration: string;
-  delay: string;
-  opacity: number;
+  duration: number;
+  infinite: string;
+  opacity: string;
 }
 
-const pulseDurations = ['5s', '6s', '8s', '10s'];
-const pulseDelays = ['0s', '1s', '2s'];
-const colors = ['#135bec', 'blue-500', 'blue-600'];
-const opacities = [0.1, 0.15, 0.2];
+const durations = [5, 6, 8, 10]; // en segundos
+const infinities = ['infinite', 'infinite_reverse_1s', 'infinite_2s'];
+const colors = ['#135bec', 'blue-500', 'blue-600']; // usar solo azul y #135bec
+const opacities = ['10', '15', '20'];
 
 const HeroLights: React.FC = () => {
   const [lights, setLights] = useState<Light[]>([]);
 
   useEffect(() => {
-    const generatedLights: Light[] = [];
+    // Generar 4 luces únicas
+    const newLights: Light[] = Array.from({ length: 4 }, (_, i) => {
+      // Asignamos duración única
+      const duration = durations[i % durations.length];
+      const infinite = infinities[i % infinities.length];
+      const color = i % 2 === 0 ? '#135bec' : i === 1 ? 'blue-600' : 'blue-500';
+      const opacity = opacities[i % opacities.length];
 
-    for (let i = 0; i < 4; i++) {
-      // Elegir valores random de los arrays, sin repetir
-      const duration = pulseDurations.splice(Math.floor(Math.random() * pulseDurations.length), 1)[0];
-      const delay = pulseDelays[Math.floor(Math.random() * pulseDelays.length)];
-      const opacity = opacities[Math.floor(Math.random() * opacities.length)];
-      const color = colors[Math.floor(Math.random() * colors.length)];
-
-      // Posiciones y tamaños fijos como antes
+      // Posiciones y tamaños iniciales
       const positions = [
         { top: '-10%', left: '-10%', width: '50%', height: '50%', blur: '120px' },
         { bottom: '-10%', left: '-10%', width: '45%', height: '45%', blur: '100px' },
         { top: '-5%', right: '-10%', width: '40%', height: '40%', blur: '110px' },
-        { bottom: '-5%', right: '-5%', width: '35%', height: '35%', blur: '90px' }
+        { bottom: '-5%', right: '-5%', width: '35%', height: '35%', blur: '90px' },
       ];
 
-      generatedLights.push({
+      return {
         ...positions[i],
-        bgColor: color,
+        color,
         duration,
-        delay,
-        opacity
-      } as Light);
-    }
+        infinite,
+        opacity,
+      };
+    });
 
-    setLights(generatedLights);
+    setLights(newLights);
   }, []);
 
   return (
     <div className="absolute inset-0 overflow-hidden">
-      {lights.map((light, idx) => (
+      {lights.map((light, i) => (
         <div
-          key={idx}
-          className={`absolute rounded-full blur-[${light.blur}]`}
-          style={{
-            top: light.top,
-            bottom: (light as any).bottom,
-            left: (light as any).left,
-            right: (light as any).right,
-            width: light.width,
-            height: light.height,
-            backgroundColor: light.bgColor,
-            animation: `pulse ${light.duration} infinite`,
-            animationDelay: light.delay,
-            opacity: light.opacity
-          }}
+          key={i}
+          className={`
+            absolute
+            ${light.top ? `top-[${light.top}]` : ''}
+            ${light.bottom ? `bottom-[${light.bottom}]` : ''}
+            ${light.left ? `left-[${light.left}]` : ''}
+            ${light.right ? `right-[${light.right}]` : ''}
+            w-[${light.width}] h-[${light.height}]
+            rounded-full
+            blur-[${light.blur}]
+            bg-[${light.color}]/${light.opacity}
+            animate-[pulse_${light.duration}s_${light.infinite}]
+          `}
         />
       ))}
 
-      {/* Gradiente sobre las luces */}
+      {/* Gradiente de fondo */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#135bec]/10 via-transparent to-transparent opacity-60"></div>
-
-      {/* Textura de fondo */}
+      
+      {/* Textura */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 pointer-events-none"></div>
     </div>
   );
