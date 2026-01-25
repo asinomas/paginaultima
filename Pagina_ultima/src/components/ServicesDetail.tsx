@@ -113,16 +113,18 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
               </button>
             </div>
 
+
+
+            
             {/* COLUMNA DERECHA */}
             <div className="lg:w-1/3 hidden lg:flex flex-col items-end gap-8">
 
 
               {/* Imagen */}
-              
                 <img
                   src="/images/hero-image.gif"
                   alt="Imagen representativa"
-                  className="w-full h-96 object-cover"
+                  className="w-64 h-auto object-cover"
                 />
               
 
