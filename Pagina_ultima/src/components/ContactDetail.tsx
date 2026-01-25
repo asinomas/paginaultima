@@ -80,7 +80,7 @@ const ContactDetail: React.FC = () => {
               
               {isSent && (
                 <div className="absolute inset-0 bg-white/95 backdrop-blur-sm z-50 flex flex-col items-center justify-center text-center p-8 animate-[fadeIn_0.5s_ease-out]">
-                  <div className="size-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-8 border border-green-200 shadow-lg shadow-green-500/10">
+                  <div className="size-24 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-8 border border-blue-200 shadow-lg shadow-blue-500/10">
                     <CheckCircle2 size={52} strokeWidth={2.5} />
                   </div>
                   <h3 className="text-3xl font-black text-slate-900 mb-4 tracking-tight">¡Mensaje Enviado!</h3>
