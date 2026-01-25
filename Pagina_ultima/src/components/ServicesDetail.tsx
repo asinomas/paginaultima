@@ -144,7 +144,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
                 <img
                   src="/images/hero-image.gif"
                   alt="Imagen representativa"
-                  className="w-[80rem] h-auto object-contain"
+                  className="w-auto h-auto object-contain"
                 />
 
               
