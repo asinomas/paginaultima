@@ -14,10 +14,10 @@ const getRandomProperties = (previous?: LightProperties): LightProperties => {
   
   do {
     newProps = {
-      size: 30 + Math.random() * 15, // 30% a 45% (reducido)
-      blur: 80 + Math.random() * 50, // 80px a 130px
-      opacity: 0.15 + Math.random() * 0.12, // 0.15 a 0.27 (varias intensidades)
-      duration: 5 + Math.random() * 8, // 5s a 13s (rangos más amplios)
+      size: 35 + Math.random() * 15, // 35% a 50%
+      blur: 90 + Math.random() * 30, // 90px a 120px
+      opacity: 0.08 + Math.random() * 0.07, // 0.08 a 0.15 (mucho más bajo)
+      duration: 6 + Math.random() * 6, // 6s a 12s
     };
     attempts++;
   } while (
@@ -99,7 +99,7 @@ const HeroLights: React.FC = () => {
             height: `${light.size}%`,
             backgroundColor: '#135bec',
             opacity: light.opacity,
-            filter: `blur(${light.blur}px) brightness(0.7)`,
+            filter: `blur(${light.blur}px) brightness(0.85)`,
             animation: `pulse ${light.duration}s cubic-bezier(0.4, 0, 0.6, 1) infinite`,
             transition: 'opacity 4s cubic-bezier(0.4, 0, 0.6, 1), width 4s cubic-bezier(0.4, 0, 0.6, 1), height 4s cubic-bezier(0.4, 0, 0.6, 1), filter 4s cubic-bezier(0.4, 0, 0.6, 1)',
           }}
@@ -117,17 +117,14 @@ const HeroLights: React.FC = () => {
         }}
       />
       
-      {/* Definimos la animación pulse tipo respiración */}
+      {/* Definimos la animación pulse tipo respiración suave */}
       <style>{`
         @keyframes pulse {
-          0% {
-            transform: scale(0.92);
+          0%, 100% {
+            transform: scale(0.98);
           }
           50% {
-            transform: scale(1.03);
-          }
-          100% {
-            transform: scale(0.92);
+            transform: scale(1.02);
           }
         }
       `}</style>
