@@ -28,7 +28,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#135bec] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#135bec]"></span>
             </span>
-            <span className="text-[#135bec] text-[10px] font-bold uppercase tracking-[0.2em]">Servicio de Consultoría TI</span>
+            <span className="text-[#135bec] text-[14px] font-bold uppercase tracking-[0.2em]">Servicio de Consultoría TI</span>
           </div>
           
           {/* Título con renderizado en "Talento" */}
