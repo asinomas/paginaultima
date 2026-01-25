@@ -116,6 +116,17 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
             {/* COLUMNA DERECHA */}
             <div className="lg:w-1/3 hidden lg:flex flex-col items-end gap-8">
 
+
+              {/* Imagen */}
+              <div className="w-full h-70 rounded-3xl overflow-hidden">
+                <img
+                  src="/images/hero-image.gif"
+                  alt="Imagen representativa"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              
               {/* Estadísticas */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="h-40 w-40 bg-white/5 rounded-3xl border border-white/10 flex flex-col items-center justify-center backdrop-blur-sm">
@@ -133,14 +144,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
                 </div>
               </div>
 
-              {/* Imagen */}
-              <div className="w-full h-70 rounded-3xl overflow-hidden">
-                <img
-                  src="/images/hero-image.gif"
-                  alt="Imagen representativa"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              
 
             </div>
           </div>
