@@ -1,79 +1,132 @@
-import React, { useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const lightColors = ['#135bec', 'blue'];
-const lightOpacities = [10, 15, 20]; // usando Tailwind style /10, /15, /20
-const pulseDurations = ['5s', '6s', '8s', '10s'];
-const pulseInfinites = ['infinite', 'infinite_reverse', 'infinite_1s', 'infinite_2s'];
-
-interface Light {
-  color: string;
+interface LightProperties {
+  size: number;
+  blur: number;
   opacity: number;
-  top: string;
-  left: string;
-  size: string;
-  blur: string;
-  pulse: string;
+  duration: number;
 }
 
-const generateRandomLights = (): Light[] => {
-  const lights: Light[] = [];
-
-  // Vamos a generar 4 luces
-  for (let i = 0; i < 4; i++) {
-    // Posición aleatoria, solo top+left para no colapsar
-    const top = `${Math.random() * 15 - 10}%`; // -10% a +5%
-    const left = `${Math.random() * 15 - 10}%`; // -10% a +5%
-
-    // Color y opacidad aleatoria
-    const color = lightColors[Math.floor(Math.random() * lightColors.length)];
-    const opacity = lightOpacities[Math.floor(Math.random() * lightOpacities.length)];
-
-    // Tamaño y blur aproximado
-    const size = `${35 + Math.random() * 20}%`; // 35% a 55%
-    const blur = `${90 + Math.random() * 40}px`; // 90px a 130px
-
-    // Pulse duration aleatorio
-    const pulse = pulseDurations[Math.floor(Math.random() * pulseDurations.length)];
-
-    lights.push({
-      color,
-      opacity,
-      top,
-      left,
-      size,
-      blur,
-      pulse,
-    });
-  }
-
-  return lights;
+const getRandomProperties = (previous?: LightProperties): LightProperties => {
+  let newProps: LightProperties;
+  let attempts = 0;
+  const maxAttempts = 10;
+  
+  do {
+    newProps = {
+      size: 35 + Math.random() * 25, // 35% a 60%
+      blur: 80 + Math.random() * 50, // 80px a 130px
+      opacity: 0.08 + Math.random() * 0.12, // 0.08 a 0.20
+      duration: 4 + Math.random() * 6, // 4s a 10s
+    };
+    attempts++;
+  } while (
+    previous &&
+    attempts < maxAttempts &&
+    Math.abs(newProps.size - previous.size) < 5 &&
+    Math.abs(newProps.blur - previous.blur) < 10 &&
+    Math.abs(newProps.opacity - previous.opacity) < 0.03 &&
+    Math.abs(newProps.duration - previous.duration) < 1
+  );
+  
+  return newProps;
 };
 
 const HeroLights: React.FC = () => {
-  // Generamos luces una sola vez al renderizar
-  const lights = useMemo(() => generateRandomLights(), []);
+  // Estado para las propiedades de cada luz
+  const [lights, setLights] = useState([
+    { position: { top: '-10%', left: '-10%' }, ...getRandomProperties(), key: 0 },
+    { position: { top: '-10%', right: '-10%' }, ...getRandomProperties(), key: 1 },
+    { position: { bottom: '-10%', left: '-10%' }, ...getRandomProperties(), key: 2 },
+    { position: { bottom: '-10%', right: '-10%' }, ...getRandomProperties(), key: 3 },
+  ]);
+
+  useEffect(() => {
+    // Función para actualizar una luz específica
+    const updateLight = (index: number) => {
+      setLights(prev => {
+        const newLights = [...prev];
+        const currentDuration = newLights[index].duration;
+        
+        // Programar la siguiente actualización para cuando termine el ciclo actual
+        setTimeout(() => {
+          setLights(prev => {
+            const updated = [...prev];
+            const previousProps = {
+              size: updated[index].size,
+              blur: updated[index].blur,
+              opacity: updated[index].opacity,
+              duration: updated[index].duration,
+            };
+            
+            updated[index] = {
+              ...updated[index],
+              ...getRandomProperties(previousProps),
+              key: updated[index].key + 1, // Cambiar key para forzar re-render de animación
+            };
+            return updated;
+          });
+          
+          // Continuar el ciclo
+          updateLight(index);
+        }, currentDuration * 1000);
+        
+        return newLights;
+      });
+    };
+
+    // Iniciar el ciclo para cada luz
+    const timers = lights.map((_, index) => {
+      setTimeout(() => updateLight(index), lights[index].duration * 1000);
+      return index;
+    });
+
+    // Cleanup
+    return () => {
+      // Los timeouts se limpian automáticamente cuando el componente se desmonta
+    };
+  }, []); // Solo ejecutar una vez al montar
 
   return (
-    <div className="absolute inset-0 overflow-hidden">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {lights.map((light, idx) => (
         <div
-          key={idx}
-          className={`absolute rounded-full animate-[pulse_${light.pulse}_infinite]`}
+          key={`light-${idx}-${light.key}`}
+          className="absolute rounded-full transition-all"
           style={{
-            top: light.top,
-            left: light.left,
-            width: light.size,
-            height: light.size,
-            backgroundColor: `${light.color}`,
-            opacity: light.opacity / 100,
-            filter: `blur(${light.blur})`,
+            ...light.position,
+            width: `${light.size}%`,
+            height: `${light.size}%`,
+            backgroundColor: '#135bec',
+            opacity: light.opacity,
+            filter: `blur(${light.blur}px)`,
+            animation: `pulse ${light.duration}s ease-in-out infinite`,
           }}
-        ></div>
+        />
       ))}
+      
       {/* Gradiente de fondo */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#135bec]/10 via-transparent to-transparent opacity-60"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#135bec]/10 via-transparent to-transparent opacity-60" />
+      
       {/* Textura de fondo */}
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 pointer-events-none"></div>
+      <div 
+        className="absolute inset-0 opacity-20 pointer-events-none"
+        style={{
+          backgroundImage: "url('https://www.transparenttextures.com/patterns/carbon-fibre.png')"
+        }}
+      />
+      
+      {/* Definimos la animación pulse personalizada */}
+      <style>{`
+        @keyframes pulse {
+          0%, 100% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.1);
+          }
+        }
+      `}</style>
     </div>
   );
 };
