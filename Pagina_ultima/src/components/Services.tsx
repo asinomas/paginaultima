@@ -83,14 +83,13 @@ const HighLevelConsulting: React.FC = () => {
             ))}
           </div>
 
-          <div className="relative group h-full">
-            <div className="relative h-full rounded-[2.5rem] overflow-hidden p-6 bg-white hover:shadow-xl transition-shadow">
-              <img
-                src="/images/team-collaboration.gif"
-                alt="Equipo colaborando en sesión estratégica"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 rounded-[2rem]"
-              />
-            </div>
+          {/* TARJETA DE IMAGEN USANDO EL MISMO PATRÓN QUE ServiceCard */}
+          <div className="bg-white rounded-xl p-6 transition-all hover:shadow-lg h-full">
+            <img
+              src="/images/team-collaboration.gif"
+              alt="Equipo colaborando en sesión estratégica"
+              className="w-full h-full object-cover rounded-lg"
+            />
           </div>
 
         </div>
