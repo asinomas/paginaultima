@@ -14,9 +14,9 @@ const getRandomProperties = (previous?: LightProperties): LightProperties => {
   
   do {
     newProps = {
-      size: 35 + Math.random() * 25, // 35% a 60%
+      size: 30 + Math.random() * 15, // 30% a 45% (reducido)
       blur: 80 + Math.random() * 50, // 80px a 130px
-      opacity: 0.15 + Math.random() * 0.15, // 0.15 a 0.30
+      opacity: 0.20 + Math.random() * 0.15, // 0.20 a 0.35 (más opaco)
       duration: 4 + Math.random() * 6, // 4s a 10s
     };
     attempts++;
@@ -101,7 +101,7 @@ const HeroLights: React.FC = () => {
             opacity: light.opacity,
             filter: `blur(${light.blur}px)`,
             animation: `pulse ${light.duration}s ease-in-out infinite`,
-            transition: 'all 2s ease-in-out',
+            transition: 'opacity 3s ease-in-out, width 3s ease-in-out, height 3s ease-in-out, filter 3s ease-in-out',
           }}
         />
       ))}
@@ -120,11 +120,14 @@ const HeroLights: React.FC = () => {
       {/* Definimos la animación pulse personalizada */}
       <style>{`
         @keyframes pulse {
-          0%, 100% {
+          0% {
             transform: scale(1);
           }
           50% {
-            transform: scale(1.1);
+            transform: scale(1.08);
+          }
+          100% {
+            transform: scale(1);
           }
         }
       `}</style>
