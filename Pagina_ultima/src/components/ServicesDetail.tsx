@@ -134,7 +134,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
               </div>
 
               {/* Imagen */}
-              <div className="w-full h-56 rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm">
+              <div className="w-full h-56 rounded-3xl overflow-hidden">
                 <img
                   src="/images/hero-image.gif"
                   alt="Imagen representativa"
