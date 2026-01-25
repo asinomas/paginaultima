@@ -17,7 +17,7 @@ const getRandomProperties = (previous?: LightProperties): LightProperties => {
       size: 30 + Math.random() * 15, // 30% a 45% (reducido)
       blur: 80 + Math.random() * 50, // 80px a 130px
       opacity: 0.20 + Math.random() * 0.15, // 0.20 a 0.35 (más opaco)
-      duration: 4 + Math.random() * 6, // 4s a 10s
+      duration: 5 + Math.random() * 8, // 5s a 13s (rangos más amplios)
     };
     attempts++;
   } while (
@@ -26,7 +26,7 @@ const getRandomProperties = (previous?: LightProperties): LightProperties => {
     Math.abs(newProps.size - previous.size) < 5 &&
     Math.abs(newProps.blur - previous.blur) < 10 &&
     Math.abs(newProps.opacity - previous.opacity) < 0.03 &&
-    Math.abs(newProps.duration - previous.duration) < 1
+    Math.abs(newProps.duration - previous.duration) < 2 // Diferencia mínima de 2s
   );
   
   return newProps;
@@ -99,7 +99,7 @@ const HeroLights: React.FC = () => {
             height: `${light.size}%`,
             backgroundColor: '#135bec',
             opacity: light.opacity,
-            filter: `blur(${light.blur}px)`,
+            filter: `blur(${light.blur}px) brightness(0.7)`,
             animation: `pulse ${light.duration}s ease-in-out infinite`,
             transition: 'opacity 3s ease-in-out, width 3s ease-in-out, height 3s ease-in-out, filter 3s ease-in-out',
           }}
