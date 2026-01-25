@@ -120,14 +120,6 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
             <div className="lg:w-1/3 hidden lg:flex flex-col items-end gap-8">
 
 
-              {/* Imagen */}
-                <img
-                  src="/images/hero-image.gif"
-                  alt="Imagen representativa"
-                  className="w-112 h-auto object-contain"
-                />
-              
-
               
               {/* Estadísticas */}
               <div className="grid grid-cols-2 gap-4">
@@ -146,6 +138,16 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
                 </div>
               </div>
 
+
+              
+              {/* Imagen */}
+                <img
+                  src="/images/hero-image.gif"
+                  alt="Imagen representativa"
+                  className="w-112 h-auto object-contain"
+                />
+
+              
               
 
             </div>
