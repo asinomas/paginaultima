@@ -90,7 +90,6 @@ const HighLevelConsulting: React.FC = () => {
                 alt="Equipo colaborando en sesión estratégica"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 rounded-[2rem]"
               />
-              <div className="absolute inset-0 bg-slate-50/10 transition-all duration-500 group-hover:bg-slate-50/20"></div>
             </div>
           </div>
 
