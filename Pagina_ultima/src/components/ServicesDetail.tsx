@@ -139,14 +139,16 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
               </div>
 
 
-              
+  
+
               {/* Imagen */}
+              <div className="overflow-hidden relative">
                 <img
                   src="/images/hero-image.gif"
                   alt="Imagen representativa"
                   className="w-[22rem] max-w-none h-auto object-contain"
                 />
-
+              </div>
               
               
 
