@@ -1,6 +1,6 @@
 import React from 'react';
 import { Compass, Layers } from 'lucide-react';
-import ServiceCard from './ServiceCard'; // Importar el componente
+import ServiceCard from './ServiceCard';
 
 const profiles = [
   "Líder Técnico", "Scrum Master", "Dev Android", "Dev Java",
@@ -35,16 +35,14 @@ const HighLevelConsulting: React.FC = () => {
   return (
     <section className="bg-slate-50 py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        
-        {/* PARTE SUPERIOR: Título y Perfiles */}
+
         <div className="flex flex-col lg:flex-row justify-between items-start gap-16 mb-24">
-          
           <div className="max-w-xl">
             <span className="text-[10px] font-bold tracking-[0.4em] text-[#135bec] uppercase mb-6 block">
               Excelencia Operativa
             </span>
             <h3 className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-8 tracking-tight leading-[1.1]">
-              Consultoría de <br /> 
+              Consultoría de <br />
               <span className="text-[#135bec] italic">Alto Nivel</span>
             </h3>
             <div className="w-16 h-1 bg-[#135bec] mb-8"></div>
@@ -57,10 +55,10 @@ const HighLevelConsulting: React.FC = () => {
             <h4 className="text-[10px] font-bold tracking-[0.3em] text-slate-400 uppercase mb-8 border-b border-slate-200 pb-2 inline-block">
               Perfiles Especializados
             </h4>
-            
+
             <div className="flex flex-wrap gap-4 justify-start">
               {profiles.map((profile, index) => (
-                <span 
+                <span
                   key={index}
                   className="px-5 py-2.5 bg-white text-slate-500 text-[12px] font-semibold rounded-xl border border-transparent shadow-sm hover:border-[#135bec] hover:text-[#135bec] transition-all duration-300 cursor-default hover:shadow-md hover:-translate-y-1"
                 >
@@ -71,13 +69,12 @@ const HighLevelConsulting: React.FC = () => {
           </div>
         </div>
 
-        {/* PARTE INFERIOR: 2 TARJETAS + IMAGEN */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
-          
-          {/* IZQUIERDA: TARJETAS */}
+        {/* SOLO AQUÍ ESTÁ LA CORRECCIÓN */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-stretch">
+
           <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8">
             {servicesData.map((service, index) => (
-              <ServiceCard 
+              <ServiceCard
                 key={index}
                 Icon={service.Icon}
                 title={service.title}
@@ -87,14 +84,13 @@ const HighLevelConsulting: React.FC = () => {
             ))}
           </div>
 
-          {/* DERECHA: IMAGEN CON EFECTO BRILLO Y ZOOM */}
-          <div className="relative group">
+          <div className="relative group h-full">
             <div className="absolute -inset-6 bg-[#135bec]/10 blur-3xl rounded-[3rem]"></div>
-            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
+            <div className="relative h-full rounded-[2.5rem] overflow-hidden shadow-2xl">
               <img
                 src="/images/team-collaboration.gif"
                 alt="Equipo colaborando en sesión estratégica"
-                className="w-full h-[320px] md:h-[360px] object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-slate-50/10 transition-all duration-500 group-hover:bg-slate-50/20"></div>
             </div>
