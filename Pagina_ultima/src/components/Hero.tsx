@@ -49,7 +49,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-[#135bec] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </button>
 
-            {/* Explorar Soluciones (lleva a servicios) */}
+            {/* Explorar Soluciones */}
             <button 
               onClick={() => onNavigate('services')}
               className="px-8 py-4 bg-white/5 text-white border border-white/10 rounded-xl font-bold hover:bg-white/10 transition-all backdrop-blur-sm active:scale-95"
