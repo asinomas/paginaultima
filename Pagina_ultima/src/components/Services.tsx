@@ -71,26 +71,24 @@ const HighLevelConsulting: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-stretch">
 
-          <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8">
-            {servicesData.map((service, index) => (
-              <ServiceCard
-                key={index}
-                Icon={service.Icon}
-                title={service.title}
-                description={service.description}
-                details={service.details}
-              />
-            ))}
-          </div>
+          {servicesData.map((service, index) => (
+            <ServiceCard
+              key={index}
+              Icon={service.Icon}
+              title={service.title}
+              description={service.description}
+              details={service.details}
+            />
+          ))}
 
-          {/* Tarjeta de imagen con EXACTAMENTE el mismo tipo de tarjeta */}
-          <div className="bg-white rounded-xl p-6 transition-all hover:shadow-lg h-full">
+          {/* Tercera tarjeta usando EXACTAMENTE ServiceCard */}
+          <ServiceCard>
             <img
               src="/images/team-collaboration.gif"
               alt="Equipo colaborando en sesión estratégica"
               className="w-full h-full object-cover rounded-lg"
             />
-          </div>
+          </ServiceCard>
 
         </div>
       </div>
