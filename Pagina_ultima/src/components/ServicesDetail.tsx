@@ -1,6 +1,6 @@
 import React from 'react';
 import { Terminal, Lightbulb, Network, Lock, Cloud, BarChart3 } from 'lucide-react';
-import ServiceCard from './ServiceCard'; // Importar el componente
+import ServiceCard from './ServiceCard';
 
 interface ServicesDetailProps {
   onContactClick?: () => void;
@@ -90,55 +90,80 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
       {/* 1. HERO SECTION */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8 mb-24">
         <div className="relative overflow-hidden rounded-[3rem] bg-[#0b0e14] p-12 lg:p-24 text-center lg:text-left">
-          <div className="absolute top-[-20%] right-[-10%] w-[50%] h-[50%] bg-[#135bec]/20 rounded-full blur-[100px]"></div>
-          
+          <div className="absolute top-[-20%] right-[-10%] w-[50%] h-[50%] bg-[#135bec]/20 rounded-full blur-[100px]" />
+
           <div className="relative z-10 flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-2/3">
               <h1 className="text-4xl lg:text-7xl font-black text-white leading-tight mb-8 tracking-tighter">
                 Arquitectura <br />
-                <span className="text-[#135bec] italic drop-shadow-[0_0_15px_rgba(19,91,236,0.3)]">Sin Compromisos</span>
+                <span className="text-[#135bec] italic drop-shadow-[0_0_15px_rgba(19,91,236,0.3)]">
+                  Sin Compromisos
+                </span>
               </h1>
+
               <p className="text-lg lg:text-xl text-slate-400 leading-relaxed max-w-2xl mb-10">
                 Impulsando la excelencia digital a través de soluciones tecnológicas estratégicas. En BlackTI ayudamos a su empresa a escalar en el entorno moderno.
               </p>
-              <button onClick={onContactClick} className="rounded-2xl bg-[#135bec] px-10 py-5 text-base font-bold text-white shadow-2xl shadow-[#135bec]/30 hover:scale-105 active:scale-95 transition-all">
+
+              <button
+                onClick={onContactClick}
+                className="rounded-2xl bg-[#135bec] px-10 py-5 text-base font-bold text-white shadow-2xl shadow-[#135bec]/30 hover:scale-105 active:scale-95 transition-all"
+              >
                 Iniciar Transformación
               </button>
             </div>
-            
-            <div className="lg:w-1/3 hidden lg:block">
+
+            {/* COLUMNA DERECHA */}
+            <div className="lg:w-1/3 hidden lg:flex flex-col items-end gap-8">
+
+              {/* Estadísticas */}
               <div className="grid grid-cols-2 gap-4">
-                 <div className="h-40 bg-white/5 rounded-3xl border border-white/10 flex flex-col items-center justify-center backdrop-blur-sm">
-                    <span className="text-3xl font-black text-[#135bec]">10+</span>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Años Exp.</span>
-                 </div>
-                 <div className="h-40 bg-white/5 rounded-3xl border border-white/10 flex flex-col items-center justify-center backdrop-blur-sm translate-y-8">
-                    <span className="text-3xl font-black text-[#135bec]">500+</span>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Proyectos</span>
-                 </div>
+                <div className="h-40 w-40 bg-white/5 rounded-3xl border border-white/10 flex flex-col items-center justify-center backdrop-blur-sm">
+                  <span className="text-3xl font-black text-[#135bec]">10+</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">
+                    Años Exp.
+                  </span>
+                </div>
+
+                <div className="h-40 w-40 bg-white/5 rounded-3xl border border-white/10 flex flex-col items-center justify-center backdrop-blur-sm translate-y-8">
+                  <span className="text-3xl font-black text-[#135bec]">500+</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">
+                    Proyectos
+                  </span>
+                </div>
               </div>
+
+              {/* Imagen */}
+              <div className="w-full h-56 rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm">
+                <img
+                  src="/images/hero-image.png"
+                  alt="Imagen representativa"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. SECCIÓN TÉCNICA: MODELO DE COLABORACIÓN */}
+      {/* 2. SECCIÓN TÉCNICA */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8">
-        
-        {/* Cabecera Principal */}
         <div className="mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
-           <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
-             Nuestra <span className="text-[#135bec] italic">Especialización</span>
-           </h2>
-           <div className="h-0.5 flex-1 bg-slate-200 hidden md:block mx-10"></div>
-           <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">Servicios End-to-End</p>
+          <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+            Nuestra <span className="text-[#135bec] italic">Especialización</span>
+          </h2>
+          <div className="h-0.5 flex-1 bg-slate-200 hidden md:block mx-10" />
+          <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">
+            Servicios End-to-End
+          </p>
         </div>
 
-        {/* LISTA DE MODELO DE COLABORACIÓN */}
         <div className="mb-24">
           <h3 className="text-[10px] font-bold tracking-[0.4em] text-slate-400 uppercase mb-8 border-b border-slate-200 pb-2">
             Modelo de Colaboración
           </h3>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-8">
             {collaborationModels.map((service, index) => (
               <div key={index} className="group cursor-default">
@@ -149,11 +174,10 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
             ))}
           </div>
         </div>
-        
-        {/* 3. GRID DE TARJETAS DE ESPECIALIDAD CON ACORDEÓN */}
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {specialties.map((item, idx) => (
-            <ServiceCard 
+            <ServiceCard
               key={idx}
               Icon={item.icon}
               title={item.title}
