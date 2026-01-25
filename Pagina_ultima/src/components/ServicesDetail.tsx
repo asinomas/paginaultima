@@ -118,13 +118,13 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
 
 
               {/* Imagen */}
-              <div className="w-full h-70 rounded-3xl overflow-hidden">
+              
                 <img
                   src="/images/hero-image.gif"
                   alt="Imagen representativa"
-                  className="w-full h-full object-cover"
+                  className="w-full h-96 object-cover"
                 />
-              </div>
+              
 
               
               {/* Estadísticas */}
