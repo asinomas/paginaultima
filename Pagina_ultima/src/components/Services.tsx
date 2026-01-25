@@ -84,7 +84,6 @@ const HighLevelConsulting: React.FC = () => {
           </div>
 
           <div className="relative group h-full">
-            <div className="absolute -inset-6 bg-[#135bec]/10 blur-3xl rounded-[3rem]"></div>
             <div className="relative h-full rounded-[2.5rem] overflow-hidden shadow-2xl p-6">
               <img
                 src="/images/team-collaboration.gif"
