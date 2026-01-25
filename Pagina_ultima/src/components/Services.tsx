@@ -84,7 +84,7 @@ const HighLevelConsulting: React.FC = () => {
           </div>
 
           {/* Imagen SIN tarjeta (solo fondo blanco, sin sombra) */}
-          <div className="relative h-full rounded-[2.5rem] overflow-hidden p-6 bg-white">
+          <div className="relative h-full rounded-[2.5rem] overflow-hidden p-6">
             <img
               src="/images/team-collaboration.gif"
               alt="Equipo colaborando en sesión estratégica"
