@@ -16,7 +16,7 @@ const getRandomProperties = (previous?: LightProperties): LightProperties => {
     newProps = {
       size: 35 + Math.random() * 25, // 35% a 60%
       blur: 80 + Math.random() * 50, // 80px a 130px
-      opacity: 0.08 + Math.random() * 0.12, // 0.08 a 0.20
+      opacity: 0.15 + Math.random() * 0.15, // 0.15 a 0.30
       duration: 4 + Math.random() * 6, // 4s a 10s
     };
     attempts++;
@@ -92,7 +92,7 @@ const HeroLights: React.FC = () => {
       {lights.map((light, idx) => (
         <div
           key={`light-${idx}-${light.key}`}
-          className="absolute rounded-full transition-all"
+          className="absolute rounded-full"
           style={{
             ...light.position,
             width: `${light.size}%`,
@@ -101,6 +101,7 @@ const HeroLights: React.FC = () => {
             opacity: light.opacity,
             filter: `blur(${light.blur}px)`,
             animation: `pulse ${light.duration}s ease-in-out infinite`,
+            transition: 'all 2s ease-in-out',
           }}
         />
       ))}
