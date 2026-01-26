@@ -7,39 +7,70 @@ interface LightProperties {
   duration: number;
 }
 
-const getRandomProperties = (previous?: LightProperties): LightProperties => {
-  let newProps: LightProperties;
-  let attempts = 0;
-  const maxAttempts = 10;
+// Valores discretos disponibles
+const availableSizes = [25, 30, 35, 40, 45, 50];
+const availableOpacities = [0.08, 0.10, 0.12, 0.15];
+const availableBlurs = [90, 100, 110, 120];
+
+// Tracking de valores usados actualmente
+let usedSizes = new Set<number>();
+let usedOpacities = new Set<number>();
+
+const getRandomProperties = (previous?: LightProperties, lightIndex?: number): LightProperties => {
+  // Seleccionar tamaño único
+  const availableUnusedSizes = availableSizes.filter(s => !usedSizes.has(s));
+  let size: number;
   
-  do {
-    newProps = {
-      size: 35 + Math.random() * 15, // 35% a 50%
-      blur: 90 + Math.random() * 30, // 90px a 120px
-      opacity: 0.08 + Math.random() * 0.07, // 0.08 a 0.15 (mucho más bajo)
-      duration: 6 + Math.random() * 6, // 6s a 12s
-    };
-    attempts++;
-  } while (
-    previous &&
-    attempts < maxAttempts &&
-    Math.abs(newProps.size - previous.size) < 5 &&
-    Math.abs(newProps.blur - previous.blur) < 10 &&
-    Math.abs(newProps.opacity - previous.opacity) < 0.03 &&
-    Math.abs(newProps.duration - previous.duration) < 2 // Diferencia mínima de 2s
-  );
+  if (availableUnusedSizes.length > 0) {
+    size = availableUnusedSizes[Math.floor(Math.random() * availableUnusedSizes.length)];
+  } else {
+    // Si todos están usados, resetear y elegir uno diferente al anterior
+    usedSizes.clear();
+    const differentSizes = availableSizes.filter(s => s !== previous?.size);
+    size = differentSizes[Math.floor(Math.random() * differentSizes.length)];
+  }
   
-  return newProps;
+  // Seleccionar opacidad única
+  const availableUnusedOpacities = availableOpacities.filter(o => !usedOpacities.has(o));
+  let opacity: number;
+  
+  if (availableUnusedOpacities.length > 0) {
+    opacity = availableUnusedOpacities[Math.floor(Math.random() * availableUnusedOpacities.length)];
+  } else {
+    // Si todos están usados, resetear y elegir uno diferente al anterior
+    usedOpacities.clear();
+    const differentOpacities = availableOpacities.filter(o => o !== previous?.opacity);
+    opacity = differentOpacities[Math.floor(Math.random() * differentOpacities.length)];
+  }
+  
+  // Liberar valores anteriores si existen
+  if (previous) {
+    usedSizes.delete(previous.size);
+    usedOpacities.delete(previous.opacity);
+  }
+  
+  // Marcar nuevos valores como usados
+  usedSizes.add(size);
+  usedOpacities.add(opacity);
+  
+  return {
+    size,
+    blur: availableBlurs[Math.floor(Math.random() * availableBlurs.length)],
+    opacity,
+    duration: 6 + Math.random() * 6, // 6s a 12s
+  };
 };
 
 const HeroLights: React.FC = () => {
   // Estado para las propiedades de cada luz
-  const [lights, setLights] = useState([
-    { position: { top: '-10%', left: '-10%' }, ...getRandomProperties(), key: 0 },
-    { position: { top: '-10%', right: '-10%' }, ...getRandomProperties(), key: 1 },
-    { position: { bottom: '-10%', left: '-10%' }, ...getRandomProperties(), key: 2 },
-    { position: { bottom: '-10%', right: '-10%' }, ...getRandomProperties(), key: 3 },
-  ]);
+  const [lights, setLights] = useState(() => 
+    [
+      { position: { top: '-10%', left: '-10%' }, ...getRandomProperties(undefined, 0), key: 0 },
+      { position: { top: '-10%', right: '-10%' }, ...getRandomProperties(undefined, 1), key: 1 },
+      { position: { bottom: '-10%', left: '-10%' }, ...getRandomProperties(undefined, 2), key: 2 },
+      { position: { bottom: '-10%', right: '-10%' }, ...getRandomProperties(undefined, 3), key: 3 },
+    ]
+  );
 
   useEffect(() => {
     // Función para actualizar una luz específica
