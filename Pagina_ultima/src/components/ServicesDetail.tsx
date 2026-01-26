@@ -2,6 +2,7 @@ import React from 'react';
 import { Terminal, Lightbulb, Network, Lock, Cloud, BarChart3 } from 'lucide-react';
 import ServiceCard from './ServiceCard';
 import ServicesHeroLights from './ServicesHeroLights';
+import ScrollAnimation from './ScrollAnimation';
 
 interface ServicesDetailProps {
   onContactClick?: () => void;
