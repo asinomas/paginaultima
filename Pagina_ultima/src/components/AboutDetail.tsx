@@ -131,9 +131,9 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
           <div className="mb-16">
             <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
               <span className="text-[#135bec] italic">Talento</span>
-              <span className="text-white"> sin fronteras, </span>
+              <span className="text-white/90"> sin fronteras, </span>
               <span className="text-[#135bec] italic">soporte</span>
-              <span className="text-white"> sin interrupciones</span>
+              <span className="text-white/90"> sin interrupciones</span>
             </h2>
             <p className="mt-6 text-base md:text-lg text-white/70 font-medium">
               Nuestro equipo se encuentra en las siguientes ubicaciones
