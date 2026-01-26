@@ -38,7 +38,7 @@ const HighLevelConsulting: React.FC = () => {
 
         <div className="flex flex-col lg:flex-row justify-between items-start gap-16 mb-24">
           <div className="max-w-xl">
-            <span className="text-[10px] font-bold tracking-[0.4em] text-[#135bec] uppercase mb-6 block">
+            <span className="text-[11px] font-bold tracking-[0.2em] text-[#135bec] uppercase mb-4 block">
               Excelencia Operativa
             </span>
             <h3 className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-8 tracking-tight leading-[1.1]">
