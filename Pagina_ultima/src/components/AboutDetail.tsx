@@ -98,9 +98,6 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
           {team.map((member, i) => (
             <div key={i} className="group flex flex-col items-center text-center">
               <div className="aspect-[3/4] w-3/4 mx-auto rounded-[2.5rem] overflow-hidden mb-8 bg-slate-50 shadow-sm border border-slate-100 relative">
-                
-                
-                 {/* Cambio velocidd hover usando s y no ms */}
                 <img 
                   alt={member.name} 
                   className="grayscale w-full h-full object-cover transition-all duration-[1.5s] group-hover:grayscale-0 group-hover:scale-105" 
@@ -130,18 +127,19 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
 
       {/* SECCIÓN MAPA GLOBAL - VERSIÓN DARK ORIGINAL */}
       <section className="bg-slate-950 py-24 border-t border-slate-900">
-              <div className="mb-16">
-                 <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-                 <span className="text-[#135bec] italic">Talento</span>
-                 <span className="text-white"> sin fronteras, </span>
-                 <span className="text-[#135bec] italic">soporte</span>
-                 <span className="text-white"> sin interrupciones.</span>
-                 </h2>
-               <p className="mt-6 text-base md:text-lg text-white/70 font-medium">
-                Nuestro equipo se encuentra en las siguientes ubicaciones
-               </p>
-             <div className="mt-8 w-20 h-1 bg-[#135bec] rounded-full"></div>
-           </div>>
+        <div className="container mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
+              <span className="text-[#135bec] italic">Talento</span>
+              <span className="text-white"> sin fronteras, </span>
+              <span className="text-[#135bec] italic">soporte</span>
+              <span className="text-white"> sin interrupciones.</span>
+            </h2>
+            <p className="mt-6 text-base md:text-lg text-white/70 font-medium">
+              Nuestro equipo se encuentra en las siguientes ubicaciones
+            </p>
+            <div className="mt-8 w-20 h-1 bg-[#135bec] rounded-full"></div>
+          </div>
 
           <div className="bg-slate-900/20 border border-slate-800/60 rounded-[3rem] overflow-hidden backdrop-blur-sm">
             <div className="flex flex-col lg:flex-row min-h-[600px]">
