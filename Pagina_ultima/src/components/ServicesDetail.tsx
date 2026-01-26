@@ -147,6 +147,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
                 <img
                   src="/images/hero-image.gif"
                   alt="Imagen representativa"
+                  loading="eager" 
                   className="w-auto h-auto object-contain scale-[1.2]"
                 />
               </div>
