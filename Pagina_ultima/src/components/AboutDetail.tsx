@@ -4,6 +4,7 @@ import WorldMap from './WorldMap';
 import OfficeDetails from './OfficeDetails';
 import { OFFICE_LOCATIONS } from '../constants';
 import { OfficeLocation } from '../types';
+import ScrollAnimation from './ScrollAnimation';
 
 interface AboutDetailProps {
   onContactClick: () => void;
