@@ -58,8 +58,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, det
 
       {/* Acordeón con detalles */}
       <div 
-        className={`overflow-hidden transition-all duration-500 ${
-          isExpanded ? 'max-h-96' : 'max-h-0'
+        className={`overflow-hidden transition-all duration-700 ease-in-out ${
+          isExpanded ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
         <div className="px-10 pb-10 pt-2 relative z-10 bg-slate-50/50 border-t border-slate-100">
