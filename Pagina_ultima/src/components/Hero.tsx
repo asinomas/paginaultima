@@ -78,15 +78,12 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             }}
           >
 
-            
-          <img 
-
             {/* object-cover Rellena todo el contenedor, la imagen puede verse cortada. Object-contain La imagen se ve completa, puede dejar espacios vacíos alrededor */}
-             src="/images/foto-hero.jpg" 
+               
+          <img 
+              src="/images/foto-hero.jpg" 
              alt="Hero" 
              className="w-full h-full object-cover"
-
-            
               />
           </div>
         </div>
