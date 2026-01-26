@@ -21,14 +21,9 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       
       <HeroLights />
       <div className="container mx-auto px-6 relative z-10">
-
-
         
         {/* Aquí ajusto la distancia entre texto e imagen con gap */}
         <div className="max-w-7xl mx-auto flex items-center justify-center gap-4">
-
-
-
           
           <div className={`max-w-4xl text-center transition-all duration-[3s] ${showImage ? '-translate-x-48' : 'translate-x-0'}`}>
             
@@ -70,27 +65,28 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
           <div 
             className={`absolute right-0 w-[339px] h-[509px] flex-shrink-0 transition-all duration-[3s] ${
-              showImage ? 'translate-x-[300p] opacity-100' : 'translate-x-full opacity-0'
+              showImage ? 'translate-x-[-300px] opacity-100' : 'translate-x-full opacity-0'
             }`}
             style={{
-              maskImage: 'lineal-gradient(ellipse at center, black 85%, transparent 100%)',
-                         linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)
-            `,
-              WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
-                                linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)
-             `,
-                              maskComposite: 'intersect',
-                              WebkitMaskComposite: 'source-in'
+              maskImage: `
+                linear-gradient(to right, transparent, black 15%, black 85%, transparent),
+                linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)
+              `,
+              WebkitMaskImage: `
+                linear-gradient(to right, transparent, black 15%, black 85%, transparent),
+                linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)
+              `,
+              maskComposite: 'intersect',
+              WebkitMaskComposite: 'source-in'
             }}
           >
-
             {/* object-cover Rellena todo el contenedor, la imagen puede verse cortada. Object-contain La imagen se ve completa, puede dejar espacios vacíos alrededor */}
                
-          <img 
+            <img 
               src="/images/foto-hero.jpg" 
-             alt="Hero" 
-             className="w-full h-full object-cover"
-              />
+              alt="Hero" 
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </div>
