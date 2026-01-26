@@ -126,6 +126,14 @@ const ServicesHeroLights: React.FC = () => {
         />
       ))}
       
+      {/* Textura de fondo */}
+      <div 
+        className="absolute inset-0 opacity-20 pointer-events-none"
+        style={{
+          backgroundImage: "url('https://www.transparenttextures.com/patterns/carbon-fibre.png')"
+        }}
+      />
+      
       <style>{`
         @keyframes pulseServices {
           0%, 100% {
