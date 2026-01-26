@@ -103,7 +103,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
               </h1>
 
               <p className="text-lg lg:text-xl text-slate-400 leading-relaxed max-w-2xl mb-10">
-                Impulsando la excelencia digital a través de soluciones tecnológicas estratégicas. En BlackTI ayudamos a su empresa a escalar en el entorno moderno.
+                En BlackTI ayudamos a empresas a innovar, optimizar procesos y generar resultados medibles. Nuestra experiencia tecnológica se traduce en soluciones para lograr que su empresa escale en el entorno moderno.
               </p>
 
               <button
