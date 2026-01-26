@@ -35,6 +35,7 @@ const Logos: React.FC = () => {
               <img
                 alt={logo.name}
                 src={logo.src}
+                loading="lazy"
                 className={`h-12 md:h-16 w-auto object-contain
                   ${logo.name === 'Compunet' ? 'invert' : ''}
                 `}
