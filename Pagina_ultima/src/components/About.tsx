@@ -25,7 +25,7 @@ const About: React.FC = () => {
             <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-2 border border-blue-100">
               <span className="text-blue-600 text-xs font-bold uppercase tracking-widest">Nuestra Identidad</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-8 leading-[1.1]">
+            <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 leading-[1.1]">
               Liderando con <span className="text-blue-600 italic">Propósito</span> Real
             </h2>
             <p className="text-lg md:text[17px] font-medium text-slate-500 tracking-tighter mb-8 leading-relaxed">
