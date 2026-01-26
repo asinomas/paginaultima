@@ -44,7 +44,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, det
           <div className="flex items-center text-[#135bec] font-bold text-[10px] uppercase tracking-[0.2em] transition-transform duration-300 w-fit">
             <span>{buttonText}</span>
             <ChevronDown 
-              className={`ml-2 transition-all duration-300 ${isExpanded ? 'rotate-180' : ''}`} 
+              className={`ml-2 transition-all duration-300 ${isExpanded ? 'rotate-180' : ''}`}
               size={14} 
             />
           </div>
@@ -52,9 +52,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, det
       </div>
 
       {/* Acordeón con detalles */}
-      <div className={`overflow-hidden transition-all duration-[1s] ease-in-out ${ isExpanded ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
-                                                                                  
-       <div className={`px-10 pb-10 ${detailsTitle ? 'pt-2' : 'pt-6'} relative z-10 bg-slate-50/50 border-t border-slate-100">
+      <div className={`overflow-hidden transition-all duration-[1s] ease-in-out ${isExpanded ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+        <div className={`px-10 pb-10 ${detailsTitle ? 'pt-2' : 'pt-6'} relative z-10 bg-slate-50/50 border-t border-slate-100`}>
           {detailsTitle && (
             <h5 className="text-xs font-bold text-slate-900 mb-4 uppercase tracking-wider">
               {detailsTitle}
