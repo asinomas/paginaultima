@@ -4,9 +4,9 @@ const Stats: React.FC = () => {
   const statsItems = [
     {
       icon: 'verified',
-      value: '99%',
+      value: '100%',
       label: 'Compromiso Serio',
-      text: 'Nuestra tasa de éxito en proyectos está impulsada por un profundo sentido de responsabilidad y disciplina técnica.'
+      text: 'Cada cifra representa un proyecto exitoso, un proceso optimizado y un cliente satisfecho.'
     },
     {
       icon: 'rocket_launch',
