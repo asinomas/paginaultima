@@ -77,12 +77,14 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               WebkitMaskImage: 'radial-gradient(ellipse at center, black 60%, transparent 100%)'
             }}
           >
-          <img 
 
             
+          <img 
+
+            {/* object-cover Rellena todo el contenedor, la imagen puede verse cortada. Object-contain La imagen se ve completa, puede dejar espacios vacíos alrededor */}
              src="/images/foto-hero.jpg" 
              alt="Hero" 
-            className="w-full h-full object-contain"
+             className="w-full h-full object-cover"
 
             
               />
