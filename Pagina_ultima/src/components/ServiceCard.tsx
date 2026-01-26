@@ -18,8 +18,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, det
     <div 
       ref={cardRef} 
       className="relative bg-white rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500 group flex flex-col overflow-hidden"
-      onMouseEnter={() => setIsExpanded(true)}
-      onMouseLeave={() => setIsExpanded(false)}
     >
       
       <div className="p-10">
@@ -36,8 +34,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, det
         {/* Contenido */}
         <div className="relative z-10">
           <h4 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">{title}</h4>
-          <p className="text-slate-500 leading-relaxed text-sm mb-6">
-            {description}
+          <p  className="text-slate-500 leading-relaxed text-sm mb-6"
+              onMouseEnter={() => setIsExpanded(true)}
+              onMouseLeave={() => setIsExpanded(false)}
+           >
+           {description}
           </p>
           
           {/* Indicador Visual */}
