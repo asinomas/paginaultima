@@ -37,7 +37,7 @@ const ContactDetail: React.FC = () => {
               <span className="text-[#135bec] italic">Futuro</span>
             </h2>
             
-            <p className="text-slate-500 text-lg mb-12 max-w-md leading-relaxed">
+            <p className="text-slate-500 text-lg mb-12 max-w-md leading-relaxed font-medium">
               Estamos listos para transformar tus desafíos en ventajas competitivas. Déjanos un mensaje y nos contactaremos en menos de 24 horas.
             </p>
 
