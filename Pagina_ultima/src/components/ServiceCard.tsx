@@ -57,7 +57,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, det
           isExpanded ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="px-10 pb-10 pt-2 relative z-10 bg-slate-50/50 border-t border-slate-100">
+       <div className={`px-10 pb-10 ${detailsTitle ? 'pt-2' : 'pt-6'} relative z-10 bg-slate-50/50 border-t border-slate-100">
           {detailsTitle && (
             <h5 className="text-xs font-bold text-slate-900 mb-4 uppercase tracking-wider">
               {detailsTitle}
