@@ -1,6 +1,7 @@
 import React from 'react';
 import { MapPin, Building2, Globe2, Mail } from 'lucide-react';
 import { OfficeLocation } from '../types';
+import ScrollAnimation from './ScrollAnimation';
 
 interface OfficeDetailsProps {
   office: OfficeLocation;
