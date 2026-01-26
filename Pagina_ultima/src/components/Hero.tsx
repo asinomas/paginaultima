@@ -19,13 +19,11 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-[#0b0e14] overflow-hidden pt-20 antialiased">
       
-      {/* Sistema de Luces Dinámicas */}
       <HeroLights />
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-7xl mx-auto flex items-center justify-center gap-12">
-          <div className={`max-w-4xl text-center transition-all duration-1000 ${showImage ? '-translate-x-[226px]' : 'translate-x-0'}`}>
+        <div className={`max-w-7xl mx-auto flex items-center gap-12 transition-all duration-1000 ${showImage ? 'justify-between' : 'justify-center'}`}>
+          <div className="max-w-4xl text-center">
             
-            {/* Badge: Servicio de Consultoría TI*/}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#135bec]/10 border border-[#135bec]/20 mb-8">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#135bec] opacity-75"></span>
@@ -34,7 +32,6 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               <span className="text-[#135bec] text-[11px] font-bold uppercase tracking-[0.2em]">Servicio de Consultoría TI</span>
             </div>
             
-            {/* Título */}
             <h1 className="text-5xl md:text-7xl font-bold text-white/95 tracking-tight mb-8 leading-[1.1] selection:bg-[#135bec]/30">
               Potenciando el{' '}
               <span className="relative inline-block italic text-[#135bec] drop-shadow-[0_0_15px_rgba(19,91,236,0.3)] filter transition-all duration-700">
@@ -63,7 +60,6 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             </div>
           </div>
 
-          {/* Contenedor de imagen con efecto de barrido */}
           <div 
             className={`relative w-[440px] h-[440px] bg-red-500 flex-shrink-0 transition-all duration-1000 ${
               showImage ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
@@ -73,7 +69,6 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               WebkitMaskImage: 'radial-gradient(ellipse at center, black 60%, transparent 100%)'
             }}
           >
-            {/* Aquí irá tu imagen */}
           </div>
         </div>
       </div>
