@@ -1,6 +1,7 @@
 import React from 'react';
 import { Terminal, Lightbulb, Network, Lock, Cloud, BarChart3 } from 'lucide-react';
 import ServiceCard from './ServiceCard';
+import ServicesHeroLights from './ServicesHeroLights';
 
 interface ServicesDetailProps {
   onContactClick?: () => void;
@@ -90,7 +91,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
       {/* 1. HERO SECTION */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8 mb-24">
         <div className="relative overflow-hidden rounded-[3rem] bg-[#0b0e14] p-12 lg:p-24 text-center lg:text-left">
-          <div className="absolute top-[-20%] right-[-10%] w-[50%] h-[50%] bg-[#135bec]/20 rounded-full blur-[100px]" />
+          <ServicesHeroLights />
 
           <div className="relative z-10 flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-2/3">
