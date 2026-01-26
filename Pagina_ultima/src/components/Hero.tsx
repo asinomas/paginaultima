@@ -30,7 +30,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
 
           
-          <div className={`max-w-4xl text-center transition-all duration-[3s] ${showImage ? '-translate-x-32' : 'translate-x-0'}`}>
+          <div className={`max-w-4xl text-center transition-all duration-[3s] ${showImage ? '-translate-x-48' : 'translate-x-0'}`}>
             
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#135bec]/10 border border-[#135bec]/20 mb-8">
               <span className="relative flex h-2 w-2">
@@ -70,7 +70,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
           <div 
             className={`absolute right-0 w-[339px] h-[509px] flex-shrink-0 transition-all duration-[3s] ${
-              showImage ? 'translate-x-[100p] opacity-100' : 'translate-x-full opacity-0'
+              showImage ? 'translate-x-[300p] opacity-100' : 'translate-x-full opacity-0'
             }`}
             style={{
               maskImage: 'radial-gradient(ellipse at center, black 60%, transparent 100%)',
