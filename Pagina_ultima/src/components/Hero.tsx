@@ -73,8 +73,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               showImage ? 'translate-x-[300p] opacity-100' : 'translate-x-full opacity-0'
             }`}
             style={{
-              maskImage: 'radial-gradient(ellipse at center, black 60%, transparent 100%)',
-              WebkitMaskImage: 'radial-gradient(ellipse at center, black 60%, transparent 100%)'
+              maskImage: 'radial-gradient(ellipse at center, black 80%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
             }}
           >
 
