@@ -43,7 +43,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, det
           
           {/* Indicador Visual */}
           <div className="flex items-center text-[#135bec] font-bold text-[10px] uppercase tracking-[0.2em] transition-transform duration-300 w-fit">
-            <span>{buttonText}</span>
+            onMouseEnter={() => setIsExpanded(true)}
+            onMouseLeave={() => setIsExpanded(false)}
+          >
+          <span>{buttonText}</span>
             <ChevronDown 
               className={`ml-2 transition-all duration-300 ${isExpanded ? 'rotate-180' : ''}`}
               size={14} 
