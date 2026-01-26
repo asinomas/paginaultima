@@ -1,4 +1,5 @@
 import React from 'react';
+import ScrollAnimation from './ScrollAnimation';
 
 const About: React.FC = () => {
   return (
