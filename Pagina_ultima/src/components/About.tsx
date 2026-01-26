@@ -2,7 +2,10 @@ import React from 'react';
 import ScrollAnimation from './ScrollAnimation';
 
 const About: React.FC = () => {
+  const Services = () => {
   return (
+    <ScrollAnimation>
+  
     <section className="bg-white py-32 overflow-hidden">
       <div className="container mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
@@ -52,6 +55,7 @@ const About: React.FC = () => {
         </div>
       </div>
     </section>
+       </ScrollAnimation>
   );
 };
 
