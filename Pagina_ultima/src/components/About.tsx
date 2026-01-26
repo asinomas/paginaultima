@@ -11,6 +11,7 @@ const About: React.FC = () => {
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" 
                 className="h-[600px] w-full object-cover transition-transform duration-[2s] group-hover:scale-105"
                 alt="Nosotros"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent"></div>
               <div className="absolute bottom-10 left-10">
