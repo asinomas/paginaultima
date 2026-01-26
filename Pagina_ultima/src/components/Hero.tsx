@@ -22,7 +22,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       <HeroLights />
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-7xl mx-auto flex items-center justify-center gap-12">
-          <div className={`max-w-4xl text-center transition-all duration-[2] ${showImage ? '-translate-x-64' : 'translate-x-0'}`}>
+          <div className={`max-w-4xl text-center transition-all duration-[3s] ${showImage ? '-translate-x-64' : 'translate-x-0'}`}>
             
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#135bec]/10 border border-[#135bec]/20 mb-8">
               <span className="relative flex h-2 w-2">
@@ -61,7 +61,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           </div>
 
           <div 
-            className={`absolute right-0 w-[500px] h-[500px] bg-red-500 flex-shrink-0 transition-all duration-1000 ${
+            className={`absolute right-0 w-[500px] h-[500px] bg-red-500 flex-shrink-0 transition-all duration-2000 ${
               showImage ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
             }`}
             style={{
