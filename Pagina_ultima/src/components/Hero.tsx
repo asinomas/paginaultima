@@ -34,7 +34,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           </h1>
           
           <p className="text-lg text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Unimos ingeniería de clase mundial con visión humana para crear soluciones que definen industrias.
+          BlackTI combina experiencia, creatividad y un enfoque estratégico que busca convertir la tecnología en valor real para su empresa
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
