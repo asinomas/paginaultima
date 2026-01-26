@@ -52,8 +52,8 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
       <section className="container mx-auto max-w-7xl px-6 lg:px-8 mb-32">
         <div className="flex flex-col lg:flex-row gap-16 items-center">
           <div className="lg:w-1/2">
-            <h4 className="text-xs font-bold uppercase tracking-[0.3em] text-[#135bec] mb-6">Nuestra Historia</h4>
-            <h1 className="text-5xl lg:text-7xl font-black text-slate-900 leading-[1.1] mb-8 tracking-tighter">
+            <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#135bec] mb-4">Nuestra Historia</h4>
+            <h1 className="text-5xl lg:text-7xl font-black text-slate-900 leading-[1.1] mb-8 tracking-tighter leading-tight">
               El Gen BlackTI <span className="text-[#135bec] italic">Excelencia</span>
             </h1>
             <p className="text-lg lg:text-xl text-slate-500 leading-relaxed mb-10 max-w-xl">
