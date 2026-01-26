@@ -14,11 +14,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, det
   const [isExpanded, setIsExpanded] = useState(false);
   const cardRef = React.useRef<HTMLDivElement>(null);
 
-  // Validar que Icon existe
-  if (!Icon) {
-    return null;
-  }
-
   return (
     <div 
       ref={cardRef} 
@@ -69,7 +64,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, det
             </h5>
           )}
           <ul className="space-y-2">
-            {details && details.map((detail, idx) => (
+            {details.map((detail, idx) => (
               <li key={idx} className="flex items-start text-sm text-slate-600">
                 <span className="text-[#135bec] mr-2 mt-0.5 flex-shrink-0 font-bold">›</span>
                 <span>{detail}</span>
