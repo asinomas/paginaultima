@@ -103,7 +103,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
               </h1>
 
               <p className="text-lg lg:text-xl text-slate-400 leading-relaxed max-w-2xl mb-10">
-                En BlackTI ayudamos a empresas a innovar, optimizar procesos y generar resultados medibles. Nuestra experiencia se traduce en soluciones para que su empresa escale en el entorno moderno.
+                En BlackTI ayudamos a empresas a innovar, optimizar procesos y generar resultados medibles. Nuestra experiencia se traduce en soluciones para que su negocio escale en el entorno moderno.
               </p>
 
               <button
