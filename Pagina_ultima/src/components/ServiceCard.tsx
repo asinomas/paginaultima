@@ -33,25 +33,28 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, det
         
         {/* Contenido */}
         <div className="relative z-10">
-          <h4 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">
-        onMouseEnter={() => setIsExpanded(true)}
-        onMouseLeave={() => setIsExpanded(false)}
-         >
-         {title}
-         </h4>
-          <p  className="text-slate-500 leading-relaxed text-sm mb-6"
-              onMouseEnter={() => setIsExpanded(true)}
-              onMouseLeave={() => setIsExpanded(false)}
-           >
-           {description}
-          </p>
-          
-          {/* Indicador Visual */}
-          <div className="flex items-center text-[#135bec] font-bold text-[10px] uppercase tracking-[0.2em] transition-transform duration-300 w-fit">
+          <h4 
+            className="text-xl font-bold text-slate-900 mb-4 tracking-tight"
             onMouseEnter={() => setIsExpanded(true)}
             onMouseLeave={() => setIsExpanded(false)}
           >
-          <span>{buttonText}</span>
+            {title}
+          </h4>
+          <p 
+            className="text-slate-500 leading-relaxed text-sm mb-6"
+            onMouseEnter={() => setIsExpanded(true)}
+            onMouseLeave={() => setIsExpanded(false)}
+          >
+            {description}
+          </p>
+          
+          {/* Indicador Visual */}
+          <div 
+            className="flex items-center text-[#135bec] font-bold text-[10px] uppercase tracking-[0.2em] transition-transform duration-300 w-fit"
+            onMouseEnter={() => setIsExpanded(true)}
+            onMouseLeave={() => setIsExpanded(false)}
+          >
+            <span>{buttonText}</span>
             <ChevronDown 
               className={`ml-2 transition-all duration-300 ${isExpanded ? 'rotate-180' : ''}`}
               size={14} 
