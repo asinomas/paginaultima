@@ -61,7 +61,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           </div>
 
           <div 
-            className={`absolute right-0 w-[500px] h-[500px] bg-red-500 flex-shrink-0 transition-all duration-2000 ${
+            className={`absolute right-0 w-[500px] h-[500px] bg-red-500 flex-shrink-0 transition-all duration-300 ${
               showImage ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
             }`}
             style={{
