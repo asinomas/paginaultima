@@ -102,6 +102,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
                   alt={member.name} 
                   className="grayscale w-full h-full object-cover transition-all duration-[1.5s] group-hover:grayscale-0 group-hover:scale-105" 
                   src={member.image} 
+                  loading="lazy"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=800';
                   }}
