@@ -145,7 +145,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
               {/* Imagen */}
               <div className="w-full overflow-hidden flex justify-center items-center">
                 <img
-                  src="/images/hero-image.gif"
+                  src="/images/hero-image.webp"
                   alt="Imagen representativa"
                   loading="eager" 
                   className="w-auto h-auto object-contain scale-[1.2]"
