@@ -1,6 +1,7 @@
 import React from 'react';
 import { Compass, Layers } from 'lucide-react';
 import ServiceCard from './ServiceCard';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const profiles = [
   "Líder Técnico", "Scrum Master", "Dev Android", "Dev Java",
@@ -32,10 +33,16 @@ const servicesData = [
 ];
 
 const HighLevelConsulting: React.FC = () => {
-  return (
-    <section className="bg-slate-50 py-24 md:py-32">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+  const { ref, isVisible } = useScrollAnimation();
 
+  return (
+    <section 
+      ref={ref}
+      className={`bg-slate-50 py-24 md:py-32 transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-16 mb-24">
           <div className="max-w-xl">
             <span className="text-[11px] font-bold tracking-[0.2em] text-[#135bec] uppercase mb-4 block">
@@ -50,12 +57,10 @@ const HighLevelConsulting: React.FC = () => {
               Desarrollamos una confianza a largo plazo que nos permite ser parte del cumplimiento de los objetivos de nuestros clientes.
             </p>
           </div>
-
           <div className="flex-1 w-full lg:max-w-xl">
             <h4 className="text-[10px] font-bold tracking-[0.3em] text-slate-400 uppercase mb-8 border-b border-slate-200 pb-2 inline-block">
               Perfiles Especializados
             </h4>
-
             <div className="flex flex-wrap gap-4 justify-start">
               {profiles.map((profile, index) => (
                 <span
@@ -68,9 +73,7 @@ const HighLevelConsulting: React.FC = () => {
             </div>
           </div>
         </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-stretch">
-
           <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8">
             {servicesData.map((service, index) => (
               <ServiceCard
@@ -82,8 +85,6 @@ const HighLevelConsulting: React.FC = () => {
               />
             ))}
           </div>
-
-          {/* Imagen */}
           <div className="relative h-full rounded-[2.5rem] overflow-visible p-6 group">
             <img
               src="/images/team-collaboration.webp"
@@ -92,7 +93,6 @@ const HighLevelConsulting: React.FC = () => {
               loading="lazy"
             />
           </div>
-
         </div>
       </div>
     </section>
