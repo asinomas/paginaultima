@@ -22,8 +22,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       {/* Sistema de Luces Dinámicas */}
       <HeroLights />
       <div className="container mx-auto px-6 relative z-10">
-        <div className={`max-w-7xl mx-auto flex items-center gap-12 transition-all duration-1000 ${showImage ? 'justify-between' : 'justify-center'}`}>
-          <div className={`transition-all duration-1000 ${showImage ? 'text-left max-w-2xl' : 'text-center max-w-4xl'}`}>
+        <div className="max-w-7xl mx-auto flex items-center justify-center gap-12">
+          <div className={`max-w-4xl text-center transition-all duration-1000 ${showImage ? '-translate-x-[226px]' : 'translate-x-0'}`}>
             
             {/* Badge: Servicio de Consultoría TI*/}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#135bec]/10 border border-[#135bec]/20 mb-8">
@@ -43,10 +43,10 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               con Inteligencia
             </h1>
             
-            <p className={`text-lg text-slate-400 mb-12 leading-relaxed transition-all duration-1000 ${showImage ? 'max-w-2xl' : 'max-w-2xl mx-auto'}`}>
+            <p className="text-lg text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed">
             BlackTI combina experiencia, creatividad y un enfoque estratégico para convertir la tecnología en valor real para su empresa
             </p>
-            <div className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 ${showImage ? 'items-start justify-start' : 'items-center justify-center'}`}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button 
                 onClick={() => onNavigate('contact')}
                 className="group relative overflow-hidden px-8 py-4 bg-[#135bec] text-white rounded-xl font-bold transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-[#135bec]/30"
@@ -65,7 +65,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
           {/* Contenedor de imagen con efecto de barrido */}
           <div 
-            className={`relative w-[440px] h-[440px] bg-red-500 transition-all duration-1000 ${
+            className={`relative w-[440px] h-[440px] bg-red-500 flex-shrink-0 transition-all duration-1000 ${
               showImage ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
             }`}
             style={{
