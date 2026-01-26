@@ -54,10 +54,10 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
           <div className="lg:w-1/2">
             <h4 className="text-xs font-bold uppercase tracking-[0.3em] text-[#135bec] mb-6">Nuestra Historia</h4>
             <h1 className="text-5xl lg:text-7xl font-black text-slate-900 leading-[1.1] mb-8 tracking-tighter">
-              El Gen de la <span className="text-[#135bec] italic">Excelencia</span>
+              El Gen BlackTI <span className="text-[#135bec] italic">Excelencia</span>
             </h1>
             <p className="text-lg lg:text-xl text-slate-500 leading-relaxed mb-10 max-w-xl">
-              Nacimos con la visión de cerrar la brecha entre la complejidad técnica y el éxito empresarial. En BlackTI somos un equipo de alto rendimiento, obsesión por el detalle y mentalidad problem-solver.
+              Nacimos con la visión de cerrar la brecha entre la complejidad técnica y el éxito empresarial. Somos un equipo de alto rendimiento, obsesión por el detalle y mentalidad problem-solver.
             </p>
             <div className="flex gap-4">
               <button 
