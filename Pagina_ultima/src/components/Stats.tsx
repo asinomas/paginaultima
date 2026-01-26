@@ -1,4 +1,5 @@
 import React from 'react';
+import ScrollAnimation from './ScrollAnimation';
 
 const Stats: React.FC = () => {
   const statsItems = [
