@@ -2,12 +2,12 @@ import React from 'react';
 
 const Logos: React.FC = () => {
   const logos = [
-    { name: 'Grupo Sura', src: '/logos/grupo-sura.png' },
-    { name: 'Casa&Ideas', src: '/logos/casa-ideas.png' },
-    { name: 'Globant', src: '/logos/globant.png' },
-    { name: 'Marubeni', src: '/logos/marubeni.png' },
-    { name: 'Everis', src: '/logos/everis.png' },
-    { name: 'Compunet', src: '/logos/compunet.png' },
+    { name: 'Grupo Sura', src: './logos/grupo-sura.png' },
+    { name: 'Casa&Ideas', src: './logos/casa-ideas.png' },
+    { name: 'Globant', src: './logos/globant.png' },
+    { name: 'Marubeni', src: './logos/marubeni.png' },
+    { name: 'Everis', src: './logos/everis.png' },
+    { name: 'Compunet', src: './logos/compunet.png' },
   ];
 
   return (
