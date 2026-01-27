@@ -54,7 +54,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
 
       
       {/* SECCIÓN HERO / HISTORIA */}
-      <section className="container mx-auto max-w-7xl px-6 lg:px-8 mb-32">
+      <section className="bg-[#F8FAFC] container mx-auto max-w-7xl px-6 lg:px-8 mb-32">
         <div className="flex flex-col lg:flex-row gap-16 items-center">
           <div className="lg:w-1/2">
             <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#135bec] mb-4">Nuestra Historia</h4>
