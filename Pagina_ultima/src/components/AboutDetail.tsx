@@ -71,18 +71,22 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
               </button>
             </div>
           </div>
+
           
           {/* IMAGEN SIN MARCO – MISMA POSICIÓN – OCULTA EN MOBILE */}
           <div className="hidden lg:flex justify-center relative lg:w-1/2">
             <img 
               src={fotoAbout}
               alt="Team Work"
-              className="w-full max-w-md object-contain scale-[1.5] -translate-y-2"
+              className="w-full max-w-md object-contain scale-[1.5] -translate-y-2 shadow-2xl"
             />
           </div>
         </div>
       </section>
 
+
+
+      
       {/* QUIENES SOMOS */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8 mb-40">
         <div className="text-center mb-24">
