@@ -80,11 +80,11 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
             
             {/* IMAGEN LIBRE */}
             <div className="relative hidden md:flex">
-              <div className="shadow-2xl rounded-3xl scale-[1.4] -translate-y-1 -translate-x-5">
+              <div className="shadow-2xl rounded-3xl scale-[1.4] -translate-y-1 -translate-x-5 bg-white">
                 <img 
                   src={fotoAbout} 
                   alt="Team Work" 
-                  className="w-full max-w-md object-contain -translate-y-1 -translate-x-2" 
+                  className="w-full max-w-md object-contain -translate-x-2" 
                   onError={(e) => {
                     console.log('Error cargando foto-about.webp');
                     (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop';
