@@ -34,7 +34,7 @@ const About: React.FC = () => {
                 Somos una Start Up que trasciende la simple implementación técnica. Nos sumergimos en la cultura de nuestros clientes para convertir obstáculos en motores de crecimiento sin perder la continuidad operativa. 
               </p>
               <div className="space-y-6 mb-12">
-                <p className="text-lg leading-relaxed text-slate-500">
+                <p className="text-lg leading-relaxed text-slate-500 tracking-tighter font-normal">
                   Creemos que el éxito del trabajo en equipo solo es sostenible cuando está alineado el talento con una visión estratégica clara.
                 </p>
               </div>
