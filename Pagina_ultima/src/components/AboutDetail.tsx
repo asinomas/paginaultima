@@ -75,7 +75,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
               <div className="aspect-square bg-slate-100 rounded-[3rem] overflow-hidden rotate-3 hover:rotate-0 transition-transform duration-700 shadow-2xl border border-slate-200">
                 {/* MODIFICACIÓN: imagen WebP con transparencia */}
                 <img 
-                  src="/images/foto-about.webp" 
+                  src="public/images/foto-about.webp" 
                   alt="Team Work" 
                   className="w-full h-full object-cover" 
                 />
