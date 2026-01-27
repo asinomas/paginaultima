@@ -23,7 +23,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       <div className="container mx-auto px-6 relative z-10">
         
         {/* Aquí ajusto la distancia entre texto e imagen con gap */}
-        <div className="max-w-7xl mx-auto flex items-center justify-center gap-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-center gap-6">
           
           <div className={`max-w-4xl text-center transition-all duration-[3s] ${showImage ? '-translate-x-[210px]' : 'translate-x-0'}`}>
             
