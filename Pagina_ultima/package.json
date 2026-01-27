@@ -3,14 +3,12 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://asinomas.github.io/paginaultima",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:github": "vite build --mode github",
     "lint": "eslint . --ext js,jsx,ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "preview": "vite preview"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -32,7 +30,6 @@
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.2.2",
-    "vite": "^5.1.4",
-    "gh-pages": "^6.1.1"
+    "vite": "^5.1.4"
   }
 }
