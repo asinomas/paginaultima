@@ -84,7 +84,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
                 <img 
                   src={fotoAbout} 
                   alt="Team Work" 
-                  className="w-full max-w-md object-contain -translate-y-1 -translate-x-5" 
+                  className="w-full max-w-md object-contain -translate-y-1 -translate-x-2" 
                   onError={(e) => {
                     console.log('Error cargando foto-about.webp');
                     (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop';
