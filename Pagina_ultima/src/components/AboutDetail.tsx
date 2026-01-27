@@ -53,7 +53,10 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
     <div className="bg-white min-h-screen pt-24 antialiased">
 
       {/* SECCIÓN HERO / HISTORIA */}
-      <section className="relative bg-[#F8FAFC] container mx-auto max-w-7xl px-6 lg:px-8 mb-32 before:absolute before:inset-x-0 before:bottom-0 before:h-32 before:bg-gradient-to-b before:from-[#F8FAFC] before:to-white before:pointer-events-none">
+      <section className="relative bg-[#F8FAFC] container mx-auto max-w-7xl px-6 lg:px-8 mb-32
+        before:absolute before:-top-24 before:left-0 before:w-full before:h-[200px] 
+        before:bg-gradient-to-b before:from-[#F8FAFC] before:to-transparent before:pointer-events-none"
+      >
         <div className="flex flex-col lg:flex-row gap-16 items-center relative z-10">
           <div className="lg:w-1/2">
             <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#135bec] mb-4">Nuestra Historia</h4>
@@ -74,7 +77,6 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
           </div>
           
           <div className="lg:w-1/2 flex justify-center relative">
-
             {/* IMAGEN LIBRE */}
             <div className="relative hidden md:flex">
               <div className="shadow-xl rounded-3xl scale-[1.3] -translate-y-1 -translate-x-5">
@@ -97,11 +99,11 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
       <section className="container mx-auto max-w-7xl px-6 lg:px-8 mb-40">
         <div className="text-center mb-24 flex flex-col items-center">
           <div className="flex items-center w-full justify-center mb-6">
-            <div className="h-0.5 flex-1 bg-slate-200 hidden md:block mx-10" /> {/* Línea izquierda */}
+            <div className="h-0.5 flex-1 bg-slate-200 hidden md:block mx-10" />
             <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
               ¿Quienes Somos?
             </h2>
-            <div className="h-0.5 flex-1 bg-slate-200 hidden md:block mx-10" /> {/* Línea derecha */}
+            <div className="h-0.5 flex-1 bg-slate-200 hidden md:block mx-10" />
           </div>
           <p className="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed font-medium">
             Líderes apasionados por la tecnología que dirigen el rumbo de cada proyecto con rigor y visión.
