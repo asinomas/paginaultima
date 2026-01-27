@@ -1,6 +1,6 @@
 # BlackTI - Página Última
 
-[![Deploy Status](https://img.shields.io/badge/deploy-GitHub%20Pages-success)](https://asinomas.github.io/paginaultima/Pagina_ultima/)
+[![Deploy Status](https://img.shields.io/badge/deploy-GitHub%20Pages-success)](https://asinomas.github.io/paginaultima/)
 [![Built with Vite](https://img.shields.io/badge/built%20with-Vite-646CFF?logo=vite)](https://vitejs.dev/)
 [![React](https://img.shields.io/badge/React-18.3.1-61DAFB?logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.2.2-3178C6?logo=typescript)](https://www.typescriptlang.org/)
@@ -18,6 +18,7 @@ Una aplicación web moderna construida con React, TypeScript y Vite. Optimizada 
 - 🔍 **ESLint & Prettier** - Code quality
 
 ## 📦 Instalación
+
 ```bash
 # Clonar el repositorio
 git clone https://github.com/asinomas/paginaultima.git
@@ -28,6 +29,7 @@ npm install
 ```
 
 ## 🛠️ Desarrollo
+
 ```bash
 # Servidor de desarrollo (http://localhost:3000)
 npm run dev
@@ -44,36 +46,36 @@ npm run lint
 
 ## 🚀 Despliegue
 
-### Despliegue automático con gh-pages
-```bash
-# Instalar gh-pages (si no lo has hecho)
-npm install --save-dev gh-pages
+El proyecto se despliega automáticamente en GitHub Pages mediante GitHub Actions cuando se hace push a la rama `main`.
 
-# Desplegar a GitHub Pages
-npm run deploy
-```
+### URL de producción
+https://asinomas.github.io/paginaultima/
 
 ### Despliegue manual
+
 ```bash
-# 1. Construir el proyecto
+# Construir el proyecto
 npm run build
 
-# 2. Commitear y pushear los cambios
-git add dist -f
-git commit -m "Deploy build"
-git push origin main
+# Los archivos estarán en la carpeta dist/
 ```
 
 ## 📁 Estructura del proyecto
+
 ```
 Pagina_ultima/
 ├── src/
 │   ├── components/      # Componentes React reutilizables
 │   ├── assets/          # Imágenes, fuentes, etc.
+│   ├── hooks/           # Custom React hooks
+│   ├── services/        # Servicios y APIs
 │   ├── App.tsx          # Componente principal
 │   └── main.tsx         # Punto de entrada
 ├── public/              # Archivos estáticos
-├── dist/                # Build de producción
+│   ├── images/          # Imágenes generales
+│   ├── logos/           # Logos de empresas
+│   └── team/            # Fotos del equipo
+├── dist/                # Build de producción (generado)
 ├── vite.config.ts       # Configuración de Vite
 ├── tsconfig.json        # Configuración de TypeScript
 ├── tailwind.config.js   # Configuración de Tailwind
@@ -84,7 +86,8 @@ Pagina_ultima/
 
 ### Variables de entorno
 
-Crea un archivo `.env` en la raíz:
+Crea un archivo `.env` en la raíz si necesitas variables:
+
 ```env
 VITE_API_URL=https://api.example.com
 ```
@@ -92,12 +95,13 @@ VITE_API_URL=https://api.example.com
 ### Rutas de GitHub Pages
 
 El proyecto está configurado para desplegarse en:
-`https://asinomas.github.io/paginaultima/Pagina_ultima/`
+`https://asinomas.github.io/paginaultima/`
 
-Si cambias la estructura, actualiza `base` en `vite.config.ts`:
+La configuración se encuentra en `vite.config.ts`:
+
 ```typescript
 export default defineConfig({
-  base: '/tu-ruta-aqui/',
+  base: '/paginaultima/',
   // ...
 })
 ```
@@ -107,13 +111,20 @@ export default defineConfig({
 ### Pantalla blanca después del deploy
 
 - Verifica que `base` en `vite.config.ts` coincida con tu ruta de GitHub Pages
-- Asegúrate de hacer `npm run build` antes de desplegar
+- Asegúrate de que el workflow de GitHub Actions haya terminado exitosamente
 - Revisa la consola del navegador (F12) para errores
 
 ### Errores de rutas 404
 
 - Confirma que GitHub Pages esté habilitado en Settings → Pages
-- Verifica que la rama `gh-pages` exista y tenga contenido
+- Verifica que la configuración sea "Source: GitHub Actions"
+- Limpia la caché del navegador con `Ctrl + Shift + R`
+
+### Imágenes no cargan
+
+- Las imágenes deben estar en la carpeta `public/`
+- Las rutas deben empezar con `/` (ej: `/images/foto.jpg`)
+- Vite resuelve automáticamente las rutas con el `base` configurado
 
 ## 📄 Licencia
 
@@ -123,7 +134,7 @@ MIT - Ver [LICENSE](LICENSE) para más detalles.
 
 **BlackTI**
 - GitHub: [@asinomas](https://github.com/asinomas)
-- Website: [https://asinomas.github.io/paginaultima/Pagina_ultima/](https://asinomas.github.io/paginaultima/Pagina_ultima/)
+- Website: [https://asinomas.github.io/paginaultima/](https://asinomas.github.io/paginaultima/)
 
 ## 🤝 Contribuciones
 
