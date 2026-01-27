@@ -91,17 +91,8 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
     <div className="bg-slate-50 min-h-screen pt-24 pb-32 antialiased">
       {/* 1. HERO SECTION */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8 mb-24">
-        <div className="relative overflow-hidden rounded-[3rem] p-12 lg:p-24 text-center lg:text-left">
-          {/* Imagen de fondo igual al hero */}
-          <div className="absolute inset-0 overflow-hidden rounded-[3rem]">
-            <img
-              src="/images/hero-image.webp"
-              alt="Fondo Hero"
-              className="w-full h-full object-contain scale-[1.4]"
-            />
-            {/* Overlay ligero */}
-            <div className="absolute inset-0 bg-[#0b0e14]/40"></div>
-          </div>
+        <div className="relative overflow-hidden rounded-[3rem] bg-[#0b0e14] p-12 lg:p-24 text-center lg:text-left">
+          <ServicesHeroLights />
 
           <div className="relative z-10 flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-2/3">
@@ -124,7 +115,10 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
               </button>
             </div>
 
-            <div className="lg:w-1/3 hidden lg:flex flex-col items-end gap-8">
+            {/* COLUMNA DERECHA */}
+            <div className="lg:w-1/3 hidden lg:flex flex-col items-end gap-8
+                bg-[url('/images/fiber-hero.webp')] bg-cover bg-center rounded-[3rem] p-8">
+
               {/* Estadísticas */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="h-40 w-40 bg-white/5 rounded-3xl border border-white/10 flex flex-col items-center justify-center backdrop-blur-sm">
@@ -142,7 +136,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
                 </div>
               </div>
 
-              {/* Imagen */}
+              {/* Imagen hero encima del fondo */}
               <div className="w-full overflow-visible flex justify-center items-center">
                 <img
                   src="/images/hero-image.webp"
@@ -151,6 +145,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
                   className="w-auto h-auto object-contain scale-[1.4]"
                 />
               </div>
+
             </div>
           </div>
         </div>
