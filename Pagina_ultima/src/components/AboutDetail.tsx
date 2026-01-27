@@ -60,7 +60,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
               El Gen BlackTI <span className="text-[#135bec] italic">Excelencia</span>
             </h1>
             <p className="text-base lg:text-xl text-slate-500 font-medium leading-relaxed mb-10 max-w-xl">
-              Nacimos para transformar la complejidad técnica en valor empresarial. Somos un equipo de alto rendimiento, con obsesión por el detalle y mentalidad problem-solver.
+              Nacimos para transformar la complejidad técnica en valor empresarial. Somos un equipo de alto rendimiento, obsesión por el detalle y mentalidad problem-solver.
             </p>
             <div className="flex gap-4">
               <button 
@@ -71,22 +71,18 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
               </button>
             </div>
           </div>
-
           
-          {/* IMAGEN SIN MARCO – MISMA POSICIÓN – OCULTA EN MOBILE */}
-          <div className="hidden lg:flex justify-center relative lg:w-1/2">
+          {/* IMAGEN LIBRE, CON ESCALA, TRANSLATE Y SOMBRA */}
+          <div className="lg:w-1/2 flex justify-center relative hidden md:flex">
             <img 
-              src={fotoAbout}
-              alt="Team Work"
-              className="w-full max-w-md object-contain scale-[1.4] -translate-y-2 shadow-black/70"
+              src={fotoAbout} 
+              alt="Team Work" 
+              className="w-full max-w-md object-contain scale-[1.4] -translate-y-1 drop-shadow-2xl" 
             />
           </div>
         </div>
       </section>
 
-
-
-      
       {/* QUIENES SOMOS */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8 mb-40">
         <div className="text-center mb-24">
