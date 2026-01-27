@@ -50,42 +50,44 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
   ];
 
   return (
-    <div className="bg-white min-h-screen pt-24 antialiased">
+    <div className="bg-white min-h-screen antialiased">
 
       {/* SECCIÓN HERO / HISTORIA */}
-      <section className="relative bg-[#F8FAFC] container mx-auto max-w-7xl px-6 lg:px-8 mb-32 before:absolute before:top-0 before:left-0 before:w-full before:h-32 before:bg-gradient-to-b before:from-[#F8FAFC] before:to-transparent before:pointer-events-none">
-        <div className="flex flex-col lg:flex-row gap-16 items-center relative z-10">
-          <div className="lg:w-1/2">
-            <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#135bec] mb-4">Nuestra Historia</h4>
-            <h1 className="text-5xl lg:text-7xl font-black text-slate-900 leading-[1.1] mb-8 tracking-tighter leading-tight">
-              El Gen BlackTI <span className="text-[#135bec] italic">Excelencia</span>
-            </h1>
-            <p className="text-base lg:text-xl text-slate-500 font-normal leading-relaxed mb-10 max-w-xl">
-              Nacimos para transformar la complejidad técnica en valor empresarial. Somos un equipo de alto rendimiento, con obsesión por el detalle y mentalidad problem-solver.
-            </p>
-            <div className="flex gap-4">
-              <button 
-                onClick={onContactClick} 
-                className="bg-[#135bec] text-white font-bold px-10 py-5 rounded-2xl shadow-2xl shadow-[#135bec]/20 hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
-              >
-                Unirse al equipo <ArrowRight size={18} />
-              </button>
+      <section className="relative bg-[#F8FAFC] pt-24 pb-16">
+        <div className="container mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
+            <div className="lg:w-1/2">
+              <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#135bec] mb-4">Nuestra Historia</h4>
+              <h1 className="text-5xl lg:text-7xl font-black text-slate-900 leading-[1.1] mb-8 tracking-tighter">
+                El Gen BlackTI <span className="text-[#135bec] italic">Excelencia</span>
+              </h1>
+              <p className="text-base lg:text-xl text-slate-500 font-normal leading-relaxed mb-10 max-w-xl">
+                Nacimos para transformar la complejidad técnica en valor empresarial. Somos un equipo de alto rendimiento, con obsesión por el detalle y mentalidad problem-solver.
+              </p>
+              <div className="flex gap-4">
+                <button 
+                  onClick={onContactClick} 
+                  className="bg-[#135bec] text-white font-bold px-10 py-5 rounded-2xl shadow-2xl shadow-[#135bec]/20 hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
+                >
+                  Unirse al equipo <ArrowRight size={18} />
+                </button>
+              </div>
             </div>
-          </div>
-          
-          <div className="lg:w-1/2 flex justify-center relative">
-            {/* IMAGEN LIBRE */}
-            <div className="relative hidden md:flex">
-              <div className="shadow-xl rounded-3xl scale-[1.3] -translate-y-1 -translate-x-5">
-                <img 
-                  src={fotoAbout} 
-                  alt="Team Work" 
-                  className="w-full max-w-md object-contain translate-x-[1]" 
-                  onError={(e) => {
-                    console.log('Error cargando foto-about.webp');
-                    (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop';
-                  }}
-                />
+            
+            <div className="lg:w-1/2 flex justify-center relative">
+              {/* IMAGEN LIBRE */}
+              <div className="relative hidden md:flex">
+                <div className="shadow-xl rounded-3xl scale-[1.3] -translate-y-1 -translate-x-5">
+                  <img 
+                    src={fotoAbout} 
+                    alt="Team Work" 
+                    className="w-full max-w-md object-contain translate-x-[1]" 
+                    onError={(e) => {
+                      console.log('Error cargando foto-about.webp');
+                      (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop';
+                    }}
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -93,7 +95,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
       </section>
 
       {/* QUIENES SOMOS */}
-      <section className="container mx-auto max-w-7xl px-6 lg:px-8 mb-40">
+      <section className="container mx-auto max-w-7xl px-6 lg:px-8 py-24">
         <div className="text-center mb-24 flex flex-col items-center">
           <div className="flex items-center w-full justify-center mb-6">
             <div className="h-0.5 flex-1 bg-slate-200 hidden md:block mx-10" /> {/* Línea izquierda */}
