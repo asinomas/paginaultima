@@ -73,11 +73,14 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
           <div className="lg:w-1/2 flex justify-center relative">
             <div className="relative w-full max-w-md">
               <div className="aspect-square bg-slate-100 rounded-[3rem] overflow-hidden rotate-3 hover:rotate-0 transition-transform duration-700 shadow-2xl border border-slate-200">
-                {/* MODIFICACIÓN: imagen WebP con transparencia */}
                 <img 
-                  src="public/images/foto-about.webp" 
+                  src="/images/foto-about.webp" 
                   alt="Team Work" 
-                  className="w-full h-full object-cover" 
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    console.log('Error cargando imagen');
+                    (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800';
+                  }}
                 />
               </div>
               <div className="absolute -bottom-6 -left-10 bg-white p-6 rounded-3xl shadow-xl border border-slate-100 hidden md:block">
