@@ -1,23 +1,140 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# BlackTI - Página Última
 
-# Run and deploy your AI Studio app
+[![Deploy Status](https://img.shields.io/badge/deploy-GitHub%20Pages-success)](https://asinomas.github.io/paginaultima/Pagina_ultima/)
+[![Built with Vite](https://img.shields.io/badge/built%20with-Vite-646CFF?logo=vite)](https://vitejs.dev/)
+[![React](https://img.shields.io/badge/React-18.3.1-61DAFB?logo=react)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.2.2-3178C6?logo=typescript)](https://www.typescriptlang.org/)
 
-This contains everything you need to run your app locally.
+Una aplicación web moderna construida con React, TypeScript y Vite. Optimizada para rendimiento y desplegada en GitHub Pages.
 
-View your app in AI Studio: https://ai.studio/apps/drive/1ExKCPW5x3cWPJL84mFTm5Nb5Bo1UTGZQ
+## 🚀 Características
 
-## Run Locally
+- ⚡ **Vite** - Build tool ultrarrápido
+- ⚛️ **React 18** - Última versión con concurrent features
+- 🎨 **Tailwind CSS** - Utility-first CSS framework
+- 📊 **D3.js** - Visualizaciones de datos interactivas
+- 🧭 **React Router** - Navegación entre páginas
+- 🎯 **TypeScript** - Type safety
+- 🔍 **ESLint & Prettier** - Code quality
 
-**Prerequisites:**  Node.js
+## 📦 Instalación
+```bash
+# Clonar el repositorio
+git clone https://github.com/asinomas/paginaultima.git
+cd paginaultima/Pagina_ultima
 
+# Instalar dependencias
+npm install
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 🛠️ Desarrollo
+```bash
+# Servidor de desarrollo (http://localhost:3000)
+npm run dev
 
+# Build de producción
+npm run build
 
+# Preview del build
+npm run preview
 
+# Linting
+npm run lint
+```
+
+## 🚀 Despliegue
+
+### Despliegue automático con gh-pages
+```bash
+# Instalar gh-pages (si no lo has hecho)
+npm install --save-dev gh-pages
+
+# Desplegar a GitHub Pages
+npm run deploy
+```
+
+### Despliegue manual
+```bash
+# 1. Construir el proyecto
+npm run build
+
+# 2. Commitear y pushear los cambios
+git add dist -f
+git commit -m "Deploy build"
+git push origin main
+```
+
+## 📁 Estructura del proyecto
+```
+Pagina_ultima/
+├── src/
+│   ├── components/      # Componentes React reutilizables
+│   ├── assets/          # Imágenes, fuentes, etc.
+│   ├── App.tsx          # Componente principal
+│   └── main.tsx         # Punto de entrada
+├── public/              # Archivos estáticos
+├── dist/                # Build de producción
+├── vite.config.ts       # Configuración de Vite
+├── tsconfig.json        # Configuración de TypeScript
+├── tailwind.config.js   # Configuración de Tailwind
+└── package.json         # Dependencies y scripts
+```
+
+## 🔧 Configuración
+
+### Variables de entorno
+
+Crea un archivo `.env` en la raíz:
+```env
+VITE_API_URL=https://api.example.com
+```
+
+### Rutas de GitHub Pages
+
+El proyecto está configurado para desplegarse en:
+`https://asinomas.github.io/paginaultima/Pagina_ultima/`
+
+Si cambias la estructura, actualiza `base` en `vite.config.ts`:
+```typescript
+export default defineConfig({
+  base: '/tu-ruta-aqui/',
+  // ...
+})
+```
+
+## 🐛 Troubleshooting
+
+### Pantalla blanca después del deploy
+
+- Verifica que `base` en `vite.config.ts` coincida con tu ruta de GitHub Pages
+- Asegúrate de hacer `npm run build` antes de desplegar
+- Revisa la consola del navegador (F12) para errores
+
+### Errores de rutas 404
+
+- Confirma que GitHub Pages esté habilitado en Settings → Pages
+- Verifica que la rama `gh-pages` exista y tenga contenido
+
+## 📄 Licencia
+
+MIT - Ver [LICENSE](LICENSE) para más detalles.
+
+## 👤 Autor
+
+**BlackTI**
+- GitHub: [@asinomas](https://github.com/asinomas)
+- Website: [https://asinomas.github.io/paginaultima/Pagina_ultima/](https://asinomas.github.io/paginaultima/Pagina_ultima/)
+
+## 🤝 Contribuciones
+
+Las contribuciones son bienvenidas. Por favor:
+
+1. Fork el proyecto
+2. Crea una rama: `git checkout -b feature/nueva-funcionalidad`
+3. Commitea cambios: `git commit -m 'Agrega nueva funcionalidad'`
+4. Push: `git push origin feature/nueva-funcionalidad`
+5. Abre un Pull Request
+
+---
+
+⭐ Si te gusta este proyecto, dale una estrella en GitHub!
