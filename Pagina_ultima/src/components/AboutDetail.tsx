@@ -78,11 +78,11 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
             <div className="lg:w-1/2 flex justify-center relative">
               {/* IMAGEN LIBRE */}
               <div className="relative hidden md:flex">
-                <div className="shadow-xl rounded-3xl scale-[1.3] -translate-y-1 -translate-x-5">
+                <div className="shadow-xl rounded-3xl scale-[1.3] -translate-y-2 -translate-x-5">
                   <img 
                     src={fotoAbout} 
                     alt="Team Work" 
-                    className="w-full max-w-md object-contain -translate-y-5 translate-x-[1]" 
+                    className="w-full max-w-md object-contain -translate-y-7 translate-x-[2]" 
                     onError={(e) => {
                       console.log('Error cargando foto-about.webp');
                       (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop';
@@ -95,6 +95,8 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
         </div>
       </section>
 
+
+      
       {/* QUIENES SOMOS */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8 py-24">
         <div className="text-center mb-24 flex flex-col items-center">
