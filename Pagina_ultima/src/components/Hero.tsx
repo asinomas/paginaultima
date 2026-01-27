@@ -74,7 +74,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               `,
               WebkitMaskImage: `
                 linear-gradient(to right, transparent, black 25%, black 90%, transparent),
-                linear-gradient(to bottom, transparent, black 30++25%, black 90%, transparent)
+                linear-gradient(to bottom, transparent, black 25%, black 90%, transparent)
               `,
               maskComposite: 'intersect',
               WebkitMaskComposite: 'source-in'
