@@ -100,43 +100,54 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
 
       
       {/* QUIENES SOMOS */}
-      <section className="container mx-auto max-w-7xl px-6 lg:px-8 mb-40">
-        <div className="text-center mb-24">
-          <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">¿Quienes Somos?</h2>
-          <p className="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed font-medium">Líderes apasionados por la tecnología que dirigen el rumbo de cada proyecto con rigor y visión.</p>
+<section className="container mx-auto max-w-7xl px-6 lg:px-8 mb-40">
+  <div className="text-center mb-24 flex flex-col items-center">
+    <div className="flex items-center w-full justify-center mb-6">
+      <div className="h-0.5 flex-1 bg-slate-200 hidden md:block mx-10" /> {/* Línea izquierda */}
+      <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+        ¿Quienes Somos?
+      </h2>
+      <div className="h-0.5 flex-1 bg-slate-200 hidden md:block mx-10" /> {/* Línea derecha */}
+    </div>
+    <p className="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed font-medium">
+      Líderes apasionados por la tecnología que dirigen el rumbo de cada proyecto con rigor y visión.
+    </p>
+  </div>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+    {team.map((member, i) => (
+      <div key={i} className="group flex flex-col items-center text-center">
+        <div className="aspect-[3/4] w-3/4 mx-auto rounded-[2.5rem] overflow-hidden mb-8 bg-slate-50 shadow-sm border border-slate-100 relative">
+          <img 
+            alt={member.name} 
+            className="grayscale w-full h-full object-cover transition-all duration-[1.5s] group-hover:grayscale-0 group-hover:scale-105" 
+            src={member.image} 
+            loading="lazy"
+            onError={(e) => {
+              (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=800';
+            }}
+          />
+          <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+            <a 
+              href={member.linkedin} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="size-10 rounded-xl bg-white/90 backdrop-blur-md flex items-center justify-center cursor-pointer hover:bg-[#135bec] hover:text-white transition-all text-[#135bec] shadow-lg border border-white/20"
+            >
+              <Linkedin size={18} />
+            </a>
+          </div>
         </div>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
-          {team.map((member, i) => (
-            <div key={i} className="group flex flex-col items-center text-center">
-              <div className="aspect-[3/4] w-3/4 mx-auto rounded-[2.5rem] overflow-hidden mb-8 bg-slate-50 shadow-sm border border-slate-100 relative">
-                <img 
-                  alt={member.name} 
-                  className="grayscale w-full h-full object-cover transition-all duration-[1.5s] group-hover:grayscale-0 group-hover:scale-105" 
-                  src={member.image} 
-                  loading="lazy"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=800';
-                  }}
-                />
-                <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                  <a 
-                    href={member.linkedin} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="size-10 rounded-xl bg-white/90 backdrop-blur-md flex items-center justify-center cursor-pointer hover:bg-[#135bec] hover:text-white transition-all text-[#135bec] shadow-lg border border-white/20"
-                  >
-                    <Linkedin size={18} />
-                  </a>
-                </div>
-              </div>
-              <h4 className="text-2xl font-bold text-slate-900 mb-2">{member.name}</h4>
-              <p className="text-[11px] font-black text-[#135bec] mb-6 uppercase tracking-[0.2em]">{member.role}</p>
-              <p className="text-slate-500 text-sm leading-relaxed max-w-[220px]">{member.bio}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+        <h4 className="text-2xl font-bold text-slate-900 mb-2">{member.name}</h4>
+        <p className="text-[11px] font-black text-[#135bec] mb-6 uppercase tracking-[0.2em]">{member.role}</p>
+        <p className="text-slate-500 text-sm leading-relaxed max-w-[220px]">{member.bio}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+
+      
 
       {/* SECCIÓN MAPA GLOBAL */}
       <section className="bg-slate-950 py-24 border-t border-slate-900">
