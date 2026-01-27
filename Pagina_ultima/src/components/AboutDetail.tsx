@@ -72,24 +72,13 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
             </div>
           </div>
           
-          <div className="lg:w-1/2 flex justify-center relative">
-            <div className="relative w-full max-w-md">
-              <div className="aspect-square bg-slate-100 rounded-[3rem] overflow-hidden transition-transform duration-700 shadow-2xl border border-slate-200 scale-[0.8]">
-                <img 
-                  src={fotoAbout}
-                  alt="Team Work" 
-                  className="w-full h-full object-contain"
-                  onError={(e) => {
-                    console.log('Error cargando foto-about.webp');
-                    (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop';
-                  }}
-                />
-              </div>
-              <div className="absolute -bottom-6 -left-10 bg-white p-6 rounded-3xl shadow-xl border border-slate-100 hidden md:block">
-                <p className="text-3xl font-black text-[#135bec] mb-1">2014</p>
-                <p className="text-[9px] font-bold uppercase tracking-widest text-slate-400">Año de Fundación</p>
-              </div>
-            </div>
+          {/* IMAGEN SIN MARCO – MISMA POSICIÓN – OCULTA EN MOBILE */}
+          <div className="hidden lg:flex justify-center relative lg:w-1/2">
+            <img 
+              src={fotoAbout}
+              alt="Team Work"
+              className="w-full max-w-md object-contain scale-[0.8]"
+            />
           </div>
         </div>
       </section>
