@@ -69,11 +69,11 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             </div>
           </div>
 
-          {/* IMAGEN HERO */}
+          {/* IMAGEN HERO CON ESQUINAS CURVAS */}
           <div
             className={`absolute right-0 w-[339px] h-[509px] flex-shrink-0 transition-transform duration-[3s] ${
               showImage ? 'translate-x-[-55px] opacity-100' : 'translate-x-full opacity-0'
-            }`}
+            } overflow-hidden rounded-[50%_10%_10%_50%]`}
             style={{ willChange: 'transform' }}
           >
             <img
