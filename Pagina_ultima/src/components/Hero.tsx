@@ -85,7 +85,12 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             <img 
               src="/images/foto-hero.jpg" 
               alt="Hero" 
-              className="w-full h-full object-cover scale-[1.5]"
+              className="w-full h-full object-cover scale-[1.5]
+               brightness-[0.82]
+               contrast-[1.1]
+               saturate-[0.75]
+               grayscale-[0.12]"
+              "
             />
           </div>
         </div>
