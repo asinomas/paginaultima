@@ -70,11 +70,11 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             style={{
               maskImage: `
                 linear-gradient(to right, transparent, black 20%, black 80%, transparent),
-                linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)
+                linear-gradient(to bottom, transparent, black 20%, black 100%, transparent)
               `,
               WebkitMaskImage: `
                 linear-gradient(to right, transparent, black 20%, black 80%, transparent),
-                linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)
+                linear-gradient(to bottom, transparent, black 20%, black 100%, transparent)
               `,
               maskComposite: 'intersect',
               WebkitMaskComposite: 'source-in'
@@ -86,7 +86,6 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               src="/images/foto-hero.jpg" 
               alt="Hero" 
               className="w-full h-full object-cover scale-[1.2]
-               contrast-[1.1]
               "
             />
           </div>
