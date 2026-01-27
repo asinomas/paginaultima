@@ -53,8 +53,8 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
     <div className="bg-white min-h-screen pt-24 antialiased">
 
       {/* SECCIÓN HERO / HISTORIA */}
-      <section className="relative bg-[#F8FAFC] container mx-auto max-w-7xl px-6 lg:px-8 mb-32">
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
+      <section className="relative bg-[#F8FAFC] mb-32">
+        <div className="container mx-auto max-w-7xl px-6 lg:px-8 flex flex-col lg:flex-row gap-16 items-center">
           <div className="lg:w-1/2">
             <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#135bec] mb-4">Nuestra Historia</h4>
             <h1 className="text-5xl lg:text-7xl font-black text-slate-900 leading-[1.1] mb-8 tracking-tighter leading-tight">
@@ -92,7 +92,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
         </div>
 
         {/* DIFUMINADO AL FINAL */}
-        <div className="absolute bottom-0 left-0 w-screen h-32 bg-gradient-to-b from-[#F8FAFC] to-white pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-[#F8FAFC] to-white pointer-events-none" />
       </section>
 
       {/* QUIENES SOMOS */}
