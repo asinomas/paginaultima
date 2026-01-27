@@ -87,8 +87,6 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               alt="Hero" 
               className="w-full h-full object-cover scale-[1.5]
                brightness-[0.80]
-               saturate-[0.75]
-               grayscale-[0.10]
               "
             />
           </div>
