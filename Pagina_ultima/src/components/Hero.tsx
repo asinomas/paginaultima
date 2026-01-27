@@ -65,7 +65,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
           <div 
             className={`absolute right-0 w-[339px] h-[509px] flex-shrink-0 transition-all duration-[3s] ${
-              showImage ? 'translate-x-[-110px] opacity-100' : 'translate-x-full opacity-0'
+              showImage ? 'translate-x-[-150px] opacity-100' : 'translate-x-full opacity-0'
             }`}
             style={{
               maskImage: `
@@ -85,7 +85,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             <img 
               src="/images/foto-hero.jpg" 
               alt="Hero" 
-              className="w-full h-full object-cover scale-[1.2]"
+              className="w-full h-full object-cover scale-[1.3]"
             />
           </div>
         </div>
