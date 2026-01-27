@@ -116,9 +116,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
             </div>
 
             {/* COLUMNA DERECHA */}
-            <div className="lg:w-1/3 hidden lg:flex flex-col items-end gap-8
-                bg-[url('/images/fiber-hero.webp')] bg-cover bg-center rounded-[3rem] p-8">
-
+            <div className="lg:w-1/3 hidden lg:flex flex-col items-end gap-8">
               {/* Estadísticas */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="h-40 w-40 bg-white/5 rounded-3xl border border-white/10 flex flex-col items-center justify-center backdrop-blur-sm">
@@ -136,7 +134,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
                 </div>
               </div>
 
-              {/* Imagen hero encima del fondo */}
+              {/* Imagen */}
               <div className="w-full overflow-visible flex justify-center items-center">
                 <img
                   src="/images/hero-image.webp"
@@ -145,7 +143,6 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
                   className="w-auto h-auto object-contain scale-[1.4]"
                 />
               </div>
-
             </div>
           </div>
         </div>
@@ -189,6 +186,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
               details={item.details}
               buttonText="Detalles del servicio"
               detailsTitle=""
+              heroBackground="/images/hero-image.webp" // <-- fondo agregado sin tocar dimensiones
             />
           ))}
         </div>
