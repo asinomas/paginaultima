@@ -77,7 +77,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
             <img 
               src={fotoAbout}
               alt="Team Work"
-              className="w-full max-w-md object-contain scale-[0.8]"
+              className="w-full max-w-md object-contain scale-[1.5]"
             />
           </div>
         </div>
