@@ -53,8 +53,11 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
     <div className="bg-white min-h-screen pt-24 antialiased">
 
       {/* SECCIÓN HERO / HISTORIA */}
-      <section className="relative bg-[#F8FAFC] mb-32">
-        <div className="container mx-auto max-w-7xl px-6 lg:px-8 flex flex-col lg:flex-row gap-16 items-center">
+      <section className="relative mb-32">
+        {/* FONDO CON DIFUMINADO HACIA ABAJO */}
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#F8FAFC] to-transparent pointer-events-none z-0" />
+
+        <div className="relative container mx-auto max-w-7xl px-6 lg:px-8 flex flex-col lg:flex-row gap-16 items-center">
           <div className="lg:w-1/2">
             <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#135bec] mb-4">Nuestra Historia</h4>
             <h1 className="text-5xl lg:text-7xl font-black text-slate-900 leading-[1.1] mb-8 tracking-tighter leading-tight">
@@ -81,29 +84,22 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
                   src={fotoAbout} 
                   alt="Team Work" 
                   className="w-full max-w-md object-contain translate-x-[1]" 
-                  onError={(e) => {
-                    console.log('Error cargando foto-about.webp');
-                    (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop';
-                  }}
                 />
               </div>
             </div>
           </div>
         </div>
-
-        {/* DIFUMINADO AL FINAL */}
-        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-[#F8FAFC] to-white pointer-events-none" />
       </section>
 
       {/* QUIENES SOMOS */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8 mb-40">
         <div className="text-center mb-24 flex flex-col items-center">
           <div className="flex items-center w-full justify-center mb-6">
-            <div className="h-0.5 flex-1 bg-slate-200 hidden md:block mx-10" /> {/* Línea izquierda */}
+            <div className="h-0.5 flex-1 bg-slate-200 hidden md:block mx-10" />
             <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
               ¿Quienes Somos?
             </h2>
-            <div className="h-0.5 flex-1 bg-slate-200 hidden md:block mx-10" /> {/* Línea derecha */}
+            <div className="h-0.5 flex-1 bg-slate-200 hidden md:block mx-10" />
           </div>
           <p className="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed font-medium">
             Líderes apasionados por la tecnología que dirigen el rumbo de cada proyecto con rigor y visión.
@@ -119,9 +115,6 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
                   className="grayscale w-full h-full object-cover transition-all duration-[1.5s] group-hover:grayscale-0 group-hover:scale-105" 
                   src={member.image} 
                   loading="lazy"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=800';
-                  }}
                 />
                 <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
                   <a 
