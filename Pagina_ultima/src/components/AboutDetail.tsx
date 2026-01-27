@@ -74,7 +74,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
           
           <div className="lg:w-1/2 flex justify-center relative">
             <div className="relative w-full max-w-md">
-              <div className="aspect-square bg-slate-100 rounded-[3rem] overflow-hidden transition-transform duration-700 shadow-2xl border border-slate-200">
+              <div className="aspect-square bg-slate-100 rounded-[3rem] overflow-hidden transition-transform duration-700 shadow-2xl border border-slate-200 scale-[0.8]">
                 <img 
                   src={fotoAbout}
                   alt="Team Work" 
