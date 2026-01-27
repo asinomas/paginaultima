@@ -1,15 +1,12 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
+// Detecta si estamos en GitHub Pages
+const isGithubPages = process.env.NODE_ENV === 'production'
+
+export default defineConfig({
   plugins: [react()],
-
-  // Base dinámica:
-  // - GitHub Pages → /paginaultima/
-  // - Cloudflare Pages → /
-  base: mode === 'github' ? '/paginaultima/' : '/',
-
+  base: isGithubPages ? '/paginaultima/' : '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
@@ -19,15 +16,14 @@ export default defineConfig(({ mode }) => ({
       output: {
         manualChunks: {
           'react-vendor': ['react', 'react-dom'],
-          router: ['react-router-dom'],
-          charts: ['d3', 'topojson-client']
+          'router': ['react-router-dom'],
+          'charts': ['d3', 'topojson-client']
         }
       }
     }
   },
-
   server: {
     port: 3000,
     open: true
   }
-}))
+})
