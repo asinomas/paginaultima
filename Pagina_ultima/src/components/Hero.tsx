@@ -77,7 +77,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             style={{ willChange: 'transform' }}
           >
             <img
-              src="/images/foto-hero.jpg"
+              src="./images/foto-hero.jpg"
               alt="Hero"
               className="w-full h-full object-cover scale-[1.3]"
             />
