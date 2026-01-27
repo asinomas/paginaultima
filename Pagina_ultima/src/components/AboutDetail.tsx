@@ -62,7 +62,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
               El Gen BlackTI <span className="text-[#135bec] italic">Excelencia</span>
             </h1>
             <p className="text-base lg:text-xl text-slate-500 font-medium leading-relaxed mb-10 max-w-xl">
-              Nacimos para transformar la complejidad técnica en valor empresarial. Somos un equipo de alto rendimiento, obsesión por el detalle y mentalidad problem-solver.
+              Nacimos para transformar la complejidad técnica en valor empresarial. Somos un equipo de alto rendimiento, con obsesión por el detalle y mentalidad problem-solver.
             </p>
             <div className="flex gap-4">
               <button 
