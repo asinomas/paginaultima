@@ -6,7 +6,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 const profiles = [
   "Líder Técnico", "Scrum Master", "Dev Android", "Dev Java",
   "BackEnd", "FrontEnd", "Fullstack", "Devops", "UX/UI",
-  "CiberSeguridad", "Mesa de Ayuda", "Python", "Dev IOS"
+  "Ciberseguridad", "Mesa de Ayuda", "Python", "Dev IOS"
 ];
 
 const servicesData = [
