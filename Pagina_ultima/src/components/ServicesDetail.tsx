@@ -173,40 +173,40 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
           </p>
         </div>
 
-        <div className="mb-24">
-          <h3 className="text-[10px] font-bold tracking-[0.4em] text-slate-400 uppercase mb-8 border-b border-slate-200 pb-2">
-            Modelo de Colaboración
-          </h3>
+        <ScrollAnimation>
+          <div className="mb-24">
+            <h3 className="text-[10px] font-bold tracking-[0.4em] text-slate-400 uppercase mb-8 border-b border-slate-200 pb-2">
+              Modelo de Colaboración
+            </h3>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-8">
-            {collaborationModels.map((service, index) => (
-              <div key={index} className="group cursor-default">
-                <span className="text-xl md:text-2xl font-light text-slate-600 tracking-tight border-l-2 border-[#135bec] pl-5 group-hover:text-slate-950 group-hover:border-slate-900 transition-all duration-300 block">
-                  {service}
-                </span>
-              </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-8">
+              {collaborationModels.map((service, index) => (
+                <div key={index} className="group cursor-default">
+                  <span className="text-xl md:text-2xl font-light text-slate-600 tracking-tight border-l-2 border-[#135bec] pl-5 group-hover:text-slate-950 group-hover:border-slate-900 transition-all duration-300 block">
+                    {service}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {specialties.map((item, idx) => (
+              <ServiceCard
+                key={idx}
+                Icon={item.icon}
+                title={item.title}
+                description={item.description}
+                details={item.details}
+                buttonText="Detalles del servicio"
+                detailsTitle=""
+              />
             ))}
           </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {specialties.map((item, idx) => (
-            <ServiceCard
-              key={idx}
-              Icon={item.icon}
-              title={item.title}
-              description={item.description}
-              details={item.details}
-              buttonText="Detalles del servicio"
-              detailsTitle=""
-            />
-          ))}
-        </div>
+        </ScrollAnimation>
       </section>
     </div>
   );
 };
 
 export default ServicesDetail;
-
-
