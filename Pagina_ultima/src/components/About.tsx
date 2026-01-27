@@ -30,7 +30,7 @@ const About: React.FC = () => {
               <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-8 leading-[1.1]">
                 Liderando con <span className="text-blue-600 italic">Propósito</span> Real
               </h2>
-              <p className="text-lg md:text[17px] font-medium text-slate-500 tracking-tighter mb-6 leading-relaxed">
+              <p className="text-lg md:text[17px] font-normal text-slate-500 tracking-tighter mb-6 leading-relaxed">
                 Somos una Start Up que trasciende la simple implementación técnica. Nos sumergimos en la cultura de nuestros clientes para convertir obstáculos en motores de crecimiento sin perder la continuidad operativa. 
               </p>
               <div className="space-y-6 mb-12">
