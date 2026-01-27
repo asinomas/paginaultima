@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd Pagina_ultima
-          npm ci
+          npm install
 
       - name: Build
         run: |
