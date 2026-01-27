@@ -79,7 +79,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             <img
               src="/images/foto-hero.jpg"
               alt="Hero"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover scacle-[1.2]"
             />
           </div>
 
