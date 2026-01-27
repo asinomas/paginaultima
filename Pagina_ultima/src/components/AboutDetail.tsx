@@ -4,7 +4,9 @@ import WorldMap from './WorldMap';
 import OfficeDetails from './OfficeDetails';
 import { OFFICE_LOCATIONS } from '../constants';
 import { OfficeLocation } from '../types';
-import ScrollAnimation from './ScrollAnimation';
+
+// IMPORTAR LA IMAGEN DESDE PUBLIC
+import fotoAbout from '/images/foto-about.webp';
 
 interface AboutDetailProps {
   onContactClick: () => void;
@@ -72,14 +74,14 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
           
           <div className="lg:w-1/2 flex justify-center relative">
             <div className="relative w-full max-w-md">
-              <div className="aspect-square bg-slate-100 rounded-[3rem] overflow-hidden rotate-3 hover:rotate-0 transition-transform duration-700 shadow-2xl border border-slate-200">
+              <div className="aspect-square bg-slate-100 rounded-[3rem] overflow-hidden transition-transform duration-700 shadow-2xl border border-slate-200">
                 <img 
-                  src="/images/foto-about.webp" 
+                  src={fotoAbout}
                   alt="Team Work" 
                   className="w-full h-full object-cover"
                   onError={(e) => {
-                    console.log('Error cargando imagen');
-                    (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800';
+                    console.log('Error cargando foto-about.webp');
+                    (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop';
                   }}
                 />
               </div>
@@ -131,7 +133,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
         </div>
       </section>
 
-      {/* SECCIÓN MAPA GLOBAL - VERSIÓN DARK ORIGINAL */}
+      {/* SECCIÓN MAPA GLOBAL */}
       <section className="bg-slate-950 py-24 border-t border-slate-900">
         <div className="container mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mb-16">
