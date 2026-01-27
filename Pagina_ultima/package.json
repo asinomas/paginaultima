@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://asinomas.github.io/paginaultima/Pagina_ultima",
+  "homepage": "https://asinomas.github.io/paginaultima",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
