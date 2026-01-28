@@ -22,14 +22,13 @@ const About: React.FC = () => {
     />
 
 
-                <div className="pointer-events-none absolute inset-0 rounded-[2.5rem] bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent"></div>
+                <div className="pointer-events-none absolute inset-0 rounded-[2.5rem] bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent"> </div>
 
 
-              <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-blue-100 rounded-full blur-[80px] -z-10"></div>
+              <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-blue-100 rounded-full blur-[80px] -z-10">
             </div>
 
             {/* TEXTO A LA DERECHA */}
-            <div>
               <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-2 border border-blue-100">
                 <span className="text-blue-600 text-xs font-bold uppercase tracking-widest">
                   Nuestra Identidad
