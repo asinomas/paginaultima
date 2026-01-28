@@ -8,8 +8,8 @@ const About: React.FC = () => {
         <div className="container mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             {/* IMAGEN A LA IZQUIERDA */}
-            <div className="relative">
-              <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl group">
+            <div className="relative hidden md:flex">
+              <div className="shadow-2xl rounded-[2.5rem]">
                 <img 
                   src="./images/foto-about.webp" 
                   className="h-[600px] w-full object-contain max-w-md transition-transform duration-[2s] group-hover:scale-105"
