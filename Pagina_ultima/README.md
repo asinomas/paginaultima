@@ -5,19 +5,19 @@
 [![React](https://img.shields.io/badge/React-18.3.1-61DAFB?logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.2.2-3178C6?logo=typescript)](https://www.typescriptlang.org/)
 
-Una aplicación web moderna construida con React, TypeScript y Vite. Optimizada para rendimiento y desplegada en GitHub Pages.
+Una aplicación web moderna construida con React, TypeScript y Vite. Optimizada para rendimiento.
 
-## 🚀 Características
+## Características
 
-- ⚡ **Vite** - Build tool ultrarrápido
-- ⚛️ **React 18** - Última versión con concurrent features
-- 🎨 **Tailwind CSS** - Utility-first CSS framework
-- 📊 **D3.js** - Visualizaciones de datos interactivas
-- 🧭 **React Router** - Navegación entre páginas
-- 🎯 **TypeScript** - Type safety
-- 🔍 **ESLint & Prettier** - Code quality
+- **Vite** - Build tool ultrarrápido
+- **React 18** - Última versión con concurrent features
+- **Tailwind CSS** - Utility-first CSS framework
+- **D3.js** - Visualizaciones de datos interactivas
+- **React Router** - Navegación entre páginas
+- **TypeScript** - Type safety
+- **ESLint & Prettier** - Code quality
 
-## 📦 Instalación
+## Instalación
 
 ```bash
 # Clonar el repositorio
@@ -28,7 +28,7 @@ cd paginaultima/Pagina_ultima
 npm install
 ```
 
-## 🛠️ Desarrollo
+## Desarrollo
 
 ```bash
 # Servidor de desarrollo (http://localhost:3000)
@@ -44,7 +44,7 @@ npm run preview
 npm run lint
 ```
 
-## 🚀 Despliegue
+## Despliegue
 
 El proyecto se despliega automáticamente en GitHub Pages mediante GitHub Actions cuando se hace push a la rama `main`.
 
@@ -60,7 +60,7 @@ npm run build
 # Los archivos estarán en la carpeta dist/
 ```
 
-## 📁 Estructura del proyecto
+## Estructura del proyecto
 
 ```
 Pagina_ultima/
@@ -82,7 +82,7 @@ Pagina_ultima/
 └── package.json         # Dependencies y scripts
 ```
 
-## 🔧 Configuración
+## Configuración
 
 ### Variables de entorno
 
@@ -106,7 +106,7 @@ export default defineConfig({
 })
 ```
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Pantalla blanca después del deploy
 
@@ -126,26 +126,12 @@ export default defineConfig({
 - Las rutas deben empezar con `/` (ej: `/images/foto.jpg`)
 - Vite resuelve automáticamente las rutas con el `base` configurado
 
-## 📄 Licencia
+## Licencia
 
 MIT - Ver [LICENSE](LICENSE) para más detalles.
 
-## 👤 Autor
+## Autor
 
 **BlackTI**
 - GitHub: [@asinomas](https://github.com/asinomas)
 - Website: [https://asinomas.github.io/paginaultima/](https://asinomas.github.io/paginaultima/)
-
-## 🤝 Contribuciones
-
-Las contribuciones son bienvenidas. Por favor:
-
-1. Fork el proyecto
-2. Crea una rama: `git checkout -b feature/nueva-funcionalidad`
-3. Commitea cambios: `git commit -m 'Agrega nueva funcionalidad'`
-4. Push: `git push origin feature/nueva-funcionalidad`
-5. Abre un Pull Request
-
----
-
-⭐ Si te gusta este proyecto, dale una estrella en GitHub!
