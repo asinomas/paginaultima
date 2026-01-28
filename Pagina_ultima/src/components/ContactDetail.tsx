@@ -21,7 +21,7 @@ const ContactDetail: React.FC = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen pt-32 pb-24 antialiased">
+    <div className="bg-white min-h-screen pt-16 pb-24 antialiased">
       <div className="container mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           
