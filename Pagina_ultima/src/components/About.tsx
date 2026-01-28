@@ -11,9 +11,9 @@ const About: React.FC = () => {
             <div className="relative">
               <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl group">
                 <img 
-                  src="./images/foto-hero.webp" 
-                  className="h-[600px] w-full object-cover transition-transform duration-[2s] group-hover:scale-105"
-                  alt="Nosotros"
+                  src="./images/foto-about.webp" 
+                  className="h-[600px] w-full object-contain max-w-md transition-transform duration-[2s] group-hover:scale-105"
+                  alt="Grupo de oficina en reunión"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent"></div>
