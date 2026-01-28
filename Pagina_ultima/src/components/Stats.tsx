@@ -6,20 +6,20 @@ const Stats: React.FC = () => {
     {
       icon: 'verified',
       value: '100%',
-      label: 'Células de Trabajo de Alto Rendimiento',
-      text: 'Entregamos grupos de trabajo que ya saben colaborar entre sí, reduciendo el tiempo de adaptación.'
+      label: 'Talento Validado',
+      text: 'Construimos grupos de trabajo capaces de integrarse a sus equipos o liderar proyectos específicos, reduciendo el tiempo de adaptación.'
     },
     {
       icon: 'rocket_launch',
       value: 'Visión 360°',
       label: 'Visión 360°',
-      text: 'Contamos con profesionales de distintas áreas, de esta manera entregamos un producto robusto, seguro y centrado en el cliente.'
+      text: 'Integramos profesionales evaluados y alineados al negocio de distintas áreas, entregando un producto robusto, seguro y centrado en el cliente.'
     },
     {
       icon: 'schedule',
       value: '100%',
       label: 'Talento Validado',
-      text: 'Cada cifra representa un proyecto exitoso, un proceso optimizado y un cliente satisfecho..'
+      text: 'Cada cifra representa un proyecto exitoso, un proceso optimizado y un cliente satisfecho.'
     }
   ];
 
