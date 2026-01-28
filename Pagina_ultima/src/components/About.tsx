@@ -1,7 +1,7 @@
 import React from 'react';
 import ScrollAnimation from './ScrollAnimation';
 
-const About: React.FC = () => {
+const About: React.FC  => {
   return (
     <ScrollAnimation>
       <section className="bg-white py-32 overflow-hidden">
