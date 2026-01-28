@@ -10,7 +10,7 @@ const About: React.FC = () => {
             
             {/* IMAGEN A LA IZQUIERDA */}
             <div className="w-full flex justify-center relative hidden md:flex">
-              <div className="relative shadow-2xl rounded-[2.5rem] w-full">
+              <div className="relative shadow-xl rounded-[2.5rem] w-full">
                 <img 
                   src="./images/team-talk-office.webp" 
                   className="h-[400px] w-full object-contain transition-transform duration-[2s] group-hover:scale-105 rounded-[2.5rem]"
