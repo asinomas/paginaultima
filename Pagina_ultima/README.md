@@ -147,4 +147,4 @@ FR.
 **Página**
 - GitHub: [@asinomas](https://github.com/asinomas)
 - Website: [https://asinomas.github.io/paginaultima/](https://asinomas.github.io/paginaultima/)
-- Cloudflare: [(https://paginaultima.pages.dev/)]
+- Cloudflare: https://paginaultima.pages.dev/
