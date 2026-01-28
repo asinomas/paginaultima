@@ -22,7 +22,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, onContactClick, currentPage
   const navLinks = [
     { name: 'Inicio', id: 'home' as const },
     { name: 'Servicios', id: 'services' as const },
-    { name: 'Nosotros', id: 'about' as const },
+    { name: 'Quiénes somos', id: 'about' as const },
     { name: 'Contacto', id: 'contact' as const },
   ];
 
