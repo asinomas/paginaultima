@@ -54,12 +54,12 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
     <div className="bg-white min-h-screen antialiased">
 
       {/* QUIENES SOMOS - AHORA EN LA PARTE SUPERIOR */}
-      <section className="relative bg-[#F8FAFC] pt-15 pb-24 after:absolute after:bottom-0 after:left-0 after:w-full after:h-48 after:bg-gradient-to-b after:from-[#F8FAFC]/20 after:via-[#F8FAFC]/60 after:to-white after:pointer-events-none">
+      <section className="relative bg-[#F8FAFC] pt-16 pb-18 after:absolute after:bottom-0 after:left-0 after:w-full after:h-48 after:bg-gradient-to-b after:from-[#F8FAFC]/20 after:via-[#F8FAFC]/60 after:to-white after:pointer-events-none">
         <div className="container mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row gap-16 items-start">
             {/* TEXTO A LA IZQUIERDA */}
             <div className="lg:w-1/2">
-              <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#135bec] mb-4">Nuestra Historia</h4>
+              <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#135bec] mb-4 mt-8 ">Nuestra Historia</h4>
               <h1 className="text-5xl lg:text-7xl font-black text-slate-900 leading-[1.1] mb-8 tracking-tighter">
                 El Gen BlackTI <span className="text-[#135bec] italic">Excelencia</span>
               </h1>
