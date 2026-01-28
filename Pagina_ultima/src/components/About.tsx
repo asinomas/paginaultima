@@ -20,8 +20,6 @@ const About: React.FC = () => {
       alt="Grupo de oficina en reunión"
       loading="lazy"
     />
-  </div>
-</div>
 
 
                 <div className="pointer-events-none absolute inset-0 rounded-[2.5rem] bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent"></div>
