@@ -84,7 +84,7 @@ const ContactDetail: React.FC = () => {
                   <img 
                     src="./images/hero-image-speed.webp" 
                     alt="Enviando" 
-                    className="w-auto h-auto max-w-md object-contain opacity-30 -translate-y-10"
+                    className="w-auto h-auto max-w-md object-contain opacity-20 -translate-y-10"
                     onError={(e) => {
                       console.log('Error cargando hero-image.webp');
                       (e.target as HTMLImageElement).style.display = 'none';
