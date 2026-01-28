@@ -6,20 +6,20 @@ const Stats: React.FC = () => {
     {
       icon: 'verified',
       value: '100%',
-      label: 'Compromiso Serio',
-      text: 'Cada cifra representa un proyecto exitoso, un proceso optimizado y un cliente satisfecho.'
+      label: 'Células de Trabajo de Alto Rendimiento',
+      text: 'Entregamos grupos de trabajo que ya saben colaborar entre sí, reduciendo el tiempo de adaptación.'
     },
     {
       icon: 'rocket_launch',
-      value: '10+',
-      label: 'Años de Experiencia',
-      text: 'Aprovechamos más de una década de experiencia especializada en tecnologías emergentes para su arquitectura.'
+      value: 'Visión 360°',
+      label: 'Visión 360°',
+      text: 'Contamos con profesionales de distintas áreas, de esta manera entregamos un producto robusto, seguro y centrado en el cliente.'
     },
     {
       icon: 'schedule',
-      value: '24/7',
-      label: 'Soporte Continuo',
-      text: 'Sistemas de monitoreo y soporte que garantizan que sus operaciones críticas permanezcan fluidas.'
+      value: '100%',
+      label: 'Talento Validado',
+      text: 'Cada cifra representa un proyecto exitoso, un proceso optimizado y un cliente satisfecho..'
     }
   ];
 
