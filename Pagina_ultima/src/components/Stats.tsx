@@ -7,7 +7,7 @@ const Stats: React.FC = () => {
       icon: 'groupadd',
       value: '100%',
       label: 'Talento Validado',
-      text: 'Construimos grupos de trabajo capaces de integrarse a sus equipos o liderar proyectos, aportando valor desde el inicio.'
+      text: 'Construimos grupos de trabajo capaces de sumarse a sus equipos o liderar proyectos, aportando valor desde el inicio.'
     },
     {
       icon: 'visibility',
@@ -18,7 +18,7 @@ const Stats: React.FC = () => {
     {
       icon: 'tune',
       value: '100%',
-      label: 'Personalización',
+      label: 'Custom',
       text: 'Ajustamos el perfil técnico según el contexto y objetivos, reduciendos tiempos de onboarding y rotación.'
     }
   ];
