@@ -1,6 +1,15 @@
 # Página 
 
 [![Deploy Status](https://img.shields.io/badge/deploy-Cloudflare-success)](https://asinomas.github.io/paginaultima/)
+
+![GitHub Actions](https://github.com/asinomas/paginaultima/actions/workflows/deploy.yml/badge.svg)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-live-success)](https://asinomas.github.io/paginaultima/)
+[![Cloudflare Pages](https://img.shields.io/badge/Cloudflare-live-F38020?logo=cloudflare)](https://paginaultima.pages.dev)
+
+![Cloudflare Pages](https://img.shields.io/badge/Cloudflare%20Pages-deployed-F38020?logo=cloudflare)
+
+
+
 [![Deploy Status](https://img.shields.io/badge/deploy-GitHub%20Pages-success)](https://asinomas.github.io/paginaultima/)
 [![Built with Vite](https://img.shields.io/badge/built%20with-Vite-646CFF?logo=vite)](https://vitejs.dev/)
 [![React](https://img.shields.io/badge/React-18.3.1-61DAFB?logo=react)](https://reactjs.org/)
@@ -50,7 +59,8 @@ npm run lint
 El proyecto se despliega automáticamente en GitHub Pages mediante GitHub Actions cuando se hace push a la rama `main`.
 
 ### URL de producción
-https://asinomas.github.io/paginaultima/
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-live-success)](https://asinomas.github.io/paginaultima/)
+[![Cloudflare Pages](https://img.shields.io/badge/Cloudflare-live-F38020?logo=cloudflare)](https://paginaultima.pages.dev)
 
 ### Despliegue manual
 
