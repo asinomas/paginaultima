@@ -4,8 +4,8 @@ import ScrollAnimation from './ScrollAnimation';
 const Stats: React.FC = () => {
   const statsItems = [
     {
-      icon: 'groupadd',
-      value: '100%',
+      icon: 'hub',
+      value: '24/7',
       label: 'Alto Rendimiento',
       text: 'Construimos grupos de trabajo capaces de sumarse a sus equipos o liderar proyectos, aportando valor desde el inicio.'
     },
