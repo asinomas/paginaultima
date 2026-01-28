@@ -2,7 +2,7 @@
 
 [![Deploy Status](https://img.shields.io/badge/deploy-Cloudflare-success)](https://asinomas.github.io/paginaultima/)
 
-![GitHub Actions](https://github.com/asinomas/paginaultima/actions/workflows/deploy.yml/badge.svg)
+
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-live-success)](https://asinomas.github.io/paginaultima/)
 [![Cloudflare Pages](https://img.shields.io/badge/Cloudflare-live-F38020?logo=cloudflare)](https://paginaultima.pages.dev)
 
