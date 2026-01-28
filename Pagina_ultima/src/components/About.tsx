@@ -7,17 +7,22 @@ const About: React.FC = () => {
       <section className="bg-white py-32 overflow-hidden">
         <div className="container mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+
+
             
-            {/* IMAGEN A LA IZQUIERDA */}
-            <div className="lg:w-1/2 flex justify-center relative hidden md:flex">
-              <div className="relative shadow-2xl rounded-[2.5rem]">
-                
-                <img 
-                  src="./images/foto-about.webp" 
-                  className="h-[600px] w-full object-contain max-w-md transition-transform duration-[2s] group-hover:scale-105"
-                  alt="Grupo de oficina en reunión"
-                  loading="lazy"
-                />
+          {/* IMAGEN A LA IZQUIERDA */}
+<div className="lg:w-3/4 flex justify-center relative hidden md:flex">
+  <div className="relative shadow-2xl rounded-[2.5rem] w-full">
+    
+    <img 
+      src="./images/foto-about.webp" 
+      className="h-[400px] w-full object-cover transition-transform duration-[2s] group-hover:scale-105"
+      alt="Grupo de oficina en reunión"
+      loading="lazy"
+    />
+  </div>
+</div>
+
 
                 <div className="pointer-events-none absolute inset-0 rounded-[2.5rem] bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent"></div>
 
