@@ -31,11 +31,12 @@ const ContactDetail: React.FC = () => {
             <h4 className="text-[#135bec] font-bold uppercase tracking-[0.2em] text-[11px] mb-4">
               Hablemos hoy
             </h4>
-            
-            <h2 className="text-5xl lg:text-6xl font-black text-slate-900 mb-8 tracking-tighter leading-tight">
+
+
+              <h1 className="text-5xl lg:text-7xl font-black text-slate-900 leading-[1.1] mb-8 tracking-tighter">
               Diseñemos el <br />
               <span className="text-[#135bec] italic">Futuro</span>
-            </h2>
+            </h1>
             
             <p className="text-slate-500 text-lg mb-12 max-w-md leading-relaxed font-medium">
               Estamos listos para transformar tus desafíos en ventajas competitivas. Déjanos un mensaje y nos contactaremos en menos de 24 horas.
