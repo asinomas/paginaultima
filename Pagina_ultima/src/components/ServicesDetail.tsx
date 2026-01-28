@@ -149,7 +149,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
                   src="./images/pc-software.webp"
                   alt="PC con Codigos de Programacóin"
                   loading="eager" 
-                  className="w-auto h-auto object-contain scale-[0.8]"
+                  className="w-auto h-auto object-contain scale-[1.5]"
                 />
               </div>
               
