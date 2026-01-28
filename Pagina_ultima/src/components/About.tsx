@@ -11,7 +11,7 @@ const About: React.FC = () => {
             <div className="relative">
               <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl group">
                 <img 
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" 
+                  src="./images/foto-hero.webp" 
                   className="h-[600px] w-full object-cover transition-transform duration-[2s] group-hover:scale-105"
                   alt="Nosotros"
                   loading="lazy"
