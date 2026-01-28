@@ -11,7 +11,7 @@ const About: React.FC = () => {
 
             
           {/* IMAGEN A LA IZQUIERDA */}
-<div className="lg:w-3/4 flex justify-center relative hidden md:flex">
+<div className="w-full flex justify-center relative hidden md:flex">
   <div className="relative shadow-2xl rounded-[2.5rem] w-full">
     
     <img 
@@ -24,15 +24,6 @@ const About: React.FC = () => {
 
                 <div className="pointer-events-none absolute inset-0 rounded-[2.5rem] bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent"></div>
 
-                <div className="absolute bottom-10 left-10">
-                  <p className="text-blue-400 font-bold uppercase tracking-widest text-xs mb-2">
-                    Fundada en 2014
-                  </p>
-                  <h4 className="text-3xl font-bold text-white tracking-tight">
-                    Estrategia y Resultados
-                  </h4>
-                </div>
-              </div>
 
               <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-blue-100 rounded-full blur-[80px] -z-10"></div>
             </div>
