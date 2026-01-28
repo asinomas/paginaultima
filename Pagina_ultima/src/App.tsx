@@ -19,51 +19,83 @@ import Privacy from './components/Privacy';
 
 const App: React.FC = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState<'home' | 'services' | 'about' | 'contact' | 'terms' | 'privacy'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'terms' | 'privacy'>('home');
 
   const navigateTo = (page: 'home' | 'services' | 'about' | 'contact' | 'terms' | 'privacy') => {
-  setCurrentPage(page);
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-};
+    if (page === 'terms' || page === 'privacy') {
+      setCurrentPage(page);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (page === 'home') {
+      setCurrentPage('home');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (page === 'services') {
+      // Scroll a la sección de servicios
+      const servicesSection = document.getElementById('servicios');
+      if (servicesSection) {
+        servicesSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else if (page === 'about') {
+      // Scroll a la sección quienes somos
+      const aboutSection = document.getElementById('quienes-somos');
+      if (aboutSection) {
+        aboutSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else if (page === 'contact') {
+      // Scroll a la sección contacto
+      const contactSection = document.getElementById('contacto');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contacto');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar 
-        onContactClick={() => navigateTo('contact')} 
+        onContactClick={scrollToContact} 
         onNavigate={navigateTo} 
-        currentPage={currentPage} 
+        currentPage="home" 
       />
 
       <main className="flex-grow">
         {currentPage === 'home' && (
           <>
+            {/* INICIO */}
             <Hero onNavigate={navigateTo} />
             <ServicesOverview />
             <Stats />
             <AboutPreview />
             <Logos />
+            
+            {/* SERVICIOS */}
+            <div id="servicios">
+              <ServicesDetail onContactClick={scrollToContact} />
+            </div>
+            
+            {/* QUIENES SOMOS */}
+            <div id="quienes-somos">
+              <AboutDetail 
+                onContactClick={scrollToContact} 
+                onNavigate={navigateTo} 
+              />
+            </div>
+            
+            {/* CONTACTO */}
+            <div id="contacto">
+              <ContactDetail />
+            </div>
           </>
         )}
 
-        {currentPage === 'services' && (
-          <ServicesDetail onContactClick={() => navigateTo('contact')} />
-        )}
-
-        {currentPage === 'about' && (
-          <AboutDetail 
-            onContactClick={() => navigateTo('contact')} 
-            onNavigate={navigateTo} 
-          />
-        )}
-
-        {currentPage === 'contact' && <ContactDetail />}
-
-
         {currentPage === 'terms' && <Terms onNavigate={navigateTo} />}
         {currentPage === 'privacy' && <Privacy onNavigate={navigateTo} />}     
-        
-
-        
       </main>
 
       <Footer onNavigate={navigateTo} />
