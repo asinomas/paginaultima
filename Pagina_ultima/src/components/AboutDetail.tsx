@@ -90,7 +90,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
                   alt="Quienes somos"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent"></div>
+              
                 <div className="absolute bottom-10 right-10">
                   <p className="text-blue-400 font-bold uppercase tracking-widest text-xs mb-2 text-right">Fundada en 2014</p>
                   <h4 className="text-3xl font-bold text-white tracking-tight text-right">Estrategia y Resultados</h4>
