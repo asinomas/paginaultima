@@ -50,8 +50,9 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               </h1>
 
               <p className="text-lg text-slate-300 mb-12 max-w-2xl mx-auto leading-relaxed">
-                BlackTI conecta a tu empresa con profesionales altamente capacitados, listos para integrarse a tus equipos o desarrollar proyectos adaptándose a tus objetivos
+              <span className="font-bold">BlackTI</span> conecta a tu empresa con profesionales altamente capacitados, listos para integrarse a tus equipos o desarrollar proyectos adaptándose a tus objetivos
               </p>
+
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button
