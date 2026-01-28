@@ -44,11 +44,11 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 <span className="relative inline-block italic text-[#135bec] drop-shadow-[0_0_15px_rgba(19,91,236,0.3)] filter transition-all duration-700">
                   Talento
                 </span>{' '}
-                con Inteligencia
+                para Impulsar tu Empresa
               </h1>
 
               <p className="text-lg text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed">
-                BlackTI combina experiencia, creatividad y un enfoque estratégico para convertir la tecnología en valor real para su empresa
+                BlackTI conecta a su empresa con profesionales tecnológicos altamente capacitados, listos para integrarse a tus equipos o desarrollar proyectos, adaptándose a sus objetivos y tiempos
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
