@@ -49,7 +49,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 para {' '} <span className="relative inline-block italic text-[#135bec] drop-shadow-[0_0_15px_rgba(19,91,236,0.3)] filter transition-all duration-700"> Impulsar </span> {' '}  tu Empresa
               </h1>
 
-              <p className="text-lg text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-lg text-slate-300 mb-12 max-w-2xl mx-auto leading-relaxed">
                 BlackTI conecta a tu empresa con profesionales altamente capacitados, listos para integrarse a tus equipos o desarrollar proyectos adaptándose a tus objetivos
               </p>
 
