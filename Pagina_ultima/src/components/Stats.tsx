@@ -18,8 +18,8 @@ const Stats: React.FC = () => {
     {
       icon: 'tune',
       value: '100%',
-      label: 'Custom',
-      text: 'Ajustamos el perfil técnico según el contexto y objetivos, reduciendos tiempos de onboarding y rotación.'
+      label: 'A Medida',
+      text: 'Ajustamos el perfil técnico según el contexto y objetivos, reduciendos tiempos de onboarding y rotación en su empresa.'
     }
   ];
 
