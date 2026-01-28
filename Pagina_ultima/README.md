@@ -48,8 +48,8 @@ npm run lint
 ## Despliegue
 
 El proyecto se despliega automáticamente en:
-GitHub Pages mediante GitHub Actions al hacer push a la rama `main`.
-Cloudflare Pages usando el build generado por Vite
+- GitHub Pages mediante GitHub Actions al hacer push a la rama `main`.
+- Cloudflare Pages usando el build generado por Vite
 
 ### URL de producción
 
