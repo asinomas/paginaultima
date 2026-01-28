@@ -59,7 +59,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
           <div className="flex flex-col lg:flex-row gap-16 items-start">
             {/* TEXTO A LA IZQUIERDA */}
             <div className="lg:w-1/2">
-              <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#135bec] mb-5 mt-12 ">Nuestra Historia</h4>
+              <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#135bec] mb-6 mt-12 ">Nuestra Historia</h4>
               <h1 className="text-5xl lg:text-7xl font-black text-slate-900 leading-[1.1] mb-8 tracking-tighter">
                 El Gen BlackTI <span className="text-[#135bec] italic">Excelencia</span>
               </h1>
