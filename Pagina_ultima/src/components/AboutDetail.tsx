@@ -114,7 +114,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
             <div className="h-0.5 flex-1 bg-slate-200 hidden md:block mx-10" />
           </div>
           <p className="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed font-medium">
-            Líderes apasionados por la tecnología que dirigen el rumbo de cada proyecto con rigor y visión.
+            Nuestro equipo lo componen líderes apasionados por la tecnología que dirigen el rumbo de cada proyecto con rigor y visión.
           </p>
         </div>
 
