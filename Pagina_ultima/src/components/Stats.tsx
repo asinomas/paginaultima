@@ -6,20 +6,20 @@ const Stats: React.FC = () => {
     {
       icon: 'groupadd',
       value: '100%',
-      label: 'Talento Validado',
+      label: 'Alto Rendimiento',
       text: 'Construimos grupos de trabajo capaces de sumarse a sus equipos o liderar proyectos, aportando valor desde el inicio.'
     },
     {
       icon: 'visibility',
       value: '360°',
       label: 'Visión Global',
-      text: 'Integramos profesionales de distintas áreas, entregando un producto robusto, seguro y centrado en el cliente.'
+      text: 'Integramos profesionales de distintas áreas, logrando entregar un producto robusto, seguro y centrado en el cliente.'
     },
     {
       icon: 'tune',
       value: '100%',
       label: 'A Medida',
-      text: 'Ajustamos el perfil técnico según el contexto y objetivos, reduciendos tiempos de onboarding y rotación en su empresa.'
+      text: 'Diseñamos un perfil especializado según el contexto y objetivos, reduciendo tiempos de onboarding y rotación en su empresa.'
     }
   ];
 
