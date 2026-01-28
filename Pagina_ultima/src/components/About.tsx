@@ -7,28 +7,39 @@ const About: React.FC = () => {
       <section className="bg-white py-32 overflow-hidden">
         <div className="container mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            
             {/* IMAGEN A LA IZQUIERDA */}
-            <div className="relative hidden md:flex">
-              <div className="shadow-2xl rounded-[2.5rem]">
+            <div className="lg:w-1/2 flex justify-center relative hidden md:flex">
+              <div className="relative shadow-2xl rounded-[2.5rem]">
+                
                 <img 
                   src="./images/foto-about.webp" 
                   className="h-[600px] w-full object-contain max-w-md transition-transform duration-[2s] group-hover:scale-105"
                   alt="Grupo de oficina en reunión"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent"></div>
+
+                <div className="pointer-events-none absolute inset-0 rounded-[2.5rem] bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent"></div>
+
                 <div className="absolute bottom-10 left-10">
-                  <p className="text-blue-400 font-bold uppercase tracking-widest text-xs mb-2">Fundada en 2014</p>
-                  <h4 className="text-3xl font-bold text-white tracking-tight">Estrategia y Resultados</h4>
+                  <p className="text-blue-400 font-bold uppercase tracking-widest text-xs mb-2">
+                    Fundada en 2014
+                  </p>
+                  <h4 className="text-3xl font-bold text-white tracking-tight">
+                    Estrategia y Resultados
+                  </h4>
                 </div>
               </div>
+
               <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-blue-100 rounded-full blur-[80px] -z-10"></div>
             </div>
 
             {/* TEXTO A LA DERECHA */}
             <div>
               <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-2 border border-blue-100">
-                <span className="text-blue-600 text-xs font-bold uppercase tracking-widest">Nuestra Identidad</span>
+                <span className="text-blue-600 text-xs font-bold uppercase tracking-widest">
+                  Nuestra Identidad
+                </span>
               </div>
               <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-8 leading-[1.1]">
                 Liderando con <span className="text-blue-600 italic">Propósito</span> Real
@@ -52,6 +63,7 @@ const About: React.FC = () => {
                 ))}
               </div>
             </div>
+
           </div>
         </div>
       </section>
