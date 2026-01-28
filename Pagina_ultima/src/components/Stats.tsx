@@ -40,7 +40,7 @@ const Stats: React.FC = () => {
       <div className="container relative mx-auto max-w-7xl px-6 lg:px-8 z-10 text-center">
         <div className="mb-20">
           <h2 className="text-xs font-bold uppercase tracking-[0.3em] text-blue-500 mb-4">El Estándar BlackTI</h2>
-          <h3 className="text-4xl md:text-5xl font-extrabold text-white/95">¿Por qué los líderes nos eligen?</h3>
+          <h3 className="text-4xl md:text-5xl font-extrabold text-white/95">Por qué nos eligen</h3>
         </div>
 
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
