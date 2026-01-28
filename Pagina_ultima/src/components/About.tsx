@@ -7,7 +7,25 @@ const About: React.FC = () => {
       <section className="bg-white py-32 overflow-hidden">
         <div className="container mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            {/* TEXTO A LA IZQUIERDA */}
+            {/* IMAGEN A LA IZQUIERDA */}
+            <div className="relative">
+              <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl group">
+                <img 
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" 
+                  className="h-[600px] w-full object-cover transition-transform duration-[2s] group-hover:scale-105"
+                  alt="Nosotros"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent"></div>
+                <div className="absolute bottom-10 left-10">
+                  <p className="text-blue-400 font-bold uppercase tracking-widest text-xs mb-2">Fundada en 2014</p>
+                  <h4 className="text-3xl font-bold text-white tracking-tight">Estrategia y Resultados</h4>
+                </div>
+              </div>
+              <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-blue-100 rounded-full blur-[80px] -z-10"></div>
+            </div>
+
+            {/* TEXTO A LA DERECHA */}
             <div>
               <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-2 border border-blue-100">
                 <span className="text-blue-600 text-xs font-bold uppercase tracking-widest">Nuestra Identidad</span>
@@ -33,24 +51,6 @@ const About: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </div>
-
-            {/* IMAGEN A LA DERECHA */}
-            <div className="relative">
-              <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl group">
-                <img 
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" 
-                  className="h-[600px] w-full object-cover transition-transform duration-[2s] group-hover:scale-105"
-                  alt="Nosotros"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent"></div>
-                <div className="absolute bottom-10 left-10">
-                  <p className="text-blue-400 font-bold uppercase tracking-widest text-xs mb-2">Fundada en 2014</p>
-                  <h4 className="text-3xl font-bold text-white tracking-tight">Estrategia y Resultados</h4>
-                </div>
-              </div>
-              <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-blue-100 rounded-full blur-[80px] -z-10"></div>
             </div>
           </div>
         </div>
