@@ -9,13 +9,13 @@ Una aplicación web moderna construida con React, TypeScript y Vite. Optimizada 
 
 ## Características
 
-- ⚡ **Vite** - Build tool ultrarrápido
-- ⚛️ **React 18** - Última versión con concurrent features
-- 🎨 **Tailwind CSS** - Utility-first CSS framework
-- 📊 **D3.js** - Visualizaciones de datos interactivas
-- 🧭 **React Router** - Navegación entre páginas
-- 🎯 **TypeScript** - Type safety
-- 🔍 **ESLint & Prettier** - Code quality
+- **Vite** - Build tool ultrarrápido
+- **React 18** - Última versión con concurrent features
+- **Tailwind CSS** - Utility-first CSS framework
+- **D3.js** - Visualizaciones de datos interactivas
+- **React Router** - Navegación entre páginas
+- **TypeScript** - Type safety
+- **ESLint & Prettier** - Code quality
 
 ## Instalación
 
@@ -44,7 +44,7 @@ npm run preview
 npm run lint
 ```
 
-## 🚀 Despliegue
+## Despliegue
 
 El proyecto se despliega automáticamente en GitHub Pages mediante GitHub Actions cuando se hace push a la rama `main`.
 
@@ -126,7 +126,7 @@ export default defineConfig({
 - Las rutas deben empezar con `/` (ej: `/images/foto.jpg`)
 - Vite resuelve automáticamente las rutas con el `base` configurado
 
-## 📄 Licencia
+## Licencia
 
 MIT - Ver [LICENSE](LICENSE) para más detalles.
 
