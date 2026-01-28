@@ -88,7 +88,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
   ];
 
   return (
-    <div className="bg-slate-50 min-h-screen pt-24 pb-32 antialiased">
+    <div className="bg-slate-50 min-h-screen pt-16 pb-32 antialiased">
       {/* 1. HERO SECTION */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8 mb-24">
         <div className="relative overflow-hidden rounded-[3rem] bg-[#0b0e14] p-12 lg:p-24 text-center lg:text-left">
