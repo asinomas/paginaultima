@@ -78,6 +78,21 @@ const ContactDetail: React.FC = () => {
           <div className="relative group">
             <div className="bg-slate-50 p-8 lg:p-12 rounded-[3rem] border border-slate-100 relative overflow-hidden min-h-[580px] flex flex-col justify-center shadow-sm">
               
+              {/* IMAGEN DURANTE ISSUBMITTING */}
+              {isSubmitting && (
+                <div className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
+                  <img 
+                    src="/images/hero-image.webp" 
+                    alt="Enviando" 
+                    className="w-auto h-auto max-w-md object-contain opacity-30"
+                    onError={(e) => {
+                      console.log('Error cargando hero-image.webp');
+                      (e.target as HTMLImageElement).style.display = 'none';
+                    }}
+                  />
+                </div>
+              )}
+
               {isSent && (
                 <div className="absolute inset-0 bg-white/95 backdrop-blur-sm z-50 flex flex-col items-center justify-center text-center p-8 animate-[fadeIn_0.5s_ease-out]">
                   <div className="size-24 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-8 border border-blue-200 shadow-lg shadow-blue-500/10">
