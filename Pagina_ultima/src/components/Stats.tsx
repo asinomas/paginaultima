@@ -60,7 +60,7 @@ const Stats: React.FC = () => {
               <h5 className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-blue-500">
                 {stat.label}
               </h5>
-              <p className="text-slate-400 leading-relaxed text-sm max-w-xs mx-auto opacity-80 group-hover:opacity-100 transition-opacity">
+              <p className="text-slate-500 leading-relaxed text-sm max-w-xs mx-auto opacity-80 group-hover:opacity-100 transition-opacity">
                 {stat.text}
               </p>
             </div>
