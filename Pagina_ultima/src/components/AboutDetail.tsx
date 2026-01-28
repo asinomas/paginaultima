@@ -82,7 +82,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
             </div>
 
             {/* IMAGEN VOLTEADA HORIZONTALMENTE A LA DERECHA */}
-            <div className="lg:w-1/2 flex justify-center relative scale-[0.80] -translate-y-8">
+            <div className="lg:w-1/2 flex justify-center relative scale-[0.90] -translate-y-8">
               <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl group">
                 <img 
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" 
