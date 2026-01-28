@@ -103,7 +103,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
           <div className="flex items-center w-full justify-center mb-6">
             <div className="h-0.5 flex-1 bg-slate-200 hidden md:block mx-10" /> {/* Línea izquierda */}
             <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
-              ¿Quienes Somos?
+              Quienes somos
             </h2>
             <div className="h-0.5 flex-1 bg-slate-200 hidden md:block mx-10" /> {/* Línea derecha */}
           </div>
