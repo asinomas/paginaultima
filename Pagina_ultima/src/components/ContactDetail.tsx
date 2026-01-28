@@ -28,7 +28,7 @@ const ContactDetail: React.FC = () => {
           {/* COLUMNA IZQUIERDA: ESTILO "EXCELENCIA OPERATIVA" APLICADO */}
           <div className="lg:sticky lg:top-32">
             {/* Texto ajustado a 11px para ser más pequeño y elegante */}
-            <h4 className="text-[#135bec] font-bold uppercase tracking-[0.2em] text-[11px] mb-4">
+            <h4 className="text-[#135bec] font-bold uppercase tracking-[0.2em] text-[11px] mb-8">
               Hablemos hoy
             </h4>
 
