@@ -1,7 +1,7 @@
-# BlackTI - Página Última
+# BlackTI - Página 
 
-[![Deploy Status](https://img.shields.io/badge/deploy-GitHub%20Pages-success)](https://asinomas.github.io/paginaultima/)
 [![Deploy Status](https://img.shields.io/badge/deploy-Cloudflare-success)](https://asinomas.github.io/paginaultima/)
+[![Deploy Status](https://img.shields.io/badge/deploy-GitHub%20Pages-success)](https://asinomas.github.io/paginaultima/)
 [![Built with Vite](https://img.shields.io/badge/built%20with-Vite-646CFF?logo=vite)](https://vitejs.dev/)
 [![React](https://img.shields.io/badge/React-18.3.1-61DAFB?logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.2.2-3178C6?logo=typescript)](https://www.typescriptlang.org/)
