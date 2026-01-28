@@ -31,8 +31,8 @@ jobs:
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ na3f5l9nPnXKsZSETty5cZcN4uUpVg50ch1YumU1 }}
+          accountId: ${{ dc0dcdc9b0b1f7900ed7883d63a8f42f }}
           projectName: paginaultima
           directory: ./Pagina_ultima/dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
