@@ -7,7 +7,7 @@ const Stats: React.FC = () => {
       icon: 'groups',
       value: '100%',
       label: 'Talento Validado',
-      text: 'Construimos grupos de trabajo capaces de integrarse a sus equipos o liderar proyectos específicos, reduciendo el tiempo de adaptación.'
+      text: 'Construimos grupos de trabajo capaces de integrarse a sus equipos o liderar proyectos, reduciendo el tiempo de adaptación.'
     },
     {
       icon: 'visibility',
