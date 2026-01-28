@@ -3,7 +3,7 @@ name: Deploy to Vercel
 on:
   push:
     branches:
-      - main  # O 'master' si usas esa rama
+      - main
 
 jobs:
   deploy:
