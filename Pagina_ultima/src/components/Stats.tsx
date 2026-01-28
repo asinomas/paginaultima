@@ -12,11 +12,11 @@ const Stats: React.FC = () => {
     {
       icon: 'visibility',
       value: '360°',
-      label: 'Visión Integral',
+      label: 'Visión Global',
       text: 'Integramos profesionales de distintas áreas, entregando un producto robusto, seguro y centrado en el cliente.'
     },
     {
-      icon: 'hub',
+      icon: 'tune',
       value: '100%',
       label: 'Personalización',
       text: 'Ajustamos el perfil técnico según el contexto y objetivos, reduciendos tiempos de onboarding y rotación.'
