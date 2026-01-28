@@ -47,7 +47,7 @@ const About: React.FC = () => {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
                 {['Ingeniería Superior', 'Seguridad Total', 'Escalabilidad', 'Transparencia'].map(item) 
-                  <div key={item} className="flex items-center gap-3">
+                  <div ={item} className="flex items-center gap-3">
                     <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-white">
                       <span className="material-symbols-outlined !text-sm">done</span>
                     </div>
