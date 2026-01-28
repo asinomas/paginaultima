@@ -82,7 +82,7 @@ const ContactDetail: React.FC = () => {
               {isSubmitting && (
                 <div className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
                   <img 
-                    src="/images/hero-image.webp" 
+                    src="./images/hero-image.webp" 
                     alt="Enviando" 
                     className="w-auto h-auto max-w-md object-contain opacity-30"
                     onError={(e) => {
