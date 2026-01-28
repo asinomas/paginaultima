@@ -53,18 +53,42 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
   return (
     <div className="bg-white min-h-screen antialiased">
 
-      {/* SECCIÓN HERO / HISTORIA */}
+      {/* QUIENES SOMOS - AHORA EN LA PARTE SUPERIOR */}
       <section className="relative bg-[#F8FAFC] pt-32 pb-18 after:absolute after:bottom-0 after:left-0 after:w-full after:h-48 after:bg-gradient-to-b after:from-[#F8FAFC]/20 after:via-[#F8FAFC]/60 after:to-white after:pointer-events-none">
         <div className="container mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
+            {/* IMAGEN CON MIRROR HORIZONTAL A LA IZQUIERDA */}
+            <div className="lg:w-1/2 flex justify-center relative">
+              <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl group">
+                <img 
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" 
+                  className="h-[600px] w-full object-cover transition-transform duration-[2s] group-hover:scale-105 scale-x-[-1]"
+                  alt="Quienes somos"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent"></div>
+                <div className="absolute bottom-10 left-10">
+                  <p className="text-blue-400 font-bold uppercase tracking-widest text-xs mb-2">Fundada en 2014</p>
+                  <h4 className="text-3xl font-bold text-white tracking-tight">Estrategia y Resultados</h4>
+                </div>
+              </div>
+              <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-blue-100 rounded-full blur-[80px] -z-10"></div>
+            </div>
+
+            {/* TEXTO A LA DERECHA */}
             <div className="lg:w-1/2">
               <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#135bec] mb-4">Nuestra Historia</h4>
               <h1 className="text-5xl lg:text-7xl font-black text-slate-900 leading-[1.1] mb-8 tracking-tighter">
                 El Gen BlackTI <span className="text-[#135bec] italic">Excelencia</span>
               </h1>
-              <p className="text-base lg:text-xl text-slate-500 font-normal leading-relaxed mb-10 max-w-xl">
-                Nacimos para transformar la complejidad técnica en valor empresarial. Somos un equipo de alto rendimiento, con obsesión por el detalle y mentalidad problem-solver.
+              <p className="text-lg md:text[17px] font-normal text-slate-500 tracking-tighter mb-6 leading-relaxed">
+                Somos una Start Up que trasciende la simple implementación técnica. Nos sumergimos en la cultura de nuestros clientes para convertir obstáculos en motores de crecimiento sin perder la continuidad operativa.
               </p>
+              <div className="space-y-6 mb-12">
+                <p className="text-lg leading-relaxed text-slate-500 tracking-tighter font-normal md:text[17px] mb-6">
+                  Creemos que el éxito del trabajo en equipo solo es sostenible cuando está alineado el talento con una visión estratégica clara.
+                </p>
+              </div>
               <div className="flex gap-4">
                 <button 
                   onClick={onContactClick} 
@@ -74,38 +98,20 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
                 </button>
               </div>
             </div>
-            
-            <div className="lg:w-1/2 flex justify-center relative">
-              {/* IMAGEN LIBRE */}
-              <div className="relative hidden md:flex">
-                <div className="shadow-xl rounded-3xl scale-[1.3] -translate-y-2 -translate-x-5">
-                  <img 
-                    src={fotoAbout} 
-                    alt="Team Work" 
-                    className="w-full max-w-md object-contain translate-y-15 translate-x-[2]" 
-                    onError={(e) => {
-                      console.log('Error cargando foto-about.webp');
-                      (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop';
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-
       
-      {/* QUIENES SOMOS */}
+      {/* SECCIÓN EQUIPO */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8 py-24">
         <div className="text-center mb-24 flex flex-col items-center">
           <div className="flex items-center w-full justify-center mb-6">
-            <div className="h-0.5 flex-1 bg-slate-200 hidden md:block mx-10" /> {/* Línea izquierda */}
+            <div className="h-0.5 flex-1 bg-slate-200 hidden md:block mx-10" />
             <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
               Quienes somos
             </h2>
-            <div className="h-0.5 flex-1 bg-slate-200 hidden md:block mx-10" /> {/* Línea derecha */}
+            <div className="h-0.5 flex-1 bg-slate-200 hidden md:block mx-10" />
           </div>
           <p className="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed font-medium">
             Líderes apasionados por la tecnología que dirigen el rumbo de cada proyecto con rigor y visión.
