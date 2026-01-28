@@ -13,7 +13,7 @@ const Stats: React.FC = () => {
       icon: 'visibility',
       value: 'Visión 360°',
       label: 'Visión 360°',
-      text: 'Integramos profesionales evaluados de distintas áreas, entregando un producto robusto, seguro y centrado en sus objetivos.'
+      text: 'Integramos profesionales de distintas áreas, entregando un producto robusto, seguro y centrado en sus objetivos y tiempos.'
     },
     {
       icon: 'verified',
