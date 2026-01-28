@@ -57,25 +57,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
       <section className="relative bg-[#F8FAFC] pt-32 pb-18 after:absolute after:bottom-0 after:left-0 after:w-full after:h-48 after:bg-gradient-to-b after:from-[#F8FAFC]/20 after:via-[#F8FAFC]/60 after:to-white after:pointer-events-none">
         <div className="container mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
-            {/* IMAGEN CON MIRROR HORIZONTAL A LA IZQUIERDA */}
-            <div className="lg:w-1/2 flex justify-center relative">
-              <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl group">
-                <img 
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" 
-                  className="h-[600px] w-full object-cover transition-transform duration-[2s] group-hover:scale-105 scale-x-[-1]"
-                  alt="Quienes somos"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent"></div>
-                <div className="absolute bottom-10 left-10">
-                  <p className="text-blue-400 font-bold uppercase tracking-widest text-xs mb-2">Fundada en 2014</p>
-                  <h4 className="text-3xl font-bold text-white tracking-tight">Estrategia y Resultados</h4>
-                </div>
-              </div>
-              <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-blue-100 rounded-full blur-[80px] -z-10"></div>
-            </div>
-
-            {/* TEXTO A LA DERECHA */}
+            {/* TEXTO A LA IZQUIERDA */}
             <div className="lg:w-1/2">
               <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#135bec] mb-4">Nuestra Historia</h4>
               <h1 className="text-5xl lg:text-7xl font-black text-slate-900 leading-[1.1] mb-8 tracking-tighter">
@@ -97,6 +79,24 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
                   Unirse al equipo <ArrowRight size={18} />
                 </button>
               </div>
+            </div>
+
+            {/* IMAGEN VOLTEADA HORIZONTALMENTE A LA DERECHA */}
+            <div className="lg:w-1/2 flex justify-center relative">
+              <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl group">
+                <img 
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" 
+                  className="h-[600px] w-full object-cover scale-x-[-1] transition-transform duration-[2s] group-hover:scale-[1.05] group-hover:scale-x-[-1.05]"
+                  alt="Quienes somos"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent"></div>
+                <div className="absolute bottom-10 right-10">
+                  <p className="text-blue-400 font-bold uppercase tracking-widest text-xs mb-2 text-right">Fundada en 2014</p>
+                  <h4 className="text-3xl font-bold text-white tracking-tight text-right">Estrategia y Resultados</h4>
+                </div>
+              </div>
+              <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-blue-100 rounded-full blur-[80px] -z-10"></div>
             </div>
           </div>
         </div>
