@@ -92,7 +92,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
                 />
               
                 <div className="absolute bottom-10 right-10">
-                  <p className="text-blue-400 font-bold uppercase tracking-widest text-xs mb-2 text-right">Fundada en 2014</p>
+                  <p className="text-blue-600 font-bold uppercase tracking-widest text-xs mb-2 text-right">Fundada en 2014</p>
                   <h4 className="text-3xl font-bold text-white tracking-tight text-right">Estrategia y Resultados</h4>
                 </div>
               </div>
