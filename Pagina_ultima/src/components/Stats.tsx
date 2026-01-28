@@ -7,19 +7,19 @@ const Stats: React.FC = () => {
       icon: 'groups',
       value: '100%',
       label: 'Talento Validado',
-      text: 'Construimos grupos de trabajo capaces de integrarse a sus equipos o liderar proyectos, aportando valor desde el primer día.'
+      text: 'Construimos grupos de trabajo capaces de integrarse a sus equipos o liderar proyectos, aportando valor desde el inicio.'
     },
     {
       icon: 'visibility',
       value: 'Visión 360°',
       label: 'Visión 360°',
-      text: 'Integramos profesionales de distintas áreas, entregando un producto robusto, seguro y centrado en sus objetivos y tiempos.'
+      text: 'Integramos profesionales de distintas áreas, entregando un producto robusto, seguro y centrado en el cliente.'
     },
     {
-      icon: 'verified',
+      icon: 'tune',
       value: '100%',
-      label: 'Talento Validado',
-      text: 'Cada cifra representa un proyecto exitoso, un proceso optimizado y un cliente satisfecho. reduciendo el tiempo de adaptación'
+      label: 'Personalización',
+      text: 'Ajustamos el perfil técnico según el contexto y objetivos, reduciendos tiempos de onboarding y rotación.'
     }
   ];
 
