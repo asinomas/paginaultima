@@ -142,7 +142,9 @@ MIT - Ver [LICENSE](LICENSE) para más detalles.
 
 ## Autor
 
-**BlackTI**
+FR.
+
+**Página**
 - GitHub: [@asinomas](https://github.com/asinomas)
 - Website: [https://asinomas.github.io/paginaultima/](https://asinomas.github.io/paginaultima/)
 - Cloudflare: [(https://paginaultima.pages.dev/)]
