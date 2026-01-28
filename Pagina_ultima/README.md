@@ -47,9 +47,12 @@ npm run lint
 
 ## Despliegue
 
-El proyecto se despliega automáticamente en GitHub Pages mediante GitHub Actions cuando se hace push a la rama `main`.
+El proyecto se despliega automáticamente en:
+GitHub Pages mediante GitHub Actions al hacer push a la rama `main`.
+Cloudflare Pages usando el build generado por Vite
 
 ### URL de producción
+
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-live-success)](https://asinomas.github.io/paginaultima/)
 [![Cloudflare Pages](https://img.shields.io/badge/Cloudflare-live-F38020?logo=cloudflare)](https://paginaultima.pages.dev)
 
@@ -108,6 +111,9 @@ export default defineConfig({
 })
 ```
 
+Cloudflare Pages
+No requiere configuración de base cuando se usa el dominio .pages.dev.
+
 ## Troubleshooting
 
 ### Pantalla blanca después del deploy
@@ -121,6 +127,8 @@ export default defineConfig({
 - Confirma que GitHub Pages esté habilitado en Settings → Pages
 - Verifica que la configuración sea "Source: GitHub Actions"
 - Limpia la caché del navegador con `Ctrl + Shift + R`
+
+- Cloudflare Pages: sección Deployments
 
 ### Imágenes no cargan
 
