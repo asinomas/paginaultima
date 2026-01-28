@@ -4,7 +4,7 @@ import ScrollAnimation from './ScrollAnimation';
 const Stats: React.FC = () => {
   const statsItems = [
     {
-      icon: 'verified',
+      icon: 'groups',
       value: '100%',
       label: 'Talento Validado',
       text: 'Construimos grupos de trabajo capaces de integrarse a sus equipos o liderar proyectos específicos, reduciendo el tiempo de adaptación.'
@@ -16,7 +16,7 @@ const Stats: React.FC = () => {
       text: 'Integramos profesionales evaluados y alineados al negocio de distintas áreas, entregando un producto robusto, seguro y centrado en el cliente.'
     },
     {
-      icon: 'schedule',
+      icon: 'verified',
       value: '100%',
       label: 'Talento Validado',
       text: 'Cada cifra representa un proyecto exitoso, un proceso optimizado y un cliente satisfecho.'
