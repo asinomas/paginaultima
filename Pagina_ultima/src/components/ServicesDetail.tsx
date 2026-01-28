@@ -104,8 +104,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
               </h1>
 
               <p className="text-lg lg:text-xl text-slate-400 leading-relaxed max-w-2xl mb-10">
-                En BlackTI contamos con profesionales especializados en distintas áreas, capaces de integrarse a sus equipos o liderar proyectos.
-                Nuestra experiencia se traduce en soluciones.
+                Nuestros profesionales pueden incorporarse bajo esquemas de outsourcing, staff augmentation o por proyecto, adaptándose a las necesidades específicas de cada empresa.
               </p>
 
               <button
