@@ -4,19 +4,19 @@ import ScrollAnimation from './ScrollAnimation';
 const Stats: React.FC = () => {
   const statsItems = [
     {
-      icon: 'groups',
+      icon: 'groupadd',
       value: '100%',
       label: 'Talento Validado',
       text: 'Construimos grupos de trabajo capaces de integrarse a sus equipos o liderar proyectos, aportando valor desde el inicio.'
     },
     {
       icon: 'visibility',
-      value: 'Visión 360°',
-      label: 'Visión 360°',
+      value: '360°',
+      label: 'Visión Integral',
       text: 'Integramos profesionales de distintas áreas, entregando un producto robusto, seguro y centrado en el cliente.'
     },
     {
-      icon: 'tune',
+      icon: 'hub',
       value: '100%',
       label: 'Personalización',
       text: 'Ajustamos el perfil técnico según el contexto y objetivos, reduciendos tiempos de onboarding y rotación.'
