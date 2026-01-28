@@ -10,7 +10,7 @@ const Stats: React.FC = () => {
       text: 'Construimos grupos de trabajo capaces de integrarse a sus equipos o liderar proyectos específicos, reduciendo el tiempo de adaptación.'
     },
     {
-      icon: 'rocket_launch',
+      icon: 'visibility',
       value: 'Visión 360°',
       label: 'Visión 360°',
       text: 'Integramos profesionales evaluados y alineados al negocio de distintas áreas, entregando un producto robusto, seguro y centrado en el cliente.'
