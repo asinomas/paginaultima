@@ -54,7 +54,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
     <div className="bg-white min-h-screen antialiased">
 
       {/* QUIENES SOMOS - AHORA EN LA PARTE SUPERIOR */}
-      <section className="relative bg-[#F8FAFC] pt-16 pb-18 after:absolute after:bottom-0 after:left-0 after:w-full after:h-48 after:bg-gradient-to-b after:from-[#F8FAFC]/20 after:via-[#F8FAFC]/60 after:to-white after:pointer-events-none">
+      <section className="relative bg-[#F8FAFC] pt-10 pb-24 after:absolute after:bottom-0 after:left-0 after:w-full after:h-48 after:bg-gradient-to-b after:from-[#F8FAFC]/20 after:via-[#F8FAFC]/60 after:to-white after:pointer-events-none">
         <div className="container mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row gap-16 items-start">
             {/* TEXTO A LA IZQUIERDA */}
