@@ -33,9 +33,10 @@ jobs:
         
       - name: Build project
         working-directory: ./Pagina_ultima
-         env:
-          CF_PAGES: '1'
+        env:
+         CF_PAGES: '1'
         run: npm run build
+
         
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
