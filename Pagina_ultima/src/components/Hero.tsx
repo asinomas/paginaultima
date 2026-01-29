@@ -95,9 +95,9 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                   className="text-base md:text-lg text-slate-300/90 mb-8 max-w-2xl mx-auto leading-relaxed font-light"
                 >
                   Arquitectura sólida para{" "}
-                  <span className="text-slate-300/100 font-demibold">startups</span>. Optimización continua para{" "}
-                  <span className="text-slate-300/100 font-demibold">empresas</span>. Acompañamiento en cada{" "}
-                  <span className="text-slate-300/100 font-demibold">etapa</span>.
+                  <span className="text-slate-300/100 font-bold">startups</span>. Optimización continua para{" "}
+                  <span className="text-slate-300/100 font-bold">empresas</span>. Acompañamiento en cada{" "}
+                  <span className="text-slate-300/100 font-bold">etapa</span>.
                   </motion.p>
 
                 {/* CTA CORPORATIVO */}
