@@ -152,10 +152,11 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* FRANJA DE LOGOS - PARTE INFERIOR DEL HERO */}
       <div className="relative pt-16 pb-8 overflow-hidden z-10">
+
         
         {/* Línea divisoria - para logos */}
-        <div className="absolute top-8 left-0 right-0 h-px from-transparent to-bg-white/5"></div>
-         <div className="absolute top-8 left-0 right-0 h-px from-bg-white to-transparent/5"></div>
+        <div className="absolute top-8 left-0 right-0 h-px bg-linear-to-r from-transparent to-bg-white/5"></div>
+         <div className="absolute top-8 left-0 right-0 h-px bg-linear-to-l from-bg-white to-transparent/5"></div>
 
 
         {/* Texto franja logos */}
