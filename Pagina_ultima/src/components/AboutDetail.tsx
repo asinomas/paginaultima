@@ -59,7 +59,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
           <div className="flex flex-col lg:flex-row gap-16 items-start">
             {/* TEXTO A LA IZQUIERDA */}
             <div className="lg:w-1/2">
-              <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#135bec] mb-2 mt-12 ">Nuestra Historia</h4>
+              <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#135bec] mb-4">Nuestra Historia</h4>
               <h1 className="text-5xl lg:text-7xl font-black text-slate-900 leading-[1.1] mb-8 tracking-tighter">
                 El Gen BlackTI <span className="text-[#135bec] italic">Excelencia</span>
               </h1>
@@ -90,9 +90,9 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
                   alt="Quienes somos"
                   loading="lazy"
                 />
-              
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent"></div>
                 <div className="absolute bottom-10 right-10">
-                  <p className="text-blue-600 font-bold uppercase tracking-widest text-xs mb-2 text-right">Fundada en 2014</p>
+                  <p className="text-blue-400 font-bold uppercase tracking-widest text-xs mb-2 text-right">Fundada en 2014</p>
                   <h4 className="text-3xl font-bold text-white tracking-tight text-right">Estrategia y Resultados</h4>
                 </div>
               </div>
