@@ -198,7 +198,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                   alt={logo.name}
                   src={logo.src}
                   loading="lazy"
-                  className="h-12 md:h-16 w-auto object-contain brightness-0 invert grayscale opacity-40 hover:grayscale-0 hover:opacity-100 hover:brightness-100 hover:invert-0"
+                  className="h-10 md:h-12.8 w-auto object-contain brightness-0 invert grayscale opacity-40 hover:grayscale-0 hover:opacity-100 hover:brightness-100 hover:invert-0"
                   onError={(e) => {
                     (e.target as HTMLImageElement).style.display = 'none';
                   }}
