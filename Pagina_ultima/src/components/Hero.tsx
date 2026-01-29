@@ -151,7 +151,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       </div>
 
       {/* FRANJA DE LOGOS - PARTE INFERIOR DEL HERO */}
-      <div className="relative pt-16 pb-4 overflow-hidden z-10">
+      <div className="relative pt-16 pb-8 overflow-hidden z-10">
         {/* Línea divisoria - movida más arriba */}
         <div className="absolute top-8 left-0 right-0 h-px bg-white/5"></div>
         
