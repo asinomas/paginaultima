@@ -51,7 +51,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               >
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#135bec] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#135bec]"></span>
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#135bec]"></span>
                 </span>
                 <span className="text-[#6b9cec] text-[10px] font-semibold uppercase tracking-[0.15em] letterspacing">
                   Consultoría Estratégica en TI
@@ -92,14 +92,15 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               >
                 <button
                   onClick={() => onNavigate('contact')}
-                  className="group relative overflow-hidden px-8 py-4 bg-[#135bec] text-white rounded-lg font-semibold transition-all hover:bg-[#1047c4] active:scale-98 shadow-lg shadow-[#135bec]/20"
+                  className="group relative overflow-hidden px-8 py-4 bg-[#135bec] text-white rounded-xl font-bold transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-[#135bec]/30"
                 >
                   <span className="relative z-10">Solicitar Consultoría</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-[#135bec] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </button>
 
                 <button
                   onClick={() => onNavigate('services')}
-                  className="px-8 py-4 bg-white/5 text-white border border-white/15 rounded-lg font-semibold hover:bg-white/10 hover:border-white/25 transition-all backdrop-blur-sm active:scale-98"
+                  className="px-8 py-4 bg-white/5 text-white border border-white/10 rounded-xl font-bold hover:bg-white/10 transition-all backdrop-blur-sm active:scale-95"
                 >
                   Ver Servicios
                 </button>
