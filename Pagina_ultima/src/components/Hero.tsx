@@ -142,7 +142,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               <img
                 src="./images/foto-hero.jpg"
                 alt="Grupo de personas en una oficina analizando datos"
-                className="w-auto h-full object-contain scale-[1.3]"
+                className="w-full h-full object-cover scale-[1.3]"
               />
             </motion.div>
 
