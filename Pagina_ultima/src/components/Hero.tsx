@@ -70,7 +70,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 </span>
                 <br />
                 <span className="text-white/95">
-                  de Alto Impacto
+                  desde Cimientos hasta Escalabilidad
                 </span>
               </motion.h1>
 
@@ -81,7 +81,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 transition={{ duration: 1, delay: 0.8 }}
                 className="text-base md:text-lg text-slate-300/90 mb-8 max-w-2xl mx-auto leading-relaxed font-light"
               >
-                Conectamos arquitectos de software, líderes técnicos y especialistas DevOps con empresas que enfrentan desafíos complejos de escalabilidad y transformación digital
+                Acompañamos startups en la construcción de arquitecturas sólidas y empresas establecidas en la optimización de su infraestructura para crecimiento sostenible
               </motion.p>
 
               {/* BADGES DE EXPERTISE */}
