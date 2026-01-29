@@ -34,7 +34,7 @@ const servicesData = [
     ]
   },
   {
-    Icon: Shieldcheck,
+    Icon: ShieldCheck,
     title: "Especialidades",
     description:
       "Capacidades clave que refuerzan la operación diaria, la seguridad y la experiencia del usuario, con seguimiento activo y acompañamiento constante.",
