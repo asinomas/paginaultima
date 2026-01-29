@@ -111,8 +111,12 @@ export default defineConfig({
 })
 ```
 
-Cloudflare Pages
-No requiere configuración de base cuando se usa el dominio `.pages.dev`
+### Rutas de Cloudflare Pages
+
+No requiere configuración de base cuando se usa el dominio `.pages.dev`.
+
+El proyecto se despliega en:
+'https://paginaultima.pages.dev'
 
 ## Troubleshooting
 
