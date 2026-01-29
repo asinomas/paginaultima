@@ -37,7 +37,7 @@ const servicesData = [
     Icon: ShieldCheck,
     title: "Especialidades",
     description:
-      "Capacidades clave que refuerzan la operación diaria, la seguridad y la experiencia del usuario, con seguimiento activo y acompañamiento constante.",
+      "Capacidades clave que refuerzan la operación diaria, la seguridad y la experiencia del usuario.",
     details: [
       "Ciberseguridad",
       "DevOps",
