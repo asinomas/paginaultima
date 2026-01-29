@@ -31,10 +31,11 @@ const About: React.FC = () => {
               </h2>
               <p className="text-lg md:text-[17px] font-normal text-slate-500 tracking-tighter mb-6 leading-relaxed">
                 Nacimos para transformar la complejidad técnica en valor empresarial. Somos un equipo de alto rendimiento, con obsesión por el detalle y mentalidad problem-solver.
+              Nuestra experiencia se traduce en soluciones. Ofrecemos el ecosistema completo para que un producto digital no solo nazca, sino que escale y sea seguro.
               </p>
               <div className="space-y-6 mb-12">
                 <p className="text-lg leading-relaxed text-slate-500 tracking-tighter font-normal md:text-[17px] mb-6">
-                  Nuestra experiencia se traduce en soluciones. Ofrecemos el ecosistema completo para que un producto digital no solo nazca, sino que escale y sea seguro.
+                  -
                 </p>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
