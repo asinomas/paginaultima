@@ -14,7 +14,7 @@ const Logos: React.FC = () => {
     <section className="bg-white py-20 border-t border-slate-100 overflow-hidden">
       <div className="container mx-auto px-6 mb-12">
         <p className="text-center text-[10px] font-bold uppercase tracking-[0.5em] text-slate-400">
-          Unete a quienes ya han confiado en nosotros
+        Quienes han confiado en nosotros
         </p>
       </div>
 
