@@ -171,7 +171,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         {/* Texto franja logos */}
         <div className="container mx-auto px-6 mb-8">
           <p className="text-center text-[10px] font-bold uppercase tracking-[0.5em] text-slate-400">
-            Quiénes han confiado en nosotros
+            Han confiado en nosotros
           </p>
         </div>
 
