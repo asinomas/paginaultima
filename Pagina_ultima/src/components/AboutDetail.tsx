@@ -31,7 +31,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
       name: 'Cristian Quezada',
       role: 'Arquitecto TI',
       image: './team/cristian.jpg',
-      bio: 'Estratega en consultoría IT con una amplia trayectoria en la dirección de proyectos complejos de transformación digital.',
+      bio: 'Estratega de TI con foco en diseñar arquitecturas eficientes en proyectos complejos de transformación digital, cloud, DevOps, optimizando el desempeño del negocio.',
       linkedin: 'https://linkedin.com/in/cristian-quezada-00372920'
     },
     {
