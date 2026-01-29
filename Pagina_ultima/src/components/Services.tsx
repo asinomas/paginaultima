@@ -1,5 +1,5 @@
 import React from 'react';
-import { Compass, Layers, Shield } from 'lucide-react';
+import { Code, UserCheck, ShieldCheck } from 'lucide-react';
 import ServiceCard from './ServiceCard';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
