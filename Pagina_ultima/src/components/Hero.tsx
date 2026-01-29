@@ -30,12 +30,12 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col bg-[#0b0e14] overflow-hidden pt-32 md:pt-40 antialiased">
+    <section className="relative min-h-screen flex flex-col justify-between bg-[#0b0e14] overflow-hidden pt-32 md:pt-40 pb-16 antialiased">
       {/* LUCES Y FONDO */}
       <HeroLights />
 
-      {/* CONTENIDO PRINCIPAL DEL HERO */}
-      <div className="flex-1 flex items-start justify-center">
+      {/* CONTENIDO PRINCIPAL DEL HERO - CENTRADO VERTICALMENTE */}
+      <div className="flex-1 flex items-center justify-center">
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-7xl mx-auto flex items-center justify-center gap-6">
 
@@ -134,7 +134,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 duration: 2, 
                 ease: 'easeInOut'
               }}
-              className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[339px] h-[509px] flex-shrink-0 overflow-hidden rounded-[20%_3%_20%_3%]"
+              className="hidden lg:block absolute right-0 top-0 w-[339px] h-[509px] flex-shrink-0 overflow-hidden rounded-[20%_3%_20%_3%]"
             >
               <img
                 src="./images/foto-hero.jpg"
@@ -147,9 +147,9 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         </div>
       </div>
 
-      {/* FRANJA DE LOGOS - DENTRO DEL HERO */}
-      <div className="relative py-12 md:py-16 border-t border-white/5 overflow-hidden z-10">
-        <div className="container mx-auto px-6 mb-8">
+      {/* FRANJA DE LOGOS - PARTE INFERIOR DEL HERO */}
+      <div className="relative pt-20 pb-8 border-t border-white/5 overflow-hidden z-10">
+        <div className="container mx-auto px-6 mb-10">
           <p className="text-center text-[10px] font-bold uppercase tracking-[0.5em] text-slate-400">
             Quiénes han confiado en nosotros
           </p>
