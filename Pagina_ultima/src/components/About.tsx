@@ -12,8 +12,8 @@ const About: React.FC = () => {
             <div className="w-full flex justify-center relative hidden md:flex">
               <div className="relative shadow-2xl rounded-[2.5rem] w-full">
                 <img 
-                  src="./images/foto-about.webp" 
-                  className="h-[400px] w-full object-cover transition-transform duration-[2s] group-hover:scale-105 rounded-[2.5rem]"
+                  src="./images/team-talk-office.webp" 
+                  className="h-[600px] w-full object-cover transition-transform duration-[2s] group-hover:scale-105 rounded-[2.5rem]"
                   alt="Grupo de oficina en reunión"
                   loading="lazy"
                 />
