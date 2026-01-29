@@ -18,7 +18,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-[#0b0e14] overflow-hidden pt-12 antialiased">
+    <section className="relative min-h-screen flex items-center justify-center bg-[#0b0e14] overflow-hidden pt-20 antialiased">
       {/* LUCES Y FONDO */}
       <HeroLights />
 
@@ -92,7 +92,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               >
                 <button
                   onClick={() => onNavigate('contact')}
-                  className="group relative overflow-hidden px-8 py-4 bg-[#135bec] text-white rounded-xl font-bold transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-[#135bec]/30"
+                  className="group relative overflow-hidden px-8 py-4 bg-[#135bec] text-white rounded-xl font-bold transition-all duration-300 hover:scale-105 active:scale-95 shadow-2xl shadow-[#135bec]/30"
                 >
                   <span className="relative z-10">Solicitar Consultoría</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-[#135bec] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -100,7 +100,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
                 <button
                   onClick={() => onNavigate('services')}
-                  className="px-8 py-4 bg-white/5 text-white border border-white/10 rounded-xl font-bold hover:bg-white/10 transition-all backdrop-blur-sm active:scale-95"
+                  className="px-8 py-4 bg-white/5 text-white border border-white/10 rounded-xl font-bold hover:bg-white/10 transition-all duration-300 backdrop-blur-sm active:scale-95"
                 >
                   Ver Servicios
                 </button>
