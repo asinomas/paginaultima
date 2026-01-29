@@ -10,7 +10,7 @@ interface ServiceCardProps {
   detailsTitle?: string;   
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, details, buttonText = "Saber más", detailsTitle = "Roles/Capacidades:" }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, details, buttonText = "Saber más", detailsTitle = "Roles / Capacidades:" }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const cardRef = React.useRef<HTMLDivElement>(null);
 
