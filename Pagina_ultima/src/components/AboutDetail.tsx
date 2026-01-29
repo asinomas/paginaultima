@@ -24,7 +24,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
       name: 'Rodrigo Ledesma',
       role: 'CEO & Founder',
       image: './team/rodrigo.jpg',
-      bio: 'Experto en arquitectura de sistemas y gestión operativa escalable, especializado en garantizar la continuidad de negocios.',
+      bio: 'Experto en sistemas y gestión operativa escalable con vasta experiencia en múltiples industrias en Latinoamérica, especializado en garantizar la continuidad de negocios.',
       linkedin: 'https://linkedin.com/in/rodrigo-andres-ledesma-ritchie-6370aa26'
     },
     {
