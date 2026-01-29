@@ -31,9 +31,10 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
   return (
     <section className="relative min-h-screen flex flex-col justify-between bg-[#0b0e14] overflow-hidden pt-32 md:pt-40 antialiased">
-      {/* LUCES Y FONDO */}
+     {/* LUCES Y FONDO */}
       <HeroLights />
 
+      
       {/* CONTENIDO PRINCIPAL DEL HERO - CENTRADO VERTICALMENTE */}
       <div className="flex-1 flex items-center justify-center">
         <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -56,6 +57,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             >
               <div className="inline-block">
 
+                
                 {/* BADGE CORPORATIVO */}
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -72,6 +74,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                   </span>
                 </motion.div>
 
+                
                 {/* TITULO CORPORATIVO */}
                 <motion.h1 
                   initial={{ opacity: 0, y: 20 }}
@@ -80,13 +83,13 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                   className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.15] selection:bg-[#135bec]/20"
                 >
                   <span className="text-white/95">
-                    Construyen el Futuro{" "}
-                  </span>
+                    Construyen el Futuro {" "}</span>
                   <span className="text-[#135bec] drop-shadow-[0_0_20px_rgba(19,91,236,0.25)]">
                     de tu empresa
                   </span>
                 </motion.h1>
 
+                
                 {/* DESCRIPCION PROFESIONAL */}
                 <motion.p 
                   initial={{ opacity: 0 }}
@@ -100,6 +103,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                   <span className="text-slate-300/100 font-bold">etapa</span>.
                   </motion.p>
 
+                
                 {/* CTA CORPORATIVO */}
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
@@ -126,6 +130,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               </div>
             </motion.div>
 
+            
             {/* IMAGEN HERO - SOLO DESKTOP */}
             <motion.div
               initial={{ opacity: 0, x: 400 }}
@@ -137,7 +142,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 duration: 2, 
                 ease: 'easeInOut'
               }}
-               className="hidden lg:block absolute right-0 top-[15px] w-[339px] h-[600px] flex-shrink-0 overflow-hidden rounded-[20%_3%_20%_3%]">
+              className="hidden lg:block absolute right-0 top-[30px] w-[339px] h-[600px] flex-shrink-0 overflow-hidden rounded-[20%_3%_20%_3%]"
+            >
               <img
                 src="./images/foto-hero.jpg"
                 alt="Grupo de personas en una oficina analizando datos"
@@ -149,10 +155,11 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         </div>
       </div>
 
+      
       {/* FRANJA DE LOGOS - PARTE INFERIOR DEL HERO */}
       <div className="relative pt-16 pb-8 overflow-hidden z-10">
 
-        
+    
         {/* Línea divisoria - para logos */}
         <span class="flex items-center">
         <div className="absolute top-8 left-0 right-0 h-px bg-linear-to-r from-transparent to-bg-white/5"></div>
@@ -167,12 +174,14 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           </p>
         </div>
 
+        
         {/* Contenedor del carrusel */}
         <div className="relative flex overflow-hidden">
           {/* Máscaras de desvanecimiento laterales */}
           <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0b0e14] to-transparent z-10 pointer-events-none"></div>
           <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0b0e14] to-transparent z-10 pointer-events-none"></div>
 
+          
           {/* Logos en movimiento */}
           <div className="flex animate-infinite-scroll">
             {[
@@ -209,6 +218,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         </div>
       </div>
 
+      
       {/* Estilos de animación */}
       <style>{`
         @keyframes infinite-scroll {
