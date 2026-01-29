@@ -18,7 +18,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-[#0b0e14] overflow-hidden pt-20 antialiased">
+    <section className="relative min-h-screen flex items-center justify-center bg-[#0b0e14] overflow-hidden pt-12 antialiased">
       {/* LUCES Y FONDO */}
       <HeroLights />
 
