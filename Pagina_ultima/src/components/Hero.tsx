@@ -40,14 +40,12 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               </div>
 
               <h1 className="text-5xl md:text-7xl font-bold text-white/95 tracking-tight mb-8 leading-[1.1] selection:bg-[#135bec]/30">
-                {' '} que Impulsa {' '}
+               Talento {' '} que Impulsa 
                 <span className="relative inline-block italic text-[#135bec] drop-shadow-[0_0_15px_rgba(19,91,236,0.3)] filter transition-all duration-700">
-                  Talento Resultadoss
-                </span>{' '}
-                
-              <span className="text-5xl md:text-7xl font-bold text-white/95 tracking-tight mb-8 leading-[1.1] selection:bg-[#135bec]/30"> </span>
-                para {' '} <span className="relative inline-block italic text-[#135bec] drop-shadow-[0_0_15px_rgba(19,91,236,0.3)] filter transition-all duration-700"> Impulsar </span> {' '}  tu Empresa
-              </h1>
+                  Resultadoss {' '}
+                </span>
+                </h1>
+              
 
               <p className="text-lg text-slate-300 mb-12 max-w-2xl mx-auto leading-relaxed">
               <span className="font-bold">BlackTI</span> te conecta profesionales TI de alto nivel con empresas que buscan excelencia
