@@ -80,35 +80,11 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 Arquitectura sólida para startups. Optimización continua para empresas. Acompañamiento en cada etapa
               </motion.p>
 
-              {/* BADGES DE EXPERTISE */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 1 }}
-                className="flex flex-wrap gap-2 justify-center mb-10 max-w-xl mx-auto"
-              >
-                <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-xs text-slate-300 font-medium backdrop-blur-sm">
-                  Cloud Architecture
-                </span>
-                <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-xs text-slate-300 font-medium backdrop-blur-sm">
-                  Microservicios
-                </span>
-                <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-xs text-slate-300 font-medium backdrop-blur-sm">
-                  DevOps & CI/CD
-                </span>
-                <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-xs text-slate-300 font-medium backdrop-blur-sm">
-                  Data Engineering
-                </span>
-                <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-xs text-slate-300 font-medium backdrop-blur-sm">
-                  Kubernetes
-                </span>
-              </motion.div>
-
               {/* CTA CORPORATIVO */}
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.2 }}
+                transition={{ duration: 0.8, delay: 1 }}
                 className="flex flex-col sm:flex-row items-center justify-center gap-4"
               >
                 <button
