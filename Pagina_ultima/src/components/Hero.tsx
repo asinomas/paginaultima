@@ -12,7 +12,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setMoveLayout(true);
-    }, 1500); // 1.5s centrado
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -42,72 +42,91 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           >
             <div className="inline-block">
 
-              {/* BADGE */}
+              {/* BADGE CORPORATIVO */}
               <motion.div 
-                initial={{ opacity: 0, scale: 0.8 }}
+                initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#135bec]/10 border border-[#135bec]/20 mb-8"
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-md bg-[#135bec]/5 border border-[#135bec]/20 mb-8"
               >
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#135bec] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#135bec]"></span>
-                </span>
-                <span className="text-[#135bec] text-[11px] font-bold uppercase tracking-[0.2em]">
-                  Servicio de Consultoría TI
+                <div className="w-1.5 h-1.5 rounded-full bg-[#135bec]"></div>
+                <span className="text-[#6b9cec] text-[10px] font-semibold uppercase tracking-[0.15em] letterspacing">
+                  Consultoría Estratégica en TI
                 </span>
               </motion.div>
 
-              {/* TITULO */}
+              {/* TITULO CORPORATIVO - SIN GRADIENTES EXCESIVOS */}
               <motion.h1 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.5 }}
-                className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-[1.1] selection:bg-[#135bec]/30"
+                className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-[1.15] selection:bg-[#135bec]/20"
               >
-                <span className="text-[#135bec] italic drop-shadow-[0_0_15px_rgba(19,91,236,0.3)]">
-                  Talento
-                </span>
-
                 <span className="text-white/95">
-                  {" "}que impulsa{" "}
+                  Arquitectura y{" "}
                 </span>
-
-                <span className="text-[#135bec] italic drop-shadow-[0_0_15px_rgba(19,91,236,0.3)]">
-                  Resultados
+                <span className="text-[#135bec] drop-shadow-[0_0_20px_rgba(19,91,236,0.25)]">
+                  Soluciones TI
+                </span>
+                <br />
+                <span className="text-white/95">
+                  de Alto Impacto
                 </span>
               </motion.h1>
 
-              {/* DESCRIPCION */}
+              {/* DESCRIPCION PROFESIONAL */}
               <motion.p 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.8 }}
-                className="text-lg text-slate-300 mb-12 max-w-2xl mx-auto leading-relaxed"
+                className="text-base md:text-lg text-slate-300/90 mb-8 max-w-2xl mx-auto leading-relaxed font-light"
               >
-                <span className="font-bold">BlackTI</span> te conecta profesionales TI de alto nivel con empresas que buscan excelencia
+                Conectamos arquitectos de software, líderes técnicos y especialistas DevOps con empresas que enfrentan desafíos complejos de escalabilidad y transformación digital
               </motion.p>
 
-              {/* CTA */}
+              {/* BADGES DE EXPERTISE */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 1 }}
+                className="flex flex-wrap gap-2 justify-center mb-10 max-w-xl mx-auto"
+              >
+                <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-xs text-slate-300 font-medium backdrop-blur-sm">
+                  Cloud Architecture
+                </span>
+                <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-xs text-slate-300 font-medium backdrop-blur-sm">
+                  Microservicios
+                </span>
+                <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-xs text-slate-300 font-medium backdrop-blur-sm">
+                  DevOps & CI/CD
+                </span>
+                <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-xs text-slate-300 font-medium backdrop-blur-sm">
+                  Data Engineering
+                </span>
+                <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-xs text-slate-300 font-medium backdrop-blur-sm">
+                  Kubernetes
+                </span>
+              </motion.div>
+
+              {/* CTA CORPORATIVO */}
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1 }}
+                transition={{ duration: 0.8, delay: 1.2 }}
                 className="flex flex-col sm:flex-row items-center justify-center gap-4"
               >
                 <button
                   onClick={() => onNavigate('contact')}
-                  className="group relative overflow-hidden px-8 py-4 bg-[#135bec] text-white rounded-xl font-bold transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-[#135bec]/30"
+                  className="group relative overflow-hidden px-8 py-4 bg-[#135bec] text-white rounded-lg font-semibold transition-all hover:bg-[#1047c4] active:scale-98 shadow-lg shadow-[#135bec]/20"
                 >
-                  <span className="relative z-10">Agendar Consultoría</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-[#135bec] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <span className="relative z-10">Solicitar Consultoría</span>
                 </button>
 
                 <button
                   onClick={() => onNavigate('services')}
-                  className="px-8 py-4 bg-white/5 text-white border border-white/10 rounded-xl font-bold hover:bg-white/10 transition-all backdrop-blur-sm active:scale-95"
+                  className="px-8 py-4 bg-white/5 text-white border border-white/15 rounded-lg font-semibold hover:bg-white/10 hover:border-white/25 transition-all backdrop-blur-sm active:scale-98"
                 >
-                  Explorar Soluciones
+                  Ver Servicios
                 </button>
               </motion.div>
 
