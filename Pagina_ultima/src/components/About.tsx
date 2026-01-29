@@ -13,7 +13,7 @@ const About: React.FC = () => {
               <div className="relative shadow-2xl rounded-[2.5rem] w-full">
                 <img 
                   src="./images/team-talk-office.webp" 
-                  className="h-[600px] w-full object-cover transition-transform duration-[2s] group-hover:scale-105 rounded-[2.5rem]"
+                  className="h-[600px] w-full object-cover transition-transform duration-[1.5s] group-hover:scale-105 rounded-[2.5rem]"
                   alt="Grupo de oficina en reunión"
                   loading="lazy"
                 />
