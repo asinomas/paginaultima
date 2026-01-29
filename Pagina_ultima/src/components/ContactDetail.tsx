@@ -28,15 +28,14 @@ const ContactDetail: React.FC = () => {
           {/* COLUMNA IZQUIERDA: ESTILO "EXCELENCIA OPERATIVA" APLICADO */}
           <div className="lg:sticky lg:top-32">
             {/* Texto ajustado a 11px para ser más pequeño y elegante */}
-            <h4 className="text-[#135bec] font-bold uppercase tracking-[0.2em] text-[11px] mb-8">
+            <h4 className="text-[#135bec] font-bold uppercase tracking-[0.2em] text-[11px] mb-4">
               Hablemos hoy
             </h4>
-
-
-              <h1 className="text-5xl lg:text-7xl font-black text-slate-900 leading-[1.1] mb-8 tracking-tighter">
+            
+            <h2 className="text-5xl lg:text-6xl font-black text-slate-900 mb-8 tracking-tighter leading-tight">
               Diseñemos el <br />
               <span className="text-[#135bec] italic">Futuro</span>
-            </h1>
+            </h2>
             
             <p className="text-slate-500 text-lg mb-12 max-w-md leading-relaxed font-medium">
               Estamos listos para transformar tus desafíos en ventajas competitivas. Déjanos un mensaje y nos contactaremos en menos de 24 horas.
