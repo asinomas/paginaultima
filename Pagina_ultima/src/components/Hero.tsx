@@ -161,8 +161,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         {/* Contenedor del Carrusel */}
         <div className="relative flex overflow-hidden">
           {/* Máscaras de desvanecimiento laterales */}
-          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0b0e14]/50 to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0b0e14]/50 to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0b0e14] to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0b0e14] to-transparent z-10 pointer-events-none"></div>
 
           {/* Logos en movimiento */}
           <div className="flex animate-infinite-scroll">
