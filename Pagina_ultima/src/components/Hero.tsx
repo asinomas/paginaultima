@@ -83,7 +83,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                     Construyendo{" "}
                   </span>
                   <span className="text-white/95">
-                    el Futuro
+                    el futuro
                   </span>
                   <br />
                   <span className="text-white/95">
