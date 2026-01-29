@@ -2,8 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 // Detecta la plataforma de deployment
-const isGithubPages = process.env.GITHUB_ACTIONS === 'true'
-const isVercel = process.env.VERCEL === '1'
+const isGithubPages = process.env.GITHUB_ACTIONS === 'true' && !process.env.CF_PAGES
 const isCloudflare = process.env.CF_PAGES === '1'
 
 // Configura la base según la plataforma
@@ -11,6 +10,7 @@ let base = '/'
 if (isGithubPages) {
   base = '/paginaultima/'
 }
+// Cloudflare Pages siempre usa '/' como base
 
 export default defineConfig({
   plugins: [react()],
