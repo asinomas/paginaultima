@@ -70,7 +70,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 </span>
 
                 <span className="text-white/95">
-                  {" "}que Impulsa{" "}
+                  {" "}que impulsa{" "}
                 </span>
 
                 <span className="text-[#135bec] italic drop-shadow-[0_0_15px_rgba(19,91,236,0.3)]">
