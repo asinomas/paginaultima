@@ -83,7 +83,11 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                     Construyendo{" "}
                   </span>
                   <span className="text-white/95">
-                    el Futuro de tu{" "}
+                    el Futuro
+                  </span>
+                  <br />
+                  <span className="text-white/95">
+                    de tu{" "}
                   </span>
                   <span className="text-[#135bec] drop-shadow-[0_0_20px_rgba(19,91,236,0.25)]">
                     Empresa
