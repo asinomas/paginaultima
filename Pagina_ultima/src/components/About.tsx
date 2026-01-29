@@ -10,15 +10,12 @@ const About: React.FC = () => {
             
             {/* IMAGEN A LA IZQUIERDA */}
             <div className="w-full flex justify-center relative hidden md:flex">
-              
-                <img 
-                  src="./images/team-talk-office.webp" 
-                  className="h-[450px] w-full object-cover transition-transform duration-[1.5s] group-hover:scale-105 rounded-[2.5rem]"
-                  alt="Grupo de oficina en reunión"
-                  loading="lazy"
-                />
-               
-              </div>
+              <img 
+                src="./images/team-talk-office.webp" 
+                className="h-[450px] w-full object-cover transition-transform duration-[1.5s] group-hover:scale-105 rounded-[2.5rem]"
+                alt="Grupo de oficina en reunión"
+                loading="lazy"
+              />
               <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-blue-100 rounded-full blur-[80px] -z-10"></div>
             </div>
 
@@ -51,7 +48,6 @@ const About: React.FC = () => {
                 ))}
               </div>
             </div>
-
           </div>
         </div>
       </section>
