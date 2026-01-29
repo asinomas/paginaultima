@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import HeroLights from './HeroLights';
-import Logos from './Logos';
 
 interface HeroProps {
   onNavigate: (page: 'home' | 'services' | 'about' | 'contact') => void;
@@ -31,12 +30,12 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   }, []);
 
   return (
-    <>
-      {/* SECCIÓN HERO PRINCIPAL */}
-      <section className="relative min-h-screen flex items-start justify-center bg-[#0b0e14] overflow-hidden pt-32 md:pt-40 pb-20 antialiased">
-        {/* LUCES Y FONDO */}
-        <HeroLights />
+    <section className="relative min-h-screen flex flex-col bg-[#0b0e14] overflow-hidden pt-32 md:pt-40 antialiased">
+      {/* LUCES Y FONDO */}
+      <HeroLights />
 
+      {/* CONTENIDO PRINCIPAL DEL HERO */}
+      <div className="flex-1 flex items-start justify-center">
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-7xl mx-auto flex items-center justify-center gap-6">
 
@@ -135,7 +134,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 duration: 2, 
                 ease: 'easeInOut'
               }}
-              className="hidden lg:block absolute right-0 top-32 w-[339px] h-[509px] flex-shrink-0 overflow-hidden rounded-[20%_3%_20%_3%]"
+              className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[339px] h-[509px] flex-shrink-0 overflow-hidden rounded-[20%_3%_20%_3%]"
             >
               <img
                 src="./images/foto-hero.jpg"
@@ -146,11 +145,74 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* FRANJA DE LOGOS */}
-      <Logos />
-    </>
+      {/* FRANJA DE LOGOS - DENTRO DEL HERO */}
+      <div className="relative py-12 md:py-16 border-t border-white/5 overflow-hidden z-10">
+        <div className="container mx-auto px-6 mb-8">
+          <p className="text-center text-[10px] font-bold uppercase tracking-[0.5em] text-slate-400">
+            Quiénes han confiado en nosotros
+          </p>
+        </div>
+
+        {/* Contenedor del Carrusel */}
+        <div className="relative flex overflow-hidden">
+          {/* Máscaras de desvanecimiento laterales */}
+          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0b0e14] to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0b0e14] to-transparent z-10 pointer-events-none"></div>
+
+          {/* Logos en movimiento */}
+          <div className="flex animate-infinite-scroll">
+            {[
+              { name: 'Grupo Sura', src: './logos/grupo-sura.png' },
+              { name: 'Casa&Ideas', src: './logos/casa-ideas.png' },
+              { name: 'Globant', src: './logos/globant.png' },
+              { name: 'Marubeni', src: './logos/marubeni.png' },
+              { name: 'Everis', src: './logos/everis.png' },
+              { name: 'Compunet', src: './logos/compunet.png' },
+              { name: 'Grupo Sura', src: './logos/grupo-sura.png' },
+              { name: 'Casa&Ideas', src: './logos/casa-ideas.png' },
+              { name: 'Globant', src: './logos/globant.png' },
+              { name: 'Marubeni', src: './logos/marubeni.png' },
+              { name: 'Everis', src: './logos/everis.png' },
+              { name: 'Compunet', src: './logos/compunet.png' },
+            ].map((logo, idx) => (
+              <div 
+                key={idx} 
+                className="flex-shrink-0 flex items-center justify-center opacity-50 hover:opacity-100 transition-all duration-500 px-8"
+                style={{ width: '280px' }}
+              >
+                <img
+                  alt={logo.name}
+                  src={logo.src}
+                  loading="lazy"
+                  className="h-12 md:h-16 w-auto object-contain brightness-0 invert"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = 'none';
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Estilos de animación */}
+      <style>{`
+        @keyframes infinite-scroll {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        .animate-infinite-scroll {
+          display: flex;
+          width: max-content;
+          animation: infinite-scroll 45s linear infinite;
+        }
+        .animate-infinite-scroll:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+    </section>
   );
 };
 
