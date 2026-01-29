@@ -144,12 +144,12 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 duration: 2, 
                 ease: 'easeInOut'
               }}
-              className="hidden lg:block absolute right-0 -top-8 w-[340px] h-[450px] flex-shrink-0 overflow-hidden rounded-[20%_3%_20%_3%]"
+              className="hidden lg:block absolute right-0 -top-8 w-[340px] h-[440px] flex-shrink-0 overflow-hidden rounded-[20%_3%_20%_3%]"
             >
               <img
                 src="./images/foto-hero.jpg"
                 alt="Grupo de personas en una oficina analizando datos"
-                className="w-full h-full object-cover scale-[1.4]"
+                className="w-full h-full object-cover scale-[1.3]"
               />
             </motion.div>
 
