@@ -8,21 +8,33 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   const [moveLayout, setMoveLayout] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Detectar mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     const timer = setTimeout(() => {
       setMoveLayout(true);
     }, 1500);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', checkMobile);
+    };
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-[#0b0e14] overflow-hidden pt-20 antialiased">
+    <section className="relative min-h-screen flex items-center justify-center bg-[#0b0e14] overflow-hidden pt-16 md:pt-20 antialiased">
       {/* LUCES Y FONDO */}
       <HeroLights />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-7xl mx-auto flex items-center justify-center gap-6">
 
           {/* TEXTO HERO */}
@@ -31,7 +43,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             animate={{ 
               opacity: 1, 
               y: 0,
-              x: moveLayout ? -210 : 0
+              x: (moveLayout && !isMobile) ? -210 : 0
             }}
             transition={{ 
               opacity: { duration: 1.5, ease: 'easeOut' },
@@ -63,7 +75,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.5 }}
-                className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-[1.15] selection:bg-[#135bec]/20"
+                className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.15] selection:bg-[#135bec]/20"
               >
                 <span className="text-white/95">
                   De Cimientos a{" "}
@@ -109,18 +121,18 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             </div>
           </motion.div>
 
-          {/* IMAGEN HERO */}
+          {/* IMAGEN HERO - SOLO DESKTOP */}
           <motion.div
             initial={{ opacity: 0, x: 400 }}
             animate={{ 
-              opacity: moveLayout ? 1 : 0,
-              x: moveLayout ? -50 : 400
+              opacity: (moveLayout && !isMobile) ? 1 : 0,
+              x: (moveLayout && !isMobile) ? -50 : 400
             }}
             transition={{ 
               duration: 2, 
               ease: 'easeInOut'
             }}
-            className="absolute right-0 w-[339px] h-[509px] flex-shrink-0 overflow-hidden rounded-[20%_3%_20%_3%]"
+            className="hidden lg:block absolute right-0 w-[339px] h-[509px] flex-shrink-0 overflow-hidden rounded-[20%_3%_20%_3%]"
           >
             <img
               src="./images/foto-hero.jpg"
