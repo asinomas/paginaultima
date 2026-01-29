@@ -155,8 +155,10 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
         
         {/* Línea divisoria - para logos */}
+        <span class="flex items-center">
         <div className="absolute top-8 left-0 right-0 h-px bg-linear-to-r from-transparent to-bg-white/5"></div>
          <div className="absolute top-8 left-0 right-0 h-px bg-linear-to-l from-bg-white to-transparent/5"></div>
+        </span>
 
 
         {/* Texto franja logos */}
