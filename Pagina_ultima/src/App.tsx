@@ -4,7 +4,6 @@ import Hero from './components/Hero';
 import ServicesOverview from './components/Services';
 import Stats from './components/Stats';
 import AboutPreview from './components/About';
-import Logos from './components/Logos';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import AIConsultant from './components/AIConsultant';
@@ -103,7 +102,6 @@ const App: React.FC = () => {
               <ServicesOverview />
               <Stats />
               <AboutPreview />
-              <Logos />
             </div>
             
             {/* SERVICIOS */}
