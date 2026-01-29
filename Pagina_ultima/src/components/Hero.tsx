@@ -1,34 +1,43 @@
 import React, { useState, useEffect } from 'react';
-import HeroLights from './HeroLights'; 
+import { motion } from 'framer-motion';
+import HeroLights from './HeroLights';
 
 interface HeroProps {
   onNavigate: (page: 'home' | 'services' | 'about' | 'contact') => void;
 }
 
 const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
-  const [showImage, setShowImage] = useState(false);
+  const [moveLayout, setMoveLayout] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowImage(true);
-    }, 3000);
+      setMoveLayout(true);
+    }, 1500); // 1.5s centrado
 
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-[#0b0e14] overflow-hidden pt-20 antialiased">
+      {/* LUCES Y FONDO */}
       <HeroLights />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-7xl mx-auto flex items-center justify-center gap-6">
 
           {/* TEXTO HERO */}
-          <div
-            className={`max-w-4xl text-center transition-transform duration-[1.5s] ${showImage ? '-translate-x-[210px]' : 'translate-x-0'}`}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.5, ease: 'easeOut' }}
+            className={`max-w-4xl text-center transition-transform duration-[2000ms] ease-in-out ${
+              moveLayout ? '-translate-x-[210px]' : 'translate-x-0'
+            }`}
             style={{ willChange: 'transform' }}
           >
             <div className="inline-block">
+
+              {/* BADGE */}
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#135bec]/10 border border-[#135bec]/20 mb-8">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#135bec] opacity-75"></span>
@@ -39,27 +48,27 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 </span>
               </div>
 
-              
+              {/* TITULO */}
               <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-[1.1] selection:bg-[#135bec]/30">
-                    <span className="text-[#135bec] italic drop-shadow-[0_0_15px_rgba(19,91,236,0.3)]">
-                   Talento
-                  </span>
+                <span className="text-[#135bec] italic drop-shadow-[0_0_15px_rgba(19,91,236,0.3)]">
+                  Talento
+                </span>
 
-                   <span className="text-white/95">
-                     {" "}que Impulsa{" "}
-                    </span>
+                <span className="text-white/95">
+                  {" "}que Impulsa{" "}
+                </span>
 
-                   <span className="text-[#135bec] italic drop-shadow-[0_0_15px_rgba(19,91,236,0.3)]">
-                   Resultados
-                   </span>
+                <span className="text-[#135bec] italic drop-shadow-[0_0_15px_rgba(19,91,236,0.3)]">
+                  Resultados
+                </span>
               </h1>
 
-
+              {/* DESCRIPCION */}
               <p className="text-lg text-slate-300 mb-12 max-w-2xl mx-auto leading-relaxed">
-              <span className="font-bold">BlackTI</span> te conecta profesionales TI de alto nivel con empresas que buscan excelencia
+                <span className="font-bold">BlackTI</span> te conecta profesionales TI de alto nivel con empresas que buscan excelencia
               </p>
 
-
+              {/* CTA */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button
                   onClick={() => onNavigate('contact')}
@@ -68,6 +77,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                   <span className="relative z-10">Agendar Consultoría</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-[#135bec] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </button>
+
                 <button
                   onClick={() => onNavigate('services')}
                   className="px-8 py-4 bg-white/5 text-white border border-white/10 rounded-xl font-bold hover:bg-white/10 transition-all backdrop-blur-sm active:scale-95"
@@ -75,15 +85,18 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                   Explorar Soluciones
                 </button>
               </div>
-            </div>
-          </div>
 
-          {/* IMAGEN HERO CON ESQUINAS CURVAS */}
+            </div>
+          </motion.div>
+
+          {/* IMAGEN HERO */}
           <div
-            className={`absolute right-0 w-[339px] h-[509px] flex-shrink-0 transition-transform duration-[3s] ${
-              showImage ? 'translate-x-[-50px] opacity-100' : 'translate-x-full opacity-0'
+            className={`absolute right-0 w-[339px] h-[509px] flex-shrink-0 transition-all duration-[2000ms] ease-in-out ${
+              moveLayout
+                ? 'translate-x-[-50px] opacity-100'
+                : 'translate-x-full opacity-0'
             } overflow-hidden rounded-[20%_3%_20%_3%]`}
-            style={{ willChange: 'transform' }}
+            style={{ willChange: 'transform, opacity' }}
           >
             <img
               src="./images/foto-hero.jpg"
