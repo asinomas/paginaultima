@@ -37,7 +37,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       {/* CONTENIDO PRINCIPAL DEL HERO - CENTRADO VERTICALMENTE */}
       <div className="flex-1 flex items-center justify-center">
         <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <div className="max-w-7xl mx-auto flex items-center justify-center gap-6 -translate-y-20">
+          <div className="max-w-7xl mx-auto flex items-center justify-center gap-6 -translate-y-10">
 
             {/* TEXTO HERO */}
             <motion.div
