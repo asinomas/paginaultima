@@ -25,7 +25,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
           {/* TEXTO HERO */}
           <div
-            className={`max-w-4xl text-center transition-transform duration-[3s] ${showImage ? '-translate-x-[210px]' : 'translate-x-0'}`}
+            className={`max-w-4xl text-center transition-transform duration-[1.5s] ${showImage ? '-translate-x-[210px]' : 'translate-x-0'}`}
             style={{ willChange: 'transform' }}
           >
             <div className="inline-block">
