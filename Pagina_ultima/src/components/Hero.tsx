@@ -79,7 +79,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                   transition={{ duration: 1, delay: 0.5 }}
                   className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.15] selection:bg-[#135bec]/20"
                 >
-                  <span className="text-[#135bec] drop-shadow-[0_0_20px_rgba(19,91,236,0.25)]">
+                  <span className="text-[#135bec] italic drop-shadow-[0_0_20px_rgba(19,91,236,0.25)]">
                     Construyendo{" "}
                   </span>
                   <span className="text-white/95">
@@ -89,7 +89,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                   <span className="text-white/95">
                     de tu{" "}
                   </span>
-                  <span className="text-[#135bec] drop-shadow-[0_0_20px_rgba(19,91,236,0.25)]">
+                  <span className="text-[#135bec] italic drop-shadow-[0_0_20px_rgba(19,91,236,0.25)]">
                     Empresa
                   </span>
                 </motion.h1>
