@@ -63,14 +63,10 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-[1.15] selection:bg-[#135bec]/20"
               >
                 <span className="text-white/95">
-                  Arquitectura y{" "}
+                  De Cimientos a{" "}
                 </span>
                 <span className="text-[#135bec] drop-shadow-[0_0_20px_rgba(19,91,236,0.25)]">
-                  Soluciones TI
-                </span>
-                <br />
-                <span className="text-white/95">
-                  desde Cimientos hasta Escalabilidad
+                  Escalabilidad
                 </span>
               </motion.h1>
 
@@ -81,7 +77,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 transition={{ duration: 1, delay: 0.8 }}
                 className="text-base md:text-lg text-slate-300/90 mb-8 max-w-2xl mx-auto leading-relaxed font-light"
               >
-                Acompañamos startups en la construcción de arquitecturas sólidas y empresas establecidas en la optimización de su infraestructura para crecimiento sostenible
+                Arquitectura sólida para startups. Optimización continua para empresas. Acompañamiento en cada etapa
               </motion.p>
 
               {/* BADGES DE EXPERTISE */}
