@@ -95,9 +95,9 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                   className="text-base md:text-lg text-slate-300/90 mb-8 max-w-2xl mx-auto leading-relaxed font-light"
                 >
                   Arquitectura sólida para{" "}
-                  <span className="text-slate-300/100">startups</span>. Optimización continua para{" "}
-                  <span className="text-slate-300/100">empresas</span>. Acompañamiento en cada{" "}
-                  <span className="text-slate-300/100">etapa</span>.
+                  <span className="text-slate-300/100 font-demibold">startups</span>. Optimización continua para{" "}
+                  <span className="text-slate-300/100 font-demibold">empresas</span>. Acompañamiento en cada{" "}
+                  <span className="text-slate-300/100 font-demibold">etapa</span>.
                   </motion.p>
 
                 {/* CTA CORPORATIVO */}
@@ -152,9 +152,13 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* FRANJA DE LOGOS - PARTE INFERIOR DEL HERO */}
       <div className="relative pt-16 pb-8 overflow-hidden z-10">
-        {/* Línea divisoria - movida más arriba */}
-        <div className="absolute top-8 left-0 right-0 h-px bg-white/5"></div>
         
+        {/* Línea divisoria - para logos */}
+        <div className="absolute top-8 left-0 right-0 h-px from-transparent to-bg-white/5"></div>
+         <div className="absolute top-8 left-0 right-0 h-px from-bg-white to-transparent/5"></div>
+
+
+        {/* Texto franja logos */}
         <div className="container mx-auto px-6 mb-8">
           <p className="text-center text-[10px] font-bold uppercase tracking-[0.5em] text-slate-400">
             Quiénes han confiado en nosotros
