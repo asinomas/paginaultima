@@ -38,7 +38,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
       name: 'Byron Molina',
       role: 'Backend Developer',
       image: './team/byron.jpg',
-      bio: 'Especialista FullStack. Experto en desarrollo, despliegue y mantención de aplicaciones web, BFFs, APIs y microservicios.',
+      bio: 'Especialista en desarrollo, despliegue y mantención de aplicaciones web, BFFs, APIs, microservicios y migraciones tecnológicas.',
       linkedin: 'https://linkedin.com/in/bmolinh'
     },
     {
@@ -47,6 +47,13 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
       image: './team/daniela.jpg',
       bio: 'Líder en planificacion, gestión, desarrollo y supervision organizacional, enfocada en equipos técnicos de alto rendimiento.',
       linkedin: 'https://linkedin.com/in/daniela-paredes-vidal'
+    },
+    {
+      name: 'Gonzalo Astudillo',
+      role: 'IT Delivery Manager',
+      image: './team/gonzalo.jpg',
+      bio: 'Impulsor de innovación tecnológica y proyectos críticos en sectores regulados, combinando integración de sistemas, desarrollo digital y optimización operativa.',
+      linkedin: 'https://linkedin.com/in/gastu'
     }
   ];
 
