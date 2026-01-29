@@ -11,36 +11,37 @@ const profiles = [
 
 const servicesData = [
   {
-    Icon: Compass,
-    title: "Visión Estratégica",
+    Icon: Code,
+    title: "Desarrollo",
     description:
-      "Alineamos la tecnología con los objetivos reales del negocio, priorizando decisiones que generen impacto y crecimiento sostenible.",
+      "Alineamos soluciones digitales generen impacto y crecimiento sostenible, permiten a tu empresa crecer con confianza.",
     details: [
-      "Priorización basada en impacto y ROI",
-      "Roadmap tecnológico alineado al negocio",
-      "Soporte a la toma de decisiones"
+      "Backend",
+      "Frontend",
+      "Fullstack",
+      "Android/iOS"
     ]
   },
   {
-    Icon: Layers,
-    title: "Excelencia Técnica",
+    Icon: UserCheck,
+    title: "Liderazgo",
     description:
-      "Diseñamos soluciones tecnológicas con altos estándares de calidad, enfocadas en arquitecturas limpias, escalables y sostenibles.",
+      "Guiamos equipos tecnológicos para que trabajen alineados con los objetivos de negocio.",
     details: [
-      "Buenas prácticas y estándares",
-      "Diseño mantenible y escalable",
-      "Transferencia de conocimiento"
+      "Scrum Master",
+      "Líder Técnico",
+      "Gestión de Equipos"
     ]
   },
   {
-    Icon: Shield,
-    title: "Gestión y Acompañamiento",
+    Icon: Shieldcheck,
+    title: "Especialidades",
     description:
-      "Aseguramos continuidad, control y calidad mediante seguimiento activo, métricas claras y acompañamiento constante.",
+      "Capacidades clave que refuerzan la operación diaria, la seguridad y la experiencia del usuario, con seguimiento activo y acompañamiento constante.",
     details: [
-      "Seguimiento y control operativo",
-      "KPIs y métricas de desempeño",
-      "Acompañamiento continuo"
+      "Ciberseguridad",
+      "DevOps",
+      "UX/UI"
     ]
   }
 ];
