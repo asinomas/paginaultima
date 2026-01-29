@@ -30,7 +30,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-between bg-[#0b0e14] overflow-hidden pt-32 md:pt-40 pb-16 antialiased">
+    <section className="relative min-h-screen flex flex-col justify-between bg-[#0b0e14] overflow-hidden pt-32 md:pt-40 antialiased">
       {/* LUCES Y FONDO */}
       <HeroLights />
 
@@ -148,8 +148,11 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       </div>
 
       {/* FRANJA DE LOGOS - PARTE INFERIOR DEL HERO */}
-      <div className="relative pt-20 pb-8 border-t border-white/5 overflow-hidden z-10">
-        <div className="container mx-auto px-6 mb-10">
+      <div className="relative pt-16 pb-4 overflow-hidden z-10">
+        {/* Línea divisoria - movida más arriba */}
+        <div className="absolute top-8 left-0 right-0 h-px bg-white/5"></div>
+        
+        <div className="container mx-auto px-6 mb-8">
           <p className="text-center text-[10px] font-bold uppercase tracking-[0.5em] text-slate-400">
             Quiénes han confiado en nosotros
           </p>
@@ -179,14 +182,14 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             ].map((logo, idx) => (
               <div 
                 key={idx} 
-                className="flex-shrink-0 flex items-center justify-center opacity-50 hover:opacity-100 transition-all duration-500 px-8"
+                className="flex-shrink-0 flex items-center justify-center transition-all duration-500 px-8"
                 style={{ width: '280px' }}
               >
                 <img
                   alt={logo.name}
                   src={logo.src}
                   loading="lazy"
-                  className="h-12 md:h-16 w-auto object-contain brightness-0 invert"
+                  className="h-12 md:h-16 w-auto object-contain brightness-0 invert grayscale opacity-40 hover:grayscale-0 hover:opacity-100 hover:brightness-100 hover:invert-0"
                   onError={(e) => {
                     (e.target as HTMLImageElement).style.display = 'none';
                   }}
