@@ -137,11 +137,11 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 duration: 2, 
                 ease: 'easeInOut'
               }}
-               className="hidden lg:block absolute right-0 top-[40px] w-[339px] h-[600px] flex-shrink-0 overflow-hidden rounded-[20%_3%_20%_3%]">
+               className="hidden lg:block absolute right-0 top-[25px] w-[339px] h-[600px] flex-shrink-0 overflow-hidden rounded-[20%_3%_20%_3%]">
               <img
                 src="./images/foto-hero.jpg"
                 alt="Grupo de personas en una oficina analizando datos"
-                className="w-full h-full object-cover scale-[1.3]"
+                className="w-full h-full object-cover scale-[1.2]"
               />
             </motion.div>
 
@@ -167,7 +167,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           </p>
         </div>
 
-        {/* Contenedor del Carrusel */}
+        {/* Contenedor del carrusel */}
         <div className="relative flex overflow-hidden">
           {/* Máscaras de desvanecimiento laterales */}
           <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0b0e14] to-transparent z-10 pointer-events-none"></div>
