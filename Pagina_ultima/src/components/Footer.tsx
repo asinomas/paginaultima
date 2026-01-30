@@ -1,4 +1,5 @@
 import React from 'react';
+import { Linkedin } from 'lucide-react';
 
 interface FooterProps {
   onNavigate?: (page: 'home' | 'services' | 'about' | 'contact' | 'privacy' | 'terms') => void;
@@ -27,9 +28,19 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 src="https://www.blackti.cl/wp-content/uploads/2021/10/logo-black-ti.png" 
               />
             </button>
-            <p className="text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-400 max-w-sm leading-relaxed tracking-tight">
+            <p className="text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-400 max-w-sm leading-relaxed tracking-tight mb-4">
               Servicio de Consultoría TI, donde nuestro valor principal se centra en unir la tecnología de vanguardia con el talento de las personas.
             </p>
+            
+            {/* Logo de LinkedIn */}
+            <a 
+              href="https://www.linkedin.com/company/black-ti" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-white transition-colors"
+            >
+              <Linkedin size={20} />
+            </a>
           </div>
 
           {/* Columna Capacidades */}
