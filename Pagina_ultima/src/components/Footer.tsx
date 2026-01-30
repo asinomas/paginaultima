@@ -28,7 +28,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 src="https://www.blackti.cl/wp-content/uploads/2021/10/logo-black-ti.png" 
               />
             </button>
-            <p className="text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-400 max-w-sm leading-relaxed tracking-tight mb-3">
+            <p className="text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-400 max-w-sm leading-relaxed tracking-tight mb-2">
               Servicio de Consultoría TI, donde nuestro valor principal se centra en unir la tecnología de vanguardia con el talento de las personas.
             </p>
             
