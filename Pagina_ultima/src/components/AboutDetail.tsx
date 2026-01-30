@@ -154,20 +154,22 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
                       {/* Overlay gradient */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
                       
-                      {/* Nombre, rol y LinkedIn */}
-                      <div className="absolute bottom-6 left-6 right-6">
+                      {/* Nombre, rol y LinkedIn - todo alineado a la derecha */}
+                      <div className="absolute bottom-6 left-6 right-6 text-right">
                         <h4 className="text-white text-xl font-bold mb-1">{member.name}</h4>
                         <p className="text-white/80 text-xs font-semibold uppercase tracking-wider mb-3">{member.role}</p>
                         
-                        {/* Logo de LinkedIn siempre visible */}
-                        <a 
-                          href={member.linkedin} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="inline-flex size-9 rounded-xl bg-transparent items-center justify-center cursor-pointer hover:bg-slate-700/90 transition-all text-white shadow-lg backdrop-blur-sm"
-                        >
-                          <Linkedin size={16} />
-                        </a>
+                        {/* Logo de LinkedIn siempre visible - alineado a la derecha */}
+                        <div className="flex justify-end">
+                          <a 
+                            href={member.linkedin} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="inline-flex size-9 rounded-xl bg-transparent items-center justify-center cursor-pointer hover:bg-slate-700/90 transition-all text-white shadow-lg backdrop-blur-sm"
+                          >
+                            <Linkedin size={16} />
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
