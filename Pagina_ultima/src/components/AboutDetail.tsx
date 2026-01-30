@@ -150,7 +150,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {team.map((member, i) => (
                   <div key={i} className="group">
-                    <div className="aspect-[3/4] w-full rounded-3xl overflow-hidden bg-black relative shadow-xl">
+                    <div className="aspect-[3/4] w-full rounded-3xl overflow-hidden bg-black relative shadow-2xl">
                       <img 
                         alt={member.name} 
                         className="grayscale w-full h-full object-cover transition-all duration-[1.5s] group-hover:scale-105" 
