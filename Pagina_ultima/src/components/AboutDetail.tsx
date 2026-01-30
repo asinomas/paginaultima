@@ -111,7 +111,8 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
 
       
       {/* SECCIÓN EQUIPO */}
-      <section className="container mx-auto max-w-7xl px-6 lg:px-8 py-24">
+      <section className="container mx-auto max-w-7xl px-6 lg:px-8 py-16">
+       
         {/* Título centrado con líneas */}
         <div className="text-center mb-16 flex flex-col items-center">
           <div className="flex items-center w-full justify-center mb-12">
@@ -124,6 +125,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
         </div>
 
         <div className="flex flex-col lg:flex-row gap-20 items-start">
+         
           {/* Texto a la izquierda */}
           <div className="lg:w-[35%] lg:sticky lg:top-32">
 
