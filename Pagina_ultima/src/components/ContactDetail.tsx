@@ -38,8 +38,8 @@ const ContactDetail: React.FC = () => {
             </h2>
             
             <p className="text-slate-500 text-lg mb-12 max-w-md leading-relaxed font-medium">
-              Estamos listos para transformar tus desafíos en grandes oportunidades. Déjanos un mensaje y nos contactaremos en menos de 24 horas.
-              Nuestro equipo de atención estará encantado de resolver tus dudas, ofrecerte información detallada y ayudarte a tomar la mejor decisión según tus necesidades.
+              Estamos listos para transformar tus desafíos en grandes oportunidades. Déjanos un mensaje y nos contactaremos.
+              Nuestro equipo estará encantado de resolver tus dudas, ofrecerte información y ayudarte a tomar la mejor decisión.
             </p>
 
             <div className="space-y-8">
