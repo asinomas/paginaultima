@@ -114,8 +114,8 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
       {/* SECCIÓN EQUIPO */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8 py-10">
        
-        {/* Título centrado con líneas */}
-        <div className="text-center mb-16 flex flex-col items-center">
+        {/* Título centrado con líneas - el mb (margin-bottom) mb-8 es la distancia entre el titulo y el padding-top de la seccion que esta abajo */}
+        <div className="text-center mb-8 flex flex-col items-center">
           <div className="flex items-center w-full justify-center mb-12">
             <div className="h-0.5 flex-1 bg-gradient-to-r from-transparent to-slate-200 hidden md:block mr-10" />
             <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight px-6">
