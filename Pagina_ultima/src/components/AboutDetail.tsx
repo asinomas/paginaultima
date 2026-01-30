@@ -67,10 +67,11 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
   return (
     <div className="bg-white min-h-screen antialiased">
 
-      {/* QUIENES SOMOS - AHORA EN LA PARTE SUPERIOR */}
+      {/* QUIENES SOMOS */}
       <section className="relative bg-[#F8FAFC] pt-48 pb-18 after:absolute after:bottom-0 after:left-0 after:w-full after:h-48 after:bg-gradient-to-b after:from-[#F8FAFC]/20 after:via-[#F8FAFC]/60 after:to-white after:pointer-events-none">
         <div className="container mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row gap-16 items-start">
+            
             {/* TEXTO A LA IZQUIERDA */}
             <div className="lg:w-1/2">
               <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#135bec] mb-4">Nuestra Historia</h4>
@@ -170,8 +171,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
                           (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=800';
                         }}
                       />
-                      {/* Overlay gradient */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                      
                       
                       {/* Nombre, rol y LinkedIn - todo alineado a la derecha */}
                       <div className="absolute bottom-6 left-6 right-6 text-right">
