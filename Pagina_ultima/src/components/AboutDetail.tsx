@@ -161,7 +161,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
 
                     
                     {/* Contenedor de las tarjetas */} 
-                    <div className="aspect-[3/4] w-full rounded-3xl overflow-hidden bg-black relative shadow-2xl">
+                    <div className="aspect-[3/4] w-full rounded-3xl overflow-hidden relative shadow-2xl">
                       <img 
                         alt={member.name} 
                         className="grayscale w-full h-full object-cover transition-all duration-[1.5s] group-hover:scale-105 will-change-transform backface-visibility-hidden" 
@@ -171,6 +171,9 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
                           (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=800';
                         }}
                       />
+
+                      {/* Overlay gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                       
                       
                       {/* Nombre, rol y LinkedIn - todo alineado a la derecha */}
@@ -199,6 +202,8 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
         </div>
       </section>
 
+
+      
       {/* SECCIÓN MAPA GLOBAL */}
       <ScrollAnimation>
         <section className="bg-slate-950 py-24 border-t border-slate-900">
