@@ -10,7 +10,7 @@ const Stats: React.FC = () => {
       text: 'Contacto inicial, evaluación y presentación de candidatos en menos de 2 días.'
     },
     {
-      icon: 'group',
+      icon: 'groups',
       value: '200+',
       label: 'Proyectos Completados',
       text: 'Soluciones entregadas con éxito desde startups a grandes empesas.'
