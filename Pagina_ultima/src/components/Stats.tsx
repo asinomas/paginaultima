@@ -10,10 +10,10 @@ const Stats: React.FC = () => {
       text: 'Contacto inicial, evaluación y presentación de candidatos en menos de 2 días.'
     },
     {
-      icon: 'visibility',
-      value: '360°',
-      label: 'Visión Global',
-      text: 'Integramos profesionales de distintas áreas, logrando entregar un producto robusto, seguro y centrado en el cliente.'
+      icon: 'group',
+      value: '200+',
+      label: 'Proyectos Completados',
+      text: 'Soluciones entregadas con éxito desde startups a grandes empesas.'
     },
     {
       icon: 'tune',
