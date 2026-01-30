@@ -4,10 +4,10 @@ import ScrollAnimation from './ScrollAnimation';
 const Stats: React.FC = () => {
   const statsItems = [
     {
-      icon: 'hub',
-      value: '24/7',
-      label: 'Alto Rendimiento',
-      text: 'Construimos grupos de trabajo capaces de sumarse a sus equipos o liderar proyectos, aportando valor desde el inicio.'
+      icon: 'schedule',
+      value: '<48h',
+      label: 'Tiempo de Respuesta',
+      text: 'Contacto inicial, evaluación y presentación de candidatos en menos de 2 días.'
     },
     {
       icon: 'visibility',
