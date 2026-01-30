@@ -13,13 +13,13 @@ const Stats: React.FC = () => {
       icon: 'groups',
       value: '200+',
       label: 'Proyectos Completados',
-      text: 'Soluciones entregadas con éxito desde startups a grandes empesas.'
+      text: 'Soluciones entregadas con éxito desde startups a grandes empresas.'
     },
     {
       icon: 'tune',
       value: '100%',
       label: 'A Medida',
-      text: 'Diseñamos un perfil especializado según el contexto y objetivos, reduciendo tiempos de onboarding y rotación en su empresa.'
+      text: 'Diseñamos un perfil especializado según el contexto y objetivos, reduciendo tiempos de onboarding.'
     }
   ];
 
