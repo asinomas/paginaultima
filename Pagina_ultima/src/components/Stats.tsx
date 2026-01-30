@@ -11,7 +11,7 @@ const Stats: React.FC = () => {
     },
     {
       icon: 'groups',
-      value: '200+',
+      value: '100+',
       label: 'Proyectos Completados',
       text: 'Soluciones entregadas con éxito desde startups a grandes empresas.'
     },
