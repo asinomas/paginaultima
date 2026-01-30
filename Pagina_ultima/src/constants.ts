@@ -5,8 +5,8 @@ export const OFFICE_LOCATIONS: OfficeLocation[] = [
     id: 'santiago',
     city: 'Santiago',
     country: 'Chile',
-    coordinates: [-70.6483, -33.4489],
-    address: 'Av. Vitacura 2670, Piso 15, Las Condes',
+    coordinates: [-70.5638, -33.4078],
+    address: 'Av Apoquindo 6410, Of 605, Las Condes',
     type: 'Headquarters'
   },
   {
