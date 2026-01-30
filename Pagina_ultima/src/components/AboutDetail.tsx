@@ -126,12 +126,13 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
         <div className="flex flex-col lg:flex-row gap-20 items-start">
           {/* Texto a la izquierda */}
           <div className="lg:w-[35%] lg:sticky lg:top-32">
-            <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-4">MEET US</h4>
+            <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-4">Conócenos</h4>
             <h2 className="text-5xl lg:text-6xl font-black text-slate-900 mb-6 leading-[1.1]">
-              The Heart of Our Excellence
+              Equipo
             </h2>
             <p className="text-slate-500 text-base leading-relaxed font-normal">
-              This section celebrates the unique stories, skills, and passions of our team members. From strategic thinkers to creative innovators, each person contributes to our vibrant culture.
+            Profesionales apasionados por la tecnología, con un buen mindset que dirigen el rumbo de cada proyecto con rigor y visión.
+            Nuestro equipo está integrado por personas con experiencia en diseño, desarrollo y estrategia para ofrecer resultado adaptándose a tus objetivos y tiempos.
             </p>
           </div>
 
