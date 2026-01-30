@@ -14,7 +14,7 @@ const servicesData = [
     Icon: Code,
     title: "Desarrollo",
     description:
-      "Alineamos soluciones digitales generen impacto y crecimiento sostenible, permiten a tu empresa crecer con confianza.",
+      "Alineamos soluciones digitales que generan impacto y crecimiento sostenible, permitiendo a tu empresa crecer con confianza.",
     details: [
       "Backend",
       "Frontend",
