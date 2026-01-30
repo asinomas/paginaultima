@@ -34,7 +34,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             
             {/* Logo de LinkedIn */}
             <a 
-              href="https://www.linkedin.com/company/black-ti" 
+              href="https://linkedin.com/company/blackti" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-slate-400 hover:text-white transition-colors"
