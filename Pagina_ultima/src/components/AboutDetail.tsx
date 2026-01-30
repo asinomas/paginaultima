@@ -54,6 +54,13 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
       image: './team/gonzalo.jpg',
       bio: 'Impulsor de innovación tecnológica y proyectos críticos en sectores regulados, combinando integración de sistemas, desarrollo digital y optimización operativa.',
       linkedin: 'https://linkedin.com/in/gastu'
+    },
+    {
+      name: 'PRUEBA',
+      role: 'PRUEBA',
+      image: './images/foto-about.webp',
+      bio: 'PRUEBA.',
+      linkedin: 'https://linkedin.com/PRUEBA'
     }
   ];
 
