@@ -6,12 +6,10 @@ interface HeroProps {
   onNavigate: (page: 'home' | 'services' | 'about' | 'contact') => void;
 }
 
-// Constantes
 const HERO_ANIMATION_DELAY = 1500;
 const MOBILE_BREAKPOINT = 1024;
 const RESIZE_DEBOUNCE_DELAY = 150;
 
-// Logos base
 const BASE_LOGOS = [
   { name: 'Grupo Sura', src: './logos/grupo-sura.png' },
   { name: 'Casa&Ideas', src: './logos/casa-ideas.png' },
@@ -25,7 +23,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   const [moveLayout, setMoveLayout] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  // 🔧 Forzar animaciones siempre (versión desarrollo)
+  // 🔧 Desarrollo: siempre animaciones
   const animationsEnabled = true;
 
   const checkMobile = useCallback(() => {
@@ -54,7 +52,6 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
     };
   }, [checkMobile]);
 
-  // Animación principal de texto y movimiento de layout
   const heroAnimation = {
     opacity: 1,
     x: moveLayout && !isMobile ? -210 : 0,
@@ -66,10 +63,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       className="relative min-h-screen flex flex-col justify-between bg-[#0b0e14] overflow-hidden pt-32 md:pt-40 antialiased"
       aria-labelledby="hero-heading"
     >
-      {/* LUCES Y FONDO */}
       <HeroLights />
 
-      {/* CONTENIDO PRINCIPAL */}
       <div className="flex-1 flex items-center justify-center">
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-7xl mx-auto flex items-center justify-center gap-6 -translate-y-2">
@@ -139,7 +134,6 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 >
                   <button
                     onClick={() => onNavigate('contact')}
-                    aria-label="Solicitar consultoría gratuita - Abrir formulario de contacto"
                     className="group relative overflow-hidden px-8 py-4 bg-[#135bec] text-white rounded-xl font-bold transition-all duration-300 hover:scale-105 active:scale-95 shadow-2xl shadow-[#135bec]/30"
                   >
                     Solicitar Consultoría
@@ -147,7 +141,6 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
                   <button
                     onClick={() => onNavigate('services')}
-                    aria-label="Ver servicios de consultoría TI"
                     className="px-8 py-4 bg-white/5 text-white border border-white/10 rounded-xl font-bold hover:bg-white/10 transition-all duration-300 backdrop-blur-sm active:scale-95"
                   >
                     Ver Servicios
@@ -159,19 +152,13 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             {/* IMAGEN HERO */}
             <motion.div
               initial={{ opacity: 0, x: 400 }}
-              animate={{
-                opacity: moveLayout && !isMobile ? 1 : 0,
-                x: moveLayout && !isMobile ? -50 : 400,
-              }}
+              animate={{ opacity: moveLayout && !isMobile ? 1 : 0, x: moveLayout && !isMobile ? -50 : 400 }}
               transition={{ duration: 2, ease: 'easeInOut' }}
               className="hidden lg:block absolute right-0 -top-8 w-[340px] h-[440px] overflow-hidden rounded-[20%_3%_20%_3%]"
             >
               <img
                 src="./images/foto-hero.jpg"
-                alt="Equipo BlackTI de consultores TI trabajando en desarrollo de software y ciberseguridad para empresas chilenas"
-                width="800"
-                height="600"
-                loading="eager"
+                alt="Equipo BlackTI"
                 className="w-full h-full object-cover scale-[1.1]"
               />
             </motion.div>
@@ -179,16 +166,14 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         </div>
       </div>
 
-      {/* FRANJA DE LOGOS CON DIFUMINADO */}
+      {/* FRANJA DE LOGOS OPTIMIZADA PARA MÓVIL */}
       <div className="relative pt-16 pb-8 overflow-hidden z-10">
         <div className="absolute top-8 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-
         <div className="container mx-auto px-6 mb-8">
           <p className="text-center text-[10px] font-bold uppercase tracking-[0.5em] text-slate-400">
             Han confiado en nosotros
           </p>
         </div>
-
         <div
           className="relative overflow-hidden"
           role="region"
@@ -204,17 +189,14 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             maskSize: '100% 100%',
           }}
         >
-          <div className="flex animate-infinite-scroll">
+          <div className="flex animate-infinite-scroll gap-6 md:gap-8">
             {[...BASE_LOGOS, ...BASE_LOGOS].map((logo, idx) => (
-              <div
-                key={`logo-${logo.name}-${idx}`}
-                className="flex-shrink-0 flex items-center justify-center px-8 w-[280px]"
-              >
+              <div key={`logo-${logo.name}-${idx}`} className="flex-shrink-0 flex items-center justify-center px-4 w-[180px] sm:w-[220px] md:w-[280px]">
                 <img
                   src={logo.src}
                   alt={logo.name}
                   loading="lazy"
-                  className="h-10 md:h-12 w-auto object-contain filter grayscale opacity-80 hover:grayscale-0 hover:opacity-100"
+                  className="h-8 sm:h-10 md:h-12 w-auto object-contain filter grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
                 />
               </div>
             ))}
@@ -222,7 +204,6 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         </div>
       </div>
 
-      {/* ESTILOS ANIMACIÓN LOGOS */}
       <style>{`
         @keyframes infinite-scroll {
           from { transform: translateX(0); }
