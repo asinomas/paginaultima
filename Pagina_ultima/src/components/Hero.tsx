@@ -27,7 +27,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   const shouldReduceMotion = useReducedMotion();
   
   // 🔧 TEMPORAL: Forzar animaciones en desarrollo (quitar en producción)
-  const forceAnimations = false; // Cambia a true para forzar animaciones
+  const forceAnimations = true; // Cambia a true para forzar animaciones
   const animationsEnabled = forceAnimations ? false : shouldReduceMotion;
 
   // DEBUG: Ver el estado
