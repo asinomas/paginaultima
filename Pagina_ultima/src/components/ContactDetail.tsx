@@ -84,22 +84,7 @@ const ContactDetail: React.FC = () => {
               </div>
             </div>
 
-            {/* TRUST BADGES — agregado limpio */}
-            <div className="mt-12 space-y-3 text-sm text-slate-500">
-              <div className="flex items-center gap-3">
-                <Clock size={16} className="text-[#135bec]" />
-                Respuesta en menos de 24h
-              </div>
-              <div className="flex items-center gap-3">
-                <UserCheck size={16} className="text-[#135bec]" />
-                Atención personalizada
-              </div>
-              <div className="flex items-center gap-3">
-                <ShieldCheck size={16} className="text-[#135bec]" />
-                Confidencialidad garantizada
-              </div>
-            </div>
-          </div>
+           
 
           {/* COLUMNA DERECHA */}
           <div className="relative group">
@@ -188,6 +173,30 @@ const ContactDetail: React.FC = () => {
                   )}
                 </button>
               </form>
+
+              
+
+              
+               {/* TRUST BADGES */}
+            <div className="mt-12 space-y-3 text-sm text-slate-500">
+              <div className="flex items-center gap-3">
+                <Clock size={16} className="text-[#135bec]" />
+                Respuesta en menos de 24h
+              </div>
+              <div className="flex items-center gap-3">
+                <UserCheck size={16} className="text-[#135bec]" />
+                Atención personalizada
+              </div>
+              <div className="flex items-center gap-3">
+                <ShieldCheck size={16} className="text-[#135bec]" />
+                Confidencialidad garantizada
+              </div>
+            </div>
+          </div>
+
+
+            
+              
             </div>
           </div>
 
