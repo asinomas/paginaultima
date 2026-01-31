@@ -1,41 +1,35 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import compression from 'vite-plugin-compression'
 
-
-// Detecta la plataforma de deployment
-const isGithubPages = process.env.GITHUB_ACTIONS === 'true' && !process.env.CF_PAGES
-const isCloudflare = process.env.CF_PAGES === '1'
-
-
-// Configura la base según la plataforma
-let base = '/'
-if (isGithubPages) {
-  base = '/paginaultima/'
-}
-// Cloudflare Pages siempre usa '/' como base
+/**
+ * Detecta si el build se está ejecutando en GitHub Actions
+ * (caso GitHub Pages).
+ *
+ * - GitHub Pages requiere que `base` sea el nombre del repositorio
+ * - Cloudflare Pages y desarrollo local funcionan correctamente con '/'
+ *
+ * Evitamos lógica innecesaria o dependiente de Rollup hasta
+ * tener métricas reales que justifiquen optimización adicional.
+ */
+const isGithubPages =
+  process.env.GITHUB_ACTIONS === 'true' && !process.env.CF_PAGES
 
 export default defineConfig({
+  /**
+   * Plugins
+   * Solo lo necesario.
+   * Vite + React ya vienen altamente optimizados.
+   */
   plugins: [react()],
-  base: base,
-  build: {
-    outDir: 'dist',
-    assetsDir: 'assets',
-    sourcemap: false,
-    minify: 'esbuild',
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom'],
-           vendor: ['react-router-dom'],
-          'router': ['react-router-dom'],
-          'charts': ['d3', 'topojson-client']
-        }
-      }
-    }
-  },
-  server: {
-    port: 3000,
-    open: true
-  }
+
+  /**
+   * base:
+   * - GitHub Pages → '/paginaultima/'
+   * - Cloudflare Pages → '/'
+   * - Desarrollo local → '/'
+   *
+   * Mantener esta lógica explícita reduce errores de deploy
+   * y hace el comportamiento del build predecible.
+   */
+  base: isGithubPages ? '/paginaultima/' : '/',
 })
