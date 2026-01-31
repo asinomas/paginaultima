@@ -157,7 +157,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
             </h2>
             
             <p className="text-slate-500 text-base leading-relaxed font-normal">
-            Profesionales apasionados por la tecnología, con un muy buen mindset que dirigen el rumbo de cada proyecto con rigor y visión.
+            Profesionales apasionados, con un muy buen mindset que dirigen el rumbo de cada proyecto con rigor y visión.
             Nuestro equipo está integrado por personas con experiencia en diseño, desarrollo y estrategia para ofrecer resultados tangibles adaptándose a tus tiempos y objetivos.
             </p>
           </div>
