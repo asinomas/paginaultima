@@ -164,7 +164,9 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
       {/* 2. SECCIÓN TÉCNICA */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
-          <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+          <h2 
+            id:"services-heading"
+            className="text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
             Nuestra <span className="text-[#135bec] italic">Especialización</span>
           </h2>
           <div className="h-0.5 flex-1 bg-slate-200 hidden md:block mx-10" />
