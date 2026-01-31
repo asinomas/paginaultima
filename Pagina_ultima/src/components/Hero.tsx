@@ -25,7 +25,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   const [moveLayout, setMoveLayout] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  // ✅ Para desarrollo, siempre activar animaciones
+  // 🔧 Forzar animaciones siempre
   const animationsEnabled = true;
 
   const checkMobile = useCallback(() => {
@@ -40,6 +40,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       clearTimeout(timeoutId);
       timeoutId = setTimeout(checkMobile, RESIZE_DEBOUNCE_DELAY);
     };
+
     window.addEventListener('resize', handleResize);
 
     const timer = setTimeout(() => {
@@ -52,6 +53,13 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       window.removeEventListener('resize', handleResize);
     };
   }, [checkMobile]);
+
+  // Animación principal de texto y movimiento de layout
+  const heroAnimation = {
+    opacity: 1,
+    x: moveLayout && !isMobile ? -210 : 0,
+    y: 0,
+  };
 
   return (
     <section
@@ -68,9 +76,13 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
             {/* TEXTO HERO */}
             <motion.div
-              initial={{ opacity: 0, y: 20, x: 0 }}
-              animate={{ opacity: 1, y: 0, x: moveLayout && !isMobile ? -210 : 0 }}
-              transition={{ duration: 2, ease: 'easeInOut', delay: 0.5 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={heroAnimation}
+              transition={{
+                opacity: { duration: 1.5, ease: 'easeOut' },
+                y: { duration: 1.5, ease: 'easeOut' },
+                x: { duration: 2, ease: 'easeInOut' },
+              }}
               className="max-w-4xl text-center"
             >
               <div className="inline-block">
@@ -112,7 +124,10 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                   transition={{ duration: 1, delay: 0.8 }}
                   className="text-base md:text-lg text-slate-300/90 mb-8 max-w-2xl mx-auto leading-relaxed font-light"
                 >
-                  Arquitectura sólida para <span className="font-bold text-slate-300">startups</span>. Optimización continua para <span className="font-bold text-slate-300">empresas</span>. Acompañamiento en cada <span className="font-bold text-slate-300">etapa</span>.
+                  Arquitectura sólida para{' '}
+                  <span className="font-bold text-slate-300">startups</span>. Optimización continua para{' '}
+                  <span className="font-bold text-slate-300">empresas</span>. Acompañamiento en cada{' '}
+                  <span className="font-bold text-slate-300">etapa</span>.
                 </motion.p>
 
                 {/* CTA */}
@@ -124,7 +139,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 >
                   <button
                     onClick={() => onNavigate('contact')}
-                    aria-label="Solicitar consultoría gratuita"
+                    aria-label="Solicitar consultoría gratuita - Abrir formulario de contacto"
                     className="group relative overflow-hidden px-8 py-4 bg-[#135bec] text-white rounded-xl font-bold transition-all duration-300 hover:scale-105 active:scale-95 shadow-2xl shadow-[#135bec]/30"
                   >
                     Solicitar Consultoría
@@ -132,7 +147,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
                   <button
                     onClick={() => onNavigate('services')}
-                    aria-label="Ver servicios"
+                    aria-label="Ver servicios de consultoría TI"
                     className="px-8 py-4 bg-white/5 text-white border border-white/10 rounded-xl font-bold hover:bg-white/10 transition-all duration-300 backdrop-blur-sm active:scale-95"
                   >
                     Ver Servicios
@@ -144,20 +159,22 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             {/* IMAGEN HERO */}
             <motion.div
               initial={{ opacity: 0, x: 400 }}
-              animate={{ opacity: moveLayout && !isMobile ? 1 : 0, x: moveLayout && !isMobile ? -50 : 400 }}
-              transition={{ duration: 2, ease: 'easeInOut', delay: 0.5 }}
+              animate={{
+                opacity: moveLayout && !isMobile ? 1 : 0,
+                x: moveLayout && !isMobile ? -50 : 400,
+              }}
+              transition={{ duration: 2, ease: 'easeInOut' }}
               className="hidden lg:block absolute right-0 -top-8 w-[340px] h-[440px] overflow-hidden rounded-[20%_3%_20%_3%]"
             >
               <img
                 src="./images/foto-hero.jpg"
-                alt="Equipo BlackTI de consultores TI trabajando en desarrollo de software y ciberseguridad"
+                alt="Equipo BlackTI de consultores TI trabajando en desarrollo de software y ciberseguridad para empresas chilenas"
                 width="800"
                 height="600"
                 loading="eager"
                 className="w-full h-full object-cover scale-[1.1]"
               />
             </motion.div>
-
           </div>
         </div>
       </div>
@@ -172,7 +189,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           </p>
         </div>
 
-        <div className="relative flex overflow-hidden" role="region" aria-label="Carrusel de logos">
+        <div className="relative flex overflow-hidden" role="region" aria-label="Empresas que han confiado en BlackTI">
           <div className="flex animate-infinite-scroll">
             {[...BASE_LOGOS, ...BASE_LOGOS].map((logo, idx) => (
               <div
@@ -183,9 +200,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                   src={logo.src}
                   alt={logo.name}
                   loading="lazy"
-                  className="h-10 md:h-12 w-auto object-contain brightness-0 invert grayscale opacity-40 
-                             hover:grayscale-0 hover:opacity-100 hover:brightness-100 
-                             transition-opacity transition-grayscale transition-brightness duration-300"
+                  className="h-10 md:h-12 w-auto object-contain filter grayscale opacity-40 hover:grayscale-0 hover:opacity-100"
                 />
               </div>
             ))}
