@@ -177,7 +177,7 @@ const ContactDetail: React.FC = () => {
 
               
               {/* TRUST BADGES - ABAJO DEL BOTÓN ENVIAR, DENTRO DEL RECUADRO */}
-              <div className="mt-8 space-y-3 text-sm text-slate-500">
+              <div className="mt-20 space-y-3 text-sm text-slate-500">
                 <div className="flex items-center gap-3">
                   <Clock size={16} className="text-[#135bec]" />
                   Respuesta en menos de 24h
