@@ -188,7 +188,6 @@ const ContactDetail: React.FC = () => {
                 <ShieldCheck size={16} className="text-[#135bec]" />
                 Confidencialidad garantizada
               </div>
-            </div>
           </div>
                 </form>
 
