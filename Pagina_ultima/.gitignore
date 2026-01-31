@@ -1,4 +1,5 @@
 # Dependencies
+.pnpm-store/
 node_modules/
 npm-debug.log*
 yarn-debug.log*
@@ -8,10 +9,14 @@ pnpm-debug.log*
 # Production builds
 dist/
 build/
+.output/
+.vercel/
+.netlify/
 
 # Environment variables
 .env
 .env.local
+.env.*.local
 .env.development.local
 .env.test.local
 .env.production.local
@@ -19,6 +24,10 @@ build/
 # Logs
 logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
 # Editor directories and files
 .vscode/
@@ -42,3 +51,8 @@ coverage/
 # Temporary files
 *.tmp
 *.temp
+.cache/
+.parcel-cache/
+
+# Debug
+.vscode/
