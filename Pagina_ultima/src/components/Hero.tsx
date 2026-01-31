@@ -24,11 +24,9 @@ const BASE_LOGOS = [
 const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   const [moveLayout, setMoveLayout] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const shouldReduceMotion = useReducedMotion();
+  const shouldReduceMotion = useReducedMotion(false);
   
-  // 🔧 TEMPORAL: Forzar animaciones en desarrollo (quitar en producción)
-  const forceAnimations = true; // Cambia a true para forzar animaciones
-  const animationsEnabled = forceAnimations ? false : shouldReduceMotion;
+
 
   // DEBUG: Ver el estado
   useEffect(() => {
