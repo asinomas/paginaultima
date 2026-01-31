@@ -172,11 +172,8 @@ const ContactDetail: React.FC = () => {
                     </>
                   )}
                 </button>
-              </form>
 
-              
-
-              
+                
                {/* TRUST BADGES */}
             <div className="mt-12 space-y-3 text-sm text-slate-500">
               <div className="flex items-center gap-3">
@@ -193,10 +190,10 @@ const ContactDetail: React.FC = () => {
               </div>
             </div>
           </div>
-
+                
+              </form>
 
             
-              
             </div>
           </div>
 
