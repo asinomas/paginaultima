@@ -27,6 +27,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           'react-vendor': ['react', 'react-dom'],
+           vendor: ['react-router-dom'],
           'router': ['react-router-dom'],
           'charts': ['d3', 'topojson-client']
         }
