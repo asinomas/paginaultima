@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useRef, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ServicesOverview from './components/Services';
@@ -7,9 +7,10 @@ import AboutPreview from './components/About';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
-// Importación normal (sin lazy loading) - VERSIÓN ALTERNATIVA
-import AIConsultant from './components/AIConsultant';
-import TestimonialsSection from './components/TestimonialsSection';
+// Carga diferida para componentes pesados
+const AIConsultant = React.lazy(() => import('./components/AIConsultant'));
+const TestimonialsSection = React.lazy(() => import('./components/TestimonialsSection'));
+
 import ServicesDetail from './components/ServicesDetail';
 import AboutDetail from './components/AboutDetail';
 import ContactDetail from './components/ContactDetail';
@@ -148,10 +149,16 @@ const App: React.FC = () => {
               <ServicesDetail onContactClick={scrollToContact} />
             </section>
 
-            {/* Testimonios sin Suspense - VERSIÓN SIMPLIFICADA */}
-            <section id="testimonials" aria-labelledby="testimonials-heading">
-              <TestimonialsSection />
-            </section>
+            {/* Testimonios con carga diferida y fallback accesible */}
+            <Suspense fallback={
+              <div role="status" aria-live="polite" className="flex items-center justify-center p-8">
+                <span className="text-gray-600">Cargando testimonios...</span>
+              </div>
+            }>
+              <section id="testimonials" aria-labelledby="testimonials-heading">
+                <TestimonialsSection />
+              </section>
+            </Suspense>
 
             <section id={SECTION_IDS.about} aria-labelledby="about-heading">
               <AboutDetail 
@@ -187,8 +194,14 @@ const App: React.FC = () => {
         <span className="material-symbols-outlined !text-3xl" aria-hidden="true">smart_toy</span>
       </button>
 
-      {/* Chat sin Suspense - VERSIÓN SIMPLIFICADA */}
-      <AIConsultant isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
+      {/* Chat con carga diferida y fallback accesible */}
+      <Suspense fallback={
+        <div role="status" aria-live="polite" className="flex items-center justify-center p-8">
+          <span className="text-gray-600">Cargando chat...</span>
+        </div>
+      }>
+        <AIConsultant isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
+      </Suspense>
     </div>
   );
 };
