@@ -47,7 +47,7 @@ const ContactDetail: React.FC = () => {
 
             <p className="text-slate-500 text-lg mb-12 max-w-md leading-relaxed font-medium">
               Estamos listos para transformar tus desafíos en grandes oportunidades.
-              Déjanos un mensaje y te ayudaremos a tomar la mejor decisión.
+              Déjanos un mensaje y juntos tomemos la mejor decisión.
             </p>
 
             <div className="space-y-8">
@@ -173,18 +173,18 @@ const ContactDetail: React.FC = () => {
                 </button>
               </form>
 
-              {/* TRUST BADGES - ABAJO DEL BOTÓN ENVIAR, DENTRO DEL RECUADRO */}
-              <div className="mt-8 space-y-3 text-sm text-slate-500">
+              {/* TRUST BADGES - MÁS PEQUEÑOS PARA NO EXTENDER EL CONTENEDOR */}
+              <div className="mt-8 space-y-2 text-xs text-slate-500">
                 <div className="flex items-center gap-3">
-                  <Clock size={16} className="text-[#135bec]" />
+                  <Clock size={14} className="text-[#135bec]" />
                   Respuesta en menos de 24h
                 </div>
                 <div className="flex items-center gap-3">
-                  <UserCheck size={16} className="text-[#135bec]" />
+                  <UserCheck size={14} className="text-[#135bec]" />
                   Atención personalizada
                 </div>
                 <div className="flex items-center gap-3">
-                  <ShieldCheck size={16} className="text-[#135bec]" />
+                  <ShieldCheck size={14} className="text-[#135bec]" />
                   Confidencialidad garantizada
                 </div>
               </div>
