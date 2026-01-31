@@ -1,1 +1,22 @@
+User-agent: *
+Allow: /
 
+# Sitemaps
+Sitemap: https://paginaultima.pages.dev/sitemap.xml
+
+# Directorios permitidos
+Allow: /images/
+Allow: /assets/
+
+# Velocidad de rastreo (opcional)
+Crawl-delay: 1
+
+# Bots específicos
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /images/
+
+User-agent: Bingbot
+Allow: /
