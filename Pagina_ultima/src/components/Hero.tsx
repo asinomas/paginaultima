@@ -286,8 +286,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             <div className="relative w-full max-w-lg">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl" />
               <img
-                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80"
-                alt="Tecnología digital y transformación"
+                src="./images/foto-hero.jpg"
+                alt="Consultores de BlackTI desarrollando estretegias para empresas"
                 loading="eager"
                 className="relative rounded-3xl shadow-2xl w-full h-auto"
               />
