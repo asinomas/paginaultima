@@ -25,6 +25,10 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   const [moveLayout, setMoveLayout] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const shouldReduceMotion = useReducedMotion();
+  
+  // 🔧 TEMPORAL: Forzar animaciones en desarrollo (quitar en producción)
+  const forceAnimations = false; // Cambia a true para forzar animaciones
+  const animationsEnabled = forceAnimations ? false : shouldReduceMotion;
 
   // DEBUG: Ver el estado
   useEffect(() => {
@@ -32,9 +36,10 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       moveLayout,
       isMobile,
       shouldReduceMotion,
+      animationsEnabled,
       windowWidth: window.innerWidth
     });
-  }, [moveLayout, isMobile, shouldReduceMotion]);
+  }, [moveLayout, isMobile, shouldReduceMotion, animationsEnabled]);
 
   const checkMobile = useCallback(() => {
     setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
@@ -64,7 +69,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   }, [checkMobile]);
 
   // Animación simplificada para debugging
-  const textAnimation = shouldReduceMotion
+  const textAnimation = animationsEnabled
     ? { opacity: 1, x: 0, y: 0 }
     : {
         opacity: 1,
@@ -90,9 +95,9 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={textAnimation}
               transition={{
-                opacity: { duration: shouldReduceMotion ? 0 : 1.5, ease: 'easeOut' },
-                y: { duration: shouldReduceMotion ? 0 : 1.5, ease: 'easeOut' },
-                x: { duration: shouldReduceMotion ? 0 : 2, ease: 'easeInOut' },
+                opacity: { duration: animationsEnabled ? 0 : 1.5, ease: 'easeOut' },
+                y: { duration: animationsEnabled ? 0 : 1.5, ease: 'easeOut' },
+                x: { duration: animationsEnabled ? 0 : 2, ease: 'easeInOut' },
               }}
               className="max-w-4xl text-center"
             >
@@ -101,7 +106,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: shouldReduceMotion ? 0 : 0.3 }}
+                  transition={{ duration: animationsEnabled ? 0 : 0.6, delay: animationsEnabled ? 0 : 0.3 }}
                   className="inline-flex items-center gap-2 px-4 py-1.5 rounded-md bg-[#135bec]/5 border border-[#135bec]/20 mb-8"
                 >
                   <span className="relative flex h-2 w-2">
@@ -118,7 +123,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                   id="hero-heading"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: shouldReduceMotion ? 0 : 1, delay: shouldReduceMotion ? 0 : 0.5 }}
+                  transition={{ duration: animationsEnabled ? 0 : 1, delay: animationsEnabled ? 0 : 0.5 }}
                   className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.15]"
                 >
                   <span className="text-[#135bec] italic">Construyendo </span>
@@ -132,7 +137,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: shouldReduceMotion ? 0 : 1, delay: shouldReduceMotion ? 0 : 0.8 }}
+                  transition={{ duration: animationsEnabled ? 0 : 1, delay: animationsEnabled ? 0 : 0.8 }}
                   className="text-base md:text-lg text-slate-300/90 mb-8 max-w-2xl mx-auto leading-relaxed font-light"
                 >
                   Arquitectura sólida para{' '}
@@ -145,7 +150,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: shouldReduceMotion ? 0 : 0.8, delay: shouldReduceMotion ? 0 : 1 }}
+                  transition={{ duration: animationsEnabled ? 0 : 0.8, delay: animationsEnabled ? 0 : 1 }}
                   className="flex flex-col sm:flex-row items-center justify-center gap-4"
                 >
                   <button
@@ -171,14 +176,14 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             <motion.div
               initial={false}
               animate={
-                shouldReduceMotion
+                animationsEnabled
                   ? { opacity: 1, x: 0 }
                   : {
                       opacity: moveLayout && !isMobile ? 1 : 0,
                       x: moveLayout && !isMobile ? -50 : 400,
                     }
               }
-              transition={{ duration: shouldReduceMotion ? 0 : 2, ease: 'easeInOut' }}
+              transition={{ duration: animationsEnabled ? 0 : 2, ease: 'easeInOut' }}
               className="hidden lg:block absolute right-0 -top-8 w-[340px] h-[440px] overflow-hidden rounded-[20%_3%_20%_3%]"
             >
               <img
