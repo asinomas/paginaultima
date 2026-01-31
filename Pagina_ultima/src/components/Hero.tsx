@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import HeroLights from './HeroLights';
 
 interface HeroProps {
@@ -24,22 +24,9 @@ const BASE_LOGOS = [
 const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   const [moveLayout, setMoveLayout] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const shouldReduceMotion = useReducedMotion();
-  
-  // 🔧 TEMPORAL: Forzar animaciones en desarrollo (quitar en producción)
-  const forceAnimations = false; // Cambia a true para forzar animaciones
-  const animationsEnabled = forceAnimations ? false : shouldReduceMotion;
 
-  // DEBUG: Ver el estado
-  useEffect(() => {
-    console.log('🎯 Hero Debug:', {
-      moveLayout,
-      isMobile,
-      shouldReduceMotion,
-      animationsEnabled,
-      windowWidth: window.innerWidth
-    });
-  }, [moveLayout, isMobile, shouldReduceMotion, animationsEnabled]);
+  // 🔧 Para desarrollo: siempre animaciones
+  const animationsEnabled = true;
 
   const checkMobile = useCallback(() => {
     setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
@@ -47,17 +34,16 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
   useEffect(() => {
     checkMobile();
-    
+
     let timeoutId: NodeJS.Timeout;
     const handleResize = () => {
       clearTimeout(timeoutId);
       timeoutId = setTimeout(checkMobile, RESIZE_DEBOUNCE_DELAY);
     };
-    
+
     window.addEventListener('resize', handleResize);
 
     const timer = setTimeout(() => {
-      console.log('⏰ Activando moveLayout');
       setMoveLayout(true);
     }, HERO_ANIMATION_DELAY);
 
@@ -68,14 +54,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
     };
   }, [checkMobile]);
 
-  // Animación simplificada para debugging
-  const textAnimation = animationsEnabled
-    ? { opacity: 1, x: 0, y: 0 }
-    : {
-        opacity: 1,
-        y: 0,
-        x: moveLayout && !isMobile ? -210 : 0,
-      };
+  // Animación simplificada
+  const textAnimation = { opacity: 1, x: 0, y: 0 };
 
   return (
     <section
@@ -94,11 +74,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={textAnimation}
-              transition={{
-                opacity: { duration: animationsEnabled ? 0 : 1.5, ease: 'easeOut' },
-                y: { duration: animationsEnabled ? 0 : 1.5, ease: 'easeOut' },
-                x: { duration: animationsEnabled ? 0 : 2, ease: 'easeInOut' },
-              }}
+              transition={{ opacity: { duration: 1.5 }, y: { duration: 1.5 }, x: { duration: 2 } }}
               className="max-w-4xl text-center"
             >
               <div className="inline-block">
@@ -106,7 +82,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: animationsEnabled ? 0 : 0.6, delay: animationsEnabled ? 0 : 0.3 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
                   className="inline-flex items-center gap-2 px-4 py-1.5 rounded-md bg-[#135bec]/5 border border-[#135bec]/20 mb-8"
                 >
                   <span className="relative flex h-2 w-2">
@@ -123,7 +99,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                   id="hero-heading"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: animationsEnabled ? 0 : 1, delay: animationsEnabled ? 0 : 0.5 }}
+                  transition={{ duration: 1, delay: 0.5 }}
                   className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.15]"
                 >
                   <span className="text-[#135bec] italic">Construyendo </span>
@@ -137,7 +113,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: animationsEnabled ? 0 : 1, delay: animationsEnabled ? 0 : 0.8 }}
+                  transition={{ duration: 1, delay: 0.8 }}
                   className="text-base md:text-lg text-slate-300/90 mb-8 max-w-2xl mx-auto leading-relaxed font-light"
                 >
                   Arquitectura sólida para{' '}
@@ -150,12 +126,11 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: animationsEnabled ? 0 : 0.8, delay: animationsEnabled ? 0 : 1 }}
+                  transition={{ duration: 0.8, delay: 1 }}
                   className="flex flex-col sm:flex-row items-center justify-center gap-4"
                 >
                   <button
                     onClick={() => onNavigate('contact')}
-                    aria-label="Solicitar consultoría gratuita - Abrir formulario de contacto"
                     className="group relative overflow-hidden px-8 py-4 bg-[#135bec] text-white rounded-xl font-bold transition-all duration-300 hover:scale-105 active:scale-95 shadow-2xl shadow-[#135bec]/30"
                   >
                     Solicitar Consultoría
@@ -163,7 +138,6 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
                   <button
                     onClick={() => onNavigate('services')}
-                    aria-label="Ver servicios de consultoría TI"
                     className="px-8 py-4 bg-white/5 text-white border border-white/10 rounded-xl font-bold hover:bg-white/10 transition-all duration-300 backdrop-blur-sm active:scale-95"
                   >
                     Ver Servicios
@@ -174,24 +148,14 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
             {/* IMAGEN HERO */}
             <motion.div
-              initial={false}
-              animate={
-                animationsEnabled
-                  ? { opacity: 1, x: 0 }
-                  : {
-                      opacity: moveLayout && !isMobile ? 1 : 0,
-                      x: moveLayout && !isMobile ? -50 : 400,
-                    }
-              }
-              transition={{ duration: animationsEnabled ? 0 : 2, ease: 'easeInOut' }}
+              initial={{ opacity: 0, x: 400 }}
+              animate={{ opacity: 1, x: -50 }}
+              transition={{ duration: 2, ease: 'easeInOut' }}
               className="hidden lg:block absolute right-0 -top-8 w-[340px] h-[440px] overflow-hidden rounded-[20%_3%_20%_3%]"
             >
               <img
                 src="./images/foto-hero.jpg"
-                alt="Equipo BlackTI de consultores TI trabajando en desarrollo de software y ciberseguridad para empresas chilenas"
-                width="800"
-                height="600"
-                loading="eager"
+                alt="Equipo BlackTI de consultores TI trabajando"
                 className="w-full h-full object-cover scale-[1.1]"
               />
             </motion.div>
@@ -201,8 +165,6 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* FRANJA DE LOGOS */}
       <div className="relative pt-16 pb-8 overflow-hidden z-10">
-        <div className="absolute top-8 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-
         <div className="container mx-auto px-6 mb-8">
           <p className="text-center text-[10px] font-bold uppercase tracking-[0.5em] text-slate-400">
             Han confiado en nosotros
@@ -212,14 +174,10 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         <div className="relative flex overflow-hidden" role="region" aria-label="Empresas que han confiado en BlackTI">
           <div className="flex animate-infinite-scroll">
             {[...BASE_LOGOS, ...BASE_LOGOS].map((logo, idx) => (
-              <div 
-                key={`logo-${logo.name}-${idx}`} 
-                className="flex-shrink-0 flex items-center justify-center px-8 w-[280px]"
-              >
+              <div key={`logo-${logo.name}-${idx}`} className="flex-shrink-0 flex items-center justify-center px-8 w-[280px]">
                 <img
                   src={logo.src}
                   alt={logo.name}
-                  loading="lazy"
                   className="h-10 md:h-12 w-auto object-contain brightness-0 invert grayscale opacity-40 hover:grayscale-0 hover:opacity-100 hover:brightness-100 hover:invert-0 transition-all duration-300"
                 />
               </div>
@@ -240,11 +198,6 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         }
         .animate-infinite-scroll:hover {
           animation-play-state: paused;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .animate-infinite-scroll {
-            animation: none;
-          }
         }
       `}</style>
     </section>
