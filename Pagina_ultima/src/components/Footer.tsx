@@ -19,9 +19,9 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
     >
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Grid principal */}
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-12 items-start">
+        <div className="grid grid-cols-1 gap-10 md:gap-8 md:grid-cols-12 items-start">
 
-          {/* Columna izquierda - Logo + descripción + LinkedIn */}
+          {/* Izquierda - Logo + texto + LinkedIn */}
           <div className="col-span-1 md:col-span-5 lg:col-span-4 flex flex-col items-start">
             <button
               onClick={() => onNavigate?.('home')}
@@ -35,7 +35,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               />
             </button>
 
-            <p className="text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-400 max-w-sm leading-relaxed tracking-tight mb-4">
+            <p className="text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-400 max-w-sm leading-relaxed tracking-tight mb-5">
               Servicio de Consultoría TI, donde nuestro valor principal se centra
               en unir la tecnología de vanguardia con el talento de las personas.
             </p>
@@ -51,93 +51,53 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </a>
           </div>
 
-          {/* Espaciador invisible para simetría (solo visible en lg+) */}
-          <div className="hidden lg:block lg:col-span-1" />
-
-          {/* Columna Capacidades */}
-          <div className="md:col-span-2 lg:col-span-2 mt-6 md:mt-0">
+          {/* Capacidades */}
+          <div className="col-span-1 md:col-span-2 lg:col-span-2 lg:col-start-6 mt-8 md:mt-0">
             <h5
-              className="mb-4 md:mb-6 text-[9px] sm:text-[10px] md:text-[11px] font-light uppercase tracking-widest"
+              className="mb-4 md:mb-5 text-[9px] sm:text-[10px] md:text-[11px] font-light uppercase tracking-widest"
               style={{ color: '#135bec' }}
             >
               Capacidades
             </h5>
-            <ul className="space-y-1 md:space-y-2 text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-300">
-              <li>
-                <button onClick={() => onNavigate?.('services')} className="hover:text-white transition-colors">
-                  Desarrollo
-                </button>
-              </li>
-              <li>
-                <button onClick={() => onNavigate?.('services')} className="hover:text-white transition-colors">
-                  Liderazgo
-                </button>
-              </li>
-              <li>
-                <button onClick={() => onNavigate?.('services')} className="hover:text-white transition-colors">
-                  Especialidades
-                </button>
-              </li>
+            <ul className="space-y-1.5 text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-300">
+              <li><button onClick={() => onNavigate?.('services')} className="hover:text-white transition-colors">Desarrollo</button></li>
+              <li><button onClick={() => onNavigate?.('services')} className="hover:text-white transition-colors">Liderazgo</button></li>
+              <li><button onClick={() => onNavigate?.('services')} className="hover:text-white transition-colors">Especialidades</button></li>
             </ul>
           </div>
 
-          {/* Columna Grupo BlackTI */}
-          <div className="md:col-span-2 lg:col-span-2 mt-6 md:mt-0">
+          {/* Grupo BlackTI / Servicios */}
+          <div className="col-span-1 md:col-span-2 lg:col-span-2 mt-8 md:mt-0">
             <h5
-              className="mb-4 md:mb-6 text-[9px] sm:text-[10px] md:text-[11px] font-light uppercase tracking-widest"
+              className="mb-4 md:mb-5 text-[9px] sm:text-[10px] md:text-[11px] font-light uppercase tracking-widest"
               style={{ color: '#135bec' }}
             >
               Grupo BlackTI
             </h5>
-            <ul className="space-y-1 md:space-y-2 text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-300">
-              <li>
-                <button onClick={() => onNavigate?.('home')} className="hover:text-white transition-colors">
-                  Inicio
-                </button>
-              </li>
-              <li>
-                <button onClick={() => onNavigate?.('services')} className="hover:text-white transition-colors">
-                  Servicios
-                </button>
-              </li>
-              <li>
-                <button onClick={() => onNavigate?.('about')} className="hover:text-white transition-colors">
-                  Quiénes Somos
-                </button>
-              </li>
-              <li>
-                <button onClick={() => onNavigate?.('contact')} className="hover:text-white transition-colors">
-                  Contacto
-                </button>
-              </li>
+            <ul className="space-y-1.5 text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-300">
+              <li><button onClick={() => onNavigate?.('home')} className="hover:text-white transition-colors">Inicio</button></li>
+              <li><button onClick={() => onNavigate?.('services')} className="hover:text-white transition-colors">Servicios</button></li>
+              <li><button onClick={() => onNavigate?.('about')} className="hover:text-white transition-colors">Quiénes Somos</button></li>
+              <li><button onClick={() => onNavigate?.('contact')} className="hover:text-white transition-colors">Contacto</button></li>
             </ul>
           </div>
 
-          {/* Espaciador invisible para simetría derecha */}
-          <div className="hidden lg:block lg:col-span-1" />
-
-          {/* Columna Contacto - alineada hacia la derecha */}
-          <div className="md:col-span-3 lg:col-span-3 mt-6 md:mt-0">
+          {/* Contacto – forzado a la derecha */}
+          <div className="col-span-1 md:col-span-3 lg:col-span-3 lg:col-start-10 mt-8 md:mt-0">
             <h5
-              className="mb-4 md:mb-6 text-[9px] sm:text-[10px] md:text-[11px] font-light uppercase tracking-widest"
+              className="mb-4 md:mb-5 text-[9px] sm:text-[10px] md:text-[11px] font-light uppercase tracking-widest"
               style={{ color: '#135bec' }}
             >
               Contacto
             </h5>
-            <ul className="space-y-1 md:space-y-2 text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-300">
+            <ul className="space-y-1.5 text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-300">
               <li>
-                <a
-                  href="mailto:contacto@blackti.cl"
-                  className="hover:text-[#135bec] transition-colors"
-                >
+                <a href="mailto:contacto@blackti.cl" className="hover:text-[#135bec] transition-colors">
                   contacto@blackti.cl
                 </a>
               </li>
               <li>
-                <a
-                  href="tel:+56944030716"
-                  className="hover:text-[#135bec] transition-colors"
-                >
+                <a href="tel:+56944030716" className="hover:text-[#135bec] transition-colors">
                   +56 9 4403 0716
                 </a>
               </li>
@@ -147,9 +107,8 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
             </ul>
 
-            {/* Botones de contacto directo */}
-            <div className="flex flex-wrap items-center justify-start gap-5 mt-6">
-              <span className="text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-300">
+            <div className="flex flex-wrap items-center gap-4 mt-6">
+              <span className="text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-300 whitespace-nowrap">
                 o contáctanos directamente:
               </span>
 
@@ -182,7 +141,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             © {new Date().getFullYear()} BlackTI. Todos los derechos reservados.
           </p>
 
-          <div className="mt-4 md:mt-0 flex justify-center gap-4 md:gap-6">
+          <div className="mt-4 md:mt-0 flex justify-center gap-5 md:gap-6">
             <button
               onClick={() => onNavigate?.('privacy')}
               className="text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-500 hover:text-white transition-colors"
