@@ -7,6 +7,7 @@ import AboutPreview from './components/About';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
+
 // Carga diferida para componentes pesados
 const AIConsultant = React.lazy(() => import('./components/AIConsultant'));
 const TestimonialsSection = React.lazy(() => import('./components/TestimonialsSection'));
@@ -17,7 +18,9 @@ import ContactDetail from './components/ContactDetail';
 import Terms from './components/Terms';
 import Privacy from './components/Privacy';
 
-// Constante para IDs de secciones (mejora 4)
+
+
+// Constante para IDs de secciones 
 const SECTION_IDS = {
   home: 'inicio',
   services: 'servicios',
@@ -29,15 +32,21 @@ const App: React.FC = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState<'home' | 'terms' | 'privacy'>('home');
   const [activeSection, setActiveSection] = useState<'home' | 'services' | 'about' | 'contact'>('home');
+
+
   
-  // Ref para IntersectionObserver (mejora 5)
+  // Ref para IntersectionObserver
   const observerRef = useRef<IntersectionObserver | null>(null);
 
+
+  
   // Detección de sección activa con IntersectionObserver (mejora 5)
   useEffect(() => {
     // Solo en página home (mejora 2 - sin typeof window check)
     if (currentPage !== 'home') return;
 
+
+    
     // Crear IntersectionObserver
     observerRef.current = new IntersectionObserver(
       (entries) => {
@@ -64,6 +73,8 @@ const App: React.FC = () => {
       }
     );
 
+
+    
     // Observar todas las secciones
     const sections = [
       document.getElementById(SECTION_IDS.home),
@@ -86,7 +97,22 @@ const App: React.FC = () => {
     };
   }, [currentPage]);
 
-  // Navegación mejorada (mejora 3)
+
+  
+  // Navegación actual TODO (routing):
+
+// En el futuro, esta app usará rutas reales:
+// /                  → Home (scroll)
+// /servicios         → ServicesDetail
+// /quienes-somos     → AboutDetail
+// /contacto          → ContactDetail
+// /terminos          → Terms
+// /privacidad        → Privacy
+//
+// La navegación actual es por estado + scroll.
+// Cuando se agregue react-router, este archivo será simplificado
+// y la lógica de navegación se moverá a un router central.
+
   const navigateTo = useCallback((page: 'home' | 'services' | 'about' | 'contact' | 'terms' | 'privacy') => {
     switch (page) {
       case 'terms':
@@ -134,6 +160,9 @@ const App: React.FC = () => {
         />
       </header>
 
+
+
+      
       {/* Contenido principal con secciones semánticas */}
       <main role="main" className="flex-grow">
         {currentPage === 'home' && (
@@ -149,6 +178,9 @@ const App: React.FC = () => {
               <ServicesDetail onContactClick={scrollToContact} />
             </section>
 
+
+
+            
             {/* Testimonios con carga diferida y fallback accesible */}
             <Suspense fallback={
               <div role="status" aria-live="polite" className="flex items-center justify-center p-8">
@@ -177,6 +209,9 @@ const App: React.FC = () => {
         {currentPage === 'privacy' && <Privacy onNavigate={navigateTo} />}
       </main>
 
+
+
+      
       {/* Pie de página semántico */}
       <footer role="contentinfo">
         <Footer onNavigate={navigateTo} />
@@ -194,6 +229,9 @@ const App: React.FC = () => {
         <span className="material-symbols-outlined !text-3xl" aria-hidden="true">smart_toy</span>
       </button>
 
+
+
+      
       {/* Chat con carga diferida y fallback accesible */}
       <Suspense fallback={
         <div role="status" aria-live="polite" className="flex items-center justify-center p-8">
