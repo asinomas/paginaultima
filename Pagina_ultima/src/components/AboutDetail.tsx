@@ -240,18 +240,6 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
                             {member.bio}
                           </p>
                         </div>
-
-                        {/* LinkedIn abajo a la derecha */}
-                        <div className="flex justify-end">
-                          <a 
-                            href={member.linkedin} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="inline-flex size-9 rounded-xl bg-slate-800/10 items-center justify-center cursor-pointer hover:bg-slate-800/20 transition-all text-slate-900 shadow-lg"
-                          >
-                            <Linkedin size={16} />
-                          </a>
-                        </div>
                       </div>
 
                       {/* NUEVO: Botón hamburguesa */}
