@@ -18,12 +18,11 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
       }}
     >
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
         {/* Grid principal */}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-12 items-start">
 
-          {/* Columna Logo */}
-          <div className="col-span-1 md:col-span-6 lg:col-span-5 flex flex-col items-start">
+          {/* Columna izquierda - Logo + descripción + LinkedIn */}
+          <div className="col-span-1 md:col-span-5 lg:col-span-4 flex flex-col items-start">
             <button
               onClick={() => onNavigate?.('home')}
               className="mb-4 md:mb-6 flex items-center transition-transform hover:scale-105"
@@ -52,8 +51,11 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </a>
           </div>
 
+          {/* Espaciador invisible para simetría (solo visible en lg+) */}
+          <div className="hidden lg:block lg:col-span-1" />
+
           {/* Columna Capacidades */}
-          <div className="md:col-span-2 lg:col-span-2 lg:ml-auto mt-6 md:mt-0">
+          <div className="md:col-span-2 lg:col-span-2 mt-6 md:mt-0">
             <h5
               className="mb-4 md:mb-6 text-[9px] sm:text-[10px] md:text-[11px] font-light uppercase tracking-widest"
               style={{ color: '#135bec' }}
@@ -111,7 +113,10 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </ul>
           </div>
 
-          {/* Columna Contacto */}
+          {/* Espaciador invisible para simetría derecha */}
+          <div className="hidden lg:block lg:col-span-1" />
+
+          {/* Columna Contacto - alineada hacia la derecha */}
           <div className="md:col-span-3 lg:col-span-3 mt-6 md:mt-0">
             <h5
               className="mb-4 md:mb-6 text-[9px] sm:text-[10px] md:text-[11px] font-light uppercase tracking-widest"
@@ -142,8 +147,8 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
             </ul>
 
-            {/* Botones de contacto directo - ahora con íconos lucide y estilo más neutro */}
-            <div className="flex flex-wrap items-center justify-start gap-4 mt-6">
+            {/* Botones de contacto directo */}
+            <div className="flex flex-wrap items-center justify-start gap-5 mt-6">
               <span className="text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-300">
                 o contáctanos directamente:
               </span>
@@ -192,7 +197,6 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </button>
           </div>
         </div>
-
       </div>
     </footer>
   );
