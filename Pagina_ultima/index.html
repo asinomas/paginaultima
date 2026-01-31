@@ -53,15 +53,38 @@
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
-    {
-      
+   {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": "https://www.blackti.cl/#organization",
+  "name": "BlackTI",
+  "legalName": "BlackTI Consultoría TI",
+  "url": "https://www.blackti.cl",
+  "logo": "https://www.blackti.cl/wp-content/uploads/2021/10/logo-black-ti.png",
+  "foundingDate": "2020-12-28",
+  "description": "Consultoría TI especializada en desarrollo, ciberseguridad, staff augmentation, outsourcing, cloud y transformación digital",
+  "sameAs": [
+    "https://www.linkedin.com/company/blackti",
+    "https://g.page/r/TU_ID_DE_GOOGLE_BUSINESS"      /* Aqui va la url generada en Google Busniss Profle */
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+56944030716",
+    "contactType": "sales",
+    "email": "contacto@blackti.cl",
+    "availableLanguage": ["es", "en"]
+  }
+}
+</script>
+
+   <script type="application/ld+json">   
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
   "name": "BlackTI",
   "legalName": "BlackTI Consultoría TI",
   "url": "https://paginaultima.pages.dev",
   "logo": "https://www.blackti.cl/wp-content/uploads/2021/10/logo-black-ti.png",
-  "foundingDate": "2020",
+  "foundingDate": "2020-12-28",
   "description": "Consultoría TI especializada en desarrollo, ciberseguridad, staff augmentation, outsourcing, cloud y transformación digital",
   "address": {
     "@type": "PostalAddress",
@@ -70,6 +93,11 @@
     "addressRegion": "Región Metropolitana",
     "postalCode": "7550000",
     "addressCountry": "CL"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -33.4153,
+    "longitude": -70.6074
   },
   "contactPoint": [
     {
@@ -82,7 +110,7 @@
     {
       "@type": "ContactPoint",
       "telephone": "+56944030716",
-      "contactType": "Business consulting",
+      "contactType": "technical support",
       "email": "contacto@blackti.cl",
       "availableLanguage": ["Spanish", "English"]
     }
@@ -91,27 +119,39 @@
     "https://linkedin.com/company/blackti",
     "https://www.blackti.cl"
   ],
-  "areaServed": {
-    "@type": "GeoCircle",
-    "geoMidpoint": {
-      "@type": "GeoCoordinates",
-      "latitude": "-33.4153",
-      "longitude": "-70.6074"
-    }
-  },
-  "serviceType": [
-    "Consultoría TI",
-    "Desarrollo de Software",
-    "Ciberseguridad",
-    "Cloud Computing",
-    "DevOps",
-    "Staffing TI"
+  "areaServed": [
+    {
+      "@type": "AdministrativeArea",
+      "name": "Región Metropolitana de Santiago"
+    },
+    {
+      "@type": "Country",
+      "name": "Chile"
+      }
+    },
+    {"@type": "Country", "name": "Argentina" },
+    { "@type": "Country", "name": "Perú" },
+    { "@type": "Country", "name": "Colombia" },
+    { "@type": "Country", "name": "United States" },
+    { "@type": "Country", "name": "Spain" }
+  ],
+   "makesOffer": {
+    "@type": "OfferCatalog",
+    "name": "Servicios TI",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Consultoría TI" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Desarrollo de Software" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ciberseguridad" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Computing" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "DevOps" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Staff Augmentation" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Outsourcing" } },  
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Staffing TI" } }
   ]
 }
     </script>
 
 
-    
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -147,6 +187,11 @@
       }
     }
     </script>
+
+
+
+
+
 
     
    
