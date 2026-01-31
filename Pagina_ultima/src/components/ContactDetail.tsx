@@ -1,105 +1,109 @@
-import React from "react";
+import React from 'react';
+import {
+  Mail,
+  Phone,
+  MapPin,
+  ShieldCheck,
+  Clock,
+  UserCheck,
+} from 'lucide-react';
 
 const ContactDetail: React.FC = () => {
   return (
-    <section className="relative w-full bg-slate-900 text-slate-100 py-20 px-6">
-      <div className="mx-auto max-w-5xl">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Contáctanos
-          </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">
-            Cuéntanos tu idea o proyecto y te responderemos lo antes posible.
-          </p>
-        </div>
+    <section className="bg-white py-20">
+      <div className="max-w-5xl mx-auto px-6">
 
-        {/* Contact content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Info */}
-          <div className="space-y-6">
+        {/* Título */}
+        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          Conversemos sobre tu proyecto
+        </h2>
+        <p className="text-slate-600 max-w-2xl mb-12">
+          Cuéntanos tu necesidad y uno de nuestros consultores se pondrá en contacto contigo.
+        </p>
+
+        <div className="grid md:grid-cols-2 gap-12">
+
+          {/* Formulario */}
+          <form className="space-y-6">
             <div>
-              <h3 className="text-xl font-semibold mb-2">
-                Información de contacto
-              </h3>
-              <p className="text-slate-400">
-                Estamos disponibles para resolver tus dudas y ayudarte a dar
-                el siguiente paso.
-              </p>
-            </div>
-
-            <div className="space-y-4 text-slate-300">
-              <p>
-                <strong>Email:</strong>{" "}
-                <a
-                  href="mailto:contacto@tudominio.cl"
-                  className="text-blue-400 hover:underline"
-                >
-                  contacto@tudominio.cl
-                </a>
-              </p>
-
-              <p>
-                <strong>Horario:</strong> Lun a Vie, 9:00 – 18:00
-              </p>
-
-              <p>
-                <strong>Ubicación:</strong> Chile
-              </p>
-            </div>
-          </div>
-
-          {/* Form */}
-          <form className="bg-slate-800 rounded-2xl p-6 space-y-4 shadow-lg">
-            <div>
-              <label className="block text-sm mb-1">Nombre</label>
+              <label className="block text-sm font-medium text-slate-700 mb-1">
+                Nombre
+              </label>
               <input
                 type="text"
-                className="w-full rounded-lg bg-slate-900 border border-slate-700 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Tu nombre"
+                className="w-full rounded-lg border border-slate-300 px-4 py-3
+                  focus:outline-none focus:ring-2 focus:ring-[#135bec]"
               />
             </div>
 
             <div>
-              <label className="block text-sm mb-1">Email</label>
+              <label className="block text-sm font-medium text-slate-700 mb-1">
+                Email
+              </label>
               <input
                 type="email"
-                className="w-full rounded-lg bg-slate-900 border border-slate-700 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="tu@email.com"
+                className="w-full rounded-lg border border-slate-300 px-4 py-3
+                  focus:outline-none focus:ring-2 focus:ring-[#135bec]"
               />
             </div>
 
             <div>
-              <label className="block text-sm mb-1">Mensaje</label>
+              <label className="block text-sm font-medium text-slate-700 mb-1">
+                Mensaje
+              </label>
               <textarea
                 rows={4}
-                className="w-full rounded-lg bg-slate-900 border border-slate-700 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Cuéntanos brevemente en qué podemos ayudarte"
+                className="w-full rounded-lg border border-slate-300 px-4 py-3
+                  focus:outline-none focus:ring-2 focus:ring-[#135bec]"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full rounded-lg bg-blue-600 hover:bg-blue-500 transition-colors py-2 font-semibold"
+              className="bg-[#135bec] text-white px-6 py-3 rounded-lg font-semibold
+                hover:bg-[#0f4fd8] transition"
             >
               Enviar mensaje
             </button>
           </form>
-        </div>
 
-        {/* Trust badges — AQUÍ ESTÁ BIEN COLOCADO */}
-        <div className="mt-12">
-          <div className="flex flex-wrap items-center justify-center gap-6 text-slate-400 text-xs">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-green-500" />
-              <span>Respuesta en menos de 24h</span>
+          {/* Información de contacto */}
+          <div className="space-y-6">
+            <div className="flex items-start gap-3 text-slate-700">
+              <Mail className="mt-1 text-[#135bec]" size={20} />
+              <span>contacto@blackti.cl</span>
             </div>
 
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-blue-500" />
-              <span>Atención personalizada</span>
+            <div className="flex items-start gap-3 text-slate-700">
+              <Phone className="mt-1 text-[#135bec]" size={20} />
+              <span>+56 9 4403 0716</span>
             </div>
 
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-purple-500" />
-              <span>Confidencialidad garantizada</span>
+            <div className="flex items-start gap-3 text-slate-700">
+              <MapPin className="mt-1 text-[#135bec]" size={20} />
+              <span>
+                Av. Apoquindo 6410, Of 605<br />
+                Las Condes, Santiago
+              </span>
+            </div>
+
+            {/* Trust badges (único cambio mantenido) */}
+            <div className="mt-8 space-y-3 text-sm text-slate-600">
+              <div className="flex items-center gap-2">
+                <Clock size={16} className="text-[#135bec]" />
+                Respuesta en menos de 24h
+              </div>
+              <div className="flex items-center gap-2">
+                <UserCheck size={16} className="text-[#135bec]" />
+                Atención personalizada
+              </div>
+              <div className="flex items-center gap-2">
+                <ShieldCheck size={16} className="text-[#135bec]" />
+                Confidencialidad garantizada
+              </div>
             </div>
           </div>
         </div>
