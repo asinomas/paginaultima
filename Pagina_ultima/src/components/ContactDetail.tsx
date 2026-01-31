@@ -171,11 +171,9 @@ const ContactDetail: React.FC = () => {
                       <Send size={18} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
                     </>
                   )}
-                </button>
-                </form>
 
-                
-               {/* TRUST BADGES */}
+
+                     {/* TRUST BADGES */}
             <div className="mt-12 space-y-3 text-sm text-slate-500">
               <div className="flex items-center gap-3">
                 <Clock size={16} className="text-[#135bec]" />
@@ -191,6 +189,11 @@ const ContactDetail: React.FC = () => {
               </div>
             </div>
           </div>
+
+                  
+                </button>
+                </form>
+
                 
               
             </div>
