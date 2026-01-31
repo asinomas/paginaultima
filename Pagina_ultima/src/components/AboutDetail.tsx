@@ -246,7 +246,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
 
                         {/* Descripción centrada */}
                         <div className="flex-1 flex items-center justify-center px-2">
-                          <p className="text-slate-700 text-sm leading-relaxed text-center">
+                          <p className="text-slate-700 text-sm leading-relaxed text-justify">
                             {member.bio}
                           </p>
                         </div>
