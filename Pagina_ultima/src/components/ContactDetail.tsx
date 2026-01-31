@@ -171,6 +171,7 @@ const ContactDetail: React.FC = () => {
                       <Send size={18} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
                     </>
                   )}
+                  </button>
 
 
                      {/* TRUST BADGES */}
@@ -189,9 +190,6 @@ const ContactDetail: React.FC = () => {
               </div>
             </div>
           </div>
-
-                  
-                </button>
                 </form>
 
                 
