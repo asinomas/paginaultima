@@ -25,20 +25,8 @@ const SECTION_IDS = {
   contact: 'contacto',
 } as const;
 
-// Función de estrangulamiento para optimizar la detección de desplazamiento
-const throttle = (func: Function, limit: number) => {
-  let inThrottle: boolean;
-  return function (this: any, ...args: any[]) {
-    if (!inThrottle) {
-      func.apply(this, args);
-      inThrottle = true;
-      setTimeout(() => inThrottle = false, limit);
-    }
-  };
-};
-
 // Componente de carga accesible (mejora 7)
-const LoadingFallback: React.FC<{ message: string }> = ({ message }) => (
+const LoadingFallback = ({ message }: { message: string }) => (
   <div role="status" aria-live="polite" className="flex items-center justify-center p-8">
     <span className="text-gray-600">{message}</span>
   </div>
@@ -48,9 +36,6 @@ const App: React.FC = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState<'home' | 'terms' | 'privacy'>('home');
   const [activeSection, setActiveSection] = useState<'home' | 'services' | 'about' | 'contact'>('home');
-  
-  // Ref para evitar recreación del throttle (mejora 1)
-  const throttledScrollRef = useRef<((e: Event) => void) | null>(null);
   
   // Ref para IntersectionObserver (mejora 5)
   const observerRef = useRef<IntersectionObserver | null>(null);
