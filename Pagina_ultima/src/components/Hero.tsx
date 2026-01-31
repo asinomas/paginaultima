@@ -31,6 +31,21 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
     setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
   }, []);
 
+  // Mejora 9: Preload de imagen hero para mejorar LCP
+  useEffect(() => {
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.href = './images/foto-hero.jpg';
+    document.head.appendChild(link);
+    
+    return () => {
+      if (document.head.contains(link)) {
+        document.head.removeChild(link);
+      }
+    };
+  }, []);
+
   // Mejora 6: debounce en resize
   useEffect(() => {
     checkMobile();
