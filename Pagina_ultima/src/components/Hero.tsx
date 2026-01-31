@@ -122,7 +122,11 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
   const containerVariants: Variants = {
     hidden: {},
-    show: { transition: { staggerChildren: 0.2 } },
+    show: { 
+      transition: { 
+        staggerChildren: shouldReduceMotion ? 0 : 0.2 
+      } 
+    },
   };
 
   const itemVariants: Variants = {
@@ -130,7 +134,9 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 1, ease: 'easeOut' },
+      transition: shouldReduceMotion 
+        ? { duration: 0 } 
+        : { duration: 1, ease: 'easeOut' },
     },
   };
 
@@ -148,10 +154,126 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       }
     >
       <HeroLights />
-      {/* resto del JSX sin cambios */}
+      
+      <div className="container mx-auto max-w-7xl px-6 lg:px-8 flex-1 flex items-center relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
+          
+          {/* Texto del Hero */}
+          <motion.div
+            initial={heroTextInitial}
+            animate={{
+              opacity: 1,
+              x: heroTextX,
+              y: 0,
+            }}
+            transition={
+              shouldReduceMotion
+                ? { duration: 0 }
+                : {
+                    opacity: { duration: 1 },
+                    x: { duration: 1.5, delay: HERO_ANIMATION_DELAY / 1000, ease: 'easeInOut' },
+                    y: { duration: 1, ease: 'easeOut' },
+                  }
+            }
+            className="space-y-6 text-center lg:text-left"
+          >
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="show"
+              className="space-y-4"
+            >
+              <motion.h1
+                id="hero-heading"
+                variants={itemVariants}
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.1]"
+              >
+                Transformamos{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 italic">
+                  desafíos
+                </span>
+                <br />
+                en soluciones digitales
+              </motion.h1>
+
+              <motion.p
+                variants={itemVariants}
+                className="text-lg sm:text-xl md:text-2xl text-slate-300 font-light max-w-2xl mx-auto lg:mx-0"
+              >
+                Somos tu socio estratégico en tecnología, comprometidos con la{' '}
+                <span className="font-semibold text-blue-400">excelencia</span> y la{' '}
+                <span className="font-semibold text-blue-400">innovación</span>
+              </motion.p>
+
+              <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                <button
+                  onClick={() => onNavigate('services')}
+                  className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold rounded-2xl shadow-2xl shadow-blue-500/20 hover:shadow-blue-500/40 hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
+                  aria-label="Explorar servicios de BlackTI"
+                >
+                  <span className="relative z-10">Explorar Servicios</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </button>
+
+                <button
+                  onClick={() => onNavigate('contact')}
+                  className="px-8 py-4 bg-slate-800/50 backdrop-blur-sm text-white font-bold rounded-2xl border border-slate-700 hover:bg-slate-700/50 hover:border-slate-600 hover:scale-105 active:scale-95 transition-all duration-300"
+                  aria-label="Contactar con BlackTI"
+                >
+                  Hablemos
+                </button>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+
+          {/* Imagen del Hero */}
+          <motion.div
+            initial={heroImageInitial}
+            animate={{
+              opacity: heroImageOpacity,
+              x: heroImageX,
+            }}
+            transition={
+              shouldReduceMotion
+                ? { duration: 0 }
+                : {
+                    opacity: { duration: 1.2, delay: 0.3 },
+                    x: { duration: 1.5, delay: HERO_ANIMATION_DELAY / 1000, ease: 'easeInOut' },
+                  }
+            }
+            className="relative hidden lg:flex justify-center items-center"
+          >
+            <div className="relative w-full max-w-lg">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl" />
+              <img
+                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80"
+                alt="Tecnología digital y transformación"
+                loading="eager"
+                className="relative rounded-3xl shadow-2xl w-full h-auto"
+              />
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Logos de clientes */}
+      <div className="relative z-10 py-12 border-t border-slate-800/50 bg-slate-900/20 backdrop-blur-sm">
+        <div className="container mx-auto max-w-7xl px-6 lg:px-8">
+          <p className="text-center text-slate-400 text-sm font-semibold uppercase tracking-wider mb-8">
+            Clientes que confían en nosotros
+          </p>
+
+          <div className="relative overflow-hidden">
+            <div className={`flex ${logoAnimationClass}`}>
+              {logosToRender.map((logo, index) => (
+                <Logo key={`${logo.name}-${index}`} logo={logo} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
 
 export default Hero;
-
