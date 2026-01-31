@@ -85,9 +85,12 @@ const ContactDetail: React.FC = () => {
             </div>
           </div>
 
+
+
+          
           {/* COLUMNA DERECHA - FORMULARIO CON TRUST BADGES */}
           <div className="relative group">
-            <div className="bg-slate-50 p-8 lg:p-12 rounded-[3rem] border border-slate-100 relative overflow-hidden min-h-[580px] flex flex-col justify-center shadow-sm">
+            <div className="bg-slate-50 p-8 lg:p-12 rounded-[3rem] border border-slate-100 relative overflow-hidden min-h-[520px] flex flex-col justify-center shadow-sm">
 
               {isSubmitting && (
                 <div className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
@@ -177,7 +180,7 @@ const ContactDetail: React.FC = () => {
 
               
               {/* TRUST BADGES - ABAJO DEL BOTÓN ENVIAR, DENTRO DEL RECUADRO */}
-              <div className="mt-20 space-y-3 text-sm text-slate-500">
+              <div className="mt-12 space-y-3 text-sm text-slate-500">
                 <div className="flex items-center gap-3">
                   <Clock size={16} className="text-[#135bec]" />
                   Respuesta en menos de 24h
