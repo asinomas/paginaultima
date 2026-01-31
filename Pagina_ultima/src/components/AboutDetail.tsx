@@ -19,7 +19,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
     OFFICE_LOCATIONS.find(o => o.type === 'Headquarters') || OFFICE_LOCATIONS[0]
   );
 
-  // NUEVO: Estado para controlar qué tarjeta está expandida
+  // Estado para controlar qué tarjeta está expandida
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
 
   const team = [
@@ -67,7 +67,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
     }
   ];
 
-  // NUEVO: Función para expandir/contraer tarjetas
+  // Función para expandir/contraer tarjetas
   const toggleCard = (index: number) => {
     setExpandedCard(expandedCard === index ? null : index);
   };
@@ -79,6 +79,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
       <section className="relative bg-[#F8FAFC] pt-48 pb-18 after:absolute after:bottom-0 after:left-0 after:w-full after:h-48 after:bg-gradient-to-b after:from-[#F8FAFC]/20 after:via-[#F8FAFC]/60 after:to-white after:pointer-events-none">
         <div className="container mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row gap-16 items-start">
+
             
             {/* TEXTO A LA IZQUIERDA */}
             <div className="lg:w-1/2">
@@ -87,7 +88,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
                 El Gen BlackTI <span className="text-[#135bec] italic">Excelencia</span>
               </h1>
               <p className="text-lg md:text[17px] font-normal text-slate-500 tracking-tighter mb-6 leading-relaxed">
-                Somos una Start Up que trasciende la simple implementación técnica. Nos sumergimos en la cultura de nuestros clientes para convertir obstáculos en motores de crecimiento sin perder la continuidad operativa.
+                Somos una Startup que trasciende la simple implementación técnica. Nos sumergimos en la cultura de nuestros clientes para convertir obstáculos en motores de crecimiento sin perder la continuidad operativa.
               </p>
               <div className="space-y-6 mb-12">
                 <p className="text-lg leading-relaxed text-slate-500 tracking-tighter font-normal md:text[17px] mb-6">
@@ -104,6 +105,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
               </div>
             </div>
 
+            
             {/* IMAGEN VOLTEADA HORIZONTALMENTE A LA DERECHA */}
             <div className="lg:w-1/2 flex justify-center relative scale-[0.9] -translate-y-6">
               <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl group">
@@ -160,12 +162,16 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
             </p>
           </div>
 
+
+          
           {/* Grid de fotos a la derecha */}
           <div className="lg:w-[65%]">
             <ScrollAnimation>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {team.map((member, i) => (
                   <div key={i} className="group">
+
+
 
                     
                     {/* Contenedor de las tarjetas */ }
@@ -190,6 +196,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                       </div>
 
+
                       
                       {/* Nombre, rol y LinkedIn - estado normal */}
                       <div className={`absolute bottom-6 left-6 right-6 text-right transition-all duration-700 ${
@@ -211,7 +218,10 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
                         </div>
                       </div>
 
-                      {/* NUEVO: Contenido expandido */}
+
+
+                      
+                      {/* Contenido expandido */}
                       <div className={`absolute inset-0 flex flex-col p-6 transition-all duration-700 ${
                         expandedCard === i ? 'opacity-100' : 'opacity-0 pointer-events-none'
                       }`}>
@@ -230,7 +240,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
                           </div>
                           <div className="flex-1">
                             <h4 className="text-slate-900 text-lg font-bold leading-tight">{member.name}</h4>
-                            <p className="text-slate-600 text-xs font-semibold uppercase tracking-wider mt-1">{member.role}</p>
+                            <p className="text-slate-600 text-xs font-semibold uppercase tracking-tight mt-1">{member.role}</p>
                           </div>
                         </div>
 
@@ -242,7 +252,10 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
                         </div>
                       </div>
 
-                      {/* NUEVO: Botón hamburguesa */}
+
+
+                      
+                      {/* Botón hamburguesa */}
                       <button 
                         onClick={() => toggleCard(i)}
                         className="absolute top-4 right-4 z-20 size-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all duration-300 group/btn"
@@ -263,6 +276,8 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
       </section>
 
 
+
+      
       
       {/* SECCIÓN MAPA GLOBAL */}
       <ScrollAnimation>
