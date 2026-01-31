@@ -25,13 +25,6 @@ const SECTION_IDS = {
   contact: 'contacto',
 } as const;
 
-// Componente de carga accesible (mejora 7)
-const LoadingFallback = ({ message }: { message: string }) => (
-  <div role="status" aria-live="polite" className="flex items-center justify-center p-8">
-    <span className="text-gray-600">{message}</span>
-  </div>
-);
-
 const App: React.FC = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState<'home' | 'terms' | 'privacy'>('home');
@@ -157,7 +150,11 @@ const App: React.FC = () => {
             </section>
 
             {/* Testimonios con carga diferida y fallback accesible */}
-            <Suspense fallback={<LoadingFallback message="Cargando testimonios..." />}>
+            <Suspense fallback={
+              <div role="status" aria-live="polite" className="flex items-center justify-center p-8">
+                <span className="text-gray-600">Cargando testimonios...</span>
+              </div>
+            }>
               <section id="testimonials" aria-labelledby="testimonials-heading">
                 <TestimonialsSection />
               </section>
@@ -198,7 +195,11 @@ const App: React.FC = () => {
       </button>
 
       {/* Chat con carga diferida y fallback accesible */}
-      <Suspense fallback={<LoadingFallback message="Cargando chat..." />}>
+      <Suspense fallback={
+        <div role="status" aria-live="polite" className="flex items-center justify-center p-8">
+          <span className="text-gray-600">Cargando chat...</span>
+        </div>
+      }>
         <AIConsultant isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
       </Suspense>
     </div>
