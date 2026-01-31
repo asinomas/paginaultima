@@ -38,6 +38,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               target="_blank" 
               rel="noopener noreferrer"
               className="text-slate-400 hover:text-white transition-colors"
+              aria-label="Visitar Linkedin de BlackTI"
             >
               <Linkedin size={20} />
             </a>
@@ -75,6 +76,38 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           </div>
         </div>
 
+
+        
+
+        {/* Columna 4: Contacto */}
+      <div>
+        <h3 className="text-white text-lg font-bold mb-4">Contacto</h3>
+        <address className="not-italic text-sm space-y-2">
+          <p className="text-slate-400">
+            <strong className="text-white">Email:</strong><br />
+            <a href="mailto:contacto@blackti.cl" className="hover:text-[#135bec] transition-colors">
+              contacto@blackti.cl
+            </a>
+          </p>
+          <p className="text-slate-400">
+            <strong className="text-white">Teléfono:</strong><br />
+            <a href="tel:+56944030716" className="hover:text-[#135bec] transition-colors">
+              +56 9 4403 0716
+            </a>
+          </p>
+          <p className="text-slate-400">
+            <strong className="text-white">Dirección:</strong><br />
+            Av. Apoquindo 6410, Of 605<br />
+            Las Condes, Santiago
+          </p>
+        </address>
+      </div>
+    </div>
+
+
+        
+
+        
         {/* Barra inferior */}
         <div className="mt-12 md:mt-16 border-t border-white/10 pt-6 md:pt-8 text-center md:flex md:justify-between md:text-left">
           <p className="text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-500">
