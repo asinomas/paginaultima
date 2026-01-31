@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import HeroLights from './HeroLights';
 
@@ -7,11 +7,11 @@ interface HeroProps {
 }
 
 // Constantes
-const HERO_ANIMATION_DELAY = 1500; // ms - tiempo antes de mover el layout
-const MOBILE_BREAKPOINT = 1024; // px - breakpoint para desktop/mobile
-const RESIZE_DEBOUNCE_DELAY = 150; // ms - debounce para resize
+const HERO_ANIMATION_DELAY = 1500;
+const MOBILE_BREAKPOINT = 1024;
+const RESIZE_DEBOUNCE_DELAY = 150;
 
-// Logos base (mejora 2: sin duplicación manual)
+// Logos base
 const BASE_LOGOS = [
   { name: 'Grupo Sura', src: './logos/grupo-sura.png' },
   { name: 'Casa&Ideas', src: './logos/casa-ideas.png' },
@@ -26,27 +26,20 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   const [isMobile, setIsMobile] = useState(false);
   const shouldReduceMotion = useReducedMotion();
 
-  // Mejora 1: sin typeof window check
+  // DEBUG: Ver el estado
+  useEffect(() => {
+    console.log('🎯 Hero Debug:', {
+      moveLayout,
+      isMobile,
+      shouldReduceMotion,
+      windowWidth: window.innerWidth
+    });
+  }, [moveLayout, isMobile, shouldReduceMotion]);
+
   const checkMobile = useCallback(() => {
     setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
   }, []);
 
-  // Mejora 9: Preload de imagen hero para mejorar LCP
-  useEffect(() => {
-    const link = document.createElement('link');
-    link.rel = 'preload';
-    link.as = 'image';
-    link.href = './images/foto-hero.jpg';
-    document.head.appendChild(link);
-    
-    return () => {
-      if (document.head.contains(link)) {
-        document.head.removeChild(link);
-      }
-    };
-  }, []);
-
-  // Mejora 6: debounce en resize
   useEffect(() => {
     checkMobile();
     
@@ -58,8 +51,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
     
     window.addEventListener('resize', handleResize);
 
-    // Mejora 5: constante para delay
     const timer = setTimeout(() => {
+      console.log('⏰ Activando moveLayout');
       setMoveLayout(true);
     }, HERO_ANIMATION_DELAY);
 
@@ -70,18 +63,14 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
     };
   }, [checkMobile]);
 
-  // Mejora 10: memoizar configuración de animación
-  const textAnimation = useMemo(
-    () =>
-      shouldReduceMotion
-        ? { opacity: 1, x: 0, y: 0 }
-        : {
-            opacity: 1,
-            y: 0,
-            x: moveLayout && !isMobile ? -210 : 0,
-          },
-    [shouldReduceMotion, moveLayout, isMobile]
-  );
+  // Animación simplificada para debugging
+  const textAnimation = shouldReduceMotion
+    ? { opacity: 1, x: 0, y: 0 }
+    : {
+        opacity: 1,
+        y: 0,
+        x: moveLayout && !isMobile ? -210 : 0,
+      };
 
   return (
     <section
@@ -215,10 +204,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           </p>
         </div>
 
-        {/* Mejora 7: aria-label más descriptivo */}
         <div className="relative flex overflow-hidden" role="region" aria-label="Empresas que han confiado en BlackTI">
           <div className="flex animate-infinite-scroll">
-            {/* Mejora 2 y 3: duplicación programática y keys únicas */}
             {[...BASE_LOGOS, ...BASE_LOGOS].map((logo, idx) => (
               <div 
                 key={`logo-${logo.name}-${idx}`} 
