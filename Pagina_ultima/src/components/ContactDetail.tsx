@@ -172,6 +172,7 @@ const ContactDetail: React.FC = () => {
                     </>
                   )}
                 </button>
+                </form>
 
                 
                {/* TRUST BADGES */}
@@ -191,9 +192,7 @@ const ContactDetail: React.FC = () => {
             </div>
           </div>
                 
-              </form>
-
-            
+              
             </div>
           </div>
 
