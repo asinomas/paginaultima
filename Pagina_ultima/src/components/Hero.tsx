@@ -51,9 +51,10 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
     };
   }, [checkMobile]);
 
-  const heroAnimation = shouldReduceMotion
-    ? { opacity: 1, x: 0, y: 0 }
-    : { opacity: 1, x: moveLayout && !isMobile ? -210 : 0, y: 0 };
+  // Posición final siempre correcta si se reduce movimiento
+  const heroTextX = shouldReduceMotion || isMobile ? -210 : moveLayout ? -210 : 0;
+  const heroImageX = shouldReduceMotion || isMobile ? -50 : moveLayout ? -50 : 400;
+  const heroImageOpacity = shouldReduceMotion || moveLayout || isMobile ? 1 : 0;
 
   return (
     <section
@@ -69,7 +70,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             {/* TEXTO HERO */}
             <motion.div
               initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
-              animate={heroAnimation}
+              animate={{ opacity: 1, x: heroTextX, y: 0 }}
               transition={
                 shouldReduceMotion
                   ? {}
@@ -153,10 +154,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             {/* IMAGEN HERO */}
             <motion.div
               initial={shouldReduceMotion ? {} : { opacity: 0, x: 400 }}
-              animate={{
-                opacity: shouldReduceMotion ? 1 : moveLayout && !isMobile ? 1 : 0,
-                x: shouldReduceMotion ? 0 : moveLayout && !isMobile ? -50 : 400,
-              }}
+              animate={{ opacity: heroImageOpacity, x: heroImageX }}
               transition={{ duration: 2, ease: 'easeInOut' }}
               className="hidden lg:block absolute right-0 -top-8 w-[340px] h-[440px] overflow-hidden rounded-[20%_3%_20%_3%]"
             >
