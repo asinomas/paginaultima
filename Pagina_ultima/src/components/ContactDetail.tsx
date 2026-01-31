@@ -189,6 +189,7 @@ const ContactDetail: React.FC = () => {
                 Confidencialidad garantizada
               </div>
           </div>
+                </div>
                 </form>
 
                 
