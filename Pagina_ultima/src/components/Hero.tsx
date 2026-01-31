@@ -10,8 +10,8 @@ const HERO_ANIMATION_DELAY = 1500;
 const MOBILE_BREAKPOINT = 1024;
 
 // Throttle del resize:
-// ✅ Testear en móviles reales para confirmar que no introduce lag.
-// 👉 Si se percibe retraso en dispositivos de gama baja, reducir a 100ms.
+// Testear en móviles reales para confirmar que no introduce lag.
+// Si se percibe retraso en dispositivos de gama baja, reducir a 100ms.
 const RESIZE_THROTTLE_DELAY = 200;
 
 const BASE_LOGOS = [
@@ -58,7 +58,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   // useRef en lugar de state para el ancho:
-  // 👉 evita re-renders en cada resize y solo se usa para comparar cambios
+  // evita re-renders en cada resize y solo se usa para comparar cambios
   const lastWidthRef = useRef<number>(1024);
 
   const checkMobile = useCallback(() => {
