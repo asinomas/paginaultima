@@ -35,7 +35,7 @@ const ContactDetail: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
           {/* COLUMNA IZQUIERDA - TEXTO (DESDE "HABLEMOS HOY" HASTA "REGIÓN METROPOLITANA, CHILE") */}
-          <div className="lg:sticky lg:top-32">
+          <div className="lg:sticky lg:top-32 min-h-[500px]">
             <h4 className="text-[#135bec] font-bold uppercase tracking-[0.2em] text-[11px] mb-4">
               Hablemos hoy
             </h4>
@@ -85,12 +85,9 @@ const ContactDetail: React.FC = () => {
             </div>
           </div>
 
-
-
-          
           {/* COLUMNA DERECHA - FORMULARIO CON TRUST BADGES */}
           <div className="relative group">
-            <div className="bg-slate-50 p-8 lg:p-12 rounded-[3rem] border border-slate-100 relative overflow-hidden min-h-[520px] flex flex-col justify-center shadow-sm">
+            <div className="bg-slate-50 p-8 lg:p-12 rounded-[3rem] border border-slate-100 relative overflow-hidden min-h-[500px] flex flex-col justify-center shadow-sm">
 
               {isSubmitting && (
                 <div className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
@@ -176,9 +173,6 @@ const ContactDetail: React.FC = () => {
                 </button>
               </form>
 
-
-
-              
               {/* TRUST BADGES - ABAJO DEL BOTÓN ENVIAR, DENTRO DEL RECUADRO */}
               <div className="mt-12 space-y-3 text-sm text-slate-500">
                 <div className="flex items-center gap-3">
@@ -197,8 +191,6 @@ const ContactDetail: React.FC = () => {
             </div>
           </div>
 
-
-          
         </div>
       </div>
 
