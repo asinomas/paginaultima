@@ -200,7 +200,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                   src={logo.src}
                   alt={logo.name}
                   loading="lazy"
-                  className="h-10 md:h-12 w-auto object-contain filter grayscale opacity-40 hover:grayscale-0 hover:opacity-100"
+                  className="h-10 md:h-12 w-auto object-contain filter grayscale opacity-80 hover:grayscale-0 hover:opacity-100"
                 />
               </div>
             ))}
