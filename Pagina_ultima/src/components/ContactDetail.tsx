@@ -39,7 +39,7 @@ const ContactDetail: React.FC = () => {
             
             <p className="text-slate-500 text-lg mb-12 max-w-md leading-relaxed font-medium">
               Estamos listos para transformar tus desafíos en grandes oportunidades. Déjanos un mensaje y nos contactaremos.
-              Nuestro equipo estará encantado de resolver tus dudas, ofrecerte información y ayudarte a tomar la mejor decisión.
+              Nuestro equipo resolverá tus dudas, te ofrecerá información y te ayudará a tomar la mejor decisión.
             </p>
 
             <div className="space-y-8">
