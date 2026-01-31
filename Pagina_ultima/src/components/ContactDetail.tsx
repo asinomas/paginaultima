@@ -124,10 +124,16 @@ const ContactDetail: React.FC = () => {
 
               <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">
+                  <label 
+                    htmlFor="contact-name"
+                    className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1"
+                  >
                     Nombre Completo
                   </label>
                   <input
+                    id="contact-name"
+                    name="name"
+                    autoComplete="name"
                     required
                     type="text"
                     placeholder="Tu nombre"
@@ -136,10 +142,16 @@ const ContactDetail: React.FC = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">
+                  <label 
+                    htmlFor="contact-email"
+                    className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1"
+                  >
                     Email Corporativo
                   </label>
                   <input
+                    id="contact-email"
+                    name="email"
+                    autoComplete="email"
                     required
                     type="email"
                     placeholder="ejemplo@empresa.com"
@@ -148,13 +160,19 @@ const ContactDetail: React.FC = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">
+                  <label 
+                    htmlFor="contact-message"
+                    className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1"
+                  >
                     Mensaje
                   </label>
                   <textarea
+                    id="contact-message"
+                    name="message"
+                    autoComplete="off"
                     required
                     rows={5}
-                    placeholder="Cuentanos sobre tu proyecto..."
+                    placeholder="Cuéntanos sobre tu proyecto..."
                     className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 focus:ring-2 focus:ring-[#135bec] focus:border-transparent outline-none transition-all placeholder:text-slate-300 resize-none"
                   />
                 </div>
