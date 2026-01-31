@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Linkedin, ArrowRight } from 'lucide-react';
+import { Linkedin, ArrowRight, Menu, X } from 'lucide-react';
 import WorldMap from './WorldMap';
 import OfficeDetails from './OfficeDetails';
 import { OFFICE_LOCATIONS } from '../constants';
@@ -18,6 +18,9 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
   const [selectedOffice, setSelectedOffice] = useState<OfficeLocation>(
     OFFICE_LOCATIONS.find(o => o.type === 'Headquarters') || OFFICE_LOCATIONS[0]
   );
+
+  // NUEVO: Estado para controlar qué tarjeta está expandida
+  const [expandedCard, setExpandedCard] = useState<number | null>(null);
 
   const team = [
     {
@@ -63,6 +66,11 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
       linkedin: 'https://linkedin.com/PRUEBA'
     }
   ];
+
+  // NUEVO: Función para expandir/contraer tarjetas
+  const toggleCard = (index: number) => {
+    setExpandedCard(expandedCard === index ? null : index);
+  };
 
   return (
     <div className="bg-white min-h-screen antialiased">
@@ -160,24 +168,33 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
                   <div key={i} className="group">
 
                     
-                    {/* Contenedor de las tarjetas */} 
-                    <div className="aspect-[3/4] w-full rounded-3xl overflow-hidden relative shadow-2xl">
-                      <img 
-                        alt={member.name} 
-                        className="grayscale w-full h-full object-cover transition-all duration-[1.5s] group-hover:scale-105 will-change-transform backface-visibility-hidden" 
-                        src={member.image} 
-                        loading="lazy"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=800';
-                        }}
-                      />
+                    {/* Contenedor de las tarjetas */ }
+                    <div className={`aspect-[3/4] w-full rounded-3xl overflow-hidden relative shadow-2xl transition-all duration-700 ${
+                      expandedCard === i ? 'bg-white' : ''
+                    }`}>
+                      
+                      {/* Imagen principal - visible en estado normal */}
+                      <div className={`absolute inset-0 transition-opacity duration-700 ${
+                        expandedCard === i ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                      }`}>
+                        <img 
+                          alt={member.name} 
+                          className="grayscale w-full h-full object-cover transition-all duration-[1.5s] group-hover:scale-105 will-change-transform backface-visibility-hidden" 
+                          src={member.image} 
+                          loading="lazy"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=800';
+                          }}
+                        />
+                        {/* Overlay gradient */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                      </div>
 
-                      {/* Overlay gradient */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                       
-                      
-                      {/* Nombre, rol y LinkedIn - todo alineado a la derecha */}
-                      <div className="absolute bottom-6 left-6 right-6 text-right">
+                      {/* Nombre, rol y LinkedIn - estado normal */}
+                      <div className={`absolute bottom-6 left-6 right-6 text-right transition-all duration-700 ${
+                        expandedCard === i ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                      }`}>
                         <h4 className="text-white text-xl font-bold mb-1">{member.name}</h4>
                         <p className="text-white/80 text-xs font-normal uppercase tracking-wider mb-3">{member.role}</p>
                         
@@ -193,6 +210,61 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
                           </a>
                         </div>
                       </div>
+
+                      {/* NUEVO: Contenido expandido */}
+                      <div className={`absolute inset-0 flex flex-col p-6 transition-all duration-700 ${
+                        expandedCard === i ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                      }`}>
+                        
+                        {/* Header: imagen circular + nombre + rol */}
+                        <div className="flex items-start gap-4 mb-6">
+                          <div className="flex-shrink-0 w-16 h-16 rounded-full overflow-hidden">
+                            <img 
+                              src={member.image} 
+                              alt={member.name}
+                              className="w-full h-full object-cover grayscale"
+                              onError={(e) => {
+                                (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=800';
+                              }}
+                            />
+                          </div>
+                          <div className="flex-1">
+                            <h4 className="text-slate-900 text-lg font-bold leading-tight">{member.name}</h4>
+                            <p className="text-slate-600 text-xs font-semibold uppercase tracking-wider mt-1">{member.role}</p>
+                          </div>
+                        </div>
+
+                        {/* Descripción centrada */}
+                        <div className="flex-1 flex items-center justify-center px-2">
+                          <p className="text-slate-700 text-sm leading-relaxed text-center">
+                            {member.bio}
+                          </p>
+                        </div>
+
+                        {/* LinkedIn abajo a la derecha */}
+                        <div className="flex justify-end">
+                          <a 
+                            href={member.linkedin} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="inline-flex size-9 rounded-xl bg-slate-800/10 items-center justify-center cursor-pointer hover:bg-slate-800/20 transition-all text-slate-900 shadow-lg"
+                          >
+                            <Linkedin size={16} />
+                          </a>
+                        </div>
+                      </div>
+
+                      {/* NUEVO: Botón hamburguesa */}
+                      <button 
+                        onClick={() => toggleCard(i)}
+                        className="absolute top-4 right-4 z-20 size-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all duration-300 group/btn"
+                      >
+                        {expandedCard === i ? (
+                          <X size={18} className="text-slate-900 transition-transform group-hover/btn:rotate-90" />
+                        ) : (
+                          <Menu size={18} className="text-white transition-transform group-hover/btn:scale-110" />
+                        )}
+                      </button>
                     </div>
                   </div>
                 ))}
