@@ -19,7 +19,7 @@ const Stats: React.FC = () => {
       icon: 'tune',
       value: '100%',
       label: 'A Medida',
-      text: 'Diseñamos un perfil especializado según el contexto y objetivos, reduciendo tiempos de onboarding.'
+      text: 'Diseñamos el perfil según el contexto y objetivos, reduciendo tiempos de onboarding.'
     }
   ];
 
