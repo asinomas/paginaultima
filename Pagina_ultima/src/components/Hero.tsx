@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import HeroLights from './HeroLights';
 
 interface HeroProps {
@@ -20,11 +20,10 @@ const BASE_LOGOS = [
 ];
 
 const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
+  const shouldReduceMotion = useReducedMotion();
+
   const [moveLayout, setMoveLayout] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-
-  // 🔧 Desarrollo: siempre animaciones
-  const animationsEnabled = true;
 
   const checkMobile = useCallback(() => {
     setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
@@ -52,11 +51,9 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
     };
   }, [checkMobile]);
 
-  const heroAnimation = {
-    opacity: 1,
-    x: moveLayout && !isMobile ? -210 : 0,
-    y: 0,
-  };
+  const heroAnimation = shouldReduceMotion
+    ? { opacity: 1, x: 0, y: 0 }
+    : { opacity: 1, x: moveLayout && !isMobile ? -210 : 0, y: 0 };
 
   return (
     <section
@@ -71,19 +68,23 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
             {/* TEXTO HERO */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
               animate={heroAnimation}
-              transition={{
-                opacity: { duration: 1.5, ease: 'easeOut' },
-                y: { duration: 1.5, ease: 'easeOut' },
-                x: { duration: 2, ease: 'easeInOut' },
-              }}
+              transition={
+                shouldReduceMotion
+                  ? {}
+                  : {
+                      opacity: { duration: 1.5, ease: 'easeOut' },
+                      y: { duration: 1.5, ease: 'easeOut' },
+                      x: { duration: 2, ease: 'easeInOut' },
+                    }
+              }
               className="max-w-4xl text-center"
             >
               <div className="inline-block">
                 {/* BADGE */}
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={shouldReduceMotion ? {} : { opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
                   className="inline-flex items-center gap-2 px-4 py-1.5 rounded-md bg-[#135bec]/5 border border-[#135bec]/20 mb-8"
@@ -100,7 +101,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 {/* TÍTULO */}
                 <motion.h1
                   id="hero-heading"
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, delay: 0.5 }}
                   className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.15]"
@@ -114,7 +115,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
                 {/* DESCRIPCIÓN */}
                 <motion.p
-                  initial={{ opacity: 0 }}
+                  initial={shouldReduceMotion ? {} : { opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1, delay: 0.8 }}
                   className="text-base md:text-lg text-slate-300/90 mb-8 max-w-2xl mx-auto leading-relaxed font-light"
@@ -127,7 +128,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
                 {/* CTA */}
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1 }}
                   className="flex flex-col sm:flex-row items-center justify-center gap-4"
@@ -151,8 +152,11 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
             {/* IMAGEN HERO */}
             <motion.div
-              initial={{ opacity: 0, x: 400 }}
-              animate={{ opacity: moveLayout && !isMobile ? 1 : 0, x: moveLayout && !isMobile ? -50 : 400 }}
+              initial={shouldReduceMotion ? {} : { opacity: 0, x: 400 }}
+              animate={{
+                opacity: shouldReduceMotion ? 1 : moveLayout && !isMobile ? 1 : 0,
+                x: shouldReduceMotion ? 0 : moveLayout && !isMobile ? -50 : 400,
+              }}
               transition={{ duration: 2, ease: 'easeInOut' }}
               className="hidden lg:block absolute right-0 -top-8 w-[340px] h-[440px] overflow-hidden rounded-[20%_3%_20%_3%]"
             >
@@ -166,7 +170,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         </div>
       </div>
 
-      {/* FRANJA DE LOGOS OPTIMIZADA PARA MÓVIL */}
+      {/* FRANJA DE LOGOS CON DIFUMINADO */}
       <div className="relative pt-16 pb-8 overflow-hidden z-10">
         <div className="absolute top-8 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
         <div className="container mx-auto px-6 mb-8">
