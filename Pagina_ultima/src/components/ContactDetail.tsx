@@ -34,7 +34,7 @@ const ContactDetail: React.FC = () => {
       <div className="container mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
-          {/* COLUMNA IZQUIERDA */}
+          {/* COLUMNA IZQUIERDA - TEXTO (DESDE "HABLEMOS HOY" HASTA "REGIÓN METROPOLITANA, CHILE") */}
           <div className="lg:sticky lg:top-32">
             <h4 className="text-[#135bec] font-bold uppercase tracking-[0.2em] text-[11px] mb-4">
               Hablemos hoy
@@ -83,10 +83,9 @@ const ContactDetail: React.FC = () => {
                 </div>
               </div>
             </div>
+          </div>
 
-           
-
-          {/* COLUMNA DERECHA */}
+          {/* COLUMNA DERECHA - FORMULARIO CON TRUST BADGES */}
           <div className="relative group">
             <div className="bg-slate-50 p-8 lg:p-12 rounded-[3rem] border border-slate-100 relative overflow-hidden min-h-[580px] flex flex-col justify-center shadow-sm">
 
@@ -171,29 +170,24 @@ const ContactDetail: React.FC = () => {
                       <Send size={18} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
                     </>
                   )}
-                  </button>
+                </button>
+              </form>
 
-
-                     {/* TRUST BADGES */}
-            <div className="mt-12 space-y-3 text-sm text-slate-500">
-              <div className="flex items-center gap-3">
-                <Clock size={16} className="text-[#135bec]" />
-                Respuesta en menos de 24h
-              </div>
-              <div className="flex items-center gap-3">
-                <UserCheck size={16} className="text-[#135bec]" />
-                Atención personalizada
-              </div>
-              <div className="flex items-center gap-3">
-                <ShieldCheck size={16} className="text-[#135bec]" />
-                Confidencialidad garantizada
-              </div>
-          </div>
+              {/* TRUST BADGES - ABAJO DEL BOTÓN ENVIAR, DENTRO DEL RECUADRO */}
+              <div className="mt-12 space-y-3 text-sm text-slate-500">
+                <div className="flex items-center gap-3">
+                  <Clock size={16} className="text-[#135bec]" />
+                  Respuesta en menos de 24h
                 </div>
-                </form>
-
-                
-              
+                <div className="flex items-center gap-3">
+                  <UserCheck size={16} className="text-[#135bec]" />
+                  Atención personalizada
+                </div>
+                <div className="flex items-center gap-3">
+                  <ShieldCheck size={16} className="text-[#135bec]" />
+                  Confidencialidad garantizada
+                </div>
+              </div>
             </div>
           </div>
 
