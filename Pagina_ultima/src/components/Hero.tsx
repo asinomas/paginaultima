@@ -61,6 +61,7 @@ const Logo = memo(
 
 const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   const shouldReduceMotion = useReducedMotion();
+
   const [moveLayout, setMoveLayout] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const lastWidthRef = useRef<number>(1024);
@@ -216,10 +217,39 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               </motion.p>
             </motion.div>
           </motion.div>
+
+          {/* IMAGEN HERO */}
+          <motion.div
+            initial={heroImageInitial}
+            animate={{ opacity: heroImageOpacity, x: heroImageX }}
+            transition={
+              shouldReduceMotion
+                ? { duration: 0 }
+                : {
+                    opacity: { duration: 1.2, delay: 0.3 },
+                    x: {
+                      duration: 1.5,
+                      delay: HERO_ANIMATION_DELAY / 1000,
+                      ease: 'easeInOut',
+                    },
+                  }
+            }
+            className="relative hidden lg:flex justify-center items-center"
+          >
+            <div className="relative w-[339px]">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl" />
+              <img
+                src="./images/foto-hero.jpg"
+                alt="Consultores de BlackTI desarrollando estrategias para empresas"
+                loading="eager"
+                className="relative rounded-3xl shadow-2xl w-[339px] h-[510px] object-cover"
+              />
+            </div>
+          </motion.div>
         </div>
       </div>
 
-      {/* FRANJA DE LOGOS — ÚNICA PARTE MODIFICADA */}
+      {/* FRANJA DE LOGOS (ÚNICA PARTE MODIFICADA) */}
       <div className="py-20 border-t border-slate-800/50 bg-slate-900/20 backdrop-blur-sm overflow-hidden">
         <div className="container mx-auto mb-12 px-6">
           <p className="text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.5em]">
@@ -235,7 +265,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             </>
           )}
 
-          <div className={`flex ${logoAnimationClass}`}>
+          <div className={`flex w-max ${logoAnimationClass}`}>
             {logosToRender.map((logo, index) => (
               <Logo
                 key={`${logo.name}-${index}`}
