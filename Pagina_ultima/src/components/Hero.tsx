@@ -38,7 +38,7 @@ const throttle = (fn: (...args: unknown[]) => void, delay: number) => {
 };
 
 const Logo = memo(({ logo }: { logo: { name: string; src: string } }) => (
-  <div className="overflow-hidden flex items-center justify-center">
+  <div className="relative flex overflow-hidden items-center justify-center">
     <img
       src={logo.src}
       alt={logo.name}
@@ -296,7 +296,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           </p>
 
           <div className="h-12 md:h-16 w-auto object-contain brightness-0 invert">
-            <div className={`flex relative flex overflow-hidden ${logoAnimationClass}`}>
+            <div className={`flex relative overflow-hidden ${logoAnimationClass}`}>
               {logosToRender.map((logo, index) => (
                 <Logo key={`${logo.name}-${index}`} logo={logo} />
               ))}
