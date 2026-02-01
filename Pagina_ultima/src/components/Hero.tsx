@@ -43,7 +43,7 @@ const Logo = memo(({ logo }: { logo: { name: string; src: string } }) => (
       src={logo.src}
       alt={logo.name}
       loading="lazy"
-      className="h-8 sm:h-10 md:h-12 w-auto object-contain filter grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+      className="h-12 md:h-16 w-auto object-contain filter grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
       onError={(e) => {
         (e.target as HTMLImageElement).style.display = 'none';
       }}
