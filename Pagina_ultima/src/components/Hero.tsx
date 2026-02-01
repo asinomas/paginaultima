@@ -296,7 +296,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           </p>
 
           <div className="h-12 md:h-16 w-auto object-contain brightness-0 invert">
-            <div className={`flex ${logoAnimationClass}`}>
+            <div className={`flex relative flex overflow-hidden ${logoAnimationClass}`}>
               {logosToRender.map((logo, index) => (
                 <Logo key={`${logo.name}-${index}`} logo={logo} />
               ))}
