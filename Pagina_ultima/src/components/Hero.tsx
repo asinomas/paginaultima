@@ -290,8 +290,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* Logos de clientes */}
       <div className="relative z-10 py-12 border-t border-slate-800/50 bg-slate-900/20 backdrop-blur-sm">
-        <div className="container mx-auto max-w-7xl px-6 lg:px-8">
-          <p className="text-center text-slate-400 text-[10px] font-semibold uppercase tracking-[0.5em] mb-8">
+        <div className="container mx-auto mb-10 px-6">
+          <p className="text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.5em] mb-8">
             Han confiado en nosotros
           </p>
 
