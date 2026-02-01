@@ -231,9 +231,9 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 variants={itemVariants}
                 className="text-lg sm:text-xl md:text-2xl text-slate-300 font-light max-w-2xl mx-auto lg:mx-0"
               >
-                <span className="font-semibold text-blue-400">Escalabilidad</span> para startups,{' '}
-                <span className="font-semibold text-blue-400">solidez</span> para empresas,{' '}
-                <span className="font-semibold text-blue-400">acompañamiento</span> en cada paso
+                <span className="font-semibold text-blue-400">Arquitectura</span> para startups,{' '}
+                <span className="font-semibold text-blue-400">Omptimización</span> para empresas,{' '}
+                <span className="font-semibold text-blue-400">Acompañamiento</span> en cada etapa
               </motion.p>
 
               {/* BOTONES */}
@@ -241,18 +241,18 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 <button
                   onClick={() => onNavigate('services')}
                   className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold rounded-2xl shadow-2xl shadow-blue-500/20 hover:shadow-blue-500/40 hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
-                  aria-label="Explorar servicios de BlackTI"
+                  aria-label="Contactar con BlackTI"
                 >
-                  <span className="relative z-10">Explorar Servicios</span>
+                  <span className="relative z-10">Solicitar Consultoría</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </button>
 
                 <button
                   onClick={() => onNavigate('contact')}
                   className="px-8 py-4 bg-slate-800/50 backdrop-blur-sm text-white font-bold rounded-2xl border border-slate-700 hover:bg-slate-700/50 hover:border-slate-600 hover:scale-105 active:scale-95 transition-all duration-300"
-                  aria-label="Contactar con BlackTI"
+                  aria-label="Explorar Servicios BlackTI"
                 >
-                  Hablemos
+                  Servicios
                 </button>
               </motion.div>
             </motion.div>
@@ -292,7 +292,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       <div className="relative z-10 py-12 border-t border-slate-800/50 bg-slate-900/20 backdrop-blur-sm">
         <div className="container mx-auto max-w-7xl px-6 lg:px-8">
           <p className="text-center text-slate-400 text-sm font-semibold uppercase tracking-wider mb-8">
-            Clientes que confían en nosotros
+            Han confiado en nosotros
           </p>
 
           <div className="relative overflow-hidden">
