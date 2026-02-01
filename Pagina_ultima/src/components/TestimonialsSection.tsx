@@ -47,7 +47,7 @@ const TestimonialsSection: React.FC = () => {
           Lo que dicen nuestros clientes
         </h2>
         <p className="text-center text-slate-600 mb-16 max-w-2xl mx-auto">
-          Empresas de todos los tamaños confían en nosotros para sus proyectos de transformación digital
+          Empresas de todos los tamaños confían en nosotros para sus proyectos de transformación
         </p>
         
         <div className="grid md:grid-cols-3 gap-8">
@@ -107,7 +107,7 @@ const TestimonialsSection: React.FC = () => {
             href="#contacto"
             className="inline-block bg-[#135bec] text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl"
           >
-            Solicitar Consultoría Gratuita
+            Solicitar Consultoría
           </a>
         </div>
       </div>
