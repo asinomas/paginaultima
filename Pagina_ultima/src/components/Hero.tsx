@@ -239,7 +239,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               {/* BOTONES */}
               <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
                 <button
-                  onClick={() => onNavigate('services')}
+                  onClick={() => onNavigate('contact')}
                   className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold rounded-2xl shadow-2xl shadow-blue-500/20 hover:shadow-blue-500/40 hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
                   aria-label="Contactar con BlackTI"
                 >
@@ -248,7 +248,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 </button>
 
                 <button
-                  onClick={() => onNavigate('contact')}
+                  onClick={() => onNavigate('services')}
                   className="px-8 py-4 bg-slate-800/50 backdrop-blur-sm text-white font-bold rounded-2xl border border-slate-700 hover:bg-slate-700/50 hover:border-slate-600 hover:scale-105 active:scale-95 transition-all duration-300"
                   aria-label="Explorar Servicios BlackTI"
                 >
