@@ -231,8 +231,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 variants={itemVariants}
                 className="text-lg sm:text-xl md:text-2xl text-slate-300 font-light max-w-2xl mx-auto lg:mx-0"
               >
-                Arquitectura para <span className="font-semibold text-white-400">startups,{' '}</span> 
-                Optimización para <span className="font-semibold text-white-400">empresas,{' '}</span>
+                Arquitectura para <span className="font-semibold text-white-400">startups{' '}</span> 
+                Optimización para <span className="font-semibold text-white-400">empresas{' '}</span>
                 Acompañamiento en cada <span className="font-semibold text-white-400">etapa</span>
               </motion.p>
 
@@ -289,13 +289,13 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       </div>
 
       {/* Logos de clientes */}
-      <div className="relative z-10 py-12 border-t border-slate-800/50 bg-slate-900/20 backdrop-blur-sm">
+      <div className="relative md:py-20 py-12 border-t border-slate-800/50 bg-slate-900/20 overflow-hidden backdrop-blur-sm">
         <div className="container mx-auto mb-10 px-6">
-          <p className="text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.5em] mb-8">
+          <p className="text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.5em]">
             Han confiado en nosotros
           </p>
 
-          <div className="relative overflow-hidden">
+          <div className="relative flex overflow-hidden">
             <div className={`flex ${logoAnimationClass}`}>
               {logosToRender.map((logo, index) => (
                 <Logo key={`${logo.name}-${index}`} logo={logo} />
