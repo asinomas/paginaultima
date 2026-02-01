@@ -298,7 +298,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           <div className="h-12 md:h-16 w-auto object-contain">
             <div className={`flex-shrink-0 flex items-center justify-center grayscale opacity-40 ${logoAnimationClass}`}>
               {logosToRender.map((logo, index) => (
-                <Logo key={`${logo.name}-${index}`} logo={logo} style={ width: '280px' }/>
+                <Logo key={`${logo.name}-${index}`} logo={logo} style={width: '280px' }/>
               ))}
             </div>
           </div>
