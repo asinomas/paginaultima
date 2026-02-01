@@ -289,16 +289,16 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       </div>
 
       {/* Logos de clientes */}
-      <div className="relative z-10 py-12 border-t border-slate-800/50 bg-slate-900/20 backdrop-blur-sm">   
-        <div className="container mx-auto mb-10 px-6">
+      <div className="py-20 border-t border-slate-800/50 bg-slate-900/20 backdrop-blur-sm">   
+        <div className="container mx-auto mb-12 px-6">
           <p className="text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.5em]">
             Han confiado en nosotros
           </p>
 
-          <div className="h-12 md:h-16 w-auto object-contain brightness-0 invert">
-            <div className={`flex relative overflow-hidden ${logoAnimationClass}`}>
+          <div className="h-12 md:h-16 w-auto object-contain">
+            <div className={`flex-shrink-0 flex items-center justify-center grayscale opacity-40 ${logoAnimationClass}`}>
               {logosToRender.map((logo, index) => (
-                <Logo key={`${logo.name}-${index}`} logo={logo} />
+                <Logo key={`${logo.name}-${index}`} logo={logo} style={ width: '280px' }/>
               ))}
             </div>
           </div>
