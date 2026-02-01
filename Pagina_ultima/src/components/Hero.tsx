@@ -231,9 +231,9 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 variants={itemVariants}
                 className="text-lg sm:text-xl md:text-2xl text-slate-300 font-light max-w-2xl mx-auto lg:mx-0"
               >
-                Arquitectura <span className="font-semibold text-blue-400">Arquitectura</span> para startups,{' '}
-                <span className="font-semibold text-blue-400">Omptimización</span> para empresas,{' '}
-                <span className="font-semibold text-blue-400">Acompañamiento</span> en cada etapa
+                Arquitectura para <span className="font-semibold text-white-400">startups,{' '}</span> 
+                Omptimización para <span className="font-semibold text-white-400">empresas,{' '}</span>
+                Acompañamiento en cada <span className="font-semibold text-white-400">etapa</span>
               </motion.p>
 
               {/* BOTONES */}
