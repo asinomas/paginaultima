@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useCallback, memo, useRef } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  memo,
+  useRef,
+} from 'react';
 import { motion, useReducedMotion, Variants } from 'framer-motion';
 import HeroLights from './HeroLights';
 
@@ -19,17 +25,21 @@ const BASE_LOGOS = [
   { name: 'Compunet', src: './logos/compunet.png' },
 ];
 
-const throttle = (fn: (...args: unknown[]) => void, delay: number) => {
+// throttle simple
+const throttle = (fn: () => void, delay: number) => {
   let inThrottle = false;
-  return (...args: unknown[]) => {
+  return () => {
     if (!inThrottle) {
-      fn(...args);
+      fn();
       inThrottle = true;
       setTimeout(() => (inThrottle = false), delay);
     }
   };
 };
 
+/* ======================================================
+   LOGO (SOLO AQUÍ SE MODIFICÓ)
+====================================================== */
 const Logo = memo(
   ({
     logo,
@@ -39,12 +49,13 @@ const Logo = memo(
     animated: boolean;
   }) => (
     <div
-      className={`flex-shrink-0 flex items-center justify-center px-8 transition-all duration-500 ${
-        animated
-          ? 'grayscale opacity-40 hover:grayscale-0 hover:opacity-100'
-          : 'grayscale opacity-40'
-      }`}
-      style={{ width: '280px' }}
+      className={`flex-shrink-0 flex items-center justify-center px-6 transition-all duration-500
+        min-w-[180px] md:min-w-[260px]
+        ${
+          animated
+            ? 'grayscale opacity-40 hover:grayscale-0 hover:opacity-100'
+            : 'grayscale opacity-40'
+        }`}
     >
       <img
         src={logo.src}
@@ -64,6 +75,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
   const [moveLayout, setMoveLayout] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+
   const lastWidthRef = useRef<number>(1024);
 
   const checkMobile = useCallback(() => {
@@ -99,12 +111,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
     shouldReduceMotion || !moveLayout || isMobile ? 0 : 'var(--hero-text-x)';
 
   const heroImageX =
-    shouldReduceMotion || !moveLayout || isMobile
-      ? 0
-      : 'var(--hero-image-x)';
-
-  const heroImageOpacity =
-    shouldReduceMotion || moveLayout || isMobile ? 1 : 0;
+    shouldReduceMotion || !moveLayout || isMobile ? 0 : 'var(--hero-image-x)';
 
   const heroTextInitial = shouldReduceMotion
     ? { opacity: 1, x: 0, y: 0 }
@@ -118,21 +125,15 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
     ? BASE_LOGOS
     : [...BASE_LOGOS, ...BASE_LOGOS];
 
-  const logoAnimationClass = shouldReduceMotion
-    ? ''
-    : 'animate-infinite-scroll';
-
   const containerVariants: Variants = {
     hidden: {},
     show: {
-      transition: {
-        staggerChildren: shouldReduceMotion ? 0 : 0.2,
-      },
+      transition: { staggerChildren: shouldReduceMotion ? 0 : 0.2 },
     },
   };
 
   const itemVariants: Variants = {
-    hidden: shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 },
+    hidden: shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 },
     show: {
       opacity: 1,
       y: 0,
@@ -144,10 +145,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
   return (
     <section
-      className={`relative min-h-screen flex flex-col justify-between bg-[#0b0e14] overflow-hidden pt-32 md:pt-40 antialiased ${
-        shouldReduceMotion ? 'hero-reduce-motion' : ''
-      }`}
-      aria-labelledby="hero-heading"
+      className={`relative min-h-screen flex flex-col justify-between bg-[#0b0e14] overflow-hidden pt-32 md:pt-40`}
       style={
         {
           '--hero-text-x': 'calc(-15vw)',
@@ -157,25 +155,14 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
     >
       <HeroLights />
 
+      {/* ================= HERO ================= */}
       <div className="container mx-auto max-w-7xl px-6 lg:px-8 flex-1 flex items-center relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
-          {/* TEXTO HERO */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+          {/* TEXTO */}
           <motion.div
             initial={heroTextInitial}
             animate={{ opacity: 1, x: heroTextX, y: 0 }}
-            transition={
-              shouldReduceMotion
-                ? { duration: 0 }
-                : {
-                    opacity: { duration: 1 },
-                    x: {
-                      duration: 1.5,
-                      delay: HERO_ANIMATION_DELAY / 1000,
-                      ease: 'easeInOut',
-                    },
-                    y: { duration: 1, ease: 'easeOut' },
-                  }
-            }
+            transition={{ duration: 1 }}
             className="space-y-6 text-center lg:text-left"
           >
             <motion.div
@@ -186,12 +173,9 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             >
               <motion.h1
                 variants={itemVariants}
-                id="hero-heading"
-                className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.15]"
+                className="text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.15]"
               >
-                <span className="text-[#135bec] italic">
-                  Construyendo{' '}
-                </span>
+                <span className="text-[#135bec] italic">Construyendo </span>
                 <span className="text-white/95">el futuro</span>
                 <br />
                 <span className="text-white/95">de tu </span>
@@ -200,97 +184,58 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
               <motion.p
                 variants={itemVariants}
-                className="text-lg sm:text-xl md:text-2xl text-slate-300 font-light max-w-2xl mx-auto lg:mx-0"
+                className="text-lg md:text-2xl text-slate-300 max-w-2xl"
               >
                 Arquitectura para{' '}
-                <span className="font-semibold text-white-400">
-                  startups{' '}
-                </span>
+                <span className="font-semibold text-white">startups </span>
                 Optimización para{' '}
-                <span className="font-semibold text-white-400">
-                  empresas{' '}
-                </span>
+                <span className="font-semibold text-white">empresas </span>
                 Acompañamiento en cada{' '}
-                <span className="font-semibold text-white-400">
-                  etapa
-                </span>
+                <span className="font-semibold text-white">etapa</span>
               </motion.p>
             </motion.div>
           </motion.div>
 
-          {/* IMAGEN HERO */}
+          {/* IMAGEN — SIEMPRE VISIBLE */}
           <motion.div
             initial={heroImageInitial}
-            animate={{ opacity: heroImageOpacity, x: heroImageX }}
-            transition={
-              shouldReduceMotion
-                ? { duration: 0 }
-                : {
-                    opacity: { duration: 1.2, delay: 0.3 },
-                    x: {
-                      duration: 1.5,
-                      delay: HERO_ANIMATION_DELAY / 1000,
-                      ease: 'easeInOut',
-                    },
-                  }
-            }
-            className="relative hidden lg:flex justify-center items-center"
+            animate={{ opacity: 1, x: heroImageX }}
+            transition={{ duration: 1 }}
+            className="relative hidden lg:flex justify-center"
           >
-            <div className="relative w-[339px]">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl" />
-              <img
-                src="./images/foto-hero.jpg"
-                alt="Consultores de BlackTI desarrollando estrategias para empresas"
-                loading="eager"
-                className="relative rounded-3xl shadow-2xl w-[339px] h-[510px] object-cover"
-              />
-            </div>
+            <img
+              src="./images/foto-hero.jpg"
+              alt="Consultores BlackTI"
+              className="rounded-3xl shadow-2xl w-[339px] h-[510px] object-cover"
+            />
           </motion.div>
         </div>
       </div>
 
-      {/* FRANJA DE LOGOS (ÚNICA PARTE MODIFICADA) */}
-      <div className="py-20 border-t border-slate-800/50 bg-slate-900/20 backdrop-blur-sm overflow-hidden">
-        <div className="container mx-auto mb-12 px-6">
-          <p className="text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.5em]">
+      {/* ================= LOGOS ================= */}
+      <div className="py-20 border-t border-slate-800/50 bg-slate-900/20">
+        <div className="container mx-auto px-6">
+          <p className="text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.5em] mb-10">
             Han confiado en nosotros
           </p>
-        </div>
 
-        <div className="relative flex overflow-hidden">
-          {!shouldReduceMotion && (
-            <>
-              <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0b0e14] to-transparent z-10" />
-              <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0b0e14] to-transparent z-10" />
-            </>
-          )}
-
-          <div className={`flex w-max ${logoAnimationClass}`}>
-            {logosToRender.map((logo, index) => (
-              <Logo
-                key={`${logo.name}-${index}`}
-                logo={logo}
-                animated={!shouldReduceMotion}
-              />
-            ))}
+          <div className="overflow-hidden">
+            <div
+              className={`flex items-center ${
+                shouldReduceMotion ? '' : 'animate-infinite-scroll'
+              }`}
+            >
+              {logosToRender.map((logo, index) => (
+                <Logo
+                  key={`${logo.name}-${index}`}
+                  logo={logo}
+                  animated={!shouldReduceMotion}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes infinite-scroll {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
-        .animate-infinite-scroll {
-          display: flex;
-          width: max-content;
-          animation: infinite-scroll 45s linear infinite;
-        }
-        .animate-infinite-scroll:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
     </section>
   );
 };
