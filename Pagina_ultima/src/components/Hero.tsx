@@ -281,7 +281,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 src="./images/foto-hero.jpg"
                 alt="Consultores de BlackTI desarrollando estrategias para empresas"
                 loading="eager"
-                className="relative rounded-3xl shadow-2xl w-[339px] h-[600px] object-cover"
+                className="relative rounded-3xl shadow-2xl w-[339px] h-[510px] object-cover"
               />
             </div>
           </motion.div>
