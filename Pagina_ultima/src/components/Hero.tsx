@@ -183,68 +183,60 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               animate="show"
               className="space-y-4"
             >
-               import { motion, useReducedMotion } from 'framer-motion';
-
-           
-               const shouldReduceMotion = useReducedMotion();
-
-               // BADGE CORPORATIVO
-               <motion.div 
-               initial={shouldReduceMotion ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-               animate={{ opacity: 1, scale: 1 }}
-               transition={
-               shouldReduceMotion
-               ? { duration: 0 }
-               : { duration: 0.6, delay: 0.3 }
-             }
-               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-md bg-[#135bec]/5 border border-[#135bec]/20 mb-8"
-            >
-               <span className="relative flex h-2 w-2">
-               <span className={`absolute inline-flex h-full w-full rounded-full bg-[#135bec] opacity-75 ${
-               shouldReduceMotion ? '' : 'animate-ping'
-                }`}></span>
-               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#135bec]"></span>
-               </span>
-               <span className="text-[#6b9cec] text-[10px] font-semibold uppercase tracking-[0.15em]">
-               Consultoría Estratégica en TI
-               </span>
+              {/* BADGE CORPORATIVO */}
+              <motion.div 
+                initial={shouldReduceMotion ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={
+                  shouldReduceMotion
+                    ? { duration: 0 }
+                    : { duration: 0.6, delay: 0.3 }
+                }
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-md bg-[#135bec]/5 border border-[#135bec]/20 mb-8"
+              >
+                <span className="relative flex h-2 w-2">
+                  <span className={`absolute inline-flex h-full w-full rounded-full bg-[#135bec] opacity-75 ${
+                    shouldReduceMotion ? '' : 'animate-ping'
+                  }`}></span>
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#135bec]"></span>
+                </span>
+                <span className="text-[#6b9cec] text-[10px] font-semibold uppercase tracking-[0.15em]">
+                  Consultoría Estratégica en TI
+                </span>
               </motion.div>
 
+              {/* TITULO CORPORATIVO */}
+              <motion.h1 
+                variants={itemVariants}
+                id="hero-heading"
+                className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.15] selection:bg-[#135bec]/20"
+              >
+                <span className="text-[#135bec] italic drop-shadow-[0_0_20px_rgba(19,91,236,0.25)]">
+                  Construyendo{" "}
+                </span>
+                <span className="text-white/95">
+                  el futuro
+                </span>
+                <br />
+                <span className="text-white/95">
+                  de tu{" "}
+                </span>
+                <span className="text-[#135bec] italic drop-shadow-[0_0_20px_rgba(19,91,236,0.25)]">
+                  Empresa
+                </span>
+              </motion.h1>
 
-              
-                {/* TITULO CORPORATIVO */}
-                <motion.h1 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 0.5 }}
-                  className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.15] selection:bg-[#135bec]/20"
-                >
-                  <span className="text-[#135bec] italic drop-shadow-[0_0_20px_rgba(19,91,236,0.25)]">
-                    Construyendo{" "}
-                  </span>
-                  <span className="text-white/95">
-                    el futuro
-                  </span>
-                  <br />
-                  <span className="text-white/95">
-                    de tu{" "}
-                  </span>
-                  <span className="text-[#135bec] italic drop-shadow-[0_0_20px_rgba(19,91,236,0.25)]">
-                    Empresa
-                  </span>
-                </motion.h1>
-
-
-              
+              {/* SUBTITULO */}
               <motion.p
                 variants={itemVariants}
                 className="text-lg sm:text-xl md:text-2xl text-slate-300 font-light max-w-2xl mx-auto lg:mx-0"
               >
-                Somos tu socio estratégico en tecnología, comprometidos con la{' '}
-                <span className="font-semibold text-blue-400">excelencia</span> y la{' '}
-                <span className="font-semibold text-blue-400">innovación</span>
+                <span className="font-semibold text-blue-400">Escalabilidad</span> para startups,{' '}
+                <span className="font-semibold text-blue-400">solidez</span> para empresas,{' '}
+                <span className="font-semibold text-blue-400">acompañamiento</span> en cada paso
               </motion.p>
 
+              {/* BOTONES */}
               <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
                 <button
                   onClick={() => onNavigate('services')}
@@ -283,13 +275,13 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             }
             className="relative hidden lg:flex justify-center items-center"
           >
-            <div className="relative w-full max-w-lg">
+            <div className="relative w-[339px]">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl" />
               <img
                 src="./images/foto-hero.jpg"
-                alt="Consultores de BlackTI desarrollando estretegias para empresas"
+                alt="Consultores de BlackTI desarrollando estrategias para empresas"
                 loading="eager"
-                className="relative rounded-3xl shadow-2xl w-full h-auto"
+                className="relative rounded-3xl shadow-2xl w-[339px] h-[600px] object-cover"
               />
             </div>
           </motion.div>
