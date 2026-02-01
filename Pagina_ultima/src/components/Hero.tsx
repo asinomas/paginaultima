@@ -38,7 +38,7 @@ const throttle = (fn: (...args: unknown[]) => void, delay: number) => {
 };
 
 const Logo = memo(({ logo }: { logo: { name: string; src: string } }) => (
-  <div className="flex-shrink-0 flex items-center justify-center px-4 w-[180px] sm:w-[220px] md:w-[280px]">
+  <div className="overflow-hidden flex items-center justify-center">
     <img
       src={logo.src}
       alt={logo.name}
