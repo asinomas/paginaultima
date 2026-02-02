@@ -91,7 +91,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               <span className="text-white">el futuro</span>
               <br />
               <span className="text-white">de tu </span>
-              <span className="text-[#135bec] italic">Empresa</span>
+              <span className="text-[#135bec] italic">Negocio</span>
             </motion.h1>
 
             <motion.p 
