@@ -94,9 +94,9 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Arquitectura para <span className="font-semibold text-white">startups</span>{' '}
-              Optimización para <span className="font-semibold text-white">empresas</span>{' '}
-              Acompañamiento en cada <span className="font-semibold text-white">etapa</span>
+              Arquitectura para <span className="font-semibold text-white">startups</span>.{' '}
+              Optimización para <span className="font-semibold text-white">empresas</span>.{' '}
+              Acompañamiento en cada <span className="font-semibold text-white">etapa</span>.
             </motion.p>
 
             <motion.div 
