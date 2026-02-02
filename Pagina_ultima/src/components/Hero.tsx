@@ -1,4 +1,4 @@
-import React, { useEffect, useState, memo } from 'react';
+import React, { memo } from 'react';
 import { motion } from 'framer-motion';
 import HeroLights from './HeroLights';
 
@@ -36,13 +36,6 @@ const Logo = memo(({ logo }: { logo: { name: string; src: string } }) => (
 
 // VERSIÓN DESARROLLO - SIEMPRE CON ANIMACIONES
 const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
-  const [showImage, setShowImage] = useState(false);
-
-  useEffect(() => {
-    // Mostrar imagen después de 1.2 segundos (cuando el texto ya apareció)
-    const timer = setTimeout(() => setShowImage(true), 1200);
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <section
@@ -66,9 +59,9 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       <HeroLights />
 
       <div className="container mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-16 relative">
+        <div className="flex items-center justify-center min-h-[70vh]">
           
-          {/* TEXTO - Aparece en el centro absoluto de la página, luego se mueve a la izquierda cuando aparece la imagen */}
+          {/* TEXTO - Centrado */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{
@@ -78,13 +71,6 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             transition={{
               opacity: { duration: 1.2 },
               y: { duration: 1.2 },
-            }}
-            style={{
-              position: showImage ? 'relative' : 'absolute',
-              left: showImage ? 'auto' : '50%',
-              transform: showImage ? 'none' : 'translateX(-50%)',
-              width: showImage ? 'auto' : 'auto',
-              zIndex: 20,
             }}
             className="text-center"
           >
@@ -151,26 +137,6 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 Servicios
               </button>
             </motion.div>
-          </motion.div>
-
-          {/* IMAGEN - Aparece desde la derecha y empuja el texto a la izquierda */}
-          <motion.div
-            initial={{ opacity: 0, x: 100 }}
-            animate={{
-              opacity: showImage ? 1 : 0,
-              x: showImage ? 0 : 100,
-            }}
-            transition={{
-              duration: 1.5,
-              ease: [0.43, 0.13, 0.23, 0.96],
-            }}
-            className="hidden lg:flex justify-center lg:justify-end"
-          >
-            <img
-              src="./images/foto-hero.jpg"
-              alt="Equipo BlackTI"
-              className="w-[340px] h-[510px] object-cover rounded-3xl shadow-2xl"
-            />
           </motion.div>
         </div>
       </div>
