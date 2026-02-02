@@ -211,7 +211,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       </div>
 
       {/* LOGOS */}
-      <div className="py-14 border-t border-slate-800/50 bg-slate-900/20 overflow-hidden">
+      <div className="py-10 border-t border-slate-800/50 bg-slate-900/20 overflow-hidden">
         <div className="container mx-auto px-6">
           <p className="text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.5em] mb-6">
             Han confiado en nosotros
