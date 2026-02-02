@@ -113,7 +113,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         {/* Overlay - filtro imagen-  oscuro para mejorar legibilidad */}
         <div 
           className="absolute inset-0" 
-          style={{ backgroundColor: `${COLORS.bgDark}40` }}
+          style={{ backgroundColor: `${COLORS.bgDark}60` }}
         />
       </div>
 
