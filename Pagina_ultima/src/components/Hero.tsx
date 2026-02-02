@@ -20,8 +20,8 @@ const Logo = memo(({ logo }: { logo: { name: string; src: string } }) => (
     className="
       flex-shrink-0 flex items-center justify-center
       px-8 md:px-12
-      grayscale opacity-40
-      hover:grayscale-0 hover:opacity-100
+      opacity-60 brightness-90
+      hover:opacity-100 hover:brightness-100
       transition-all duration-500
     "
   >
@@ -29,7 +29,7 @@ const Logo = memo(({ logo }: { logo: { name: string; src: string } }) => (
       src={logo.src}
       alt={logo.name}
       loading="lazy"
-      className="h-8 md:h-10 w-auto object-contain max-w-[140px] md:max-w-[180px]"
+      className="h-8 md:h-10 w-auto object-contain max-w-[140px] md:max-w-[180px] filter grayscale-[30%]"
     />
   </div>
 ));
@@ -143,12 +143,12 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* FRANJA DE LOGOS - Visible sin scroll */}
       <motion.div 
-        className="-mt-12 border-t border-slate-700/80 bg-slate-900/30 py-6 overflow-hidden relative z-10"
+        className="-mt-12 border-t border-slate-700/80 bg-slate-900/30 pt-3 pb-6 overflow-hidden relative z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1.3 }}
       >
-        <p className="text-center text-slate-300 text-[10px] font-bold uppercase tracking-[0.5em] mb-6">
+        <p className="text-center text-slate-300 text-[10px] font-bold uppercase tracking-[0.5em] mb-4">
           Han confiado en nosotros
         </p>
 
