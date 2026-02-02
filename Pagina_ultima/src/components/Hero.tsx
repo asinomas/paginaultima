@@ -182,7 +182,23 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 />
 
 
-          <div className="flex animate-infinite-scroll">
+          <div
+  className="
+    flex animate-infinite-scroll
+    [mask-image:linear-gradient(to_right,
+      transparent_0%,
+      black_8%,
+      black_92%,
+      transparent_100%
+    )]
+    [-webkit-mask-image:linear-gradient(to_right,
+      transparent_0%,
+      black_8%,
+      black_92%,
+      transparent_100%
+    )]
+  "
+>
             {[...BASE_LOGOS, ...BASE_LOGOS].map((logo, i) => (
               <Logo key={i} logo={logo} />
             ))}
