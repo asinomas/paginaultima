@@ -60,7 +60,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             animate={{
               opacity: 1,
               y: 0,
-              x: showImage ? -40 : 0,
+              x: showImage ? -80 : 0,
             }}
             transition={{
               opacity: { duration: 0.8, delay: 0.2 },
@@ -158,7 +158,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* FRANJA DE LOGOS - Visible sin scroll */}
       <motion.div 
-        className="mt-8 border-t border-slate-800/50 bg-slate-900/20 py-6 overflow-hidden"
+        className="mt-4 border-t border-slate-800/50 bg-slate-900/20 py-6 overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1.3 }}
