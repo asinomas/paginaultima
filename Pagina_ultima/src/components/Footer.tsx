@@ -19,10 +19,10 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
     >
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Grid principal */}
-        <div className="grid grid-cols-1 gap-10 md:gap-8 md:grid-cols-4 items-start">
+        <div className="grid grid-cols-1 gap-10 md:gap-8 md:grid-cols-12 items-start">
 
           {/* Izquierda - Logo + texto + iconos sociales */}
-          <div className="col-span-1 flex flex-col items-start">
+          <div className="col-span-1 md:col-span-5 flex flex-col items-start">
             <button
               onClick={() => onNavigate?.('home')}
               className="mb-4 md:mb-6 flex items-center transition-transform hover:scale-105"
@@ -75,7 +75,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           </div>
 
           {/* Capacidades */}
-          <div className="col-span-1 mt-8 md:mt-0">
+          <div className="col-span-1 md:col-span-2 mt-8 md:mt-0">
             <h5
               className="mb-4 md:mb-5 text-[9px] sm:text-[10px] md:text-[11px] font-bold uppercase tracking-widest"
               style={{ color: '#135bec' }}
@@ -111,7 +111,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           </div>
 
           {/* Grupo BlackTI */}
-          <div className="col-span-1 mt-8 md:mt-0">
+          <div className="col-span-1 md:col-span-2 mt-8 md:mt-0">
             <h5
               className="mb-4 md:mb-5 text-[9px] sm:text-[10px] md:text-[11px] font-bold uppercase tracking-widest"
               style={{ color: '#135bec' }}
@@ -147,7 +147,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           </div>
 
           {/* Contacto */}
-          <div className="col-span-1 mt-8 md:mt-0">
+          <div className="col-span-1 md:col-span-3 mt-8 md:mt-0">
             <h5
               className="mb-4 md:mb-5 text-[9px] sm:text-[10px] md:text-[11px] font-bold uppercase tracking-widest"
               style={{ color: '#135bec' }}
