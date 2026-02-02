@@ -159,8 +159,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   className="
     pointer-events-none
     absolute inset-y-0 left-0 w-32 z-10
-    [mask-image:linear-gradient(to_right,rgba(0,0,0,0.05)_0%,transparent_100%)]
-    [-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,0.05)_0%,transparent_100%)]
+    [mask-image:linear-gradient(to_right,rgba(0,0,0,0.2)_0%,transparent_100%)]
+    [-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,0.2)_0%,transparent_100%)]
   "
 />
 
