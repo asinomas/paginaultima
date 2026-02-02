@@ -159,9 +159,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   className="
     pointer-events-none
     absolute inset-y-0 left-0 w-32 z-10
-    [mask-image:linear-gradient(to_right,black_40%,transparent)]
-    [-webkit-mask-image:linear-gradient(to_right,black_40%,transparent)]
-    bg-black
+    [mask-image:linear-gradient(to_right,rgba(0,0,0,0.05)_0%,transparent_100%)]
+    [-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,0.05)_0%,transparent_100%)]
   "
 />
 
@@ -169,11 +168,11 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   className="
     pointer-events-none
     absolute inset-y-0 right-0 w-32 z-10
-    [mask-image:linear-gradient(to_left,black_40%,transparent)]
-    [-webkit-mask-image:linear-gradient(to_left,black_40%,transparent)]
-    bg-black
+    [mask-image:linear-gradient(to_left,rgba(0,0,0,0.05)_0%,transparent_100%)]
+    [-webkit-mask-image:linear-gradient(to_left,rgba(0,0,0,0.05)_0%,transparent_100%)]
   "
 />
+
 
           <div className="flex animate-infinite-scroll">
             {[...BASE_LOGOS, ...BASE_LOGOS].map((logo, i) => (
