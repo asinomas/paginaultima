@@ -49,6 +49,7 @@ const Logo = memo(
     <div
       className={`flex-shrink-0 flex items-center justify-center px-6
         min-w-[140px] md:min-w-[200px]
+        h-[48px] md:h-[56px]
         transition-all duration-500
         ${
           animated
@@ -60,7 +61,11 @@ const Logo = memo(
         src={logo.src}
         alt={logo.name}
         loading="lazy"
-        className="h-9 md:h-12 w-auto object-contain"
+        className="
+          max-h-[28px] md:max-h-[36px]
+          max-w-[120px] md:max-w-[160px]
+          w-auto h-auto object-contain
+        "
         onError={(e) => {
           (e.target as HTMLImageElement).style.display = 'none';
         }}
@@ -108,11 +113,16 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
     };
   }, [checkMobile]);
 
+  /* 🔧 OFFSET AJUSTADO (ANTES ERA MUY AGRESIVO) */
   const heroTextX =
-    shouldReduceMotion || !moveLayout || isMobile ? 0 : 'var(--hero-text-x)';
+    shouldReduceMotion || !moveLayout || isMobile
+      ? 0
+      : 'calc(-6vw)';
 
   const heroImageX =
-    shouldReduceMotion || !moveLayout || isMobile ? 0 : 'var(--hero-image-x)';
+    shouldReduceMotion || !moveLayout || isMobile
+      ? 0
+      : 'calc(-2vw)';
 
   const heroTextInitial = shouldReduceMotion
     ? { opacity: 1, x: 0, y: 0 }
@@ -120,7 +130,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
   const heroImageInitial = shouldReduceMotion
     ? { opacity: 1, x: 0 }
-    : { opacity: 0, x: 'calc(min(40vw, 400px))' };
+    : { opacity: 0, x: 'calc(min(30vw, 300px))' };
 
   const logosToRender = shouldReduceMotion
     ? BASE_LOGOS
@@ -149,90 +159,75 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   };
 
   return (
-    <section
-      className="relative min-h-screen flex flex-col justify-between bg-[#0b0e14] overflow-hidden pt-32 md:pt-40 antialiased"
-      style={
-        {
-          '--hero-text-x': 'calc(-15vw)',
-          '--hero-image-x': 'calc(min(-3vw, -40px))',
-        } as React.CSSProperties
-      }
-    >
+    <section className="relative min-h-screen bg-[#0b0e14] overflow-hidden pt-32 md:pt-40">
       <HeroLights />
 
       {/* ================= HERO ================= */}
-      <div className="container mx-auto max-w-7xl px-6 lg:px-8 flex-1 flex items-center relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
+      <div className="container mx-auto max-w-6xl px-6 lg:px-8 flex items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
           {/* TEXTO */}
           <motion.div
             initial={heroTextInitial}
             animate={{ opacity: 1, x: heroTextX, y: 0 }}
             transition={{
               opacity: { duration: 1 },
-              x: { duration: 1.5, delay: HERO_ANIMATION_DELAY / 1000 },
+              x: { duration: 1.4, delay: HERO_ANIMATION_DELAY / 1000 },
               y: { duration: 1 },
             }}
             className="space-y-6 text-center lg:text-left"
           >
-            <motion.div
-              variants={containerVariants}
+            <motion.h1
+              variants={itemVariants}
               initial="hidden"
               animate="show"
-              className="space-y-4"
+              className="text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.15]"
             >
-              <motion.h1
-                variants={itemVariants}
-                className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight leading-[1.15]"
-              >
-                <span className="text-[#135bec] italic">
-                  Construyendo{' '}
-                </span>
-                <span className="text-white/95">el futuro</span>
-                <br />
-                <span className="text-white/95">de tu </span>
-                <span className="text-[#135bec] italic">
-                  Empresa
-                </span>
-              </motion.h1>
+              <span className="text-[#135bec] italic">
+                Construyendo{' '}
+              </span>
+              <span className="text-white/95">el futuro</span>
+              <br />
+              <span className="text-white/95">de tu </span>
+              <span className="text-[#135bec] italic">
+                Empresa
+              </span>
+            </motion.h1>
 
-              {/* ✅ SUBTÍTULO COMPLETO */}
-              <motion.p
-                variants={itemVariants}
-                className="text-lg sm:text-xl md:text-2xl text-slate-300 font-light max-w-2xl mx-auto lg:mx-0"
-              >
-                Arquitectura para{' '}
-                <span className="font-semibold text-white/90">
-                  startups{' '}
-                </span>
-                Optimización para{' '}
-                <span className="font-semibold text-white/90">
-                  empresas{' '}
-                </span>
-                Acompañamiento en cada{' '}
-                <span className="font-semibold text-white/90">
-                  etapa
-                </span>
-              </motion.p>
+            <motion.p
+              variants={itemVariants}
+              className="text-lg sm:text-xl md:text-2xl text-slate-300 font-light max-w-xl mx-auto lg:mx-0"
+            >
+              Arquitectura para{' '}
+              <span className="font-semibold text-white/90">
+                startups{' '}
+              </span>
+              Optimización para{' '}
+              <span className="font-semibold text-white/90">
+                empresas{' '}
+              </span>
+              Acompañamiento en cada{' '}
+              <span className="font-semibold text-white/90">
+                etapa
+              </span>
+            </motion.p>
 
-              {/* BOTONES */}
-              <motion.div
-                variants={itemVariants}
-                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4"
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4"
+            >
+              <button
+                onClick={() => onNavigate('contact')}
+                className="px-8 py-4 bg-blue-600 text-white font-bold rounded-2xl hover:scale-105 transition"
               >
-                <button
-                  onClick={() => onNavigate('contact')}
-                  className="px-8 py-4 bg-blue-600 text-white font-bold rounded-2xl hover:scale-105 transition"
-                >
-                  Solicitar Consultoría
-                </button>
+                Solicitar Consultoría
+              </button>
 
-                <button
-                  onClick={() => onNavigate('services')}
-                  className="px-8 py-4 bg-slate-800 text-white rounded-2xl hover:scale-105 transition"
-                >
-                  Servicios
-                </button>
-              </motion.div>
+              <button
+                onClick={() => onNavigate('services')}
+                className="px-8 py-4 bg-slate-800 text-white rounded-2xl hover:scale-105 transition"
+              >
+                Servicios
+              </button>
             </motion.div>
           </motion.div>
 
@@ -242,7 +237,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             animate={{ opacity: 1, x: heroImageX }}
             transition={{
               opacity: { duration: 1.2 },
-              x: { duration: 1.5, delay: HERO_ANIMATION_DELAY / 1000 },
+              x: { duration: 1.4, delay: HERO_ANIMATION_DELAY / 1000 },
             }}
             className="hidden lg:flex justify-center"
           >
@@ -256,7 +251,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       </div>
 
       {/* ================= LOGOS ================= */}
-      <div className="py-14 border-t border-slate-800/50 bg-slate-900/20 overflow-hidden">
+      <div className="py-14 mt-24 border-t border-slate-800/50 bg-slate-900/20 overflow-hidden">
         <div className="container mx-auto px-6">
           <p className="text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.5em] mb-6">
             Han confiado en nosotros
@@ -296,3 +291,4 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 };
 
 export default Hero;
+
