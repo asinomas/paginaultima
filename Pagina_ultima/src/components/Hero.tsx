@@ -1,17 +1,9 @@
-import React, {
-  useState,
-  useEffect,
-  useCallback,
-  memo,
-  useRef,
-} from 'react';
+import React, { useState, useEffect, useCallback, memo, useRef } from 'react';
 import { motion, useReducedMotion, Variants } from 'framer-motion';
 import HeroLights from './HeroLights';
 
 /* ================================
    🔧 FLAG DESARROLLO
-   Forzar animaciones aunque
-   el SO tenga reduced motion
 ================================ */
 const FORCE_ANIMATIONS_DEV = true;
 
@@ -43,6 +35,9 @@ const throttle = (fn: () => void, delay: number) => {
   };
 };
 
+/* ================================
+   LOGO
+================================ */
 const Logo = memo(
   ({
     logo,
@@ -52,8 +47,9 @@ const Logo = memo(
     animated: boolean;
   }) => (
     <div
-      className={`flex-shrink-0 flex items-center justify-center px-6 transition-all duration-500
-        min-w-[180px] md:min-w-[260px]
+      className={`flex-shrink-0 flex items-center justify-center px-6
+        min-w-[140px] md:min-w-[200px]
+        transition-all duration-500
         ${
           animated
             ? 'grayscale opacity-40 hover:grayscale-0 hover:opacity-100'
@@ -64,7 +60,7 @@ const Logo = memo(
         src={logo.src}
         alt={logo.name}
         loading="lazy"
-        className="h-12 md:h-16 w-auto object-contain"
+        className="h-9 md:h-12 w-auto object-contain"
         onError={(e) => {
           (e.target as HTMLImageElement).style.display = 'none';
         }}
@@ -81,7 +77,6 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
   const [moveLayout, setMoveLayout] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-
   const lastWidthRef = useRef<number>(1024);
 
   const checkMobile = useCallback(() => {
@@ -155,7 +150,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
   return (
     <section
-      className="relative min-h-screen flex flex-col justify-between bg-[#0b0e14] overflow-hidden pt-32 md:pt-40"
+      className="relative min-h-screen flex flex-col justify-between bg-[#0b0e14] overflow-hidden pt-32 md:pt-40 antialiased"
       style={
         {
           '--hero-text-x': 'calc(-15vw)',
@@ -165,9 +160,10 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
     >
       <HeroLights />
 
-      {/* HERO */}
+      {/* ================= HERO ================= */}
       <div className="container mx-auto max-w-7xl px-6 lg:px-8 flex-1 flex items-center relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
+          {/* TEXTO */}
           <motion.div
             initial={heroTextInitial}
             animate={{ opacity: 1, x: heroTextX, y: 0 }}
@@ -178,20 +174,69 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             }}
             className="space-y-6 text-center lg:text-left"
           >
-            <motion.h1
-              variants={itemVariants}
+            <motion.div
+              variants={containerVariants}
               initial="hidden"
               animate="show"
-              className="text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.15]"
+              className="space-y-4"
             >
-              <span className="text-[#135bec] italic">Construyendo </span>
-              <span className="text-white/95">el futuro</span>
-              <br />
-              <span className="text-white/95">de tu </span>
-              <span className="text-[#135bec] italic">Empresa</span>
-            </motion.h1>
+              <motion.h1
+                variants={itemVariants}
+                className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight leading-[1.15]"
+              >
+                <span className="text-[#135bec] italic">
+                  Construyendo{' '}
+                </span>
+                <span className="text-white/95">el futuro</span>
+                <br />
+                <span className="text-white/95">de tu </span>
+                <span className="text-[#135bec] italic">
+                  Empresa
+                </span>
+              </motion.h1>
+
+              {/* ✅ SUBTÍTULO COMPLETO */}
+              <motion.p
+                variants={itemVariants}
+                className="text-lg sm:text-xl md:text-2xl text-slate-300 font-light max-w-2xl mx-auto lg:mx-0"
+              >
+                Arquitectura para{' '}
+                <span className="font-semibold text-white/90">
+                  startups{' '}
+                </span>
+                Optimización para{' '}
+                <span className="font-semibold text-white/90">
+                  empresas{' '}
+                </span>
+                Acompañamiento en cada{' '}
+                <span className="font-semibold text-white/90">
+                  etapa
+                </span>
+              </motion.p>
+
+              {/* BOTONES */}
+              <motion.div
+                variants={itemVariants}
+                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4"
+              >
+                <button
+                  onClick={() => onNavigate('contact')}
+                  className="px-8 py-4 bg-blue-600 text-white font-bold rounded-2xl hover:scale-105 transition"
+                >
+                  Solicitar Consultoría
+                </button>
+
+                <button
+                  onClick={() => onNavigate('services')}
+                  className="px-8 py-4 bg-slate-800 text-white rounded-2xl hover:scale-105 transition"
+                >
+                  Servicios
+                </button>
+              </motion.div>
+            </motion.div>
           </motion.div>
 
+          {/* IMAGEN */}
           <motion.div
             initial={heroImageInitial}
             animate={{ opacity: 1, x: heroImageX }}
@@ -199,7 +244,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               opacity: { duration: 1.2 },
               x: { duration: 1.5, delay: HERO_ANIMATION_DELAY / 1000 },
             }}
-            className="relative hidden lg:flex justify-center"
+            className="hidden lg:flex justify-center"
           >
             <img
               src="./images/foto-hero.jpg"
@@ -210,8 +255,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         </div>
       </div>
 
-      {/* LOGOS */}
-      <div className="py-10 border-t border-slate-800/50 bg-slate-900/20 overflow-hidden">
+      {/* ================= LOGOS ================= */}
+      <div className="py-14 border-t border-slate-800/50 bg-slate-900/20 overflow-hidden">
         <div className="container mx-auto px-6">
           <p className="text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.5em] mb-6">
             Han confiado en nosotros
@@ -226,7 +271,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 <Logo
                   key={`${logo.name}-${index}`}
                   logo={logo}
-                  animated
+                  animated={!shouldReduceMotion}
                 />
               ))}
             </div>
