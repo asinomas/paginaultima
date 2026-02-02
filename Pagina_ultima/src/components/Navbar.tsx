@@ -76,7 +76,7 @@ const Navbar: React.FC<NavbarProps> = ({
               aria-label="Ir al inicio"
             >
               <img
-                src="/logos/logo-blackti.png"
+                src="/logos/logo-blackti.svg"
                 alt="BlackTI Logo"
                 className={`h-11 w-auto ${
                   isSolid ? '' : 'brightness-0 invert'
