@@ -46,9 +46,23 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
   return (
     <section
-      className="relative min-h-screen bg-[#0b0e14] overflow-hidden pt-32 md:pt-40"
+      className="relative min-h-screen overflow-hidden pt-32 md:pt-40"
       aria-labelledby="hero-heading"
     >
+      {/* Imagen de fondo */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: 'url(./images/foto-hero.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
+        {/* Overlay oscuro para mejorar legibilidad */}
+        <div className="absolute inset-0 bg-[#0b0e14]/85" />
+      </div>
+
       <HeroLights />
 
       <div className="container mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
