@@ -53,7 +53,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         }}
       >
         {/* Overlay oscuro para mejorar legibilidad */}
-        <div className="absolute inset-0 bg-[#0b0e14]/85" />
+        <div className="absolute inset-0 bg-[#0b0e14]/70" />
       </div>
 
       <HeroLights />
@@ -143,18 +143,18 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* FRANJA DE LOGOS - Visible sin scroll */}
       <motion.div 
-        className="mt-0 border-t border-slate-800/50 bg-slate-900/20 py-6 overflow-hidden"
+        className="-mt-12 border-t border-slate-700/80 bg-slate-900/30 py-6 overflow-hidden relative z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1.3 }}
       >
-        <p className="text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.5em] mb-6">
+        <p className="text-center text-slate-300 text-[10px] font-bold uppercase tracking-[0.5em] mb-6">
           Han confiado en nosotros
         </p>
 
         <div className="relative">
-          <div className="absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-[#0b0e14] to-transparent z-10" />
-          <div className="absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-[#0b0e14] to-transparent z-10" />
+          <div className="absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-slate-900/90 to-transparent z-10" />
+          <div className="absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-slate-900/90 to-transparent z-10" />
 
           <div className="flex animate-infinite-scroll">
             {[...BASE_LOGOS, ...BASE_LOGOS].map((logo, i) => (
