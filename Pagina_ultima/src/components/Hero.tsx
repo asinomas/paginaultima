@@ -1,5 +1,5 @@
 import React, { useEffect, useState, memo } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import HeroLights from './HeroLights';
 
 interface HeroProps {
@@ -34,8 +34,8 @@ const Logo = memo(({ logo }: { logo: { name: string; src: string } }) => (
   </div>
 ));
 
+// VERSIÓN DESARROLLO - SIEMPRE CON ANIMACIONES
 const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
-  const shouldReduceMotion = useReducedMotion();
   const [showImage, setShowImage] = useState(false);
 
   useEffect(() => {
@@ -44,102 +44,6 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
     return () => clearTimeout(timer);
   }, []);
 
-  // VERSIÓN SIN ANIMACIONES (para usuarios con preferencias de movimiento reducido)
-  if (shouldReduceMotion) {
-    return (
-      <section
-        className="relative min-h-screen bg-[#0b0e14] overflow-hidden pt-32 md:pt-40"
-        aria-labelledby="hero-heading"
-      >
-        <HeroLights />
-
-        <div className="container mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-16">
-            
-            {/* TEXTO */}
-            <div className="text-center lg:text-left">
-              <h1
-                id="hero-heading"
-                className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight"
-              >
-                <span className="text-[#135bec] italic">Construyendo </span>
-                <span className="text-white">el futuro</span>
-                <br />
-                <span className="text-white">de tu </span>
-                <span className="text-[#135bec] italic">Empresa</span>
-              </h1>
-
-              <p className="mt-6 text-lg md:text-2xl text-slate-300 max-w-2xl mx-auto lg:mx-0">
-                Arquitectura para <span className="font-semibold text-white">startups</span>{' '}
-                Optimización para <span className="font-semibold text-white">empresas</span>{' '}
-                Acompañamiento en cada <span className="font-semibold text-white">etapa</span>
-              </p>
-
-              <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <button
-                  onClick={() => onNavigate('contact')}
-                  className="px-8 py-4 bg-blue-600 text-white font-bold rounded-2xl hover:bg-blue-700 transition-colors"
-                >
-                  Solicitar Consultoría
-                </button>
-
-                <button
-                  onClick={() => onNavigate('services')}
-                  className="px-8 py-4 border border-slate-700 text-white rounded-2xl hover:border-slate-600 transition-colors"
-                >
-                  Servicios
-                </button>
-              </div>
-            </div>
-
-            {/* IMAGEN */}
-            <div className="hidden lg:flex justify-center lg:justify-end">
-              <img
-                src="./images/foto-hero.jpg"
-                alt="Equipo BlackTI"
-                className="w-[340px] h-[510px] object-cover rounded-3xl shadow-2xl"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* FRANJA DE LOGOS */}
-        <div className="mt-20 border-t border-slate-800/50 bg-slate-900/20 py-6 overflow-hidden">
-          <p className="text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.5em] mb-6">
-            Han confiado en nosotros
-          </p>
-
-          <div className="relative">
-            <div className="absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-[#0b0e14] to-transparent z-10" />
-            <div className="absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-[#0b0e14] to-transparent z-10" />
-
-            <div className="flex animate-infinite-scroll">
-              {[...BASE_LOGOS, ...BASE_LOGOS].map((logo, i) => (
-                <Logo key={i} logo={logo} />
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <style>{`
-          @keyframes infinite-scroll {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
-          }
-          .animate-infinite-scroll {
-            display: flex;
-            width: max-content;
-            animation: infinite-scroll 45s linear infinite;
-          }
-          .animate-infinite-scroll:hover {
-            animation-play-state: paused;
-          }
-        `}</style>
-      </section>
-    );
-  }
-
-  // VERSIÓN CON ANIMACIONES
   return (
     <section
       className="relative min-h-screen bg-[#0b0e14] overflow-hidden pt-32 md:pt-40"
@@ -261,7 +165,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* FRANJA DE LOGOS - Más compacta */}
       <motion.div 
-        className="mt-20 border-t border-slate-800/50 bg-slate-900/20 py-6 overflow-hidden"
+        className="mt-12 border-t border-slate-800/50 bg-slate-900/20 py-6 overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1.5 }}
