@@ -114,7 +114,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         {/* Overlay oscuro para mejorar legibilidad */}
         <div 
           className="absolute inset-0" 
-          style={{ backgroundColor: `${COLORS.bgDark}60` }}
+          style={{ backgroundColor: `${COLORS.bgDark}60` filter: brightness(1.15)' }}
         />
       </div>
 
