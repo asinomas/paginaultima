@@ -29,7 +29,13 @@ const Logo = memo(({ logo }: { logo: { name: string; src: string } }) => (
       src={logo.src}
       alt={logo.name}
       loading="lazy"
-      className="h-8 md:h-10 w-auto object-contain max-w-[140px] md:max-w-[180px] filter grayscale-[30%]"
+      className="
+      h-8 md:h-10 w-auto object-contain
+      max-w-[140px] md:max-w-[180px]
+      filter grayscale opacity-70
+      hover:grayscale-0 hover:opacity-100
+      transition-all duration-500
+     "
     />
   </div>
 ));
@@ -159,8 +165,9 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   className="
     pointer-events-none
     absolute inset-y-0 left-0 w-32 z-10
-    [mask-image:linear-gradient(to_right,rgba(0,0,0,0.2)_0%,transparent_100%)]
-    [-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,0.2)_0%,transparent_100%)]
+    bg-gradient-to-r
+    from-slate-900/30
+    to-transparent
   "
 />
 
@@ -168,8 +175,9 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   className="
     pointer-events-none
     absolute inset-y-0 right-0 w-32 z-10
-    [mask-image:linear-gradient(to_left,rgba(0,0,0,0.05)_0%,transparent_100%)]
-    [-webkit-mask-image:linear-gradient(to_left,rgba(0,0,0,0.05)_0%,transparent_100%)]
+    bg-gradient-to-l
+    from-slate-900/30
+    to-transparent
   "
 />
 
