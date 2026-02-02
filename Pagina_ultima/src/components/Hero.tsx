@@ -40,7 +40,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
   useEffect(() => {
     // Mostrar imagen después de que el texto haya aparecido
-    const timer = setTimeout(() => setShowImage(true), 1200);
+    const timer = setTimeout(() => setShowImage(true), 1000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -69,50 +69,25 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             }}
             className="text-center lg:text-left"
           >
-            <h1
+            <motion.h1
               id="hero-heading"
               className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <motion.span 
-                className="text-[#135bec] italic inline-block"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                Construyendo{' '}
-              </motion.span>
-              <motion.span 
-                className="text-white inline-block"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-              >
-                el futuro
-              </motion.span>
+              <span className="text-[#135bec] italic">Construyendo </span>
+              <span className="text-white">el futuro</span>
               <br />
-              <motion.span 
-                className="text-white inline-block"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-              >
-                de tu{' '}
-              </motion.span>
-              <motion.span 
-                className="text-[#135bec] italic inline-block"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.7 }}
-              >
-                Empresa
-              </motion.span>
-            </h1>
+              <span className="text-white">de tu </span>
+              <span className="text-[#135bec] italic">Empresa</span>
+            </motion.h1>
 
             <motion.p 
               className="mt-6 text-lg md:text-2xl text-slate-300 max-w-2xl mx-auto lg:mx-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.9 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
             >
               Arquitectura para <span className="font-semibold text-white">startups</span>{' '}
               Optimización para <span className="font-semibold text-white">empresas</span>{' '}
@@ -123,18 +98,36 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.1 }}
+              transition={{ duration: 0.6, delay: 0.9 }}
             >
               <button
                 onClick={() => onNavigate('contact')}
-                className="px-8 py-4 bg-blue-600 text-white font-bold rounded-2xl hover:bg-blue-700 transition-colors"
+                className="
+                  px-8 py-4 
+                  bg-gradient-to-r from-blue-600 to-blue-500
+                  text-white font-bold rounded-2xl 
+                  hover:from-blue-500 hover:to-blue-400
+                  hover:shadow-lg hover:shadow-blue-500/50
+                  hover:scale-105
+                  transition-all duration-300
+                "
               >
                 Solicitar Consultoría
               </button>
 
               <button
                 onClick={() => onNavigate('services')}
-                className="px-8 py-4 border border-slate-700 text-white rounded-2xl hover:border-slate-600 transition-colors"
+                className="
+                  px-8 py-4 
+                  border border-slate-700 
+                  bg-gradient-to-r from-slate-900/50 to-slate-800/50
+                  text-white rounded-2xl 
+                  hover:border-slate-600 
+                  hover:from-slate-800/80 hover:to-slate-700/80
+                  hover:shadow-lg hover:shadow-slate-700/30
+                  hover:scale-105
+                  transition-all duration-300
+                "
               >
                 Servicios
               </button>
@@ -163,12 +156,12 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         </div>
       </div>
 
-      {/* FRANJA DE LOGOS - Más compacta */}
+      {/* FRANJA DE LOGOS - Visible sin scroll */}
       <motion.div 
-        className="mt-12 border-t border-slate-800/50 bg-slate-900/20 py-6 overflow-hidden"
+        className="mt-8 border-t border-slate-800/50 bg-slate-900/20 py-6 overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 1.5 }}
+        transition={{ duration: 0.6, delay: 1.3 }}
       >
         <p className="text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.5em] mb-6">
           Han confiado en nosotros
