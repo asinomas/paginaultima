@@ -95,7 +95,7 @@ const Logo = memo(({ logo }: { logo: { name: string; src: string } }) => {
 const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   return (
     <section
-      className="relative min-h-screen overflow-hidden pt-32 md:pt-40"
+      className="relative min-h-screen overflow-hidden pt-24 md:pt-32"
       aria-labelledby="hero-heading"
     >
       {/* Imagen de fondo */}
@@ -118,7 +118,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       <HeroLights />
 
       <div className="container mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-        <div className="flex items-center justify-center min-h-[70vh]">
+        <div className="flex items-center justify-center min-h-[65vh]">
           
           {/* TEXTO - Centrado */}
           <motion.div
@@ -212,7 +212,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* FRANJA DE LOGOS - Con fade individual en cada logo */}
       <motion.div 
-        className="-mt-6 border-t border-slate-700/80 bg-slate-900/30 pt-6 pb-6 overflow-hidden relative z-10"
+        className="-mt-12 border-t border-slate-700/80 bg-slate-900/30 pt-6 pb-6 overflow-hidden relative z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ 
