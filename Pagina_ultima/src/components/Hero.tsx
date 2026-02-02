@@ -8,6 +8,13 @@ import React, {
 import { motion, useReducedMotion, Variants } from 'framer-motion';
 import HeroLights from './HeroLights';
 
+/* ================================
+   🔧 FLAG DESARROLLO
+   Forzar animaciones aunque
+   el SO tenga reduced motion
+================================ */
+const FORCE_ANIMATIONS_DEV = true;
+
 interface HeroProps {
   onNavigate: (page: 'home' | 'services' | 'about' | 'contact') => void;
 }
@@ -67,7 +74,10 @@ const Logo = memo(
 );
 
 const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
-  const shouldReduceMotion = useReducedMotion();
+  const systemReducedMotion = useReducedMotion();
+  const shouldReduceMotion = FORCE_ANIMATIONS_DEV
+    ? false
+    : systemReducedMotion;
 
   const [moveLayout, setMoveLayout] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -121,6 +131,28 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
     ? BASE_LOGOS
     : [...BASE_LOGOS, ...BASE_LOGOS];
 
+  const containerVariants: Variants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: shouldReduceMotion ? 0 : 0.2,
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: shouldReduceMotion
+      ? { opacity: 1, y: 0 }
+      : { opacity: 0, y: 20 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: shouldReduceMotion
+        ? { duration: 0 }
+        : { duration: 1, ease: 'easeOut' },
+    },
+  };
+
   return (
     <section
       className="relative min-h-screen flex flex-col justify-between bg-[#0b0e14] overflow-hidden pt-32 md:pt-40"
@@ -139,22 +171,34 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           <motion.div
             initial={heroTextInitial}
             animate={{ opacity: 1, x: heroTextX, y: 0 }}
-            transition={{ duration: 1 }}
+            transition={{
+              opacity: { duration: 1 },
+              x: { duration: 1.5, delay: HERO_ANIMATION_DELAY / 1000 },
+              y: { duration: 1 },
+            }}
             className="space-y-6 text-center lg:text-left"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.15]">
+            <motion.h1
+              variants={itemVariants}
+              initial="hidden"
+              animate="show"
+              className="text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.15]"
+            >
               <span className="text-[#135bec] italic">Construyendo </span>
               <span className="text-white/95">el futuro</span>
               <br />
               <span className="text-white/95">de tu </span>
               <span className="text-[#135bec] italic">Empresa</span>
-            </h1>
+            </motion.h1>
           </motion.div>
 
           <motion.div
             initial={heroImageInitial}
             animate={{ opacity: 1, x: heroImageX }}
-            transition={{ duration: 1 }}
+            transition={{
+              opacity: { duration: 1.2 },
+              x: { duration: 1.5, delay: HERO_ANIMATION_DELAY / 1000 },
+            }}
             className="relative hidden lg:flex justify-center"
           >
             <img
@@ -166,30 +210,42 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         </div>
       </div>
 
-      {/* -- LOGOS -- */}
-      <div className="py-14 border-t border-slate-800/50 bg-slate-900/20">
+      {/* LOGOS */}
+      <div className="py-14 border-t border-slate-800/50 bg-slate-900/20 overflow-hidden">
         <div className="container mx-auto px-6">
           <p className="text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.5em] mb-6">
             Han confiado en nosotros
           </p>
 
-          <div className="overflow-hidden">
-            <div
-              className={`flex items-center ${
-                shouldReduceMotion ? '' : 'animate-infinite-scroll'
-              }`}
-            >
+          <div className="relative overflow-hidden">
+            <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0b0e14] to-transparent z-10" />
+            <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0b0e14] to-transparent z-10" />
+
+            <div className="flex w-max animate-infinite-scroll">
               {logosToRender.map((logo, index) => (
                 <Logo
                   key={`${logo.name}-${index}`}
                   logo={logo}
-                  animated={!shouldReduceMotion}
+                  animated
                 />
               ))}
             </div>
           </div>
         </div>
       </div>
+
+      <style>{`
+        @keyframes infinite-scroll {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        .animate-infinite-scroll {
+          animation: infinite-scroll 45s linear infinite;
+        }
+        .animate-infinite-scroll:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </section>
   );
 };
