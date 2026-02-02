@@ -115,8 +115,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         <div 
            className="absolute inset-0"
             style={{
-                    backgroundColor: `${COLORS.bgDark}30`,
-                    filter: 'brightness(1.40)', }}
+                    backgroundColor: `${COLORS.bgDark}10`,
+                    filter: 'brightness(1.30)', }}
         />
       </div>
 
