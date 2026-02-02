@@ -31,7 +31,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 alt="BlackTI Logo"
                 className="h-6 sm:h-8 md:h-10 w-auto"
                 style={{ filter: 'brightness(0) invert(1)' }}
-                src="https://www.blackti.cl/wp-content/uploads/2021/10/logo-black-ti.png"
+                src="/logos/logo-blackti.svg"
               />
             </button>
 
