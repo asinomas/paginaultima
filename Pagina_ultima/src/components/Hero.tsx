@@ -52,22 +52,29 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       <HeroLights />
 
       <div className="container mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-16 relative">
           
-          {/* TEXTO - Aparece centrado, luego se mueve a la izquierda cuando aparece la imagen */}
+          {/* TEXTO - Aparece en el centro absoluto, luego se mueve a la izquierda cuando aparece la imagen */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{
               opacity: 1,
               y: 0,
-              x: showImage ? -80 : 0,
+              x: showImage ? 0 : 0,
             }}
             transition={{
               opacity: { duration: 0.8, delay: 0.2 },
               y: { duration: 0.8, delay: 0.2 },
               x: { duration: 1.5, ease: [0.43, 0.13, 0.23, 0.96] },
             }}
-            className="text-center lg:text-left flex flex-col items-center lg:items-start"
+            style={{
+              position: showImage ? 'relative' : 'absolute',
+              left: showImage ? 'auto' : '50%',
+              transform: showImage ? 'none' : 'translateX(-50%)',
+              width: showImage ? 'auto' : '100%',
+              maxWidth: showImage ? 'none' : '600px',
+            }}
+            className="text-center lg:text-left flex flex-col items-center lg:items-start z-20"
           >
             <motion.h1
               id="hero-heading"
@@ -158,7 +165,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* FRANJA DE LOGOS - Visible sin scroll */}
       <motion.div 
-        className="mt-2 border-t border-slate-800/50 bg-slate-900/20 py-6 overflow-hidden"
+        className="mt-0 border-t border-slate-800/50 bg-slate-900/20 py-6 overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1.3 }}
