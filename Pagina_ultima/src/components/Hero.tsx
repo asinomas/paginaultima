@@ -39,8 +39,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   const [showImage, setShowImage] = useState(false);
 
   useEffect(() => {
-    // Mostrar imagen después de que el texto haya aparecido
-    const timer = setTimeout(() => setShowImage(true), 1000);
+    // Mostrar imagen después de 1.2 segundos (cuando el texto ya apareció)
+    const timer = setTimeout(() => setShowImage(true), 1200);
     return () => clearTimeout(timer);
   }, []);
 
@@ -54,34 +54,32 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       <div className="container mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-16 relative">
           
-          {/* TEXTO - Aparece en el centro absoluto, luego se mueve a la izquierda cuando aparece la imagen */}
+          {/* TEXTO - Aparece en el centro absoluto de la página, luego se mueve a la izquierda cuando aparece la imagen */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{
               opacity: 1,
               y: 0,
-              x: showImage ? 0 : 0,
             }}
             transition={{
-              opacity: { duration: 0.8, delay: 0.2 },
-              y: { duration: 0.8, delay: 0.2 },
-              x: { duration: 1.5, ease: [0.43, 0.13, 0.23, 0.96] },
+              opacity: { duration: 1.2 },
+              y: { duration: 1.2 },
             }}
             style={{
               position: showImage ? 'relative' : 'absolute',
               left: showImage ? 'auto' : '50%',
               transform: showImage ? 'none' : 'translateX(-50%)',
-              width: showImage ? 'auto' : '100%',
-              maxWidth: showImage ? 'none' : '600px',
+              width: showImage ? 'auto' : 'auto',
+              zIndex: 20,
             }}
-            className="text-center lg:text-left flex flex-col items-center lg:items-start z-20"
+            className="text-center"
           >
             <motion.h1
               id="hero-heading"
               className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              transition={{ duration: 1.2 }}
             >
               <span className="text-[#135bec] italic">Construyendo </span>
               <span className="text-white">el futuro</span>
@@ -91,10 +89,10 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             </motion.h1>
 
             <motion.p 
-              className="mt-6 text-lg md:text-2xl text-slate-300 max-w-2xl mx-auto lg:mx-0"
+              className="mt-6 text-lg md:text-2xl text-slate-300 max-w-2xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
             >
               Arquitectura para <span className="font-semibold text-white">startups</span>{' '}
               Optimización para <span className="font-semibold text-white">empresas</span>{' '}
@@ -102,10 +100,10 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             </motion.p>
 
             <motion.div 
-              className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.9 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
             >
               <button
                 onClick={() => onNavigate('contact')}
