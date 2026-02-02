@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import HeroLights from './HeroLights';
 
@@ -6,43 +6,93 @@ interface HeroProps {
   onNavigate: (page: 'home' | 'services' | 'about' | 'contact') => void;
 }
 
+// Constantes de color
+const COLORS = {
+  primary: '#135bec',
+  bgDark: '#0b0e14',
+} as const;
+
+// Constantes de timing para animaciones
+const ANIMATION_TIMINGS = {
+  slow: 1.2,
+  medium: 0.8,
+  fast: 0.4,
+  carousel: 45,
+} as const;
+
 const BASE_LOGOS = [
-  { name: 'Grupo Sura', src: './logos/grupo-sura.png' },
-  { name: 'Casa&Ideas', src: './logos/casa-ideas.png' },
-  { name: 'Globant', src: './logos/globant.png' },
-  { name: 'Marubeni', src: './logos/marubeni.png' },
-  { name: 'Everis', src: './logos/everis.png' },
-  { name: 'Compunet', src: './logos/compunet.png' },
+  { name: 'Grupo Sura', src: '/logos/grupo-sura.png' },
+  { name: 'Casa&Ideas', src: '/logos/casa-ideas.png' },
+  { name: 'Globant', src: '/logos/globant.png' },
+  { name: 'Marubeni', src: '/logos/marubeni.png' },
+  { name: 'Everis', src: '/logos/everis.png' },
+  { name: 'Compunet', src: '/logos/compunet.png' },
 ];
 
-const Logo = memo(({ logo }: { logo: { name: string; src: string } }) => (
-  <div
-    className="
-      flex-shrink-0 flex items-center justify-center
-      px-8 md:px-12
-      opacity-60 brightness-90
-      hover:opacity-100 hover:brightness-100
-      transition-all duration-500
-    "
-  >
-    <img
-      src={logo.src}
-      alt={logo.name}
-      loading="lazy"
+const Logo = memo(({ logo }: { logo: { name: string; src: string } }) => {
+  const logoRef = useRef<HTMLDivElement>(null);
+  const [opacity, setOpacity] = useState(1);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!logoRef.current) return;
+      
+      const rect = logoRef.current.getBoundingClientRect();
+      const viewportWidth = window.innerWidth;
+      
+      // Zona de fade: 15% del viewport a cada lado
+      const fadeZone = viewportWidth * 0.15;
+      
+      let newOpacity = 1;
+      
+      // Fade in desde la derecha
+      if (rect.right > viewportWidth - fadeZone) {
+        const distanceFromEdge = viewportWidth - rect.left;
+        newOpacity = Math.min(1, distanceFromEdge / fadeZone);
+      }
+      
+      // Fade out por la izquierda
+      if (rect.left < fadeZone) {
+        newOpacity = Math.max(0, rect.right / fadeZone);
+      }
+      
+      setOpacity(newOpacity);
+    };
+
+    // Ejecutar en cada frame de la animación
+    const interval = setInterval(handleScroll, 50);
+    
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div
+      ref={logoRef}
       className="
-      h-8 md:h-10 w-auto object-contain
-      max-w-[140px] md:max-w-[180px]
-      filter grayscale opacity-70
-      hover:grayscale-0 hover:opacity-100
-      transition-all duration-500
-     "
-    />
-  </div>
-));
+        flex-shrink-0 flex items-center justify-center
+        px-8 md:px-12
+        hover:scale-110
+        transition-transform duration-500
+      "
+      style={{ opacity }}
+    >
+      <img
+        src={logo.src}
+        alt={logo.name}
+        loading="lazy"
+        className="
+          h-8 md:h-10 w-auto object-contain
+          max-w-[140px] md:max-w-[180px]
+          filter grayscale
+          hover:grayscale-0
+          transition-all duration-500
+        "
+      />
+    </div>
+  );
+});
 
-// VERSIÓN DESARROLLO - SIEMPRE CON ANIMACIONES
 const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
-
   return (
     <section
       className="relative min-h-screen overflow-hidden pt-32 md:pt-40"
@@ -50,16 +100,19 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
     >
       {/* Imagen de fondo */}
       <div 
-        className="absolute inset-0 z-0"
+        className="absolute inset-0"
         style={{
-          backgroundImage: 'url(./images/foto-hero.jpg)',
+          backgroundImage: 'url(/images/foto-hero.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
         }}
       >
         {/* Overlay oscuro para mejorar legibilidad */}
-        <div className="absolute inset-0 bg-[#0b0e14]/50" />
+        <div 
+          className="absolute inset-0" 
+          style={{ backgroundColor: `${COLORS.bgDark}80` }}
+        />
       </div>
 
       <HeroLights />
@@ -75,8 +128,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               y: 0,
             }}
             transition={{
-              opacity: { duration: 1.2 },
-              y: { duration: 1.2 },
+              opacity: { duration: ANIMATION_TIMINGS.slow },
+              y: { duration: ANIMATION_TIMINGS.slow },
             }}
             className="text-center"
           >
@@ -85,20 +138,27 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2 }}
+              transition={{ duration: ANIMATION_TIMINGS.slow }}
             >
-              <span className="text-[#135bec] italic">Construyendo </span>
+              <span style={{ color: COLORS.primary }} className="italic">
+                Construyendo{' '}
+              </span>
               <span className="text-white">el futuro</span>
               <br />
               <span className="text-white">de tu </span>
-              <span className="text-[#135bec] italic">Negocio</span>
+              <span style={{ color: COLORS.primary }} className="italic">
+                Negocio
+              </span>
             </motion.h1>
 
             <motion.p 
               className="mt-6 text-lg md:text-2xl text-slate-300 max-w-2xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ 
+                duration: ANIMATION_TIMINGS.medium, 
+                delay: ANIMATION_TIMINGS.fast 
+              }}
             >
               Arquitectura para <span className="font-semibold text-white">startups</span>.{' '}
               Optimización para <span className="font-semibold text-white">empresas</span>.{' '}
@@ -109,7 +169,10 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
+              transition={{ 
+                duration: ANIMATION_TIMINGS.medium, 
+                delay: ANIMATION_TIMINGS.medium 
+              }}
             >
               <button
                 onClick={() => onNavigate('contact')}
@@ -147,58 +210,22 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         </div>
       </div>
 
-      {/* FRANJA DE LOGOS - Visible sin scroll */}
+      {/* FRANJA DE LOGOS - Con fade individual en cada logo */}
       <motion.div 
         className="-mt-12 border-t border-slate-700/80 bg-slate-900/30 pt-6 pb-9 overflow-hidden relative z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 1.3 }}
+        transition={{ 
+          duration: 0.6, 
+          delay: ANIMATION_TIMINGS.slow + 0.1 
+        }}
       >
         <p className="text-center text-slate-300 text-[10px] font-bold uppercase tracking-[0.5em] mb-4">
           Han confiado en nosotros
         </p>
 
-
-        {/* Difuminado en los costados */}
         <div className="relative">
-          <div
-  className="
-    pointer-events-none
-    absolute inset-y-0 left-0 w-32 z-10
-    bg-gradient-to-r
-    from-slate-900/30
-    to-transparent
-  "
-/>
-
-<div
-  className="
-    pointer-events-none
-    absolute inset-y-0 right-0 w-32 z-10
-    bg-gradient-to-l
-    from-slate-900/30
-    to-transparent
-  "
-/>
-
-
-          <div
-  className="
-    flex animate-infinite-scroll
-    [mask-image:linear-gradient(to_right,
-      transparent_0%,
-      black_8%,
-      black_92%,
-      transparent_100%
-    )]
-    [-webkit-mask-image:linear-gradient(to_right,
-      transparent_0%,
-      black_8%,
-      black_92%,
-      transparent_100%
-    )]
-  "
->
+          <div className="flex animate-infinite-scroll">
             {[...BASE_LOGOS, ...BASE_LOGOS].map((logo, i) => (
               <Logo key={i} logo={logo} />
             ))}
@@ -214,7 +241,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         .animate-infinite-scroll {
           display: flex;
           width: max-content;
-          animation: infinite-scroll 45s linear infinite;
+          animation: infinite-scroll ${ANIMATION_TIMINGS.carousel}s linear infinite;
+          will-change: transform;
         }
         .animate-infinite-scroll:hover {
           animation-play-state: paused;
