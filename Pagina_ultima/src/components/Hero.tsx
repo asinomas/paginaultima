@@ -53,7 +53,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         }}
       >
         {/* Overlay oscuro para mejorar legibilidad */}
-        <div className="absolute inset-0 bg-[#0b0e14]/70" />
+        <div className="absolute inset-0 bg-[#0b0e14]/50" />
       </div>
 
       <HeroLights />
@@ -143,7 +143,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* FRANJA DE LOGOS - Visible sin scroll */}
       <motion.div 
-        className="-mt-12 border-t border-slate-700/80 bg-slate-900/30 pt-3 pb-6 overflow-hidden relative z-10"
+        className="-mt-12 border-t border-slate-700/80 bg-slate-900/30 pt-3 pb-8 overflow-hidden relative z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1.3 }}
