@@ -145,7 +145,7 @@ const HeroLights: React.FC = () => {
         className="absolute inset-0 pointer-events-none"
         style={{backgroundImage: "url('https://www.transparenttextures.com/patterns/asfalt-dark.png')",
                 opacity: 0.05,
-                filter: 'blur(0.6px),
+                filter: 'blur(0.6px)
         }}
       />
       
