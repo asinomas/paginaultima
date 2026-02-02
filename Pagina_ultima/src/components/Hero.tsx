@@ -92,17 +92,12 @@ const Logo = memo(({ logo }: { logo: { name: string; src: string } }) => {
   );
 });
 
-
-
-{/* Imagen de fondo y contenedor */}
 const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   return (
     <section
-      className="relative min-h-screen overflow-hidden pt-28 md:pt-36"
+      className="relative min-h-screen overflow-hidden pt-32 md:pt-40"
       aria-labelledby="hero-heading"
     >
-
-      
       {/* Imagen de fondo */}
       <div 
         className="absolute inset-0"
@@ -113,9 +108,6 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           backgroundRepeat: 'no-repeat',
         }}
       >
-
-
-        
         {/* Overlay oscuro para mejorar legibilidad */}
         <div 
           className="absolute inset-0" 
@@ -220,7 +212,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* FRANJA DE LOGOS - Con fade individual en cada logo */}
       <motion.div 
-        className="-mt-12 border-t border-slate-700/80 bg-slate-900/30 pt-6 pb-6 overflow-hidden relative z-10"
+        className="-mt-6 border-t border-slate-700/80 bg-slate-900/30 pt-6 pb-6 overflow-hidden relative z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ 
