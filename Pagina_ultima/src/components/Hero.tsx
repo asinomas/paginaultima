@@ -25,7 +25,6 @@ const BASE_LOGOS = [
   { name: 'Compunet', src: './logos/compunet.png' },
 ];
 
-// throttle simple
 const throttle = (fn: () => void, delay: number) => {
   let inThrottle = false;
   return () => {
@@ -37,9 +36,6 @@ const throttle = (fn: () => void, delay: number) => {
   };
 };
 
-/* ======================================================
-   LOGO (SOLO AQUÍ SE MODIFICÓ)
-====================================================== */
 const Logo = memo(
   ({
     logo,
@@ -125,27 +121,9 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
     ? BASE_LOGOS
     : [...BASE_LOGOS, ...BASE_LOGOS];
 
-  const containerVariants: Variants = {
-    hidden: {},
-    show: {
-      transition: { staggerChildren: shouldReduceMotion ? 0 : 0.2 },
-    },
-  };
-
-  const itemVariants: Variants = {
-    hidden: shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: shouldReduceMotion
-        ? { duration: 0 }
-        : { duration: 1, ease: 'easeOut' },
-    },
-  };
-
   return (
     <section
-      className={`relative min-h-screen flex flex-col justify-between bg-[#0b0e14] overflow-hidden pt-32 md:pt-40`}
+      className="relative min-h-screen flex flex-col justify-between bg-[#0b0e14] overflow-hidden pt-32 md:pt-40"
       style={
         {
           '--hero-text-x': 'calc(-15vw)',
@@ -155,48 +133,24 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
     >
       <HeroLights />
 
-      {/* ================= HERO ================= */}
+      {/* HERO */}
       <div className="container mx-auto max-w-7xl px-6 lg:px-8 flex-1 flex items-center relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
-          {/* TEXTO */}
           <motion.div
             initial={heroTextInitial}
             animate={{ opacity: 1, x: heroTextX, y: 0 }}
             transition={{ duration: 1 }}
             className="space-y-6 text-center lg:text-left"
           >
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate="show"
-              className="space-y-4"
-            >
-              <motion.h1
-                variants={itemVariants}
-                className="text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.15]"
-              >
-                <span className="text-[#135bec] italic">Construyendo </span>
-                <span className="text-white/95">el futuro</span>
-                <br />
-                <span className="text-white/95">de tu </span>
-                <span className="text-[#135bec] italic">Empresa</span>
-              </motion.h1>
-
-              <motion.p
-                variants={itemVariants}
-                className="text-lg md:text-2xl text-slate-300 max-w-2xl"
-              >
-                Arquitectura para{' '}
-                <span className="font-semibold text-white">startups </span>
-                Optimización para{' '}
-                <span className="font-semibold text-white">empresas </span>
-                Acompañamiento en cada{' '}
-                <span className="font-semibold text-white">etapa</span>
-              </motion.p>
-            </motion.div>
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.15]">
+              <span className="text-[#135bec] italic">Construyendo </span>
+              <span className="text-white/95">el futuro</span>
+              <br />
+              <span className="text-white/95">de tu </span>
+              <span className="text-[#135bec] italic">Empresa</span>
+            </h1>
           </motion.div>
 
-          {/* IMAGEN — SIEMPRE VISIBLE */}
           <motion.div
             initial={heroImageInitial}
             animate={{ opacity: 1, x: heroImageX }}
@@ -212,10 +166,10 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         </div>
       </div>
 
-      {/* ================= LOGOS ================= */}
-      <div className="py-20 border-t border-slate-800/50 bg-slate-900/20">
+      {/* -- LOGOS -- */}
+      <div className="py-14 border-t border-slate-800/50 bg-slate-900/20">
         <div className="container mx-auto px-6">
-          <p className="text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.5em] mb-10">
+          <p className="text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.5em] mb-6">
             Han confiado en nosotros
           </p>
 
