@@ -142,7 +142,7 @@ const HeroLights: React.FC = () => {
       
       {/* Textura de fondo */}
       <div 
-        className="absolute inset-0 opacity-20 pointer-events-none"
+        className="absolute inset-0 opacity: 0.08 filter: 'blur(0.6px) pointer-events-none"
         style={{
           backgroundImage: "url('https://www.transparenttextures.com/patterns/carbon-fibre.png')"
         }}
