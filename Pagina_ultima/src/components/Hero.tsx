@@ -212,7 +212,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* FRANJA DE LOGOS - Con fade individual en cada logo */}
       <motion.div 
-        className="-mt-12 border-t border-slate-700/80 bg-slate-900/30 pt-6 pb-6 overflow-hidden relative z-10"
+        className="-mt-8 border-t border-slate-700/80 bg-slate-900/30 pt-6 pb-6 overflow-hidden relative z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ 
