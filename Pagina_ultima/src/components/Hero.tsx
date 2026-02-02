@@ -143,7 +143,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* FRANJA DE LOGOS - Visible sin scroll */}
       <motion.div 
-        className="-mt-12 border-t border-slate-700/80 bg-slate-900/30 pt-3 pb-8 overflow-hidden relative z-10"
+        className="-mt-12 border-t border-slate-700/80 bg-slate-900/30 pt-6 pb-9 overflow-hidden relative z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1.3 }}
@@ -153,8 +153,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         </p>
 
         <div className="relative">
-          <div className="absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-slate-900/90 to-transparent z-10" />
-          <div className="absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-slate-900/90 to-transparent z-10" />
+          <div className="absolute left-0 top-0 h-full w-32 linear-gradient(to_right, black 80%, transparent) z-10" />
+          <div className="absolute right-0 top-0 h-full w-32 linear-gradient(to_right, black 80%, transparent) z-10" />
 
           <div className="flex animate-infinite-scroll">
             {[...BASE_LOGOS, ...BASE_LOGOS].map((logo, i) => (
