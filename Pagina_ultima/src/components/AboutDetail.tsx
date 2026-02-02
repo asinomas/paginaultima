@@ -137,7 +137,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
           <div className="flex items-center w-full justify-center mb-6">
             <div className="h-0.5 flex-1 bg-gradient-to-r from-transparent to-slate-200 hidden md:block mr-10" />
             <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight px-6">
-              Quienes somos
+              Quiénes somos
             </h2>
             <div className="h-0.5 flex-1 bg-gradient-to-l from-transparent to-slate-200 hidden md:block ml-10" />
           </div>
