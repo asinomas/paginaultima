@@ -142,9 +142,10 @@ const HeroLights: React.FC = () => {
       
       {/* Textura de fondo */}
       <div 
-        className="absolute inset-0 opacity: 0.05 filter: 'blur(0.6px) pointer-events-none"
-        style={{
-          backgroundImage: "url('https://www.transparenttextures.com/patterns/asfalt-dark.png')"
+        className="absolute inset-0 pointer-events-none"
+        style={{backgroundImage: "url('https://www.transparenttextures.com/patterns/asfalt-dark.png')",
+                opacity: 0.05,
+                filter: 'blur(0.6px),
         }}
       />
       
