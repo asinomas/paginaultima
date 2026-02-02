@@ -19,10 +19,10 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
     >
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Grid principal */}
-        <div className="grid grid-cols-1 gap-10 md:gap-8 md:grid-cols-12 items-start">
+        <div className="grid grid-cols-1 gap-10 md:gap-8 md:grid-cols-4 items-start">
 
-          {/* Izquierda - Logo + texto + LinkedIn */}
-          <div className="col-span-1 md:col-span-5 lg:col-span-4 flex flex-col items-start">
+          {/* Izquierda - Logo + texto + iconos sociales */}
+          <div className="col-span-1 flex flex-col items-start">
             <button
               onClick={() => onNavigate?.('home')}
               className="mb-4 md:mb-6 flex items-center transition-transform hover:scale-105"
@@ -35,122 +35,172 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               />
             </button>
 
-            <p className="text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-400 max-w-sm leading-relaxed tracking-tight mb-5">
+            <p className="text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-400 max-w-sm leading-relaxed tracking-tight mb-6">
               Servicio de Consultoría TI, donde nuestro valor principal se centra
               en unir la tecnología de vanguardia con el talento de las personas.
             </p>
 
-            <a
-              href="https://linkedin.com/company/blackti"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate-400 hover:text-[#135bec] transition-colors"
-              aria-label="Visitar Linkedin de BlackTI"
-            >
-              <Linkedin size={20} />
-            </a>
-          </div>
-
-          {/* Capacidades */}
-          <div className="col-span-1 md:col-span-2 lg:col-span-2 lg:col-start-6 mt-8 md:mt-0">
-            <h5
-              className="mb-4 md:mb-5 text-[9px] sm:text-[10px] md:text-[11px] font-light uppercase tracking-widest"
-              style={{ color: '#135bec' }}
-            >
-              Capacidades
-            </h5>
-            <ul className="space-y-1.5 text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-300">
-              <li><button onClick={() => onNavigate?.('services')} className="hover:text-white transition-colors">Desarrollo</button></li>
-              <li><button onClick={() => onNavigate?.('services')} className="hover:text-white transition-colors">Liderazgo</button></li>
-              <li><button onClick={() => onNavigate?.('services')} className="hover:text-white transition-colors">Especialidades</button></li>
-            </ul>
-          </div>
-
-          {/* Grupo BlackTI / Servicios */}
-          <div className="col-span-1 md:col-span-2 lg:col-span-2 mt-8 md:mt-0">
-            <h5
-              className="mb-4 md:mb-5 text-[9px] sm:text-[10px] md:text-[11px] font-light uppercase tracking-widest"
-              style={{ color: '#135bec' }}
-            >
-              Grupo BlackTI
-            </h5>
-            <ul className="space-y-1.5 text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-300">
-              <li><button onClick={() => onNavigate?.('home')} className="hover:text-white transition-colors">Inicio</button></li>
-              <li><button onClick={() => onNavigate?.('services')} className="hover:text-white transition-colors">Servicios</button></li>
-              <li><button onClick={() => onNavigate?.('about')} className="hover:text-white transition-colors">Quiénes Somos</button></li>
-              <li><button onClick={() => onNavigate?.('contact')} className="hover:text-white transition-colors">Contacto</button></li>
-            </ul>
-          </div>
-
-          {/* Contacto – forzado a la derecha */}
-          <div className="col-span-1 md:col-span-3 lg:col-span-3 lg:col-start-10 mt-8 md:mt-0">
-            <h5
-              className="mb-4 md:mb-5 text-[9px] sm:text-[10px] md:text-[11px] font-light uppercase tracking-widest"
-              style={{ color: '#135bec' }}
-            >
-              Contacto
-            </h5>
-            <ul className="space-y-1.5 text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-300">
-              <li>
-                <a href="mailto:contacto@blackti.cl" className="hover:text-[#135bec] transition-colors">
-                  contacto@blackti.cl
-                </a>
-              </li>
-              <li>
-                <a href="tel:+56944030716" className="hover:text-[#135bec] transition-colors">
-                  +56 9 4403 0716
-                </a>
-              </li>
-              <li>
-                Av. Apoquindo 6410, Of 605<br />
-                Las Condes, Santiago
-              </li>
-            </ul>
-
-            <div className="flex flex-wrap items-center gap-4 mt-6">
-              <span className="text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-300 whitespace-nowrap">
-                o contáctanos directamente:
-              </span>
+            {/* Iconos sociales */}
+            <div className="flex items-center gap-6">
+              <a
+                href="https://linkedin.com/company/blackti"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-slate-400 hover:text-[#0A66C2] transition-colors text-[12px] sm:text-[13px] md:text-[14px]"
+                aria-label="Visitar LinkedIn de BlackTI"
+              >
+                <Linkedin size={20} />
+              </a>
 
               <a
                 href="https://wa.me/56944030716"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-slate-300 hover:text-[#25D366] transition-colors"
+                className="flex items-center gap-2 text-slate-400 hover:text-[#25D366] transition-colors text-[12px] sm:text-[13px] md:text-[14px]"
                 aria-label="Contactar por WhatsApp"
               >
                 <MessageCircle size={20} />
-                WhatsApp
+                <span>WhatsApp</span>
               </a>
 
               <a
                 href="tel:+56944030716"
-                className="flex items-center gap-2 text-slate-300 hover:text-[#135bec] transition-colors"
+                className="flex items-center gap-2 text-slate-400 hover:text-[#135bec] transition-colors text-[12px] sm:text-[13px] md:text-[14px]"
                 aria-label="Llamar por teléfono"
               >
                 <Phone size={20} />
-                Llamar
+                <span>Llamar</span>
               </a>
             </div>
           </div>
+
+          {/* Capacidades */}
+          <div className="col-span-1 mt-8 md:mt-0">
+            <h5
+              className="mb-4 md:mb-5 text-[9px] sm:text-[10px] md:text-[11px] font-bold uppercase tracking-widest"
+              style={{ color: '#135bec' }}
+            >
+              Capacidades
+            </h5>
+            <ul className="space-y-2 text-[11px] sm:text-[12px] md:text-[13px] font-light text-slate-300">
+              <li>
+                <button 
+                  onClick={() => onNavigate?.('services')} 
+                  className="hover:text-white transition-colors"
+                >
+                  Desarrollo
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => onNavigate?.('services')} 
+                  className="hover:text-white transition-colors"
+                >
+                  Liderazgo
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => onNavigate?.('services')} 
+                  className="hover:text-white transition-colors"
+                >
+                  Especialidades
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          {/* Grupo BlackTI */}
+          <div className="col-span-1 mt-8 md:mt-0">
+            <h5
+              className="mb-4 md:mb-5 text-[9px] sm:text-[10px] md:text-[11px] font-bold uppercase tracking-widest"
+              style={{ color: '#135bec' }}
+            >
+              Grupo BlackTI
+            </h5>
+            <ul className="space-y-2 text-[11px] sm:text-[12px] md:text-[13px] font-light text-slate-300">
+              <li>
+                <button 
+                  onClick={() => onNavigate?.('home')} 
+                  className="hover:text-white transition-colors"
+                >
+                  Inicio
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => onNavigate?.('services')} 
+                  className="hover:text-white transition-colors"
+                >
+                  Servicios
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => onNavigate?.('about')} 
+                  className="hover:text-white transition-colors"
+                >
+                  Quiénes Somos
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contacto */}
+          <div className="col-span-1 mt-8 md:mt-0">
+            <h5
+              className="mb-4 md:mb-5 text-[9px] sm:text-[10px] md:text-[11px] font-bold uppercase tracking-widest"
+              style={{ color: '#135bec' }}
+            >
+              Contacto
+            </h5>
+            <ul className="space-y-2 text-[11px] sm:text-[12px] md:text-[13px] font-light text-slate-300">
+              <li>
+                <a 
+                  href="mailto:contacto@blackti.cl" 
+                  className="hover:text-[#135bec] transition-colors"
+                >
+                  contacto@blackti.cl
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="tel:+56944030716" 
+                  className="hover:text-[#135bec] transition-colors"
+                >
+                  +56 9 4403 0716
+                </a>
+              </li>
+              <li className="leading-relaxed">
+                Av. Apoquindo 6410, Of 605<br />
+                Las Condes, Santiago
+              </li>
+            </ul>
+          </div>
         </div>
 
-        {/* Barra inferior */}
-        <div className="mt-12 md:mt-16 border-t border-white/10 pt-6 md:pt-8 text-center md:flex md:justify-between md:text-left">
-          <p className="text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-500">
+        {/* Separador */}
+        <div className="mt-12 md:mt-14 border-t border-white/10"></div>
+
+        {/* Barra inferior - Copyright y links legales */}
+        <div className="mt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          
+          {/* Izquierda - Copyright */}
+          <p className="text-[11px] sm:text-[12px] md:text-[13px] font-light text-slate-500 text-center md:text-left">
             © {new Date().getFullYear()} BlackTI. Todos los derechos reservados.
           </p>
 
-          <div className="mt-4 md:mt-0 flex justify-center gap-5 md:gap-6">
+          {/* Derecha - Links legales */}
+          <div className="flex justify-center md:justify-end gap-5 md:gap-6">
             <button
               onClick={() => onNavigate?.('privacy')}
-              className="text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-500 hover:text-white transition-colors"
+              className="text-[11px] sm:text-[12px] md:text-[13px] font-light text-slate-500 hover:text-white transition-colors"
             >
               Privacidad
             </button>
             <button
               onClick={() => onNavigate?.('terms')}
-              className="text-[10px] sm:text-[11px] md:text-[12px] font-light text-slate-500 hover:text-white transition-colors"
+              className="text-[11px] sm:text-[12px] md:text-[13px] font-light text-slate-500 hover:text-white transition-colors"
             >
               Términos
             </button>
