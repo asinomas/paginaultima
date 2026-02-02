@@ -8,7 +8,7 @@ interface HeroProps {
 
 const HERO_ANIMATION_DELAY = 1500;
 const MOBILE_BREAKPOINT = 1024;
-const DEV_FORCE_ANIMATION = true; // 👈 MODO DESARROLLO
+const DEV_FORCE_ANIMATION = true;
 
 const BASE_LOGOS = [
   { name: 'Grupo Sura', src: './logos/grupo-sura.png' },
@@ -31,29 +31,20 @@ const throttle = (fn: (...args: unknown[]) => void, delay: number) => {
 };
 
 const Logo = memo(
-  ({
-    logo,
-    animated,
-  }: {
-    logo: { name: string; src: string };
-    animated: boolean;
-  }) => (
+  ({ logo, animated }: { logo: { name: string; src: string }; animated: boolean }) => (
     <div
       className={`flex-shrink-0 flex items-center justify-center
-        min-w-[120px] md:min-w-[180px]
-        h-[44px] md:h-[52px]
-        transition-all duration-500
-        ${animated ? 'grayscale opacity-40 hover:grayscale-0 hover:opacity-100' : 'grayscale opacity-40'}
-      `}
+      min-w-[120px] md:min-w-[180px]
+      h-[44px] md:h-[52px]
+      transition-all duration-500
+      ${animated ? 'grayscale opacity-40 hover:grayscale-0 hover:opacity-100' : 'grayscale opacity-40'}
+    `}
     >
       <img
         src={logo.src}
         alt={logo.name}
         loading="lazy"
         className="max-h-[26px] md:max-h-[34px] max-w-[120px] md:max-w-[150px] object-contain"
-        onError={(e) => {
-          (e.target as HTMLImageElement).style.display = 'none';
-        }}
       />
     </div>
   )
@@ -91,91 +82,65 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   const animated = DEV_FORCE_ANIMATION && !isMobile;
   const logosToRender = animated ? [...BASE_LOGOS, ...BASE_LOGOS] : BASE_LOGOS;
 
-  const containerVariants: Variants = {
-    hidden: {},
-    show: { transition: { staggerChildren: animated ? 0.15 : 0 } },
-  };
-
   const itemVariants: Variants = {
     hidden: animated ? { opacity: 0, y: 20 } : { opacity: 1 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   };
 
   return (
-    <section
-      className="relative min-h-[92vh] flex flex-col bg-[#0b0e14] overflow-hidden pt-24 md:pt-28"
-      style={
-        {
-          '--hero-text-x': '-12vw',
-          '--hero-image-x': '-4vw',
-        } as React.CSSProperties
-      }
-    >
+    <section className="relative min-h-[92vh] flex flex-col bg-[#0b0e14] pt-24 overflow-hidden">
       <HeroLights />
 
-      {/* HERO CONTENT */}
-      <div className="container mx-auto max-w-7xl px-6 lg:px-10 flex-1 flex items-center relative z-10">
+      <div className="container mx-auto max-w-7xl px-6 flex-1 flex items-center">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center w-full">
           {/* TEXTO */}
           <motion.div
-            initial={{ opacity: 1, x: 0 }}
-            animate={{
-              opacity: 1,
-              x: animated && moveLayout ? 'var(--hero-text-x)' : 0,
-            }}
+            initial={animated ? { x: '-12vw', opacity: 0 } : false}
+            animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 1.4, ease: 'easeInOut' }}
-            className="space-y-6 text-center lg:text-left"
+            className="text-center lg:text-left space-y-6"
           >
-            <motion.div variants={containerVariants} initial="hidden" animate="show">
-              <motion.h1
-                variants={itemVariants}
-                className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight"
-              >
-                <span className="text-[#135bec] italic">Construyendo </span>
-                <span className="text-white">el futuro</span>
-                <br />
-                <span className="text-white">de tu </span>
-                <span className="text-[#135bec] italic">Empresa</span>
-              </motion.h1>
+            <motion.h1
+              variants={itemVariants}
+              initial="hidden"
+              animate="show"
+              className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight"
+            >
+              <span className="text-[#135bec] italic">Construyendo </span>
+              <span className="text-white">el futuro</span>
+              <br />
+              <span className="text-white">de tu </span>
+              <span className="text-[#135bec] italic">Empresa</span>
+            </motion.h1>
 
-              <motion.p
-                variants={itemVariants}
-                className="text-lg md:text-xl text-slate-300 max-w-xl mx-auto lg:mx-0 mt-6"
-              >
-                Arquitectura para <span className="font-semibold text-white">startups </span>
-                Optimización para <span className="font-semibold text-white">empresas </span>
-                Acompañamiento en cada <span className="font-semibold text-white">etapa</span>
-              </motion.p>
+            <p className="text-lg md:text-xl text-slate-300 max-w-xl mx-auto lg:mx-0">
+              Arquitectura para <span className="font-semibold text-white">startups </span>
+              Optimización para <span className="font-semibold text-white">empresas </span>
+              Acompañamiento en cada <span className="font-semibold text-white">etapa</span>
+            </p>
 
-              <motion.div
-                variants={itemVariants}
-                className="flex gap-4 justify-center lg:justify-start mt-8"
+            <div className="flex gap-4 justify-center lg:justify-start">
+              <button
+                onClick={() => onNavigate('contact')}
+                className="px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold"
               >
-                <button
-                  onClick={() => onNavigate('contact')}
-                  className="px-8 py-4 bg-blue-600 text-white font-bold rounded-2xl hover:scale-105 transition"
-                >
-                  Solicitar Consultoría
-                </button>
-                <button
-                  onClick={() => onNavigate('services')}
-                  className="px-8 py-4 bg-slate-800 text-white rounded-2xl"
-                >
-                  Servicios
-                </button>
-              </motion.div>
-            </motion.div>
+                Solicitar Consultoría
+              </button>
+              <button
+                onClick={() => onNavigate('services')}
+                className="px-8 py-4 bg-slate-800 text-white rounded-2xl"
+              >
+                Servicios
+              </button>
+            </div>
           </motion.div>
 
           {/* IMAGEN */}
           <motion.div
-            initial={{ opacity: 1, x: 0 }}
-            animate={{
-              opacity: 1,
-              x: animated && moveLayout ? 'var(--hero-image-x)' : 0,
-            }}
+            initial={animated ? { x: '12vw', opacity: 0 } : false}
+            animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 1.4, ease: 'easeInOut' }}
-            className="hidden lg:flex justify-center -translate-y-10"
+            className="hidden lg:flex justify-center -translate-y-8"
           >
             <img
               src="./images/foto-hero.jpg"
@@ -187,15 +152,15 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       </div>
 
       {/* LOGOS */}
-      <div className="py-6 mt-8 border-t border-slate-800/50 bg-slate-900/20 overflow-hidden">
+      <div className="py-6 border-t border-slate-800/50 bg-slate-900/20">
         <p className="text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.5em] mb-4">
           Han confiado en nosotros
         </p>
 
-        <div className="relative overflow-hidden">
+        <div className="overflow-hidden">
           <div className="flex animate-infinite-scroll">
             {logosToRender.map((logo, i) => (
-              <Logo key={`${logo.name}-${i}`} logo={logo} animated={animated} />
+              <Logo key={i} logo={logo} animated={animated} />
             ))}
           </div>
         </div>
