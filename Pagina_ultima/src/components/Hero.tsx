@@ -153,8 +153,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         </p>
 
         <div className="relative">
-          <div className="absolute left-0 top-0 h-full w-32 linear-gradient(to_right, black 80%, transparent) z-10" />
-          <div className="absolute right-0 top-0 h-full w-32 linear-gradient(to_right, black 80%, transparent) z-10" />
+          <div className="absolute left-0 top-0 h-full w-32 linear-gradient(to_right, black 40%, transparent) z-10" />
+          <div className="absolute right-0 top-0 h-full w-32 linear-gradient(to_right, black 40%, transparent) z-10" />
 
           <div className="flex animate-infinite-scroll">
             {[...BASE_LOGOS, ...BASE_LOGOS].map((logo, i) => (
