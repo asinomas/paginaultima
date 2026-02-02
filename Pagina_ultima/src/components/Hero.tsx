@@ -65,9 +65,9 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             transition={{
               opacity: { duration: 0.8, delay: 0.2 },
               y: { duration: 0.8, delay: 0.2 },
-              x: { duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] },
+              x: { duration: 1.5, ease: [0.43, 0.13, 0.23, 0.96] },
             }}
-            className="text-center lg:text-left"
+            className="text-center lg:text-left flex flex-col items-center lg:items-start"
           >
             <motion.h1
               id="hero-heading"
@@ -142,7 +142,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               x: showImage ? 0 : 100,
             }}
             transition={{
-              duration: 0.8,
+              duration: 1.5,
               ease: [0.43, 0.13, 0.23, 0.96],
             }}
             className="hidden lg:flex justify-center lg:justify-end"
@@ -158,7 +158,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* FRANJA DE LOGOS - Visible sin scroll */}
       <motion.div 
-        className="mt-4 border-t border-slate-800/50 bg-slate-900/20 py-6 overflow-hidden"
+        className="mt-2 border-t border-slate-800/50 bg-slate-900/20 py-6 overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1.3 }}
