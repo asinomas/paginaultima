@@ -64,3 +64,5 @@
     </div>
   </div>
 </div>
+
+export default ContactDetail;
