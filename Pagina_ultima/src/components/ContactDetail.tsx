@@ -35,51 +35,68 @@ const ContactDetail: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
           {/* COLUMNA IZQUIERDA - TEXTO (DESDE "HABLEMOS HOY" HASTA "REGIÓN METROPOLITANA, CHILE") */}
-          <div className="lg:sticky lg:top-32 min-h-[500px]">
-            <h4 className="text-[#135bec] font-bold uppercase tracking-[0.2em] text-[11px] mb-4">
-              Hablemos hoy
-            </h4>
+          <div className="lg:sticky lg:top-32 min-h-[500px] relative">
+            
+            {/* FONDO con imagen y blur */}
+            <div 
+              className="absolute inset-0 z-0"
+              style={{
+                backgroundImage: "url('./images.webp')",
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                filter: 'blur(8px)',
+                opacity: 0.15,
+              }}
+            />
 
-            <h2 className="text-5xl lg:text-6xl font-black text-slate-900 mb-8 tracking-tighter leading-tight">
-              Diseñemos el <br />
-              <span className="text-[#135bec] italic">Futuro</span>
-            </h2>
+            {/* Contenido encima del fondo */}
+            <div className="relative z-10">
+              <h4 className="text-[#135bec] font-bold uppercase tracking-[0.2em] text-[11px] mb-4">
+                Hablemos hoy
+              </h4>
 
-            <p className="text-slate-500 text-lg mb-12 max-w-md leading-relaxed font-medium">
-              Estamos listos para transformar tus desafíos en grandes oportunidades.
-              Déjanos un mensaje y juntos tomemos la mejor decisión.
-            </p>
+              <h2 className="text-5xl lg:text-6xl font-black text-slate-900 mb-8 tracking-tighter leading-tight">
+                Diseñemos el <br />
+                <span className="text-[#135bec] italic">Futuro</span>
+              </h2>
 
-            <div className="space-y-8">
-              <div className="flex items-center gap-6 group">
-                <div className="size-14 rounded-2xl bg-slate-50 flex items-center justify-center text-[#135bec] group-hover:bg-[#135bec] group-hover:text-white transition-all duration-300">
-                  <Mail size={24} />
-                </div>
-                <div>
-                  <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Email</p>
-                  <p className="text-slate-900 font-bold text-lg">{EMAIL_DE_RECEPCION}</p>
-                </div>
-              </div>
+              <p className="text-slate-500 text-lg mb-12 max-w-md leading-relaxed font-medium">
+                Estamos listos para transformar tus desafíos en grandes oportunidades.
+                Déjanos un mensaje y juntos tomemos la mejor decisión.
+              </p>
 
-              <div className="flex items-center gap-6 group">
-                <div className="size-14 rounded-2xl bg-slate-50 flex items-center justify-center text-[#135bec] group-hover:bg-[#135bec] group-hover:text-white transition-all duration-300">
-                  <Phone size={24} />
+              <div className="space-y-8">
+                <div className="flex items-center gap-6 group">
+                  <div className="size-14 rounded-2xl bg-slate-50 flex items-center justify-center text-[#135bec] group-hover:bg-[#135bec] group-hover:text-white transition-all duration-300">
+                    <Mail size={24} />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Email</p>
+                    <p className="text-slate-900 font-bold text-lg">{EMAIL_DE_RECEPCION}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Teléfono</p>
-                  <p className="text-slate-900 font-bold text-lg">+569 4403 0716</p>
-                </div>
-              </div>
 
-              <div className="flex items-center gap-6 group">
-                <div className="size-14 rounded-2xl bg-slate-50 flex items-center justify-center text-[#135bec] group-hover:bg-[#135bec] group-hover:text-white transition-all duration-300">
-                  <MapPin size={24} />
+                <div className="flex items-center gap-6 group">
+                  <div className="size-14 rounded-2xl bg-slate-50 flex items-center justify-center text-[#135bec] group-hover:bg-[#135bec] group-hover:text-white transition-all duration-300">
+                    <Phone size={24} />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Teléfono</p>
+                    <p className="text-slate-900 font-bold text-lg">+569 4403 0716</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Oficina Central</p>
-                  <p className="text-slate-900 font-bold text-lg">
-                    Av. Apoquindo 6410, Of 605, Las Condes, Región Metropolitana, Chile
-                  </p>
+
+                <div className="flex items-center gap-6 group">
+                  <div className="size-14 rounded-2xl bg-slate-50 flex items-center justify-center text-[#135bec] group-hover:bg-[#135bec] group-hover:text-white transition-all duration-300">
+                    <MapPin size={24} />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Oficina Central</p>
+                    <p className="text-slate-900 font-bold text-lg">
+                      Av. Apoquindo 6410, Of 605, Las Condes, Región Metropolitana, Chile
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -191,7 +208,7 @@ const ContactDetail: React.FC = () => {
                 </button>
               </form>
 
-              {/* TRUST BADGES - MÁS PEQUEÑOS PARA NO EXTENDER EL CONTENEDOR */}
+              {/* TRUST BADGES */}
               <div className="mt-8 space-y-2 text-xs text-slate-500">
                 <div className="flex items-center gap-3">
                   <Clock size={14} className="text-[#135bec]" />
