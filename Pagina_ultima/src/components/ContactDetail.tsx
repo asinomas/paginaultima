@@ -14,14 +14,12 @@ const ContactDetail: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSent, setIsSent] = useState(false);
 
-  // EDITAR AQUÍ EL CORREO ELECTRÓNICO
   const EMAIL_DE_RECEPCION = 'Ccontacto@blackti.cl';
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulación de envío profesional
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSent(true);
@@ -34,19 +32,19 @@ const ContactDetail: React.FC = () => {
       <div className="container mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
-          {/* COLUMNA IZQUIERDA - TEXTO (DESDE "HABLEMOS HOY" HASTA "REGIÓN METROPOLITANA, CHILE") */}
+          {/* COLUMNA IZQUIERDA - TEXTO */}
           <div className="lg:sticky lg:top-32 min-h-[500px] relative">
             
-            {/* FONDO con imagen y blur */}
+            {/* FONDO con imagen y blur sutil */}
             <div 
               className="absolute inset-0 z-0"
               style={{
-               backgroundImage: "url('/images/contact.webp')",
+                backgroundImage: "url('/images/contact.webp')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
-                filter: 'blur(8px)',
-                opacity: 0.15,
+                filter: 'blur(4px)',
+                opacity: 0.2,
               }}
             />
 
@@ -208,7 +206,6 @@ const ContactDetail: React.FC = () => {
                 </button>
               </form>
 
-              {/* TRUST BADGES */}
               <div className="mt-8 space-y-2 text-xs text-slate-500">
                 <div className="flex items-center gap-3">
                   <Clock size={14} className="text-[#135bec]" />
