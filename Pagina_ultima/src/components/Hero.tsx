@@ -278,7 +278,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       {/* FRANJA DE LOGOS - Con fade individual en cada logo */}
       {!prefersReducedMotion && (
         <motion.div 
-          className="mt-6 border-t border-slate-700/80 bg-slate-900/30 pt-6 pb-6 overflow-hidden relative z-10"
+          className="mt-6 border-t border-slate-700/40 bg-slate-900/30 pt-6 pb-6 overflow-hidden relative z-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ 
@@ -302,7 +302,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       {/* FRANJA DE LOGOS - Versión sin animaciones */}
       {prefersReducedMotion && (
-        <div className="mt-6 border-t border-slate-700/80 bg-slate-900/30 pt-6 pb-6 overflow-hidden relative z-10">
+        <div className="mt-6 border-t border-slate-700/40 bg-slate-900/30 pt-6 pb-6 overflow-hidden relative z-10">
           <p className="text-center text-slate-300 text-[10px] font-bold uppercase tracking-[0.5em] mb-4">
             Han confiado en nosotros
           </p>
