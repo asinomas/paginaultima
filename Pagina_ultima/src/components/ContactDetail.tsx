@@ -35,12 +35,13 @@ const ContactDetail: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
           {/* COLUMNA IZQUIERDA - TEXTO + IMAGEN DE FONDO */}
-          <div className="relative min-h-screen">
-            {/* Imagen de fondo ocupando toda la columna izquierda */}
+          <div className="relative max-h-[500px] overflow-hidden rounded-xl">
+            {/* Imagen de fondo limitada a 500px de alto */}
             <div
               className="absolute inset-0 bg-cover bg-center opacity-20"
               style={{
                 backgroundImage: "url(/images/contact.webp)",
+                height: "500px",
               }}
             ></div>
 
