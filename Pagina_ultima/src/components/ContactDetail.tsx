@@ -35,8 +35,8 @@ const ContactDetail: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
           {/* COLUMNA IZQUIERDA - TEXTO + IMAGEN DE FONDO */}
-          <div className="relative max-h-[1067px] overflow-hidden rounded-xl">
-            {/* Imagen de fondo limitada a 1067px de alto */}
+          <div className="relative h-[1067px] w-full">
+            {/* Imagen de fondo ocupando toda la columna, sin bordes */}
             <div
               className="absolute inset-0 bg-cover bg-center opacity-20"
               style={{
