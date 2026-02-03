@@ -41,7 +41,7 @@ const ContactDetail: React.FC = () => {
             <div 
               className="absolute inset-0 z-0"
               style={{
-                backgroundImage: './images.webp',
+                backgroundImage: '.pulbic/images.webp',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
