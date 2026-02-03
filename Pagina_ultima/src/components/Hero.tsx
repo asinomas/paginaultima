@@ -146,13 +146,13 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: ANIMATION_TIMINGS.slow }}
               >
-                <span style={{ color: COLORS.primary }} className="italic">
+                <span style={{ color: COLORS.primary }} className="italic drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
                   Construyendo{' '}
                 </span>
-                <span className="text-white">el futuro</span>
+                <span className="text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">el futuro</span>
                 <br />
-                <span className="text-white">de tu </span>
-                <span style={{ color: COLORS.primary }} className="italic">
+                <span className="text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">de tu </span>
+                <span style={{ color: COLORS.primary }} className="italic drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
                   Negocio
                 </span>
               </motion.h1>
