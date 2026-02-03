@@ -222,13 +222,13 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 id="hero-heading"
                 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight"
               >
-                <span style={{ color: COLORS.primary }} className="italic">
+                <span style={{ color: COLORS.primary }} className="italic drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
                   Construyendo{' '}
                 </span>
-                <span className="text-white">el futuro</span>
+                <span className="text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">el futuro</span>
                 <br />
-                <span className="text-white">de tu </span>
-                <span style={{ color: COLORS.primary }} className="italic">
+                <span className="text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">de tu </span>
+                <span style={{ color: COLORS.primary }} className="italic drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
                   Negocio
                 </span>
               </h1>
