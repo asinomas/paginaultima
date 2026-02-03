@@ -35,18 +35,17 @@ const ContactDetail: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
           {/* COLUMNA IZQUIERDA - TEXTO + IMAGEN DE FONDO */}
-          <div className="lg:sticky lg:top-0 min-h-screen relative overflow-hidden rounded-xl">
-            {/* Imagen de fondo con efecto parallax */}
+          <div className="relative min-h-screen">
+            {/* Imagen de fondo ocupando toda la columna izquierda */}
             <div
               className="absolute inset-0 bg-cover bg-center opacity-20"
               style={{
                 backgroundImage: "url(/images/contact.webp)",
-                backgroundAttachment: "fixed",
               }}
             ></div>
 
             {/* Contenido encima de la imagen */}
-            <div className="relative z-10 p-6 lg:p-0 flex flex-col justify-center h-full">
+            <div className="relative z-10 flex flex-col justify-center h-full p-6 lg:p-0">
               <h4 className="text-[#135bec] font-bold uppercase tracking-[0.2em] text-[11px] mb-4">
                 Hablemos hoy
               </h4>
