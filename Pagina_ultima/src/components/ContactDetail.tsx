@@ -32,24 +32,24 @@ const ContactDetail: React.FC = () => {
       <div className="container mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
-          {/* COLUMNA IZQUIERDA - TEXTO */}
-          <div className="lg:sticky lg:top-32 min-h-[500px] relative">
-            
-            {/* FONDO con imagen y blur sutil */}
-            <div 
-              className="absolute inset-0 z-0"
+          {/* COLUMNA IZQUIERDA - TEXTO con fondo full size */}
+          <div className="lg:sticky lg:top-0 min-h-screen relative">
+
+            {/* Fondo de la columna que ocupa todo el contenedor */}
+            <div
+              className="absolute inset-0 z-0 w-full h-full"
               style={{
                 backgroundImage: "url('/images/contact.webp')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
-                filter: 'blur(4px)',
+                filter: 'blur(1px)',
                 opacity: 0.2,
               }}
             />
 
             {/* Contenido encima del fondo */}
-            <div className="relative z-10">
+            <div className="relative z-10 flex flex-col justify-center h-full px-4 lg:px-0">
               <h4 className="text-[#135bec] font-bold uppercase tracking-[0.2em] text-[11px] mb-4">
                 Hablemos hoy
               </h4>
@@ -100,7 +100,7 @@ const ContactDetail: React.FC = () => {
             </div>
           </div>
 
-          {/* COLUMNA DERECHA - FORMULARIO CON TRUST BADGES */}
+          {/* COLUMNA DERECHA - FORMULARIO */}
           <div className="relative group">
             <div className="bg-slate-50 p-8 lg:p-12 rounded-[3rem] border border-slate-100 relative overflow-hidden min-h-[500px] flex flex-col justify-center shadow-sm">
 
