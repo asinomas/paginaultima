@@ -35,13 +35,13 @@ const ContactDetail: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
           {/* COLUMNA IZQUIERDA - TEXTO + IMAGEN DE FONDO */}
-          <div className="relative max-h-[702px] overflow-hidden rounded-xl">
-            {/* Imagen de fondo limitada a 702px de alto */}
+          <div className="relative max-h-[1067px] overflow-hidden rounded-xl">
+            {/* Imagen de fondo limitada a 1067px de alto */}
             <div
               className="absolute inset-0 bg-cover bg-center opacity-20"
               style={{
                 backgroundImage: "url(/images/contact.webp)",
-                height: "702px",
+                height: "1067px",
               }}
             ></div>
 
@@ -58,7 +58,7 @@ const ContactDetail: React.FC = () => {
 
               <p className="text-slate-500 text-lg mb-12 max-w-md leading-relaxed font-medium">
                 Estamos listos para transformar tus desafíos en grandes oportunidades.
-                Déjanos un mensaje y nos contactaremos para juntos tomar la mejor decisión.
+                Déjanos un mensaje y juntos tomemos la mejor decisión.
               </p>
 
               <div className="space-y-8">
