@@ -158,7 +158,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               </motion.h1>
 
               <motion.p 
-                className="mt-6 text-lg md:text-2xl text-slate-300 max-w-2xl mx-auto"
+                className="mt-6 text-lg md:text-2xl text-slate-100 max-w-2xl mx-auto"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ 
