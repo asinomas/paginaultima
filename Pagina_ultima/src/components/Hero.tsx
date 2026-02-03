@@ -158,7 +158,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               </motion.h1>
 
               <motion.p 
-                className="mt-6 text-lg md:text-2xl text-slate-100 max-w-2xl mx-auto drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]"
+                className="mt-6 text-lg md:text-2xl text-slate-200 max-w-2xl mx-auto drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ 
@@ -233,7 +233,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 </span>
               </h1>
 
-              <p className="mt-6 text-lg md:text-2xl text-slate-300 max-w-2xl mx-auto">
+              <p className="mt-6 text-lg md:text-2xl text-slate-200 max-w-2xl mx-auto">
                 Arquitectura para <span className="font-semibold text-white">startups</span>.{' '}
                 Optimización para <span className="font-semibold text-white">empresas</span>.{' '}
                 Acompañamiento en cada <span className="font-semibold text-white">etapa</span>.
