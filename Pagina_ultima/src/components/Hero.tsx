@@ -166,9 +166,9 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                   delay: ANIMATION_TIMINGS.fast 
                 }}
               >
-                Arquitectura para <span className="font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">startups</span>.{' '}
-                Optimización para <span className="font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">empresas</span>.{' '}
-                Acompañamiento en cada <span className="font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">etapa</span>.
+                Arquitectura para <span className="font-normal text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">startups</span>.{' '}
+                Optimización para <span className="font-normal text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">empresas</span>.{' '}
+                Acompañamiento en cada <span className="font-normal text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">etapa</span>.
               </motion.p>
 
               <motion.div 
@@ -234,9 +234,9 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               </h1>
 
               <p className="mt-6 text-lg md:text-2xl text-slate-200 max-w-2xl mx-auto">
-                Arquitectura para <span className="font-semibold text-white">startups</span>.{' '}
-                Optimización para <span className="font-semibold text-white">empresas</span>.{' '}
-                Acompañamiento en cada <span className="font-semibold text-white">etapa</span>.
+                Arquitectura para <span className="font-normal text-white">startups</span>.{' '}
+                Optimización para <span className="font-normal text-white">empresas</span>.{' '}
+                Acompañamiento en cada <span className="font-normal text-white">etapa</span>.
               </p>
 
               <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
