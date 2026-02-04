@@ -88,22 +88,22 @@ const HighLevelConsulting: React.FC = () => {
                       <path d="m6 9 6 6 6-6"></path>
                     </svg>
                   </div>
-                </div>
-                <div className="accordion-content">
-                  <ul className="space-y-3 text-sm">
-                    <li className="flex items-start gap-2">
-                      <span className="bullet">•</span>
-                      <span>Validación técnica sin overhead</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="bullet">•</span>
-                      <span>Flexibilidad (part-time / full-time)</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="bullet">•</span>
-                      <span>Ideal para MVPs y crecimiento acelerado</span>
-                    </li>
-                  </ul>
+                  <div className="accordion-content">
+                    <ul className="space-y-3 text-sm">
+                      <li className="flex items-start gap-2">
+                        <span className="bullet">•</span>
+                        <span>Validación técnica sin overhead</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="bullet">•</span>
+                        <span>Flexibilidad (part-time / full-time)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="bullet">•</span>
+                        <span>Ideal para MVPs y crecimiento acelerado</span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
                 <div className="logo">
                   <span className="circle circle1"></span>
@@ -146,22 +146,22 @@ const HighLevelConsulting: React.FC = () => {
                       <path d="m6 9 6 6 6-6"></path>
                     </svg>
                   </div>
-                </div>
-                <div className="accordion-content">
-                  <ul className="space-y-3 text-sm">
-                    <li className="flex items-start gap-2">
-                      <span className="bullet">•</span>
-                      <span>Cumplimiento, documentación y governance</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="bullet">•</span>
-                      <span>Perfiles senior y especializados</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="bullet">•</span>
-                      <span>Integración con RRHH y proveedores</span>
-                    </li>
-                  </ul>
+                  <div className="accordion-content">
+                    <ul className="space-y-3 text-sm">
+                      <li className="flex items-start gap-2">
+                        <span className="bullet">•</span>
+                        <span>Cumplimiento, documentación y governance</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="bullet">•</span>
+                        <span>Perfiles senior y especializados</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="bullet">•</span>
+                        <span>Integración con RRHH y proveedores</span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
                 <div className="logo">
                   <span className="circle circle1"></span>
@@ -247,6 +247,7 @@ const HighLevelConsulting: React.FC = () => {
           left: 18px;
           right: 18px;
           display: flex;
+          flex-direction: column;
           align-items: center;
           justify-content: space-between;
           transform: translate3d(0, 0, 26px);
