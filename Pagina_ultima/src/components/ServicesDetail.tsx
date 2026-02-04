@@ -136,29 +136,10 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
             <div className="lg:w-1/3 hidden lg:flex flex-col items-end gap-8">
 
 
-              
-              {/* Estadísticas */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="h-40 w-40 bg-white/5 rounded-3xl border border-white/10 flex flex-col items-center justify-center backdrop-blur-sm">
-                  <span className="text-3xl font-black text-[#135bec]">10+</span>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">
-                    Años Exp.
-                  </span>
-                </div>
-
-                <div className="h-40 w-40 bg-white/5 rounded-3xl border border-white/10 flex flex-col items-center justify-center backdrop-blur-sm translate-y-8">
-                  <span className="text-3xl font-black text-[#135bec]">500+</span>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">
-                    Proyectos
-                  </span>
-                </div>
-              </div>
-
 
   
 
-              {/* Imagen */}
-              <div className="w-full overflow-visible flex justify-center items-center">
+              {/* AQUI VA LA  Imagen  <div className="w-full overflow-visible flex justify-center items-center">
                 <img
                   src="./images/pc-software.webp"
                   alt="PC con Codigos de Programacóin"
@@ -167,13 +148,22 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
                 />
               </div>
               
+              
+              
+              
+              
+              
+              
+              </div>
+          </div>
+        </div>
+      </section>*/}
+             
+              
 
               
 
-            </div>
-          </div>
-        </div>
-      </section>
+            
 
       {/* 2. SECCIÓN TÉCNICA */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8">
