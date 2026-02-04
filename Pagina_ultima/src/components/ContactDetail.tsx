@@ -50,7 +50,7 @@ const ContactDetail: React.FC = () => {
             
             {/* Contenido encima de la imagen */}
             <div className="relative z-10 flex flex-col justify-center h-full p-6 lg:p-0">
-              <h4 className="text-[#135bec] font-bold uppercase tracking-[0.2em] text-[11px] mb-4">
+              <h4 className="text-[#135bec] font-bold uppercase tracking-[0.2em] text-[11px] mb-4 scale-[1.5]">
                 Hablemos hoy
               </h4>
 
