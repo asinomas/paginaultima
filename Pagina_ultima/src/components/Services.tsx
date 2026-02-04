@@ -9,8 +9,8 @@ const HighLevelConsulting: React.FC = () => {
 
   const collaborationModels = [
     "Head Hunting",
-    "Staffing",
-    "Digital Factoring",
+    "Staff Augmentation",
+    "Outsourcing",
     "Mesa de Ayuda"
   ];
 
