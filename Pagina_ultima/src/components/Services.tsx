@@ -131,7 +131,7 @@ const HighLevelConsulting: React.FC = () => {
                       Reducción de costos y tiempos 
                     </span>
                     <p className="description">
-                      Procesos de selección de contratación robustos
+                      Generamos procesos de selección robustos específicos para cada empresa
                     </p>
                   </div>
                   <div className="bottom">
