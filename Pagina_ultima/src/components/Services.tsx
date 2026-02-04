@@ -1,21 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Rocket, Building2 } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const HighLevelConsulting: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation();
-  const [activeCard, setActiveCard] = useState<number | null>(null);
 
   const collaborationModels = [
-    "Servicio Head Hunting",
-    "Servicio Staffing",
-    "Servicio Digital Factoring",
-    "Servicio Mesa de Ayuda"
+    "Head Hunting",
+    "Staffing",
+    "Digital Factoring",
+    "Mesa de Ayuda"
   ];
-
-  const toggleCard = (index: number) => {
-    setActiveCard(activeCard === index ? null : index);
-  };
 
   return (
     <section
@@ -26,8 +21,8 @@ const HighLevelConsulting: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* HEADER */}
-        <div className="mb-16 flex flex-col lg:flex-row lg:items-start lg:justify-between">
-          <div className="max-w-xl mb-8 lg:mb-0">
+        <div className="mb-16">
+          <div className="max-w-xl mb-16">
             <span className="text-[11px] font-bold tracking-[0.2em] text-[#135bec] uppercase mb-4 block">
               Excelencia Operativa
             </span>
@@ -43,7 +38,7 @@ const HighLevelConsulting: React.FC = () => {
           </div>
 
           {/* COLLABORATION MODELS */}
-          <div className="lg:ml-8">
+          <div className="mb-16">
             <h4 className="text-[10px] font-bold tracking-[0.3em] text-slate-400 uppercase mb-8 border-b border-slate-200 pb-2 inline-block">
               Modelos de Colaboración
             </h4>
@@ -61,128 +56,122 @@ const HighLevelConsulting: React.FC = () => {
               ))}
             </div>
           </div>
-        </div>
 
-        {/* TARJETAS - 3D UI Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-5xl">
-          {/* CARD 1 - Startups */}
-          <div className="parent">
-            <div className="card">
-              <div className="glass"></div>
-              <div className="content">
-                <span className="title">Startups</span>
-                <span className="subtitle">
-                  <Rocket className="inline w-5 h-5 mr-2" />
-                  Escala tu equipo rápido
-                </span>
-                <p className="description">
-                  Desarrollamos un roadmap claro para construir solidez para el futuro.
-                </p>
-              </div>
-              <div className="bottom">
-                <div 
-                  className={`view-more ${activeCard === 0 ? 'active' : ''}`}
-                  onClick={() => toggleCard(0)}
-                >
-                  <button className="view-more-button">
-                    {activeCard === 0 ? 'Ver menos' : 'Ver más'}
-                  </button>
-                  <svg 
-                    className={`svg ${activeCard === 0 ? 'rotate' : ''}`}
-                    xmlns="http://www.w3.org/2000/svg" 
-                    viewBox="0 0 24 24" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round"
-                  >
-                    <path d="m6 9 6 6 6-6"></path>
-                  </svg>
+          {/* TARJETAS - 3D UI Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-5xl">
+            {/* CARD 1 - Startups */}
+            <div className="parent">
+              <div className="card">
+                <div className="glass"></div>
+                <div className="content">
+                  <span className="title">Startups</span>
+                  <span className="subtitle">
+                    <Rocket className="inline w-5 h-5 mr-2" />
+                    Escala tu equipo rápido
+                  </span>
+                  <p className="description">
+                    Desarrollamos un roadmap claro para construir solidez para el futuro.
+                  </p>
                 </div>
-              </div>
-              <div className={`accordion-content ${activeCard === 0 ? 'open' : ''}`}>
-                <ul className="space-y-3 text-sm">
-                  <li className="flex items-start gap-2">
-                    <span className="bullet">•</span>
-                    <span>Validación técnica sin overhead</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="bullet">•</span>
-                    <span>Flexibilidad (part-time / full-time)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="bullet">•</span>
-                    <span>Ideal para MVPs y crecimiento acelerado</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="logo">
-                <span className="circle circle1"></span>
-                <span className="circle circle2"></span>
-                <span className="circle circle3"></span>
-                <span className="circle circle4"></span>
-                <span className="circle circle5">
-                  <Rocket className="svg-icon" strokeWidth={2.5} />
-                </span>
+                <div className="bottom">
+                  <div className="view-more">
+                    <button className="view-more-button">
+                      Ver más
+                    </button>
+                    <svg 
+                      className="svg"
+                      xmlns="http://www.w3.org/2000/svg" 
+                      viewBox="0 0 24 24" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div className="accordion-content">
+                  <ul className="space-y-3 text-sm">
+                    <li className="flex items-start gap-2">
+                      <span className="bullet">•</span>
+                      <span>Validación técnica sin overhead</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="bullet">•</span>
+                      <span>Flexibilidad (part-time / full-time)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="bullet">•</span>
+                      <span>Ideal para MVPs y crecimiento acelerado</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="logo">
+                  <span className="circle circle1"></span>
+                  <span className="circle circle2"></span>
+                  <span className="circle circle3"></span>
+                  <span className="circle circle4"></span>
+                  <span className="circle circle5">
+                    <Rocket className="svg-icon" strokeWidth={2.5} />
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* CARD 2 - Empresas & Corporaciones */}
-          <div className="parent">
-            <div className="card">
-              <div className="glass"></div>
-              <div className="content">
-                <span className="title">Empresas & Corporaciones</span>
-                <span className="subtitle">
-                  <Building2 className="inline w-5 h-5 mr-2" />
-                  Procesos de selección robustos
-                </span>
-                <p className="description">
-                  Desarrollamos un roadmap claro para construir solidez para el futuro.
-                </p>
-              </div>
-              <div className="bottom">
-                <div 
-                  className={`view-more ${activeCard === 1 ? 'active' : ''}`}
-                  onClick={() => toggleCard(1)}
-                >
-                  <button className="view-more-button">
-                    {activeCard === 1 ? 'Ver menos' : 'Ver más'}
-                  </button>
-                  <svg 
-                    className={`svg ${activeCard === 1 ? 'rotate' : ''}`}
-                    xmlns="http://www.w3.org/2000/svg" 
-                    viewBox="0 0 24 24" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round"
-                  >
-                    <path d="m6 9 6 6 6-6"></path>
-                  </svg>
+            {/* CARD 2 - Empresas & Corporaciones */}
+            <div className="parent">
+              <div className="card">
+                <div className="glass"></div>
+                <div className="content">
+                  <span className="title">Empresas & Corporaciones</span>
+                  <span className="subtitle">
+                    <Building2 className="inline w-5 h-5 mr-2" />
+                    Procesos de selección robustos
+                  </span>
+                  <p className="description">
+                    Desarrollamos un roadmap claro para construir solidez para el futuro.
+                  </p>
                 </div>
-              </div>
-              <div className={`accordion-content ${activeCard === 1 ? 'open' : ''}`}>
-                <ul className="space-y-3 text-sm">
-                  <li className="flex items-start gap-2">
-                    <span className="bullet">•</span>
-                    <span>Cumplimiento, documentación y governance</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="bullet">•</span>
-                    <span>Perfiles senior y especializados</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="bullet">•</span>
-                    <span>Integración con RRHH y proveedores</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="logo">
-                <span className="circle circle1"></span>
-                <span className="circle circle2"></span>
-                <span className="circle circle3"></span>
-                <span className="circle circle4"></span>
-                <span className="circle circle5">
-                  <Building2 className="svg-icon" strokeWidth={2.5} />
-                </span>
+                <div className="bottom">
+                  <div className="view-more">
+                    <button className="view-more-button">
+                      Ver más
+                    </button>
+                    <svg 
+                      className="svg"
+                      xmlns="http://www.w3.org/2000/svg" 
+                      viewBox="0 0 24 24" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div className="accordion-content">
+                  <ul className="space-y-3 text-sm">
+                    <li className="flex items-start gap-2">
+                      <span className="bullet">•</span>
+                      <span>Cumplimiento, documentación y governance</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="bullet">•</span>
+                      <span>Perfiles senior y especializados</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="bullet">•</span>
+                      <span>Integración con RRHH y proveedores</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="logo">
+                  <span className="circle circle1"></span>
+                  <span className="circle circle2"></span>
+                  <span className="circle circle3"></span>
+                  <span className="circle circle4"></span>
+                  <span className="circle circle5">
+                    <Building2 className="svg-icon" strokeWidth={2.5} />
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -295,11 +284,6 @@ const HighLevelConsulting: React.FC = () => {
           stroke: #ffffff;
           stroke-width: 3px;
           max-height: 15px;
-          transition: transform 0.3s ease;
-        }
-
-        .bottom .view-more .svg.rotate {
-          transform: rotate(180deg);
         }
 
         .accordion-content {
@@ -315,7 +299,7 @@ const HighLevelConsulting: React.FC = () => {
           color: rgba(255, 255, 255, 0.95);
         }
 
-        .accordion-content.open {
+        .view-more:hover ~ .accordion-content {
           max-height: 180px;
           opacity: 1;
         }
