@@ -47,11 +47,11 @@ const HighLevelConsulting: React.FC = () => {
           <div className="flex flex-col">
             {/* Collaboration Models Section */}
             <div className="mb-12">
-              <h4 className="text-[11px] font-bold tracking-[0.2em] bg-[#135bec] uppercase mb-4 block">
+              <h4 className="text-[10px] font-bold tracking-[0.4em] text-slate-400 uppercase mb-8 border-b border-slate-200 pb-2">
                 Modelos de Colaboración
               </h4>
               {/* Línea horizontal debajo del título */}
-              <div className="w-full h-[0.5px] bg-slate-300 mb-6"></div>
+              <div className="h-0.5 flex-1 bg-slate-200 hidden md:block mx-10"></div>
               
               <div className="flex flex-nowrap gap-4 xl:gap-6">
                 {collaborationModels.map((model, index) => (
