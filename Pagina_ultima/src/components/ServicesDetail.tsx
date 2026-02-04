@@ -16,6 +16,12 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
     "Servicio Mesa de Ayuda"
   ];
 
+  const profiles = [
+    "Líder Técnico", "Scrum Master", "Dev Android", "Dev Java",
+    "BackEnd", "FrontEnd", "Fullstack", "Devops", "UX/UI",
+    "Ciberseguridad", "Mesa de Ayuda", "Python", "Dev IOS"
+  ];
+
   const specialties = [
     {
       icon: Terminal,
@@ -89,108 +95,55 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
 
   return (
     <div className="bg-slate-50 min-h-screen pt-16 pb-32 antialiased">
+
       {/* 1. HERO SECTION */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8 mb-24">
-        <div className="relative overflow-hidden rounded-[3rem] bg-[#0b0e14] p-12 lg:p-24 text-center lg:text-left">
+        <div className="relative overflow-hidden rounded-[3rem] bg-[#0b0e14] p-12 lg:p-24">
           <ServicesHeroLights />
 
           <div className="relative z-10 flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-2/3">
-              <h1 className="text-4xl lg:text-7xl font-black text-white leading-tight mb-8 tracking-tighter">
+              <h1 className="text-4xl lg:text-7xl font-black text-white mb-8">
                 Arquitectura <br />
-                <span className="text-[#135bec] italic drop-shadow-[0_0_15px_rgba(19,91,236,0.3)]">
-                  Sin Compromisos
-                </span>
+                <span className="text-[#135bec] italic">Sin Compromisos</span>
               </h1>
 
-              <p className="text-lg lg:text-xl text-slate-400 leading-relaxed max-w-2xl mb-10">
-                Nuestros profesionales pueden incorporarse bajo esquemas de outsourcing, staff augmentation o por proyecto, adaptándose a las necesidades específicas de cada empresa.
+              <p className="text-lg text-slate-400 mb-10">
+                Nuestros profesionales pueden incorporarse bajo esquemas flexibles y adaptados a cada empresa.
               </p>
 
               <button
                 onClick={onContactClick}
-                className="rounded-2xl bg-[#135bec] px-10 py-5 text-base font-bold text-white shadow-2xl shadow-[#135bec]/30 hover:scale-105 active:scale-95 transition-all"
+                className="rounded-2xl bg-[#135bec] px-10 py-5 font-bold text-white"
               >
                 Iniciar Transformación
               </button>
             </div>
 
-
-
-            
-            {/* COLUMNA DERECHA */}
-            <div className="lg:w-1/3 hidden lg:flex flex-col items-end gap-8">
-
-
-              
-  
-
-              {/* Imagen */}
-              <div className="w-full overflow-visible flex justify-center items-center">
-                <img
-                  src="./images/pc-software.webp"
-                  alt="PC con Codigos de Programacóin"
-                  loading="eager" 
-                  className="w-auto h-auto object-contain scale-[1.5]"
-                />
-              </div>
+            <div className="lg:w-1/3 hidden lg:flex justify-center">
+              <img
+                src="./images/pc-software.webp"
+                alt="PC con códigos de programación"
+                className="scale-[1.5]"
+              />
             </div>
-     
+          </div>
+        </div>
+      </section>
 
-
-
-
-
-
-          
       {/* 2. SECCIÓN TÉCNICA */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
-          <h2 
-            id="services-heading"
-            className="text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Nuestra <span className="text-[#135bec] italic">Especialización</span>
-          </h2>
-          <div className="h-0.5 flex-1 bg-slate-200 hidden md:block mx-10" />
-          <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">
-            Servicios End-to-End
-          </p>
-        </div>
-
         <ScrollAnimation>
           <div className="mb-24">
-            <h3 className="text-[10px] font-bold tracking-[0.4em] text-slate-400 uppercase mb-8 border-b border-slate-200 pb-2">
+            <h3 className="text-xs font-bold uppercase mb-8">
               Modelo de Colaboración
             </h3>
 
-
-
-
-
-
-          const profiles = [
-                           "Líder Técnico", "Scrum Master", "Dev Android", "Dev Java",
-                           "BackEnd", "FrontEnd", "Fullstack", "Devops", "UX/UI",
-                           "Ciberseguridad", "Mesa de Ayuda", "Python", "Dev IOS"
-                           ];
-
-
-
-
-
-
-
-
-
-
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {collaborationModels.map((service, index) => (
-                <div key={index} className="group cursor-default">
-                  <span className="text-xl md:text-2xl font-light text-slate-600 tracking-tight border-l-2 border-[#135bec] pl-5 group-hover:text-slate-950 group-hover:border-slate-900 transition-all duration-300 block">
-                    {service}
-                  </span>
-                </div>
+                <span key={index} className="border-l-2 pl-4">
+                  {service}
+                </span>
               ))}
             </div>
           </div>
@@ -212,6 +165,6 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
       </section>
     </div>
   );
-          };      
+};
 
 export default ServicesDetail;
