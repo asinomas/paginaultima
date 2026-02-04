@@ -122,9 +122,9 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
 
             <div className="lg:w-1/3 hidden lg:flex justify-center">
               <img
-                src="./images/pc-software.webp"
-                alt="PC con códigos de programación"
-                className="scale-[1.5]"
+                src="./images/datos.jpg"
+                alt="consultor de blackti analizando códigos de programación"
+                className="scale-[1.2]"
               />
             </div>
           </div>
