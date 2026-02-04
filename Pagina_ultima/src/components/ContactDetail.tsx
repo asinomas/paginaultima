@@ -38,7 +38,7 @@ const ContactDetail: React.FC = () => {
           <div className="relative h-full w-full rounded-[3rem] overflow-hidden">
             {/* Imagen de fondo ocupando toda la columna con borde redondo */}
             <div
-              className="absolute inset-0 bg-cover bg-center rounded-[3rem] overflow-hidden blur-[20px]"
+              className="absolute inset-0 bg-cover bg-center rounded-[3rem] overflow-hidden blur-sm"
               style={{
                 backgroundImage: "url(/images/contact.webp)",
                 borderRadius: "3rem",
