@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from 'react';
 
 interface CountUpProps {
   value: number;
-  duration?: number;
+  duration?: number; // ms
 }
 
-const CountUp: React.FC<CountUpProps> = ({ value, duration = 1200 }) => {
+const CountUp: React.FC<CountUpProps> = ({ value, duration = 2800 }) => {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement | null>(null);
   const hasAnimated = useRef(false);
@@ -19,13 +19,20 @@ const CountUp: React.FC<CountUpProps> = ({ value, duration = 1200 }) => {
         if (entry.isIntersecting && !hasAnimated.current) {
           hasAnimated.current = true;
 
-          let current = 0;
-          const increment = value / (duration / 16);
+          let startTime: number | null = null;
 
-          const animate = () => {
-            current += increment;
-            if (current < value) {
-              setCount(Math.floor(current));
+          const animate = (timestamp: number) => {
+            if (!startTime) startTime = timestamp;
+            const elapsed = timestamp - startTime;
+
+            const progress = Math.min(elapsed / duration, 1);
+
+            // easing suave (easeOutCubic)
+            const eased = 1 - Math.pow(1 - progress, 3);
+
+            setCount(Math.floor(eased * value));
+
+            if (progress < 1) {
               requestAnimationFrame(animate);
             } else {
               setCount(value);
