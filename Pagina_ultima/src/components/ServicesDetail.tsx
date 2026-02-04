@@ -108,29 +108,24 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
         </div>
 
         <div className="flex gap-8 relative">
-          {/* Contenedor izquierdo dinámico con fade y fondo */}
-          <div className="w-1/3 min-w-[280px] p-4 bg-slate-100 rounded-md shadow-sm">
-            <div
-              className={`transition-opacity duration-500 ${
-                activeProfile ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              {activeProfile && (
-                <p className="text-slate-800 text-sm font-medium max-h-[200px] overflow-y-auto">
-                  {profileDescriptions[activeProfile]}
-                </p>
-              )}
+          {/* Contenedor izquierdo dinámico: solo aparece si hay perfil activo */}
+          {activeProfile && (
+            <div className="w-1/3 min-w-[280px] p-4 bg-slate-100 rounded-md shadow-sm transition-opacity duration-500 opacity-100">
+              <p className="text-slate-800 text-sm font-medium max-h-[200px] overflow-y-auto">
+                {profileDescriptions[activeProfile]}
+              </p>
             </div>
-          </div>
+          )}
 
           {/* Burbujas derecha */}
           <div className="flex-1 flex flex-wrap gap-3 justify-end max-w-[calc(100%-300px)]">
             {profiles.map((profile) => (
               <button
                 key={profile}
-                onClick={() =>
-                  setActiveProfile(activeProfile === profile ? null : profile)
-                }
+                onClick={(e) => {
+                  e.stopPropagation(); // evita cerrar el contenedor al hacer click en la burbuja
+                  setActiveProfile(activeProfile === profile ? null : profile);
+                }}
                 className={`bg-[#135bec]/10 text-black px-4 py-2 rounded-full text-sm font-semibold hover:bg-[#135bec]/20 transition-colors ${
                   activeProfile === profile ? "bg-[#135bec]/20" : ""
                 }`}
