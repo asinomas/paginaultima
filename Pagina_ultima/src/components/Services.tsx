@@ -51,7 +51,7 @@ const HighLevelConsulting: React.FC = () => {
                 Modelos de Colaboración
               </h4>
               {/* Línea horizontal debajo del título */}
-              <div className="w-full h-[2px] bg-slate-300 mb-6"></div>
+              <div className="w-full h-[0.5px] bg-slate-200 mb-6"></div>
               
               <div className="flex flex-nowrap gap-4 xl:gap-6">
                 {collaborationModels.map((model, index) => (
