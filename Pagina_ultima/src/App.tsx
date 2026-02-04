@@ -52,6 +52,7 @@ const App: React.FC = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            console.log('Sección visible:', entry.target.id);  // <--- depuración
             const sectionId = entry.target.id;
             // Mapear ID del DOM a activeSection
             const sectionMap: Record<string, 'home' | 'services' | 'about' | 'contact'> = {
@@ -245,3 +246,4 @@ const App: React.FC = () => {
 };
 
 export default App;
+
