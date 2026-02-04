@@ -18,11 +18,7 @@ const FAQSection: React.FC = () => {
     },
     {
       question: "¿Qué diferencia a nuestro Consultorio TI de otras consultoras?",
-      answer: "Seleccionamos profesionales validados técnica y funcionalmente. 
-      Evaluamos habilidades blandas, comunicación y adaptación al equipo.
-      Acompañamos al profesional y a la empresa durante toda la asignación.
-      Ajustamos el perfil según el contexto y objetivos del negocio.
-      Reducimos tiempos de onboarding y rotación"
+      answer: "Seleccionamos profesionales validados técnica y funcionalmente, evaluando habilidades blandas, comunicación y adaptación al equipo. Acompañamos al profesional y a la empresa durante toda la asignación, ajustando el perfil según el contexto y objetivos del negocio, reduciendo tiempos de onboarding y rotación"
     },
     {
       question: "¿Qué hace cada perfil TI y por qué contratarlo a través de nuestro Consultorio TI?", 
