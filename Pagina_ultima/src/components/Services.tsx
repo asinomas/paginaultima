@@ -230,7 +230,7 @@ const HighLevelConsulting: React.FC = () => {
           display: block;
           color: #ffffff;
           font-weight: 900;
-          font-size: 19px;
+          font-size: 22px;
           margin-bottom: 12px;
         }
 
