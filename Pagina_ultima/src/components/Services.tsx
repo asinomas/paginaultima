@@ -69,7 +69,7 @@ const HighLevelConsulting: React.FC = () => {
             </div>
 
             {/* 3D Cards Section */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               {/* CARD 1 - Startups */}
               <div className="parent">
                 <div className="card">
