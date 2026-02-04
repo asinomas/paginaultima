@@ -122,7 +122,7 @@ const HighLevelConsulting: React.FC = () => {
               <div className="card">
                 <div className="glass"></div>
                 <div className="content">
-                  <span className="title">Empresas & Corporaciones</span>
+                  <span className="title">Empresas</span>
                   <span className="subtitle">
                     <Building2 className="inline w-5 h-5 mr-2" />
                     Procesos de selección robustos
