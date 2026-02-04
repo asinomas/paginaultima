@@ -129,7 +129,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
                   src="./images/datos.jpg"
                   alt="Consultor de BlackTI analizando Codigos de Programacóin"
                   loading="eager" 
-                  className="w-auto h-auto object-contain scale-[1.5]"
+                  className="w-auto h-auto object-cover scale-[1.5] grayscale-[0.5]"
                 />
               </div>
               
