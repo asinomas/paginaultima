@@ -13,6 +13,14 @@ const FAQSection: React.FC = () => {
 
   const faqData: FAQItem[] = [
     {
+      question: "¿Qué hacemos en BlackTI?",
+      answer: "Somos una Consultora TI especializada. Nuestro servicio es ntregar células de trabajo de alto rendimiento listas para producir desde el primer día. Cubrimos todo el espectro: desde el diseño UX/UI y el desarrollo en Java, Python o Mobile, hasta la infraestructura DevOps y el blindaje en Ciberseguridad. Tú pones la visión y nosotros el equipo experto que la hace realidad, sin fricciones y a escala."."
+    },
+     {
+      question: "¿Qué diferencia a nuestro Consultorio TI de otras consultoras?",
+      answer: "Seleccionamos profesionales validados técnica y funcionalmente, evaluando habilidades blandas, comunicación y adaptación al equipo. Acompañamos al profesional y a la empresa durante toda la asignación, ajustando el perfil según el contexto y objetivos del negocio, reduciendo tiempos de onboarding y rotación"
+    },
+    {
       question: "¿Qué hace cada perfil TI y por qué contratarlo a través de nuestro Consultorio TI?",
       answer: "No solo ofrecemos perfiles tecnológicos. Entregamos profesionales evaluados, acompañados y alineados al negocio, listos para generar impacto real en tu empresa desde el primer día."
     },
@@ -25,48 +33,12 @@ const FAQSection: React.FC = () => {
       answer: "Además de definir arquitectura y liderar decisiones técnicas, es un perfil con visión de negocio, capaz de alinear tecnología, plazos y objetivos empresariales."
     },
     {
-      question: "¿Qué aporta un Scrum Master de nuestro Consultorio TI?",
-      answer: "No solo aplica Scrum: mejora la madurez ágil del equipo, facilita la comunicación con stakeholders y acelera la entrega de valor."
+      question: "¿Qué?",
+      answer: "Atención."
     },
     {
-      question: "¿Qué aporta un Desarrollador Android o iOS?",
-      answer: "Nuestros desarrolladores mobile están enfocados en productos reales, con experiencia en rendimiento, seguridad y experiencia de usuario en entornos productivos."
-    },
-    {
-      question: "¿Qué aporta un Desarrollador Java?",
-      answer: "Aporta estabilidad, escalabilidad y buenas prácticas en sistemas empresariales críticos, con experiencia en entornos corporativos."
-    },
-    {
-      question: "¿Qué aporta un Desarrollador Backend?",
-      answer: "No solo desarrolla APIs: entiende el negocio, prioriza seguridad, rendimiento y escalabilidad desde el diseño."
-    },
-    {
-      question: "¿Qué aporta un Desarrollador Frontend?",
-      answer: "Más que interfaces atractivas, entrega experiencias de usuario funcionales, alineadas a la identidad de la empresa."
-    },
-    {
-      question: "¿Qué aporta un Desarrollador Fullstack?",
-      answer: "Perfil integral que reduce dependencias, acelera desarrollos y mantiene coherencia técnica en todo el producto."
-    },
-    {
-      question: "¿Qué aporta un DevOps de nuestro Consultorio TI?",
-      answer: "Optimiza infraestructura y procesos, reduce fallas en producción y mejora la continuidad operativa mediante automatización real."
-    },
-    {
-      question: "¿Qué aporta un UX/UI Designer?",
-      answer: "Diseña pensando en el usuario final y en los objetivos del negocio, aumentando adopción y satisfacción del cliente."
-    },
-    {
-      question: "¿Qué aporta un Especialista en Ciberseguridad?",
-      answer: "Trabaja de forma preventiva, no reactiva, protegiendo los activos digitales y la reputación de la empresa."
-    },
-    {
-      question: "¿Qué aporta nuestra Mesa de Ayuda / Soporte TI?",
-      answer: "Atención cercana, tiempos de respuesta definidos y continuidad operativa sin fricción para el usuario final."
-    },
-    {
-      question: "¿Qué aporta un Desarrollador Python?",
-      answer: "Capaz de automatizar procesos, analizar datos y desarrollar soluciones inteligentes que generan eficiencia y ahorro."
+      question: "¿Qué?",
+      answer: "Capaz."
     }
   ];
 
@@ -87,14 +59,14 @@ const FAQSection: React.FC = () => {
           {/* LEFT COLUMN - Title and Description */}
           <div className="lg:sticky lg:top-24 lg:self-start">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
-              Frequently asked questions
+              Preguntas frecuentes
             </h2>
             <p className="text-lg text-slate-600 leading-relaxed">
-              Can't find the answer you're looking for? Reach out to our{' '}
+              ¿No encuentras respuesta a tu pregunta? No te preocupes, nuestro{' '}
               <a href="#contact" className="text-[#135bec] hover:underline font-medium">
-                customer support
+                servicio al cliente
               </a>{' '}
-              team.
+              estará encantado de aclarar tu dudas.
             </p>
           </div>
 
