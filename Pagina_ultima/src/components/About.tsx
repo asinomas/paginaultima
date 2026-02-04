@@ -12,7 +12,7 @@ const About: React.FC = () => {
             <div className="w-full flex justify-center relative hidden md:flex">
               <img 
                 src="./images/team-talk-office.webp" 
-                className="h-[450px] w-full object-cover transition-transform duration-[1.5s] group-hover:scale-105 rounded-[2.5rem]"
+                className="h-[3800px] w-full object-cover transition-transform duration-[1.5s] group-hover:scale-105 rounded-[2.5rem]"
                 alt="Grupo de oficina en reunión"
                 loading="lazy"
               />
@@ -31,15 +31,15 @@ const About: React.FC = () => {
               </h2>
               <p className="text-lg md:text-[17px] font-normal text-slate-500 tracking-tighter mb-6 leading-relaxed">
                 Nacimos para transformar la complejidad técnica en valor empresarial. Somos un equipo de alto rendimiento, con obsesión por el detalle y mentalidad <span className="text-lg md:text-[17px] font-bold text-slate-500 tracking-tighter mb-6 leading-relaxed">problem-solver</span>.
-              Nuestra experiencia se traduce en soluciones. Ofrecemos el ecosistema completo para que un producto digital no solo nazca, sino que escale y sea seguro.
+              Nuestra experiencia se traduce en soluciones.
               </p>
               <div className="space-y-6 mb-12">
                 <p className="text-lg leading-relaxed text-slate-500 tracking-tighter font-normal md:text-[17px] mb-6">
-                  -
+                  Ofrecemos el ecosistema completo para que un producto digital no solo nazca, sino que escale y sea seguro
                 </p>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
-                {['Ingeniería Superior', 'Seguridad Total', 'Escalabilidad', 'Transparencia'].map((item) => (
+                {['Optimización', 'Seguridad', 'Escalabilidad', 'Transparencia'].map((item) => (
                   <div key={item} className="flex items-center gap-3">
                     <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-white">
                       <span className="material-symbols-outlined !text-sm">done</span>
