@@ -95,7 +95,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
 
           <div className="relative z-10 flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-2/3">
-              <h1 className="text-4xl lg:text-7xl font-black text-white leading-tight mb-8 tracking-tighter">
+              <h1 className="text-4xl lg:text-7xl font-slate-300 text-white leading-tight mb-8 tracking-tighter">
                 Talento TI para <br/>
                 <span className="text-[#135bec] italic drop-shadow-[0_0_15px_rgba(19,91,236,0.3)]">
                   Impulsar tu Empresa
