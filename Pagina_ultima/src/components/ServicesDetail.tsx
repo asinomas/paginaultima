@@ -97,12 +97,12 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
           <div className="relative z-10 flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-2/3">
               <h1 className="text-4xl lg:text-7xl font-black text-white leading-tight mb-8 tracking-tighter">
-                Arquitectura <br />
+                Talento TI para <br/>
                 <span className="text-[#135bec] italic drop-shadow-[0_0_15px_rgba(19,91,236,0.3)]">
-                  Sin Compromisos
+                  Impulsar tu Empresa
                 </span>
               </h1>
-
+ 
               <p className="text-lg lg:text-xl text-slate-400 leading-relaxed max-w-2xl mb-10">
                 Nuestros profesionales pueden incorporarse bajo esquemas de outsourcing, staff augmentation o por proyecto, adaptándose a las necesidades específicas de cada empresa.
               </p>
