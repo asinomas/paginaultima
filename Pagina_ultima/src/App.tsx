@@ -39,6 +39,25 @@ const App: React.FC = () => {
   // Ref para IntersectionObserver
   const observerRef = useRef<IntersectionObserver | null>(null);
 
+  // Detectar cuando estamos en el tope de la página
+  useEffect(() => {
+    const handleScroll = () => {
+      // Si estamos en los primeros 100px de la página, activar "home"
+      if (window.scrollY < 100 && currentPage === 'home') {
+        setActiveSection('home');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Ejecutar una vez al montar
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [currentPage]);
+
 
   
   // Detección de sección activa con IntersectionObserver (mejora 5)
@@ -46,37 +65,42 @@ const App: React.FC = () => {
     // Solo en página home (mejora 2 - sin typeof window check)
     if (currentPage !== 'home') return;
 
-
-    
-    // Crear IntersectionObserver
+    // Crear IntersectionObserver con configuración mejorada
     observerRef.current = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            console.log('Sección visible:', entry.target.id);  // <--- depuración
-            const sectionId = entry.target.id;
-            // Mapear ID del DOM a activeSection
-            const sectionMap: Record<string, 'home' | 'services' | 'about' | 'contact'> = {
-              [SECTION_IDS.home]: 'home',
-              [SECTION_IDS.services]: 'services',
-              [SECTION_IDS.about]: 'about',
-              [SECTION_IDS.contact]: 'contact',
-            };
-            
-            if (sectionMap[sectionId]) {
-              setActiveSection(sectionMap[sectionId]);
-            }
+        // Filtrar solo las secciones que están visibles
+        const visibleEntries = entries.filter(entry => entry.isIntersecting);
+        
+        if (visibleEntries.length > 0) {
+          // Ordenar por la posición en la pantalla (el más arriba tiene prioridad)
+          const sortedEntries = visibleEntries.sort((a, b) => {
+            return a.boundingClientRect.top - b.boundingClientRect.top;
+          });
+          
+          const topEntry = sortedEntries[0];
+          const sectionId = topEntry.target.id;
+          
+          console.log('Sección visible:', sectionId);  // <--- depuración
+          
+          // Mapear ID del DOM a activeSection
+          const sectionMap: Record<string, 'home' | 'services' | 'about' | 'contact'> = {
+            [SECTION_IDS.home]: 'home',
+            [SECTION_IDS.services]: 'services',
+            [SECTION_IDS.about]: 'about',
+            [SECTION_IDS.contact]: 'contact',
+          };
+          
+          if (sectionMap[sectionId]) {
+            setActiveSection(sectionMap[sectionId]);
           }
-        });
+        }
       },
       {
-        threshold: 0.3, // 30% de la sección visible
-        rootMargin: '-100px 0px -100px 0px', // Offset para mejor detección
+        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5], // Múltiples umbrales para mejor detección
+        rootMargin: '-80px 0px -80px 0px', // Offset reducido para mejor detección
       }
     );
 
-
-    
     // Observar todas las secciones
     const sections = [
       document.getElementById(SECTION_IDS.home),
