@@ -129,12 +129,20 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
           </p>
         </div>
 
+        {/* Encabezado de perfiles con línea */}
+        <div className="mb-4 flex items-center">
+          <span className="text-sm font-semibold text-slate-500 mr-4">
+            Perfiles personalizados
+          </span>
+          <div className="flex-1 h-[0.5px] bg-slate-300"></div>
+        </div>
+
         {/* Burbujas de perfiles */}
-        <div className="mb-8 flex flex-wrap gap-3">
+        <div className="mb-8 flex flex-wrap gap-3 justify-end">
           {profiles.map((profile, idx) => (
             <span
               key={idx}
-              className="bg-[#135bec]/10 text-[#135bec] px-4 py-2 rounded-full text-sm font-semibold hover:bg-[#135bec]/20 transition-colors cursor-default"
+              className="bg-[#135bec]/10 text-black px-4 py-2 rounded-full text-sm font-semibold hover:bg-[#135bec]/20 transition-colors cursor-default"
             >
               {profile}
             </span>
