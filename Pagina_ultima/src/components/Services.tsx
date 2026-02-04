@@ -48,7 +48,7 @@ const HighLevelConsulting: React.FC = () => {
               {collaborationModels.map((model, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-8 group"
+                  className="flex items-center gap-6 group"
                 >
                   <div className="w-1 h-6 bg-[#135bec] group-hover:h-8 transition-all duration-300"></div>
                   <span className="text-base font-medium text-slate-700 group-hover:text-[#135bec] transition-colors duration-300">
@@ -59,7 +59,7 @@ const HighLevelConsulting: React.FC = () => {
             </div>
 
             {/* TARJETAS - 3D UI Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 items-stretch max-w-5xl">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch max-w-5xl">
               {/* CARD 1 - Startups */}
               <div className="parent">
                 <div className="card">
