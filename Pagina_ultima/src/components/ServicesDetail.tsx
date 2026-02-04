@@ -9,13 +9,6 @@ interface ServicesDetailProps {
 }
 
 const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => {} }) => {
-  const collaborationModels = [
-    "Servicio Head Hunting",
-    "Servicio Staffing",
-    "Servicio Digital Factoring",
-    "Servicio Mesa de Ayuda"
-  ];
-
   const specialties = [
     {
       icon: Terminal,
@@ -102,7 +95,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
                   Impulsar tu Empresa
                 </span>
               </h1>
- 
+
               <p className="text-lg lg:text-xl text-slate-400 leading-relaxed max-w-2xl mb-10">
                 Nuestros profesionales pueden incorporarse bajo esquemas de outsourcing, staff augmentation o por proyecto, adaptándose a las necesidades específicas de cada empresa.
               </p>
@@ -114,13 +107,6 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
                 Iniciar Transformación
               </button>
             </div>
-
-            {/* Columna derecha (puedes agregar imágenes o contenido aquí si lo deseas) */}
-            {/* <div className="lg:w-1/3 hidden lg:flex flex-col items-end gap-8">
-              <div className="w-full overflow-visible flex justify-center items-center">
-                <!-- Aquí tu imagen o contenido adicional -->
-              </div>
-            </div> */}
           </div>
         </div>
       </section>
@@ -138,22 +124,6 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
         </div>
 
         <ScrollAnimation>
-          <div className="mb-24">
-            <h3 className="text-[10px] font-bold tracking-[0.4em] text-slate-400 uppercase mb-8 border-b border-slate-200 pb-2">
-              Modelo de Colaboración
-            </h3>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-8">
-              {collaborationModels.map((service, index) => (
-                <div key={index} className="group cursor-default">
-                  <span className="text-xl md:text-2xl font-light text-slate-600 tracking-tight border-l-2 border-[#135bec] pl-5 group-hover:text-slate-950 group-hover:border-slate-900 transition-all duration-300 block">
-                    {service}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {specialties.map((item, idx) => (
               <ServiceCard
