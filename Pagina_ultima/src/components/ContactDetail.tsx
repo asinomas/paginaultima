@@ -38,7 +38,7 @@ const ContactDetail: React.FC = () => {
           <div className="relative h-full w-full rounded-[3rem] overflow-hidden">
             {/* Imagen de fondo ocupando toda la columna con borde redondo */}
             <div
-              className="absolute inset-0 bg-cover bg-center rounded-[3rem] overflow-hidden blur-sm"
+              className="absolute inset-0 bg-cover bg-center rounded-[3rem] overflow-hidden blur-sm scale-[1.2]"
               style={{
                 backgroundImage: "url(/images/contact.webp)",
                 borderRadius: "3rem",
@@ -50,7 +50,7 @@ const ContactDetail: React.FC = () => {
             
             {/* Contenido encima de la imagen */}
             <div className="relative z-10 flex flex-col justify-center h-full p-6 lg:p-0">
-              <h4 className="text-[#135bec] font-bold uppercase tracking-[0.2em] text-[11px] mb-4 scale-[1.5]">
+              <h4 className="text-[#135bec] font-bold uppercase tracking-[0.2em] text-[11px] mb-4">
                 Hablemos hoy
               </h4>
 
