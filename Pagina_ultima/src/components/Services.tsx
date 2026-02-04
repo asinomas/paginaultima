@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { Rocket, Building2 } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
-const collaborationModels = [
-  "Servicio Head Hunting",
-  "Servicio Staffing",
-  "Servicio Digital Factoring",
-  "Servicio Mesa de Ayuda"
-];
-
 const HighLevelConsulting: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation();
   const [activeCard, setActiveCard] = useState<number | null>(null);
+
+  const collaborationModels = [
+    "Servicio Head Hunting",
+    "Servicio Staffing",
+    "Servicio Digital Factoring",
+    "Servicio Mesa de Ayuda"
+  ];
 
   const toggleCard = (index: number) => {
     setActiveCard(activeCard === index ? null : index);
@@ -44,19 +44,23 @@ const HighLevelConsulting: React.FC = () => {
 
           {/* COLLABORATION MODELS */}
           <div className="flex-1 w-full lg:max-w-xl">
-            <h4 className="text-[10px] font-bold tracking-[0.3em] text-slate-400 uppercase mb-8 border-b border-slate-200 pb-2 inline-block">
-              Modelos de Colaboración
-            </h4>
-            <div className="flex flex-wrap gap-4 justify-start">
-              {collaborationModels.map((model, index) => (
-                <span
-                  key={index}
-                  className="px-5 py-2.5 bg-white text-slate-500 text-[12px] font-semibold rounded-xl shadow-sm
-                             hover:text-[#135bec] hover:-translate-y-1 hover:shadow-md transition-all duration-300"
-                >
-                  {model}
-                </span>
-              ))}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+              <h4 className="text-sm font-bold text-slate-900 mb-6">
+                Modelos de Colaboración
+              </h4>
+              <div className="grid grid-cols-1 gap-4">
+                {collaborationModels.map((model, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-center gap-3 p-4 bg-slate-50 rounded-lg hover:bg-[#135bec] hover:text-white transition-all duration-300 group"
+                  >
+                    <div className="w-2 h-2 rounded-full bg-[#135bec] group-hover:bg-white transition-colors"></div>
+                    <span className="text-sm font-medium text-slate-700 group-hover:text-white transition-colors">
+                      {model}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -108,15 +112,15 @@ const HighLevelConsulting: React.FC = () => {
                 >
                   <ul className="space-y-3 text-sm text-slate-300">
                     <li className="flex items-start gap-2">
-                      <span className="text-[#135bec] mt-1">•</span>
+                      <span className="text-slate-400 mt-1">•</span>
                       <span>Validación técnica sin overhead</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-[#135bec] mt-1">•</span>
+                      <span className="text-slate-400 mt-1">•</span>
                       <span>Flexibilidad (part-time / full-time)</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-[#135bec] mt-1">•</span>
+                      <span className="text-slate-400 mt-1">•</span>
                       <span>Ideal para MVPs y crecimiento acelerado</span>
                     </li>
                   </ul>
@@ -170,15 +174,15 @@ const HighLevelConsulting: React.FC = () => {
                 >
                   <ul className="space-y-3 text-sm text-slate-300">
                     <li className="flex items-start gap-2">
-                      <span className="text-[#135bec] mt-1">•</span>
+                      <span className="text-slate-400 mt-1">•</span>
                       <span>Cumplimiento, documentación y governance</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-[#135bec] mt-1">•</span>
+                      <span className="text-slate-400 mt-1">•</span>
                       <span>Perfiles senior y especializados</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-[#135bec] mt-1">•</span>
+                      <span className="text-slate-400 mt-1">•</span>
                       <span>Integración con RRHH y proveedores</span>
                     </li>
                   </ul>
@@ -198,7 +202,7 @@ const HighLevelConsulting: React.FC = () => {
 
         .card {
           height: 420px;
-          background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+          background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
           border-radius: 20px;
           padding: 2rem;
           position: relative;
@@ -212,7 +216,7 @@ const HighLevelConsulting: React.FC = () => {
 
         .card:hover {
           transform: translateY(-10px);
-          box-shadow: 0 30px 70px rgba(19, 91, 236, 0.3);
+          box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
         }
 
         .logo {
@@ -231,7 +235,7 @@ const HighLevelConsulting: React.FC = () => {
         .circle1 {
           width: 80px;
           height: 80px;
-          background: rgba(19, 91, 236, 0.1);
+          background: rgba(148, 163, 184, 0.1);
           top: 0;
           left: 0;
         }
@@ -239,7 +243,7 @@ const HighLevelConsulting: React.FC = () => {
         .circle2 {
           width: 70px;
           height: 70px;
-          background: rgba(19, 91, 236, 0.2);
+          background: rgba(148, 163, 184, 0.2);
           top: 5px;
           left: 5px;
         }
@@ -247,7 +251,7 @@ const HighLevelConsulting: React.FC = () => {
         .circle3 {
           width: 60px;
           height: 60px;
-          background: rgba(19, 91, 236, 0.3);
+          background: rgba(148, 163, 184, 0.3);
           top: 10px;
           left: 10px;
         }
@@ -255,7 +259,7 @@ const HighLevelConsulting: React.FC = () => {
         .circle4 {
           width: 50px;
           height: 50px;
-          background: rgba(19, 91, 236, 0.5);
+          background: rgba(148, 163, 184, 0.5);
           top: 15px;
           left: 15px;
         }
@@ -263,7 +267,7 @@ const HighLevelConsulting: React.FC = () => {
         .circle5 {
           width: 40px;
           height: 40px;
-          background: linear-gradient(135deg, #135bec 0%, #0a3d9f 100%);
+          background: linear-gradient(135deg, #64748b 0%, #475569 100%);
           top: 20px;
           left: 20px;
           display: flex;
@@ -320,19 +324,19 @@ const HighLevelConsulting: React.FC = () => {
           align-items: center;
           justify-content: space-between;
           padding: 1rem 1.25rem;
-          background: rgba(19, 91, 236, 0.1);
+          background: rgba(148, 163, 184, 0.15);
           border-radius: 12px;
           transition: all 0.3s ease;
         }
 
         .view-more:hover {
-          background: rgba(19, 91, 236, 0.2);
+          background: rgba(148, 163, 184, 0.25);
         }
 
         .view-more-button {
           background: none;
           border: none;
-          color: #135bec;
+          color: #cbd5e1;
           font-weight: 600;
           font-size: 0.9rem;
           cursor: pointer;
@@ -340,17 +344,16 @@ const HighLevelConsulting: React.FC = () => {
         }
 
         .view-more-button:hover {
-          color: #60a5fa;
+          color: #e2e8f0;
         }
 
         .view-more .svg {
           width: 20px;
           height: 20px;
-          stroke: #135bec;
+          stroke: #cbd5e1;
           fill: none;
           stroke-width: 2;
         }
-
 
         @media (max-width: 768px) {
           .card {
