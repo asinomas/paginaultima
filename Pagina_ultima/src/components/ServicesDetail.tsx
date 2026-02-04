@@ -135,7 +135,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
                 />
               </div>
             </div>
-      </section>
+     
 
 
 
@@ -212,6 +212,6 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
       </section>
     </div>
   );
-};
+          };      
 
 export default ServicesDetail;
