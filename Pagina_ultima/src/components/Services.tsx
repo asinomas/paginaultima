@@ -37,6 +37,9 @@ const HighLevelConsulting: React.FC = () => {
               Conectamos organizaciones con profesionales TI validados para escalar productos, equipos y operaciones, listos para generar impacto real.
               Desarrollamos una confianza a largo plazo que nos permite ser parte del cumplimiento de los objetivos de nuestros clientes.
             </p>
+            <p className="text-lg text-slate-600 leading-relaxed max-w-md">
+              Desarrollamos una confianza a largo plazo que nos permite ser parte del cumplimiento de los objetivos de nuestros clientes.
+            </p>
           </div>
 
           {/* COLLABORATION MODELS */}
