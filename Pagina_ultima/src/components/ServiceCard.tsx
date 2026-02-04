@@ -17,7 +17,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, description, det
   return (
     <div 
       ref={cardRef} 
-      className="relative bg-white rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500 group flex flex-col overflow-hidden"
+      className="relative bg-white rounded-[2.5rem] shadow-xl border border-slate-100 transition-all duration-500 group flex flex-col overflow-hidden"
     >
       
       <div className="p-10">
