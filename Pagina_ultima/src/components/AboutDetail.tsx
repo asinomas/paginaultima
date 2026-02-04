@@ -165,19 +165,34 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
 
           
           {/* Grid de fotos a la derecha */}
-          <div className="lg:w-[65%]">
-            <ScrollAnimation>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {team.map((member, i) => (
-                  <div key={i} className="group">
+          {/* Grid de fotos a la derecha */}
+<div className="lg:w-[65%]">
+  <ScrollAnimation>
+    <div className="origin-top-right scale-[0.85] transform">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {team.map((member, i) => (
+          <div key={i} className="group">
+            {/* Contenedor de las tarjetas */}
+            <div className={`aspect-[3/4] w-full rounded-3xl overflow-hidden relative shadow-2xl transition-all duration-700 ${
+              expandedCard === i ? 'bg-white' : ''
+            }`}>
+              ...
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </ScrollAnimation>
+</div>
 
 
 
-                    
-                    {/* Contenedor de las tarjetas */ }
-                    <div className={`aspect-[3/4] w-full rounded-3xl overflow-hidden relative shadow-2xl transition-all duration-700 ${
-                      expandedCard === i ? 'bg-white' : ''
-                    }`}>
+
+
+
+
+
+
                       
                       {/* Imagen principal - visible en estado normal */}
                       <div className={`absolute inset-0 transition-opacity duration-700 ${
@@ -270,6 +285,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
                   </div>
                 ))}
               </div>
+             </div>
             </ScrollAnimation>
           </div>
         </div>
