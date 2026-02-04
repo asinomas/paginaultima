@@ -187,7 +187,7 @@ const HighLevelConsulting: React.FC = () => {
       <style jsx>{`
         .parent {
           width: 100%;
-          max-width: 230px;
+          max-width: 260px;
           height: 340px;
           perspective: 1000px;
         }
