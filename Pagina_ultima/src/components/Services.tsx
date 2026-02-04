@@ -47,7 +47,7 @@ const HighLevelConsulting: React.FC = () => {
           <div className="flex flex-col">
             {/* Collaboration Models Section */}
             <div className="mb-12">
-              <h4 className="text-[10px] font-bold tracking-[0.4em] text-slate-400 uppercase mb-8 border-b border-slate-200 pb-2">
+              <h4 className="text-[10px] font-bold tracking-[0.4em] text-slate-400 uppercase mb-6 border-b border-slate-200 pb-2">
                 Modelos de Colaboración
               </h4>
 
