@@ -142,7 +142,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
           {profiles.map((profile, idx) => (
             <span
               key={idx}
-              className="bg-[#135bec]/10 text-black px-4 py-2 rounded-full text-sm font-semibold hover:bg-[#135bec]/20 transition-colors cursor-default"
+              className="bg-[#135bec]/10 font-slate-400 px-4 py-2 rounded-full text-sm font-semibold hover:bg-[#135bec]/20 transition-colors cursor-default"
             >
               {profile}
             </span>
