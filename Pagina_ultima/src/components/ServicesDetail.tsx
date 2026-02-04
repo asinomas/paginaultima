@@ -163,6 +163,27 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
               Modelo de Colaboración
             </h3>
 
+
+
+
+
+
+          const profiles = [
+                           "Líder Técnico", "Scrum Master", "Dev Android", "Dev Java",
+                           "BackEnd", "FrontEnd", "Fullstack", "Devops", "UX/UI",
+                           "Ciberseguridad", "Mesa de Ayuda", "Python", "Dev IOS"
+                           ];
+
+
+
+
+
+
+
+
+
+
+            
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-8">
               {collaborationModels.map((service, index) => (
                 <div key={index} className="group cursor-default">
