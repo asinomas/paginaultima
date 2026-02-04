@@ -44,7 +44,13 @@ const ContactDetail: React.FC = () => {
                 borderRadius: "3rem",
               }}
             ></div>
+             
+            
+            {/* Overlay negro con 40% de opacidad */}
+            <div className="absolute inset-0 bg-black/40 rounded-[3rem]"></div>
 
+
+            
             {/* Contenido encima de la imagen */}
             <div className="relative z-10 flex flex-col justify-center h-full p-6 lg:p-0">
               <h4 className="text-[#135bec] font-bold uppercase tracking-[0.2em] text-[11px] mb-4">
