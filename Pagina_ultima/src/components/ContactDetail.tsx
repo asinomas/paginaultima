@@ -1,39 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react';
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Send,
-  CheckCircle2,
-  Clock,
-  UserCheck,
-} from 'lucide-react';
+import React, { useState } from 'react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, Clock, UserCheck } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const ContactDetail: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSent, setIsSent] = useState(false);
 
   const EMAIL_DE_RECEPCION = 'contacto@blackti.cl';
-
-  /* ---------------- STAGGER (IntersectionObserver) ---------------- */
-  const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
-    itemsRef.current.forEach((el) => el && observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
+  const TELEFONO = '+56944030716';
+  const DIRECCION = 'Av. Apoquindo 6410, Of 605, Las Condes, Región Metropolitana, Chile';
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -46,22 +21,29 @@ const ContactDetail: React.FC = () => {
     }, 1500);
   };
 
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.15, duration: 0.5 }
+    })
+  };
+
   return (
     <div className="bg-white pt-16 pb-24 antialiased">
       <div className="container mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
-          {/* COLUMNA IZQUIERDA */}
+          {/* IZQUIERDA */}
           <div className="relative h-full w-full rounded-[3rem] overflow-hidden">
             <div
-              className="absolute inset-0 bg-cover bg-center blur-sm scale-[1.4]"
-              style={{ backgroundImage: "url(/images/contact.webp)" }}
-            />
+              className="absolute inset-0 bg-cover bg-center rounded-[3rem] overflow-hidden blur-sm scale-[1.4]"
+              style={{ backgroundImage: "url(/images/contact.webp)", borderRadius: "3rem" }}
+            ></div>
 
             <div className="relative z-10 flex flex-col justify-center h-full p-6 lg:p-0">
-              <h4 className="text-[#135bec] font-bold uppercase tracking-[0.2em] text-[11px] mb-4">
-                Hablemos hoy
-              </h4>
+              <h4 className="text-[#135bec] font-bold uppercase tracking-[0.2em] text-[11px] mb-4">Hablemos hoy</h4>
 
               <h2 className="text-5xl lg:text-6xl font-black text-slate-900 mb-8 tracking-tighter leading-tight">
                 Diseñemos el <br />
@@ -73,71 +55,75 @@ const ContactDetail: React.FC = () => {
                 Déjanos un mensaje y juntos tomemos la mejor decisión.
               </p>
 
-              {/* INFO DE CONTACTO CON GRID + STAGGER */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-                {/* EMAIL */}
-                <div
-                  ref={(el) => (itemsRef.current[0] = el)}
-                  className="contact-item flex items-center gap-6"
-                  style={{ transitionDelay: '0ms' }}
+              {/* Contact Info */}
+              <div className="space-y-6">
+                {/* EMAIL + TELEFONO (responsive) */}
+                <motion.div
+                  className="flex flex-col lg:flex-row lg:items-start lg:gap-8"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
                 >
-                  <div className="size-14 rounded-2xl bg-slate-50 flex items-center justify-center text-[#135bec]">
-                    <Mail size={24} />
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">
-                      Email
-                    </p>
-                    <p className="text-slate-900 font-bold text-lg">
-                      {EMAIL_DE_RECEPCION}
-                    </p>
-                  </div>
-                </div>
+                  {/* EMAIL */}
+                  <motion.a
+                    href={`mailto:${EMAIL_DE_RECEPCION}`}
+                    className="group flex items-center gap-4 cursor-pointer flex-1"
+                    custom={0}
+                    variants={itemVariants}
+                  >
+                    <div className="size-14 rounded-2xl bg-slate-50 flex items-center justify-center text-[#135bec] group-hover:bg-[#135bec] group-hover:text-white transition-all duration-300">
+                      <Mail size={24} />
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Email</p>
+                      <p className="text-slate-900 font-bold text-lg">{EMAIL_DE_RECEPCION}</p>
+                    </div>
+                  </motion.a>
 
-                {/* TELÉFONO */}
-                <div
-                  ref={(el) => (itemsRef.current[1] = el)}
-                  className="contact-item flex items-center gap-6"
-                  style={{ transitionDelay: '120ms' }}
-                >
-                  <div className="size-14 rounded-2xl bg-slate-50 flex items-center justify-center text-[#135bec]">
-                    <Phone size={24} />
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">
-                      Teléfono
-                    </p>
-                    <p className="text-slate-900 font-bold text-lg">
-                      +569 4403 0716
-                    </p>
-                  </div>
-                </div>
+                  {/* TELEFONO */}
+                  <motion.a
+                    href={`https://wa.me/${TELEFONO.replace(/\D/g, '')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center gap-4 cursor-pointer mt-4 lg:mt-0"
+                    custom={1}
+                    variants={itemVariants}
+                  >
+                    <div className="size-14 rounded-2xl bg-slate-50 flex items-center justify-center text-[#135bec] group-hover:bg-[#135bec] group-hover:text-white transition-all duration-300">
+                      <Phone size={24} />
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Teléfono</p>
+                      <p className="text-slate-900 font-bold text-lg">{TELEFONO}</p>
+                    </div>
+                  </motion.a>
+                </motion.div>
 
-                {/* OFICINA */}
-                <div
-                  ref={(el) => (itemsRef.current[2] = el)}
-                  className="contact-item flex items-center gap-6 md:col-span-2"
-                  style={{ transitionDelay: '240ms' }}
+                {/* DIRECCIÓN */}
+                <motion.a
+                  href={`https://www.google.com/maps?q=${encodeURIComponent(DIRECCION)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-4 cursor-pointer"
+                  custom={2}
+                  variants={itemVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
                 >
-                  <div className="size-14 rounded-2xl bg-slate-50 flex items-center justify-center text-[#135bec]">
+                  <div className="size-14 rounded-2xl bg-slate-50 flex items-center justify-center text-[#135bec] group-hover:bg-[#135bec] group-hover:text-white transition-all duration-300">
                     <MapPin size={24} />
                   </div>
                   <div>
-                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">
-                      Oficina Central
-                    </p>
-                    <p className="text-slate-900 font-bold text-lg leading-snug">
-                      Av. Apoquindo 6410, Of 605, Las Condes, RM, Chile
-                    </p>
+                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Oficina Central</p>
+                    <p className="text-slate-900 font-bold text-lg">{DIRECCION}</p>
                   </div>
-                </div>
-
+                </motion.a>
               </div>
             </div>
           </div>
 
-          {/* COLUMNA DERECHA – FORMULARIO ORIGINAL */}
+          {/* DERECHA */}
           <div className="relative group">
             <div className="bg-slate-50 p-8 lg:p-12 rounded-[3rem] border border-slate-100 relative overflow-hidden min-h-[500px] flex flex-col justify-center shadow-sm">
 
@@ -147,9 +133,7 @@ const ContactDetail: React.FC = () => {
                     src="./images/hero-image-speed.webp"
                     alt="Enviando"
                     className="w-auto h-auto max-w-md object-contain opacity-20 -translate-y-10"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = 'none';
-                    }}
+                    onError={(e) => {(e.target as HTMLImageElement).style.display = 'none';}}
                   />
                 </div>
               )}
@@ -159,9 +143,7 @@ const ContactDetail: React.FC = () => {
                   <div className="size-24 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-8 border border-blue-200 shadow-lg shadow-blue-500/10">
                     <CheckCircle2 size={52} strokeWidth={2.5} />
                   </div>
-                  <h3 className="text-3xl font-black text-slate-900 mb-4 tracking-tight">
-                    ¡Mensaje Enviado!
-                  </h3>
+                  <h3 className="text-3xl font-black text-slate-900 mb-4 tracking-tight">¡Mensaje Enviado!</h3>
                   <p className="text-slate-500 text-lg max-w-[280px] mb-10 leading-relaxed">
                     Gracias por confiar en nosotros. Te contactaremos a la brevedad.
                   </p>
@@ -175,33 +157,28 @@ const ContactDetail: React.FC = () => {
               )}
 
               <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
-                {/* === EL FORMULARIO QUEDA EXACTAMENTE COMO LO TENÍAS === */}
                 <div className="space-y-2">
                   <label htmlFor="contact-name" className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Nombre Completo</label>
-                  <input id="contact-name" name="name" autoComplete="name" required type="text" placeholder="Tu nombre" className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 focus:ring-2 focus:ring-[#135bec] focus:border-transparent outline-none transition-all placeholder:text-slate-300" />
+                  <input id="contact-name" name="name" autoComplete="name" required type="text" placeholder="Tu nombre" className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 focus:ring-2 focus:ring-[#135bec] focus:border-transparent outline-none transition-all placeholder:text-slate-300"/>
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="contact-email" className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Email Corporativo</label>
-                  <input id="contact-email" name="email" autoComplete="email" required type="email" placeholder="ejemplo@empresa.com" className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 focus:ring-2 focus:ring-[#135bec] focus:border-transparent outline-none transition-all placeholder:text-slate-300" />
+                  <input id="contact-email" name="email" autoComplete="email" required type="email" placeholder="ejemplo@empresa.com" className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 focus:ring-2 focus:ring-[#135bec] focus:border-transparent outline-none transition-all placeholder:text-slate-300"/>
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="contact-message" className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Mensaje</label>
-                  <textarea id="contact-message" name="message" autoComplete="off" required rows={5} placeholder="Cuéntanos sobre tu proyecto..." className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 focus:ring-2 focus:ring-[#135bec] focus:border-transparent outline-none transition-all placeholder:text-slate-300 resize-none" />
+                  <textarea id="contact-message" name="message" autoComplete="off" required rows={5} placeholder="Cuéntanos sobre tu proyecto..." className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 focus:ring-2 focus:ring-[#135bec] focus:border-transparent outline-none transition-all placeholder:text-slate-300 resize-none"/>
                 </div>
                 <button type="submit" disabled={isSubmitting} className="w-full bg-[#135bec] text-white font-bold py-5 rounded-2xl shadow-xl shadow-[#135bec]/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3 disabled:opacity-50 mt-4 group/btn">
-                  {isSubmitting ? 'Enviando...' : (
-                    <>
-                      Enviar Mensaje
-                      <Send size={18} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
-                    </>
-                  )}
+                  {isSubmitting ? 'Enviando...' : <>Enviar Mensaje <Send size={18} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform"/></>}
                 </button>
               </form>
 
               <div className="mt-8 space-y-2 text-xs text-slate-500">
-                <div className="flex items-center gap-3"><Clock size={14} className="text-[#135bec]" /> Respuesta en menos de 24h</div>
-                <div className="flex items-center gap-3"><UserCheck size={14} className="text-[#135bec]" /> Atención personalizada</div>
+                <div className="flex items-center gap-3"><Clock size={14} className="text-[#135bec]"/> Respuesta en menos de 24h</div>
+                <div className="flex items-center gap-3"><UserCheck size={14} className="text-[#135bec]"/> Atención personalizada</div>
               </div>
+
             </div>
           </div>
 
@@ -209,15 +186,6 @@ const ContactDetail: React.FC = () => {
       </div>
 
       <style>{`
-        .contact-item {
-          opacity: 0;
-          transform: translateY(20px);
-          transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .contact-item.animate-in {
-          opacity: 1;
-          transform: translateY(0);
-        }
         @keyframes fadeIn {
           from { opacity: 0; transform: scale(0.95); }
           to { opacity: 1; transform: scale(1); }
