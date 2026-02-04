@@ -15,6 +15,7 @@ const TestimonialsSection = React.lazy(() => import('./components/TestimonialsSe
 import ServicesDetail from './components/ServicesDetail';
 import AboutDetail from './components/AboutDetail';
 import ContactDetail from './components/ContactDetail';
+import FAQSection from './components/FAQSection';
 import Terms from './components/Terms';
 import Privacy from './components/Privacy';
 
@@ -200,6 +201,11 @@ const App: React.FC = () => {
               />
             </section>
 
+            {/* FAQ Section - Justo antes del contacto */}
+            <section id="faq" aria-labelledby="faq-heading">
+              <FAQSection />
+            </section>
+
             <section id={SECTION_IDS.contact} aria-labelledby="contact-heading">
               <ContactDetail />
             </section>
@@ -246,4 +252,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-
