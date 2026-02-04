@@ -111,8 +111,6 @@ const HighLevelConsulting: React.FC = () => {
                     </div>
                   </div>
                   <div className="logo">
-                    <span className="circle circle1"></span>
-                    <span className="circle circle2"></span>
                     <span className="circle circle3"></span>
                     <span className="circle circle4"></span>
                     <span className="circle circle5">
@@ -173,8 +171,6 @@ const HighLevelConsulting: React.FC = () => {
                     </div>
                   </div>
                   <div className="logo">
-                    <span className="circle circle1"></span>
-                    <span className="circle circle2"></span>
                     <span className="circle circle3"></span>
                     <span className="circle circle4"></span>
                     <span className="circle circle5">
@@ -344,22 +340,6 @@ const HighLevelConsulting: React.FC = () => {
           transition: all 0.5s ease-in-out;
         }
 
-        .logo .circle1 {
-          width: 150px;
-          transform: translate3d(0, 0, 20px);
-          top: 8px;
-          right: 8px;
-        }
-
-        .logo .circle2 {
-          width: 125px;
-          transform: translate3d(0, 0, 40px);
-          top: 10px;
-          right: 10px;
-          backdrop-filter: blur(1px);
-          transition-delay: 0.4s;
-        }
-
         .logo .circle3 {
           width: 100px;
           transform: translate3d(0, 0, 60px);
@@ -396,10 +376,6 @@ const HighLevelConsulting: React.FC = () => {
         .parent:hover .card {
           transform: rotate3d(1, 1, 0, 30deg);
           box-shadow: rgba(19, 91, 236, 0.3) 30px 50px 25px -40px, rgba(19, 91, 236, 0.15) 0px 25px 30px 0px;
-        }
-
-        .parent:hover .card .logo .circle2 {
-          transform: translate3d(0, 0, 60px);
         }
 
         .parent:hover .card .logo .circle3 {
