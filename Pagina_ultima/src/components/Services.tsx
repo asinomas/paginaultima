@@ -128,10 +128,10 @@ const HighLevelConsulting: React.FC = () => {
                     <span className="title">Empresas</span>
                     <span className="subtitle">
                       <Building2 className="inline w-5 h-5 mr-2" />
-                      Procesos de selección robustos
+                      Reducción de costos y tiempos 
                     </span>
                     <p className="description">
-                      Desarrollamos un roadmap claro para construir solidez para el futuro.
+                      Procesos de selección de contratación robustos
                     </p>
                   </div>
                   <div className="bottom">
@@ -165,7 +165,8 @@ const HighLevelConsulting: React.FC = () => {
                         </li>
                         <li className="flex items-start gap-2">
                           <span className="bullet">•</span>
-                          <span>Integración con RRHH y proveedores</span>
+                          <span>Acompañamiento y soporte continuo
+                          </span>
                         </li>
                       </ul>
                     </div>
