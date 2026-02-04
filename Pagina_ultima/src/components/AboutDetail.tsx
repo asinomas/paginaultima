@@ -19,6 +19,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
     OFFICE_LOCATIONS.find(o => o.type === 'Headquarters') || OFFICE_LOCATIONS[0]
   );
 
+  // Estado para controlar qué tarjeta está expandida
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
 
   const team = [
@@ -66,6 +67,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
     }
   ];
 
+  // Función para expandir/contraer tarjetas
   const toggleCard = (index: number) => {
     setExpandedCard(expandedCard === index ? null : index);
   };
@@ -125,6 +127,8 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
 
       {/* SECCIÓN EQUIPO */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8 py-10">
+
+        {/* Título centrado con líneas */}
         <div className="text-center mb-4 flex flex-col items-center">
           <div className="flex items-center w-full justify-center mb-6">
             <div className="h-0.5 flex-1 bg-gradient-to-r from-transparent to-slate-200 hidden md:block mr-10" />
@@ -136,6 +140,8 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
         </div>
 
         <div className="flex flex-col lg:flex-row gap-20 items-start">
+
+          {/* Texto a la izquierda */}
           <div className="lg:w-[35%] lg:sticky lg:top-32">
             <h4 className="text-[#135bec] font-bold uppercase tracking-[0.2em] text-[11px] mb-4">
               Conócenos
@@ -152,87 +158,94 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
           {/* Grid de fotos a la derecha */}
           <div className="lg:w-[65%]">
             <ScrollAnimation>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {team.map((member, i) => (
-                  <div key={i} className="group">
-                    <div className={`aspect-[3/4] w-full rounded-3xl overflow-hidden relative shadow-2xl transition-all duration-700 ${
-                      expandedCard === i ? 'bg-white' : ''
-                    }`}>
-                      
-                      <div className={`absolute inset-0 transition-opacity duration-700 ${
-                        expandedCard === i ? 'opacity-0 pointer-events-none' : 'opacity-100'
-                      }`}>
-                        <img 
-                          alt={member.name} 
-                          className="grayscale w-full h-full object-cover transition-all duration-[1.5s] group-hover:scale-105 will-change-transform backface-visibility-hidden" 
-                          src={member.image} 
-                          loading="lazy"
-                          onError={(e) => {
-                            (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=800';
-                          }}
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                      </div>
+              {/* ESCALA REDUCIDA 0.85 */}
+              <div className="origin-top-right scale-[0.85] transform">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {team.map((member, i) => (
+                    <div key={i} className="group">
 
-                      <div className={`absolute bottom-6 left-6 right-6 text-right transition-all duration-700 ${
-                        expandedCard === i ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                      {/* Contenedor de las tarjetas */}
+                      <div className={`aspect-[3/4] w-full rounded-3xl overflow-hidden relative shadow-2xl transition-all duration-700 ${
+                        expandedCard === i ? 'bg-white' : ''
                       }`}>
-                        <h4 className="text-white text-xl font-bold mb-1">{member.name}</h4>
-                        <p className="text-white/80 text-xs font-normal uppercase tracking-wider mb-3">{member.role}</p>
-                        <div className="flex justify-end">
-                          <a 
-                            href={member.linkedin} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="inline-flex size-9 rounded-xl bg-transparent items-center justify-center cursor-pointer hover:bg-slate-700/50 transition-all text-white shadow-lg backdrop-blur-sm"
-                          >
-                            <Linkedin size={16} />
-                          </a>
+
+                        {/* Imagen principal */}
+                        <div className={`absolute inset-0 transition-opacity duration-700 ${
+                          expandedCard === i ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                        }`}>
+                          <img 
+                            alt={member.name} 
+                            className="grayscale w-full h-full object-cover transition-all duration-[1.5s] group-hover:scale-105 will-change-transform backface-visibility-hidden" 
+                            src={member.image} 
+                            loading="lazy"
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=800';
+                            }}
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                         </div>
-                      </div>
 
-                      {/* Contenido expandido alineado a la izquierda */}
-                      <div className={`absolute inset-0 flex flex-col p-6 transition-all duration-700 ${
-                        expandedCard === i ? 'opacity-100' : 'opacity-0 pointer-events-none'
-                      }`}>
-                        <div className="flex items-start gap-4 mb-6">
-                          <div className="flex-shrink-0 w-16 h-16 rounded-full overflow-hidden">
-                            <img 
-                              src={member.image} 
-                              alt={member.name}
-                              className="w-full h-full object-cover grayscale"
-                              onError={(e) => {
-                                (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=800';
-                              }}
-                            />
-                          </div>
-                          <div className="flex-1">
-                            <h4 className="text-slate-900 text-lg font-bold leading-tight">{member.name}</h4>
-                            <p className="text-slate-600 text-xs font-semibold uppercase tracking-tight mt-1">{member.role}</p>
+                        {/* Nombre, rol y LinkedIn */}
+                        <div className={`absolute bottom-6 left-6 right-6 text-right transition-all duration-700 ${
+                          expandedCard === i ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                        }`}>
+                          <h4 className="text-white text-xl font-bold mb-1">{member.name}</h4>
+                          <p className="text-white/80 text-xs font-normal uppercase tracking-wider mb-3">{member.role}</p>
+                          <div className="flex justify-end">
+                            <a 
+                              href={member.linkedin} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="inline-flex size-9 rounded-xl bg-transparent items-center justify-center cursor-pointer hover:bg-slate-700/50 transition-all text-white shadow-lg backdrop-blur-sm"
+                            >
+                              <Linkedin size={16} />
+                            </a>
                           </div>
                         </div>
 
-                        {/* Aquí está la alineación izquierda */}
-                        <div className="flex-1 flex items-center justify-start px-2">
-                          <p className="text-slate-700 text-sm leading-tight text-left">
-                            {member.bio}
-                          </p>
-                        </div>
-                      </div>
+                        {/* Contenido expandido */}
+                        <div className={`absolute inset-0 flex flex-col p-6 transition-all duration-700 ${
+                          expandedCard === i ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                        }`}>
+                          <div className="flex items-start gap-4 mb-6">
+                            <div className="flex-shrink-0 w-16 h-16 rounded-full overflow-hidden">
+                              <img 
+                                src={member.image} 
+                                alt={member.name}
+                                className="w-full h-full object-cover grayscale"
+                                onError={(e) => {
+                                  (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=800';
+                                }}
+                              />
+                            </div>
+                            <div className="flex-1">
+                              <h4 className="text-slate-900 text-lg font-bold leading-tight">{member.name}</h4>
+                              <p className="text-slate-600 text-xs font-semibold uppercase tracking-tight mt-1">{member.role}</p>
+                            </div>
+                          </div>
 
-                      <button 
-                        onClick={() => toggleCard(i)}
-                        className="absolute top-4 right-4 z-20 size-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all duration-300 group/btn"
-                      >
-                        {expandedCard === i ? (
-                          <X size={18} className="text-slate-900 transition-transform group-hover/btn:rotate-90" />
-                        ) : (
-                          <Menu size={18} className="text-white transition-transform group-hover/btn:scale-110" />
-                        )}
-                      </button>
+                          <div className="flex-1 flex items-center justify-center px-2">
+                            <p className="text-slate-700 text-sm leading-tight text-center">
+                              {member.bio}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Botón hamburguesa */}
+                        <button 
+                          onClick={() => toggleCard(i)}
+                          className="absolute top-4 right-4 z-20 size-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all duration-300 group/btn"
+                        >
+                          {expandedCard === i ? (
+                            <X size={18} className="text-slate-900 transition-transform group-hover/btn:rotate-90" />
+                          ) : (
+                            <Menu size={18} className="text-white transition-transform group-hover/btn:scale-110" />
+                          )}
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </ScrollAnimation>
           </div>
