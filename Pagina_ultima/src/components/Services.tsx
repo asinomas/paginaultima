@@ -26,8 +26,8 @@ const HighLevelConsulting: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* HEADER */}
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-16 mb-24">
-          <div className="max-w-xl">
+        <div className="mb-16">
+          <div className="max-w-xl mb-16">
             <span className="text-[11px] font-bold tracking-[0.2em] text-[#135bec] uppercase mb-4 block">
               Excelencia Operativa
             </span>
@@ -36,18 +36,18 @@ const HighLevelConsulting: React.FC = () => {
               <span className="text-[#135bec] italic">Alto Nivel</span>
             </h3>
             <div className="w-16 h-1 bg-[#135bec] mb-8"></div>
-            <p className="text-lg text-slate-600 leading-relaxed">
+            <p className="text-lg text-slate-600 leading-relaxed max-w-xl">
               Conectamos organizaciones con profesionales TI validados para escalar productos, equipos y operaciones, listos para generar impacto real.
               Desarrollamos una confianza a largo plazo que nos permite ser parte del cumplimiento de los objetivos de nuestros clientes.
             </p>
           </div>
 
           {/* COLLABORATION MODELS */}
-          <div className="flex-1 w-full lg:max-w-xl">
+          <div className="mb-16">
             <h4 className="text-[10px] font-bold tracking-[0.3em] text-slate-400 uppercase mb-8 border-b border-slate-200 pb-2 inline-block">
               Modelos de Colaboración
             </h4>
-            <div className="space-y-4">
+            <div className="flex flex-wrap gap-8">
               {collaborationModels.map((model, index) => (
                 <div
                   key={index}
@@ -64,17 +64,20 @@ const HighLevelConsulting: React.FC = () => {
         </div>
 
         {/* TARJETAS - 3D UI Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-4xl">
           {/* CARD 1 - Startups */}
           <div className="parent">
             <div className="card">
               <div className="glass"></div>
               <div className="content">
                 <span className="title">Startups</span>
-                <span className="text">
-                  <Rocket className="inline w-4 h-4 mr-2" />
+                <span className="subtitle">
+                  <Rocket className="inline w-5 h-5 mr-2" />
                   Escala tu equipo rápido
                 </span>
+                <p className="description">
+                  Desarrollamos un roadmap claro para construir solidez para el futuro.
+                </p>
               </div>
               <div className="bottom">
                 <div 
@@ -129,10 +132,13 @@ const HighLevelConsulting: React.FC = () => {
               <div className="glass"></div>
               <div className="content">
                 <span className="title">Empresas & Corporaciones</span>
-                <span className="text">
-                  <Building2 className="inline w-4 h-4 mr-2" />
+                <span className="subtitle">
+                  <Building2 className="inline w-5 h-5 mr-2" />
                   Procesos de selección robustos
                 </span>
+                <p className="description">
+                  Desarrollamos un roadmap claro para construir solidez para el futuro.
+                </p>
               </div>
               <div className="bottom">
                 <div 
@@ -186,19 +192,18 @@ const HighLevelConsulting: React.FC = () => {
       <style jsx>{`
         .parent {
           width: 100%;
-          max-width: 400px;
-          height: 420px;
+          max-width: 350px;
+          height: 380px;
           perspective: 1000px;
-          margin: 0 auto;
         }
 
         .card {
           height: 100%;
-          border-radius: 50px;
-          background: linear-gradient(135deg, rgb(71, 85, 105) 0%, rgb(51, 65, 85) 100%);
+          border-radius: 45px;
+          background: linear-gradient(135deg, #1e5fd9 0%, #135bec 100%);
           transition: all 0.5s ease-in-out;
           transform-style: preserve-3d;
-          box-shadow: rgba(0, 0, 0, 0) 40px 50px 25px -40px, rgba(0, 0, 0, 0.2) 0px 25px 25px -5px;
+          box-shadow: rgba(19, 91, 236, 0) 40px 50px 25px -40px, rgba(19, 91, 236, 0.2) 0px 25px 25px -5px;
           position: relative;
           cursor: pointer;
         }
@@ -207,41 +212,51 @@ const HighLevelConsulting: React.FC = () => {
           transform-style: preserve-3d;
           position: absolute;
           inset: 8px;
-          border-radius: 55px;
+          border-radius: 50px;
           border-top-right-radius: 100%;
-          background: linear-gradient(0deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%);
+          background: linear-gradient(0deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.25) 100%);
           transform: translate3d(0px, 0px, 25px);
-          border-left: 1px solid rgba(255, 255, 255, 0.2);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+          border-left: 1px solid rgba(255, 255, 255, 0.3);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.3);
           transition: all 0.5s ease-in-out;
         }
 
         .content {
-          padding: 100px 60px 0px 30px;
+          padding: 85px 50px 0px 25px;
           transform: translate3d(0, 0, 26px);
         }
 
         .content .title {
           display: block;
-          color: #e2e8f0;
+          color: #ffffff;
           font-weight: 900;
-          font-size: 20px;
+          font-size: 19px;
+          margin-bottom: 12px;
         }
 
-        .content .text {
-          display: block;
-          color: rgba(226, 232, 240, 0.7);
+        .content .subtitle {
+          display: flex;
+          align-items: center;
+          color: rgba(255, 255, 255, 0.95);
           font-size: 15px;
-          margin-top: 20px;
+          font-weight: 600;
+          margin-bottom: 8px;
+        }
+
+        .content .description {
+          color: rgba(255, 255, 255, 0.75);
+          font-size: 13px;
+          line-height: 1.5;
+          margin-top: 8px;
         }
 
         .bottom {
           padding: 10px 12px;
           transform-style: preserve-3d;
           position: absolute;
-          bottom: 20px;
-          left: 20px;
-          right: 20px;
+          bottom: 18px;
+          left: 18px;
+          right: 18px;
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -255,28 +270,29 @@ const HighLevelConsulting: React.FC = () => {
           justify-content: space-between;
           transition: all 0.2s ease-in-out;
           cursor: pointer;
-          padding: 10px;
-          background: rgba(255, 255, 255, 0.1);
+          padding: 10px 12px;
+          background: rgba(255, 255, 255, 0.15);
           border-radius: 12px;
+          backdrop-filter: blur(10px);
         }
 
         .bottom .view-more:hover {
           transform: translate3d(0, 0, 10px);
-          background: rgba(255, 255, 255, 0.15);
+          background: rgba(255, 255, 255, 0.25);
         }
 
         .bottom .view-more .view-more-button {
           background: none;
           border: none;
-          color: #cbd5e1;
-          font-weight: bolder;
+          color: #ffffff;
+          font-weight: 700;
           font-size: 12px;
           cursor: pointer;
         }
 
         .bottom .view-more .svg {
           fill: none;
-          stroke: #cbd5e1;
+          stroke: #ffffff;
           stroke-width: 3px;
           max-height: 15px;
           transition: transform 0.3s ease;
@@ -288,24 +304,24 @@ const HighLevelConsulting: React.FC = () => {
 
         .accordion-content {
           position: absolute;
-          bottom: 80px;
-          left: 30px;
-          right: 30px;
+          bottom: 75px;
+          left: 25px;
+          right: 25px;
           max-height: 0;
           overflow: hidden;
           transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
           opacity: 0;
           transform: translate3d(0, 0, 26px);
-          color: rgba(226, 232, 240, 0.9);
+          color: rgba(255, 255, 255, 0.95);
         }
 
         .accordion-content.open {
-          max-height: 200px;
+          max-height: 180px;
           opacity: 1;
         }
 
         .accordion-content .bullet {
-          color: #94a3b8;
+          color: rgba(255, 255, 255, 0.7);
         }
 
         .logo {
@@ -322,21 +338,21 @@ const HighLevelConsulting: React.FC = () => {
           border-radius: 50%;
           top: 0;
           right: 0;
-          box-shadow: rgba(100, 100, 111, 0.2) -10px 10px 20px 0px;
+          box-shadow: rgba(19, 91, 236, 0.3) -10px 10px 20px 0px;
           backdrop-filter: blur(5px);
-          background: rgba(148, 163, 184, 0.2);
+          background: rgba(255, 255, 255, 0.15);
           transition: all 0.5s ease-in-out;
         }
 
         .logo .circle1 {
-          width: 170px;
+          width: 150px;
           transform: translate3d(0, 0, 20px);
           top: 8px;
           right: 8px;
         }
 
         .logo .circle2 {
-          width: 140px;
+          width: 125px;
           transform: translate3d(0, 0, 40px);
           top: 10px;
           right: 10px;
@@ -345,30 +361,30 @@ const HighLevelConsulting: React.FC = () => {
         }
 
         .logo .circle3 {
-          width: 110px;
+          width: 100px;
           transform: translate3d(0, 0, 60px);
-          top: 17px;
-          right: 17px;
+          top: 15px;
+          right: 15px;
           transition-delay: 0.8s;
         }
 
         .logo .circle4 {
-          width: 80px;
+          width: 75px;
           transform: translate3d(0, 0, 80px);
-          top: 23px;
-          right: 23px;
+          top: 20px;
+          right: 20px;
           transition-delay: 1.2s;
         }
 
         .logo .circle5 {
           width: 50px;
           transform: translate3d(0, 0, 100px);
-          top: 30px;
-          right: 30px;
+          top: 25px;
+          right: 25px;
           display: grid;
           place-content: center;
           transition-delay: 1.6s;
-          background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+          background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
         }
 
         .logo .circle5 .svg-icon {
@@ -379,7 +395,7 @@ const HighLevelConsulting: React.FC = () => {
 
         .parent:hover .card {
           transform: rotate3d(1, 1, 0, 30deg);
-          box-shadow: rgba(0, 0, 0, 0.3) 30px 50px 25px -40px, rgba(0, 0, 0, 0.1) 0px 25px 30px 0px;
+          box-shadow: rgba(19, 91, 236, 0.3) 30px 50px 25px -40px, rgba(19, 91, 236, 0.15) 0px 25px 30px 0px;
         }
 
         .parent:hover .card .logo .circle2 {
@@ -401,11 +417,11 @@ const HighLevelConsulting: React.FC = () => {
         @media (max-width: 768px) {
           .parent {
             height: auto;
-            min-height: 420px;
+            min-height: 380px;
           }
           
           .content {
-            padding: 80px 40px 0px 25px;
+            padding: 70px 40px 0px 20px;
           }
         }
       `}</style>
