@@ -122,14 +122,14 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
 
 
             
-            {/* COLUMNA DERECHA    div className="lg:w-1/3 hidden lg:flex flex-col items-end gap-8"  */}
+            {/* COLUMNA DERECHA    className    lg:w-1/3 hidden lg:flex flex-col items-end gap-8   */}
             
 
 
 
   
 
-              {/* AQUI VA LA  Imagen       div className="w-full overflow-visible flex justify-center items-center" */}
+              {/* AQUI VA LA  Imagen       className   "w-full overflow-visible flex justify-center items-center"   */}
               
 
 
