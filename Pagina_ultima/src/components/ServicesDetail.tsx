@@ -146,8 +146,8 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
               {/* Imagen */}
               <div className="w-full overflow-visible flex justify-center items-center">
                 <img
-                  src="./images/pc-software.webp"
-                  alt="PC con Codigos de Programacóin"
+                  src="./images/datos.jpg"
+                  alt="Consultor de BlackTI analizando Codigos de Programacóin"
                   loading="eager" 
                   className="w-auto h-auto object-contain scale-[1.5]"
                 />
