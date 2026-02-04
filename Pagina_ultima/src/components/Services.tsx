@@ -73,11 +73,8 @@ const HighLevelConsulting: React.FC = () => {
             <div className="w-16 h-1 bg-[#135bec] mb-8"></div>
 
             <p className="text-lg text-slate-600 leading-relaxed">
-              Eliminamos su riesgo operativo entregando profesionales evaluados,
-              acompañados y alineados al negocio, listos para generar impacto real
-              en tu empresa. Desarrollamos una confianza a largo plazo que nos
-              permite ser parte del cumplimiento de los objetivos de nuestros
-              clientes.
+              Conectamos organizaciones con profesionales TI validados para escalar productos, equipos y operaciones, listos para generar impacto real.
+              Desarrollamos una confianza a largo plazo que nos permite ser parte del cumplimiento de los objetivos de nuestros clientes.
             </p>
           </div>
 
