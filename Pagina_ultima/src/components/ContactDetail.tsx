@@ -15,7 +15,7 @@ const ContactDetail: React.FC = () => {
   const [isSent, setIsSent] = useState(false);
 
   // EDITAR AQUÍ EL CORREO ELECTRÓNICO
-  const EMAIL_DE_RECEPCION = 'Ccontacto@blackti.cl';
+  const EMAIL_DE_RECEPCION = 'contacto@blackti.cl';
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -35,13 +35,13 @@ const ContactDetail: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
           {/* COLUMNA IZQUIERDA - TEXTO + IMAGEN DE FONDO */}
-          <div className="relative h-[1067px] w-full">
-            {/* Imagen de fondo ocupando toda la columna, sin bordes */}
+          <div className="relative h-full w-full rounded-[3rem] overflow-hidden">
+            {/* Imagen de fondo ocupando toda la columna con borde redondo */}
             <div
-              className="absolute inset-0 bg-cover bg-center opacity-20"
+              className="absolute inset-0 bg-cover bg-center"
               style={{
                 backgroundImage: "url(/images/contact.webp)",
-                height: "1067px",
+                borderRadius: "3rem",
               }}
             ></div>
 
