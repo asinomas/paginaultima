@@ -14,8 +14,7 @@ const FAQSection: React.FC = () => {
   const faqData: FAQItem[] = [
     {
       question: "¿Qué hacemos en BlackTI?",
-      answer: "Somos una Consultora TI especializada con foco en resultados, impulsados por el talento, la experiencia y el compromiso de nuestros profesionales. Entregamos células de trabajo de alto rendimiento listas para producir desde el primer día. Cubrimos todo el espectro: desde el diseño UX/UI y el desarrollo en Java, Python o Mobile, hasta la infraestructura DevOps y el blindaje en Ciberseguridad.
-        Tú pones la visión y nosotros el equipo experto que la hace realidad, sin fricciones y a escala."
+      answer: "Somos una Consultora TI especializada con foco en resultados, impulsados por el talento, la experiencia y el compromiso de nuestros profesionales. Entregamos células de trabajo de alto rendimiento listas para producir desde el primer día. Cubrimos todo el espectro: desde el diseño UX/UI y el desarrollo en Java, Python o Mobile, hasta la infraestructura DevOps y el blindaje en Ciberseguridad. Tú pones la visión y nosotros el equipo experto que la hace realidad, sin fricciones y a escala."
     },
     {
       question: "¿Qué diferencia a nuestro Consultorio TI de otras consultoras?",
