@@ -1,200 +1,312 @@
-import React from 'react';
-import { Terminal, Lightbulb, Network, Lock, Cloud, BarChart3 } from 'lucide-react';
-import ServiceCard from './ServiceCard';
-import ServicesHeroLights from './ServicesHeroLights';
+import React, { useState } from 'react';
+import { Linkedin, ArrowRight, Menu, X } from 'lucide-react';
+import WorldMap from './WorldMap';
+import OfficeDetails from './OfficeDetails';
+import { OFFICE_LOCATIONS } from '../constants';
+import { OfficeLocation } from '../types';
 import ScrollAnimation from './ScrollAnimation';
 
-interface ServicesDetailProps {
-  onContactClick?: () => void;
+// IMPORTAR LA IMAGEN DESDE PUBLIC
+import fotoAbout from '/images/foto-about.webp';
+
+interface AboutDetailProps {
+  onContactClick: () => void;
+  onNavigate: (page: 'home' | 'services' | 'about' | 'contact') => void;
 }
 
-const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => {} }) => {
-  const collaborationModels = [
-    "Servicio Head Hunting",
-    "Servicio Staffing",
-    "Servicio Digital Factoring",
-    "Servicio Mesa de Ayuda"
-  ];
+const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate }) => {
+  const [selectedOffice, setSelectedOffice] = useState<OfficeLocation>(
+    OFFICE_LOCATIONS.find(o => o.type === 'Headquarters') || OFFICE_LOCATIONS[0]
+  );
 
-  const specialties = [
+  // Estado para controlar qué tarjeta está expandida
+  const [expandedCard, setExpandedCard] = useState<number | null>(null);
+
+  const team = [
     {
-      icon: Terminal,
-      title: 'Consultoría TI',
-      description: 'Asesoramiento experto de nuestro equipo para optimizar su infraestructura y procesos tecnológicos mediante auditorías profundas.',
-      details: [
-        'Auditorías profundas de infraestructura',
-        'Optimización de procesos y flujos de trabajo',
-        'Evaluación de arquitecturas existentes',
-        'Recomendaciones de seguridad y escalabilidad',
-        'Plan de mejora continua'
-      ]
+      name: 'Rodrigo Ledesma',
+      role: 'CEO & Founder',
+      image: './team/rodrigo.jpg',
+      bio: 'Experto en sistemas y gestión operativa escalable con vasta experiencia en múltiples industrias en Latinoamérica, especializado en garantizar la continuidad de negocios.',
+      linkedin: 'https://linkedin.com/in/rodrigo-andres-ledesma-ritchie-6370aa26'
     },
     {
-      icon: Lightbulb,
-      title: 'Estrategia Digital',
-      description: 'Transformamos su visión en resultados tangibles mediante planes de digitalización avanzados alineados con su negocio.',
-      details: [
-        'Planes de digitalización estratégicos',
-        'Implementación de KPIs y métricas de éxito',
-        'Gestión del cambio organizacional',
-        'Soporte en marketing digital'
-      ]
+      name: 'Cristian Quezada',
+      role: 'IT Architect',
+      image: './team/cristian.jpg',
+      bio: 'Estratega de TI con foco en diseñar arquitecturas eficientes en proyectos complejos de transformación digital, cloud, DevOps, optimizando el desempeño del negocio.',
+      linkedin: 'https://linkedin.com/in/cristian-quezada-00372920'
     },
     {
-      icon: Network,
-      title: 'Gestión de Proyectos',
-      description: 'Ejecución precisa y eficiente de iniciativas complejas con metodologías ágiles que garantizan tiempos de entrega.',
-      details: [
-        'Implementación de metodologías Scrum, Kanban',
-        'Reporting ejecutivo',
-        'Planificación y seguimiento de proyectos',
-        'Coordinación de equipos'
-      ]
+      name: 'Byron Molina',
+      role: 'Backend Developer',
+      image: './team/byron.jpg',
+      bio: 'Especialista en desarrollo, despliegue y mantención de aplicaciones web, BFFs, APIs, microservicios y migraciones tecnológicas.',
+      linkedin: 'https://linkedin.com/in/bmolinh'
     },
     {
-      icon: Lock,
-      title: 'Ciberseguridad',
-      description: 'Protección integral de sus activos digitales mediante firewalls avanzados y protocolos de encriptación de alto grado.',
-      details: [
-        'Auditorías de seguridad y pentesting',
-        'Implementación de políticas de seguridad ISO 27001 y compliance',
-        'Firewall y encriptación de datos',
-        'Monitoreo 24/7 y respuesta ante incidentes'
-      ]
+      name: 'Daniela Paredes',
+      role: 'Project Management Office',
+      image: './team/daniela.jpg',
+      bio: 'Líder en planificacion, gestión, desarrollo y supervision organizacional, enfocada en equipos técnicos de alto rendimiento.',
+      linkedin: 'https://linkedin.com/in/daniela-paredes-vidal'
     },
     {
-      icon: Cloud,
-      title: 'Soluciones Cloud',
-      description: 'Migración y gestión de infraestructuras en la nube para mejorar la escalabilidad y reducir costes.',
-      details: [
-        'Migración a AWS, Azure, Google Cloud',
-        'Arquitecturas cloud-native y serverless',
-        'Implementación de DevOps y CI/CD',
-        'Gestión y monitoreo continuo de recursos cloud'
-      ]
+      name: 'Gonzalo Astudillo',
+      role: 'IT Delivery Manager',
+      image: './team/gonzalo.jpg',
+      bio: 'Impulsor de innovación tecnológica y proyectos críticos en sectores regulados, combinando integración de sistemas, desarrollo digital y optimización operativa.',
+      linkedin: 'https://linkedin.com/in/gastu'
     },
     {
-      icon: BarChart3,
-      title: 'Análisis de Datos',
-      description: 'Convertimos sus datos en decisiones inteligentes mediante herramientas de Business Intelligence y Big Data.',
-      details: [
-        'Implementación de Business Intelligence y Big Data (Power BI, Tableau)',
-        'Desarrollo de pipelines de datos ETL/ELT',
-        'Análisis predictivo y machine learning',
-        'Dashboards ejecutivos',
-        'Gobierno de datos y calidad de información'
-      ]
+      name: 'PRUEBA',
+      role: 'PRUEBA',
+      image: './images/foto-about.webp',
+      bio: 'PRUEBA.',
+      linkedin: 'https://linkedin.com/PRUEBA'
     }
   ];
 
+  // Función para expandir/contraer tarjetas
+  const toggleCard = (index: number) => {
+    setExpandedCard(expandedCard === index ? null : index);
+  };
+
   return (
-    <div className="bg-slate-50 min-h-screen pt-16 pb-32 antialiased">
-      {/* 1. HERO SECTION */}
-      <section className="container mx-auto max-w-7xl px-6 lg:px-8 mb-24">
-        <div className="relative overflow-hidden rounded-[3rem] bg-[#0b0e14] p-12 lg:p-24 text-center lg:text-left">
-          <ServicesHeroLights />
+    <div className="bg-white min-h-screen antialiased">
 
-          <div className="relative z-10 flex flex-col lg:flex-row items-center gap-12">
-            <div className="lg:w-2/3">
-              <h1 className="text-4xl lg:text-7xl font-black text-white leading-tight mb-8 tracking-tighter">
-                Arquitectura <br />
-                <span className="text-[#135bec] italic drop-shadow-[0_0_15px_rgba(19,91,236,0.3)]">
-                  Sin Compromisos
-                </span>
+      {/* QUIENES SOMOS */}
+      <section className="relative bg-[#F8FAFC] pt-48 pb-18 after:absolute after:bottom-0 after:left-0 after:w-full after:h-48 after:bg-gradient-to-b after:from-[#F8FAFC]/20 after:via-[#F8FAFC]/60 after:to-white after:pointer-events-none">
+        <div className="container mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col lg:flex-row gap-16 items-start">
+
+            {/* TEXTO A LA IZQUIERDA */}
+            <div className="lg:w-1/2">
+              <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#135bec] mb-4">Nuestra Historia</h4>
+              <h1 className="text-5xl lg:text-7xl font-black text-slate-900 leading-[1.1] mb-8 tracking-tighter">
+                El Gen BlackTI <span className="text-[#135bec] italic">Excelencia</span>
               </h1>
-
-              <p className="text-lg lg:text-xl text-slate-400 leading-relaxed max-w-2xl mb-10">
-                Nuestros profesionales pueden incorporarse bajo esquemas de outsourcing, staff augmentation o por proyecto, adaptándose a las necesidades específicas de cada empresa.
+              <p className="text-lg md:text[17px] font-normal text-slate-500 tracking-tighter mb-6 leading-relaxed">
+                Somos una startup que trasciende la simple implementación técnica. Nos sumergimos en la cultura de nuestros clientes para convertir obstáculos en motores de crecimiento sin perder la continuidad operativa.
               </p>
-
-              <button
-                onClick={onContactClick}
-                className="rounded-2xl bg-[#135bec] px-10 py-5 text-base font-bold text-white shadow-2xl shadow-[#135bec]/30 hover:scale-105 active:scale-95 transition-all"
-              >
-                Iniciar Transformación
-              </button>
+              <div className="space-y-6 mb-12">
+                <p className="text-lg leading-relaxed text-slate-500 tracking-tighter font-normal md:text[17px] mb-6">
+                  Creemos que el éxito del trabajo en equipo solo es sostenible cuando está alineado el talento con una visión estratégica clara.
+                </p>
+              </div>
+              <div className="flex gap-4">
+                <button 
+                  onClick={onContactClick} 
+                  className="bg-[#135bec] text-white font-bold px-10 py-5 rounded-2xl shadow-2xl shadow-[#135bec]/20 hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
+                >
+                  Unirse al equipo <ArrowRight size={18} />
+                </button>
+              </div>
             </div>
 
-
-
-            
-            {/* COLUMNA DERECHA */}
-            <div className="lg:w-1/3 hidden lg:flex flex-col items-end gap-8">
-
-
-              
-              {/* Imagen del hero de la sección 
-              
-              
-              <div className="w-full overflow-visible flex justify-center items-center">
-                <img
-                  src="./images/datos.jpg"
-                  alt="Consultor de BlackTI analizando Codigos de Programacóin"
-                  loading="eager" 
-                  className="w-auto h-auto object-cover scale-[1.5] grayscale-[0.5]"
+            {/* IMAGEN VOLTEADA HORIZONTALMENTE A LA DERECHA */}
+            <div className="lg:w-1/2 flex justify-center relative scale-[0.9] -translate-y-6">
+              <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl group">
+                <img 
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" 
+                  className="h-[600px] w-full object-cover scale-x-[-1] transition-transform duration-[2s] group-hover:scale-[1.05] group-hover:scale-x-[-1.05]"
+                  alt="Quienes somos"
+                  loading="lazy"
                 />
-              </div>   
-              
-              
-              */}
-              
-              
-
-
-              
-              
-
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. SECCIÓN TÉCNICA */}
-      <section className="container mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
-          <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Nuestra <span className="text-[#135bec] italic">Especialización</span>
-          </h2>
-          <div className="h-0.5 flex-1 bg-slate-200 hidden md:block mx-10" />
-          <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">
-            Servicios End-to-End
-          </p>
-        </div>
-
-        <ScrollAnimation>
-          <div className="mb-24">
-            <h3 className="text-[10px] font-bold tracking-[0.4em] text-slate-400 uppercase mb-8 border-b border-slate-200 pb-2">
-              Modelo de Colaboración
-            </h3>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-8">
-              {collaborationModels.map((service, index) => (
-                <div key={index} className="group cursor-default">
-                  <span className="text-xl md:text-2xl font-light text-slate-600 tracking-tight border-l-2 border-[#135bec] pl-5 group-hover:text-slate-950 group-hover:border-slate-900 transition-all duration-300 block">
-                    {service}
-                  </span>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent"></div>
+                <div className="absolute bottom-10 right-10">
+                  <p className="text-blue-400 font-bold uppercase tracking-widest text-xs mb-2 text-right">Fundada en 2020</p>
+                  <h4 className="text-3xl font-bold text-white tracking-tight text-right">Estrategia y Resultados</h4>
                 </div>
-              ))}
+              </div>
+              <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-blue-100 rounded-full blur-[80px] -z-10"></div>
             </div>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {specialties.map((item, idx) => (
-              <ServiceCard
-                key={idx}
-                Icon={item.icon}
-                title={item.title}
-                description={item.description}
-                details={item.details}
-                buttonText="Detalles del servicio"
-                detailsTitle=""
-              />
-            ))}
-          </div>
-        </ScrollAnimation>
+        </div>
       </section>
+
+      {/* SECCIÓN EQUIPO */}
+      <section className="container mx-auto max-w-7xl px-6 lg:px-8 py-10">
+
+        {/* Título centrado con líneas */}
+        <div className="text-center mb-4 flex flex-col items-center">
+          <div className="flex items-center w-full justify-center mb-6">
+            <div className="h-0.5 flex-1 bg-gradient-to-r from-transparent to-slate-200 hidden md:block mr-10" />
+            <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight px-6">
+              Quiénes somos
+            </h2>
+            <div className="h-0.5 flex-1 bg-gradient-to-l from-transparent to-slate-200 hidden md:block ml-10" />
+          </div>
+        </div>
+
+        <div className="flex flex-col lg:flex-row gap-20 items-start">
+
+          {/* Texto a la izquierda */}
+          <div className="lg:w-[35%] lg:sticky lg:top-32">
+            <h4 className="text-[#135bec] font-bold uppercase tracking-[0.2em] text-[11px] mb-4">
+              Conócenos
+            </h4>
+            <h2 className="text-5xl lg:text-6xl font-black text-slate-900 mb-6 leading-[1.1]">
+              Equipo
+            </h2>
+            <p className="text-slate-500 text-base leading-relaxed font-normal">
+              Profesionales apasionados, con un muy buen mindset que dirigen el rumbo de cada proyecto con rigor y visión.
+              Nuestro equipo está integrado por personas con experiencia en diseño, desarrollo y estrategia para ofrecer resultados tangibles adaptándose a tus tiempos y objetivos.
+            </p>
+          </div>
+
+          {/* Grid de fotos a la derecha */}
+          <div className="lg:w-[65%]">
+            <ScrollAnimation>
+              {/* ESCALA REDUCIDA 0.90 */}
+              <div className="origin-top-right scale-[0.90] transform">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {team.map((member, i) => (
+                    <div key={i} className="group">
+
+                      {/* Contenedor de las tarjetas */}
+                      <div className={`aspect-[3/4] w-full rounded-3xl overflow-hidden relative shadow-2xl transition-all duration-700 ${
+                        expandedCard === i ? 'bg-white' : ''
+                      }`}>
+
+                        {/* Imagen principal */}
+                        <div className={`absolute inset-0 transition-opacity duration-700 ${
+                          expandedCard === i ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                        }`}>
+                          <img 
+                            alt={member.name} 
+                            className="grayscale w-full h-full object-cover transition-all duration-[1.5s] group-hover:scale-105 will-change-transform backface-visibility-hidden" 
+                            src={member.image} 
+                            loading="lazy"
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=800';
+                            }}
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        </div>
+
+                        {/* Nombre, rol y LinkedIn */}
+                        <div className={`absolute bottom-6 left-6 right-6 text-right transition-all duration-700 ${
+                          expandedCard === i ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                        }`}>
+                          <h4 className="text-white text-xl font-bold mb-1">{member.name}</h4>
+                          <p className="text-white/80 text-xs font-normal uppercase tracking-wider mb-3">{member.role}</p>
+                          <div className="flex justify-end">
+                            <a 
+                              href={member.linkedin} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="inline-flex size-9 rounded-xl bg-transparent items-center justify-center cursor-pointer hover:bg-slate-700/50 transition-all text-white shadow-lg backdrop-blur-sm"
+                            >
+                              <Linkedin size={16} />
+                            </a>
+                          </div>
+                        </div>
+
+                        {/* Contenido expandido */}
+                        <div className={`absolute inset-0 flex flex-col p-6 transition-all duration-700 ${
+                          expandedCard === i ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                        }`}>
+                          <div className="flex items-start gap-4 mb-6">
+                            <div className="flex-shrink-0 w-16 h-16 rounded-full overflow-hidden">
+                              <img 
+                                src={member.image} 
+                                alt={member.name}
+                                className="w-full h-full object-cover grayscale"
+                                onError={(e) => {
+                                  (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=800';
+                                }}
+                              />
+                            </div>
+                            <div className="flex-1">
+                              <h4 className="text-slate-900 text-lg font-bold leading-tight">{member.name}</h4>
+                              <p className="text-slate-600 text-xs font-semibold uppercase tracking-tight mt-1">{member.role}</p>
+                            </div>
+                          </div>
+
+                          <div className="flex-1 flex items-center justify-center px-2">
+                            <p className="text-slate-700 text-sm leading-tight text-center">
+                              {member.bio}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Botón hamburguesa */}
+                        <button 
+                          onClick={() => toggleCard(i)}
+                          className="absolute top-4 right-4 z-20 size-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all duration-300 group/btn"
+                        >
+                          {expandedCard === i ? (
+                            <X size={18} className="text-slate-900 transition-transform group-hover/btn:rotate-90" />
+                          ) : (
+                            <Menu size={18} className="text-white transition-transform group-hover/btn:scale-110" />
+                          )}
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </ScrollAnimation>
+          </div>
+        </div>
+      </section>
+
+      {/* SECCIÓN MAPA GLOBAL */}
+      <ScrollAnimation>
+        <section className="bg-slate-950 py-24 border-t border-slate-900">
+          <div className="container mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mb-16">
+              <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
+                <span className="text-[#135bec] italic">Talento</span>
+                <span className="text-white/90"> sin fronteras, </span>
+                <span className="text-[#135bec] italic">soporte</span>
+                <span className="text-white/90"> sin interrupciones</span>
+              </h2>
+              <p className="mt-6 text-base md:text-lg text-white/70 font-medium">
+                Nuestro equipo se encuentra en las siguientes ubicaciones
+              </p>
+              <div className="mt-8 w-20 h-1 bg-[#135bec] rounded-full"></div>
+            </div>
+
+            <div className="bg-slate-900/20 border border-slate-800/60 rounded-[3rem] overflow-hidden backdrop-blur-sm">
+              <div className="flex flex-col lg:flex-row min-h-[600px]">
+                <div className="flex-[2.5] relative p-8 min-h-[500px]">
+                  <WorldMap 
+                    onSelectOffice={setSelectedOffice} 
+                    selectedOfficeId={selectedOffice.id} 
+                  />
+                </div>
+
+                <div className="flex-1 bg-slate-900/40 border-l border-slate-800/60 p-10 flex flex-col justify-between">
+                  <OfficeDetails office={selectedOffice} />
+
+                  <div className="mt-12">
+                    <p className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-6">Navegar Ubicaciones</p>
+                    <div className="grid grid-cols-2 gap-2">
+                      {OFFICE_LOCATIONS.map(office => (
+                        <button
+                          key={office.id}
+                          onClick={() => setSelectedOffice(office)}
+                          className={`px-4 py-3 rounded-xl text-[10px] font-bold uppercase tracking-wider transition-all duration-300 ${
+                            selectedOffice.id === office.id
+                            ? 'bg-[#135bec] text-white shadow-lg shadow-[#135bec]/20'
+                            : 'bg-slate-800/40 text-slate-400 hover:text-white hover:bg-slate-800'
+                          }`}
+                        >
+                          {office.city}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </ScrollAnimation>
     </div>
   );
 };
 
-export default ServicesDetail;
+export default AboutDetail;
