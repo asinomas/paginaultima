@@ -5,19 +5,6 @@ import ServicesHeroLights from './ServicesHeroLights';
 import ScrollAnimation from './ScrollAnimation';
 
 
-
-
-
-
-const profiles = [
-  "Líder Técnico", "Scrum Master", "Dev Android", "Dev Java",
-  "BackEnd", "FrontEnd", "Fullstack", "Devops", "UX/UI",
-  "Ciberseguridad", "Mesa de Ayuda", "Python", "Dev IOS"
-];
-
-
-
-
 interface ServicesDetailProps {
   onContactClick?: () => void;
 }
