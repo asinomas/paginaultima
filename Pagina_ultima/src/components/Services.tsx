@@ -217,7 +217,7 @@ const HighLevelConsulting: React.FC = () => {
         }
 
         .content {
-          padding: 100px 50px 0px 25px;  /* Elevado: de 85px a 100px */
+          padding: 70px 50px 0px 25px;  /* Elevado: de 85px a 100px */
           transform: translate3d(0, 0, 26px);
           transition: opacity 0.5s ease-in-out;
         }
