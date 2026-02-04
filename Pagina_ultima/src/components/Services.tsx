@@ -48,7 +48,7 @@ const HighLevelConsulting: React.FC = () => {
               {collaborationModels.map((model, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-4 group"
+                  className="flex items-center gap-1 group"
                 >
                   <div className="w-1 h-6 bg-[#135bec] group-hover:h-8 transition-all duration-300"></div>
                   <span className="text-base font-medium text-slate-700 group-hover:text-[#135bec] transition-colors duration-300">
