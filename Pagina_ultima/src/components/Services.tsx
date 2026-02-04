@@ -61,7 +61,7 @@ const HighLevelConsulting: React.FC = () => {
                     className="flex items-center gap-3 group"
                   >
                     <div className="w-1 h-6 bg-[#135bec] group-hover:h-8 transition-all duration-300"></div>
-                    <span className="text-xl md:text-2xl font-light tracking-tight text-slate-700 group-hover:text-[#135bec] transition-colors duration-300 whitespace-nowrap">
+                    <span className="text-base md:text-2xl font-light tracking-tight text-slate-700 group-hover:text-[#135bec] transition-colors duration-300 whitespace-nowrap">
                       {model}
                     </span>
                   </div>
