@@ -44,23 +44,21 @@ const HighLevelConsulting: React.FC = () => {
 
           {/* COLLABORATION MODELS */}
           <div className="flex-1 w-full lg:max-w-xl">
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
-              <h4 className="text-sm font-bold text-slate-900 mb-6">
-                Modelos de Colaboración
-              </h4>
-              <div className="grid grid-cols-1 gap-4">
-                {collaborationModels.map((model, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-center gap-3 p-4 bg-slate-50 rounded-lg hover:bg-[#135bec] hover:text-white transition-all duration-300 group"
-                  >
-                    <div className="w-2 h-2 rounded-full bg-[#135bec] group-hover:bg-white transition-colors"></div>
-                    <span className="text-sm font-medium text-slate-700 group-hover:text-white transition-colors">
-                      {model}
-                    </span>
-                  </div>
-                ))}
-              </div>
+            <h4 className="text-[10px] font-bold tracking-[0.3em] text-slate-400 uppercase mb-8 border-b border-slate-200 pb-2 inline-block">
+              Modelos de Colaboración
+            </h4>
+            <div className="space-y-4">
+              {collaborationModels.map((model, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-4 group"
+                >
+                  <div className="w-1 h-6 bg-[#135bec] group-hover:h-8 transition-all duration-300"></div>
+                  <span className="text-base font-medium text-slate-700 group-hover:text-[#135bec] transition-colors duration-300">
+                    {model}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -69,34 +67,25 @@ const HighLevelConsulting: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch max-w-5xl mx-auto">
           {/* CARD 1 - Startups */}
           <div className="parent">
-            <div className="card group">
-              <div className="logo">
-                <span className="circle circle1"></span>
-                <span className="circle circle2"></span>
-                <span className="circle circle3"></span>
-                <span className="circle circle4"></span>
-                <span className="circle circle5">
-                  <Rocket className="w-8 h-8 text-white" strokeWidth={2.5} />
-                </span>
-              </div>
+            <div className="card">
               <div className="glass"></div>
               <div className="content">
                 <span className="title">Startups</span>
-                <span className="text flex items-center gap-2">
-                  <Rocket className="w-4 h-4" />
+                <span className="text">
+                  <Rocket className="inline w-4 h-4 mr-2" />
                   Escala tu equipo rápido
                 </span>
               </div>
               <div className="bottom">
                 <div 
-                  className={`view-more cursor-pointer ${activeCard === 0 ? 'active' : ''}`}
+                  className={`view-more ${activeCard === 0 ? 'active' : ''}`}
                   onClick={() => toggleCard(0)}
                 >
                   <button className="view-more-button">
                     {activeCard === 0 ? 'Ver menos' : 'Ver más'}
                   </button>
                   <svg 
-                    className={`svg transition-transform duration-300 ${activeCard === 0 ? 'rotate-180' : ''}`}
+                    className={`svg ${activeCard === 0 ? 'rotate' : ''}`}
                     xmlns="http://www.w3.org/2000/svg" 
                     viewBox="0 0 24 24" 
                     strokeLinecap="round" 
@@ -105,60 +94,56 @@ const HighLevelConsulting: React.FC = () => {
                     <path d="m6 9 6 6 6-6"></path>
                   </svg>
                 </div>
-                <div 
-                  className={`overflow-hidden transition-all duration-500 ${
-                    activeCard === 0 ? 'max-h-96 opacity-100 mt-6' : 'max-h-0 opacity-0'
-                  }`}
-                >
-                  <ul className="space-y-3 text-sm text-slate-300">
-                    <li className="flex items-start gap-2">
-                      <span className="text-slate-400 mt-1">•</span>
-                      <span>Validación técnica sin overhead</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-slate-400 mt-1">•</span>
-                      <span>Flexibilidad (part-time / full-time)</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-slate-400 mt-1">•</span>
-                      <span>Ideal para MVPs y crecimiento acelerado</span>
-                    </li>
-                  </ul>
-                </div>
               </div>
-            </div>
-          </div>
-
-          {/* CARD 2 - Empresas & Corporaciones */}
-          <div className="parent">
-            <div className="card group">
+              <div className={`accordion-content ${activeCard === 0 ? 'open' : ''}`}>
+                <ul className="space-y-3 text-sm">
+                  <li className="flex items-start gap-2">
+                    <span className="bullet">•</span>
+                    <span>Validación técnica sin overhead</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="bullet">•</span>
+                    <span>Flexibilidad (part-time / full-time)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="bullet">•</span>
+                    <span>Ideal para MVPs y crecimiento acelerado</span>
+                  </li>
+                </ul>
+              </div>
               <div className="logo">
                 <span className="circle circle1"></span>
                 <span className="circle circle2"></span>
                 <span className="circle circle3"></span>
                 <span className="circle circle4"></span>
                 <span className="circle circle5">
-                  <Building2 className="w-8 h-8 text-white" strokeWidth={2.5} />
+                  <Rocket className="svg-icon" strokeWidth={2.5} />
                 </span>
               </div>
+            </div>
+          </div>
+
+          {/* CARD 2 - Empresas & Corporaciones */}
+          <div className="parent">
+            <div className="card">
               <div className="glass"></div>
               <div className="content">
                 <span className="title">Empresas & Corporaciones</span>
-                <span className="text flex items-center gap-2">
-                  <Building2 className="w-4 h-4" />
+                <span className="text">
+                  <Building2 className="inline w-4 h-4 mr-2" />
                   Procesos de selección robustos
                 </span>
               </div>
               <div className="bottom">
                 <div 
-                  className={`view-more cursor-pointer ${activeCard === 1 ? 'active' : ''}`}
+                  className={`view-more ${activeCard === 1 ? 'active' : ''}`}
                   onClick={() => toggleCard(1)}
                 >
                   <button className="view-more-button">
                     {activeCard === 1 ? 'Ver menos' : 'Ver más'}
                   </button>
                   <svg 
-                    className={`svg transition-transform duration-300 ${activeCard === 1 ? 'rotate-180' : ''}`}
+                    className={`svg ${activeCard === 1 ? 'rotate' : ''}`}
                     xmlns="http://www.w3.org/2000/svg" 
                     viewBox="0 0 24 24" 
                     strokeLinecap="round" 
@@ -167,26 +152,31 @@ const HighLevelConsulting: React.FC = () => {
                     <path d="m6 9 6 6 6-6"></path>
                   </svg>
                 </div>
-                <div 
-                  className={`overflow-hidden transition-all duration-500 ${
-                    activeCard === 1 ? 'max-h-96 opacity-100 mt-6' : 'max-h-0 opacity-0'
-                  }`}
-                >
-                  <ul className="space-y-3 text-sm text-slate-300">
-                    <li className="flex items-start gap-2">
-                      <span className="text-slate-400 mt-1">•</span>
-                      <span>Cumplimiento, documentación y governance</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-slate-400 mt-1">•</span>
-                      <span>Perfiles senior y especializados</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-slate-400 mt-1">•</span>
-                      <span>Integración con RRHH y proveedores</span>
-                    </li>
-                  </ul>
-                </div>
+              </div>
+              <div className={`accordion-content ${activeCard === 1 ? 'open' : ''}`}>
+                <ul className="space-y-3 text-sm">
+                  <li className="flex items-start gap-2">
+                    <span className="bullet">•</span>
+                    <span>Cumplimiento, documentación y governance</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="bullet">•</span>
+                    <span>Perfiles senior y especializados</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="bullet">•</span>
+                    <span>Integración con RRHH y proveedores</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="logo">
+                <span className="circle circle1"></span>
+                <span className="circle circle2"></span>
+                <span className="circle circle3"></span>
+                <span className="circle circle4"></span>
+                <span className="circle circle5">
+                  <Building2 className="svg-icon" strokeWidth={2.5} />
+                </span>
               </div>
             </div>
           </div>
@@ -196,169 +186,226 @@ const HighLevelConsulting: React.FC = () => {
       <style jsx>{`
         .parent {
           width: 100%;
-          height: 100%;
+          max-width: 400px;
+          height: 420px;
           perspective: 1000px;
+          margin: 0 auto;
         }
 
         .card {
-          height: 420px;
-          background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
-          border-radius: 20px;
-          padding: 2rem;
+          height: 100%;
+          border-radius: 50px;
+          background: linear-gradient(135deg, rgb(71, 85, 105) 0%, rgb(51, 65, 85) 100%);
+          transition: all 0.5s ease-in-out;
+          transform-style: preserve-3d;
+          box-shadow: rgba(0, 0, 0, 0) 40px 50px 25px -40px, rgba(0, 0, 0, 0.2) 0px 25px 25px -5px;
           position: relative;
-          overflow: hidden;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
-          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+          cursor: pointer;
         }
-
-        .card:hover {
-          transform: translateY(-10px);
-          box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
-        }
-
-        .logo {
-          position: relative;
-          width: 80px;
-          height: 80px;
-          margin-bottom: 1.5rem;
-        }
-
-        .circle {
-          position: absolute;
-          border-radius: 50%;
-          transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-        }
-
-        .circle1 {
-          width: 80px;
-          height: 80px;
-          background: rgba(148, 163, 184, 0.1);
-          top: 0;
-          left: 0;
-        }
-
-        .circle2 {
-          width: 70px;
-          height: 70px;
-          background: rgba(148, 163, 184, 0.2);
-          top: 5px;
-          left: 5px;
-        }
-
-        .circle3 {
-          width: 60px;
-          height: 60px;
-          background: rgba(148, 163, 184, 0.3);
-          top: 10px;
-          left: 10px;
-        }
-
-        .circle4 {
-          width: 50px;
-          height: 50px;
-          background: rgba(148, 163, 184, 0.5);
-          top: 15px;
-          left: 15px;
-        }
-
-        .circle5 {
-          width: 40px;
-          height: 40px;
-          background: linear-gradient(135deg, #64748b 0%, #475569 100%);
-          top: 20px;
-          left: 20px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .card:hover .circle1 { transform: scale(1.1); }
-        .card:hover .circle2 { transform: scale(1.15); }
-        .card:hover .circle3 { transform: scale(1.2); }
-        .card:hover .circle4 { transform: scale(1.25); }
-        .card:hover .circle5 { transform: scale(1.3) rotate(10deg); }
 
         .glass {
+          transform-style: preserve-3d;
           position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-          backdrop-filter: blur(10px);
-          border-radius: 20px;
-          pointer-events: none;
+          inset: 8px;
+          border-radius: 55px;
+          border-top-right-radius: 100%;
+          background: linear-gradient(0deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%);
+          transform: translate3d(0px, 0px, 25px);
+          border-left: 1px solid rgba(255, 255, 255, 0.2);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+          transition: all 0.5s ease-in-out;
         }
 
         .content {
-          position: relative;
-          z-index: 1;
-          flex: 1;
+          padding: 100px 60px 0px 30px;
+          transform: translate3d(0, 0, 26px);
         }
 
-        .title {
+        .content .title {
           display: block;
-          font-size: 1.5rem;
-          font-weight: 700;
-          color: #ffffff;
-          margin-bottom: 0.75rem;
+          color: #e2e8f0;
+          font-weight: 900;
+          font-size: 20px;
         }
 
-        .text {
-          display: flex;
-          font-size: 0.95rem;
-          color: #94a3b8;
-          line-height: 1.6;
+        .content .text {
+          display: block;
+          color: rgba(226, 232, 240, 0.7);
+          font-size: 15px;
+          margin-top: 20px;
         }
 
         .bottom {
-          position: relative;
-          z-index: 1;
-        }
-
-        .view-more {
+          padding: 10px 12px;
+          transform-style: preserve-3d;
+          position: absolute;
+          bottom: 20px;
+          left: 20px;
+          right: 20px;
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 1rem 1.25rem;
-          background: rgba(148, 163, 184, 0.15);
+          transform: translate3d(0, 0, 26px);
+        }
+
+        .bottom .view-more {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          justify-content: space-between;
+          transition: all 0.2s ease-in-out;
+          cursor: pointer;
+          padding: 10px;
+          background: rgba(255, 255, 255, 0.1);
           border-radius: 12px;
-          transition: all 0.3s ease;
         }
 
-        .view-more:hover {
-          background: rgba(148, 163, 184, 0.25);
+        .bottom .view-more:hover {
+          transform: translate3d(0, 0, 10px);
+          background: rgba(255, 255, 255, 0.15);
         }
 
-        .view-more-button {
+        .bottom .view-more .view-more-button {
           background: none;
           border: none;
           color: #cbd5e1;
-          font-weight: 600;
-          font-size: 0.9rem;
+          font-weight: bolder;
+          font-size: 12px;
           cursor: pointer;
-          transition: all 0.3s ease;
         }
 
-        .view-more-button:hover {
-          color: #e2e8f0;
+        .bottom .view-more .svg {
+          fill: none;
+          stroke: #cbd5e1;
+          stroke-width: 3px;
+          max-height: 15px;
+          transition: transform 0.3s ease;
         }
 
-        .view-more .svg {
+        .bottom .view-more .svg.rotate {
+          transform: rotate(180deg);
+        }
+
+        .accordion-content {
+          position: absolute;
+          bottom: 80px;
+          left: 30px;
+          right: 30px;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+          opacity: 0;
+          transform: translate3d(0, 0, 26px);
+          color: rgba(226, 232, 240, 0.9);
+        }
+
+        .accordion-content.open {
+          max-height: 200px;
+          opacity: 1;
+        }
+
+        .accordion-content .bullet {
+          color: #94a3b8;
+        }
+
+        .logo {
+          position: absolute;
+          right: 0;
+          top: 0;
+          transform-style: preserve-3d;
+        }
+
+        .logo .circle {
+          display: block;
+          position: absolute;
+          aspect-ratio: 1;
+          border-radius: 50%;
+          top: 0;
+          right: 0;
+          box-shadow: rgba(100, 100, 111, 0.2) -10px 10px 20px 0px;
+          backdrop-filter: blur(5px);
+          background: rgba(148, 163, 184, 0.2);
+          transition: all 0.5s ease-in-out;
+        }
+
+        .logo .circle1 {
+          width: 170px;
+          transform: translate3d(0, 0, 20px);
+          top: 8px;
+          right: 8px;
+        }
+
+        .logo .circle2 {
+          width: 140px;
+          transform: translate3d(0, 0, 40px);
+          top: 10px;
+          right: 10px;
+          backdrop-filter: blur(1px);
+          transition-delay: 0.4s;
+        }
+
+        .logo .circle3 {
+          width: 110px;
+          transform: translate3d(0, 0, 60px);
+          top: 17px;
+          right: 17px;
+          transition-delay: 0.8s;
+        }
+
+        .logo .circle4 {
+          width: 80px;
+          transform: translate3d(0, 0, 80px);
+          top: 23px;
+          right: 23px;
+          transition-delay: 1.2s;
+        }
+
+        .logo .circle5 {
+          width: 50px;
+          transform: translate3d(0, 0, 100px);
+          top: 30px;
+          right: 30px;
+          display: grid;
+          place-content: center;
+          transition-delay: 1.6s;
+          background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+        }
+
+        .logo .circle5 .svg-icon {
           width: 20px;
           height: 20px;
-          stroke: #cbd5e1;
-          fill: none;
-          stroke-width: 2;
+          color: white;
+        }
+
+        .parent:hover .card {
+          transform: rotate3d(1, 1, 0, 30deg);
+          box-shadow: rgba(0, 0, 0, 0.3) 30px 50px 25px -40px, rgba(0, 0, 0, 0.1) 0px 25px 30px 0px;
+        }
+
+        .parent:hover .card .logo .circle2 {
+          transform: translate3d(0, 0, 60px);
+        }
+
+        .parent:hover .card .logo .circle3 {
+          transform: translate3d(0, 0, 80px);
+        }
+
+        .parent:hover .card .logo .circle4 {
+          transform: translate3d(0, 0, 100px);
+        }
+
+        .parent:hover .card .logo .circle5 {
+          transform: translate3d(0, 0, 120px);
         }
 
         @media (max-width: 768px) {
-          .card {
+          .parent {
             height: auto;
-            min-height: 380px;
+            min-height: 420px;
+          }
+          
+          .content {
+            padding: 80px 40px 0px 25px;
           }
         }
       `}</style>
