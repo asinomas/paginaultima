@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Rocket, Building2 } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const HighLevelConsulting: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation();
+  const [isHovered1, setIsHovered1] = useState(false);
+  const [isHovered2, setIsHovered2] = useState(false);
 
   const collaborationModels = [
     "Head Hunting",
@@ -63,7 +65,7 @@ const HighLevelConsulting: React.FC = () => {
             <div className="parent">
               <div className="card">
                 <div className="glass"></div>
-                <div className="content">
+                <div className={`content ${isHovered1 ? 'faded' : ''}`}>
                   <span className="title">Startups</span>
                   <span className="subtitle">
                     <Rocket className="inline w-5 h-5 mr-2" />
@@ -74,7 +76,11 @@ const HighLevelConsulting: React.FC = () => {
                   </p>
                 </div>
                 <div className="bottom">
-                  <div className="view-more">
+                  <div 
+                    className="view-more"
+                    onMouseEnter={() => setIsHovered1(true)}
+                    onMouseLeave={() => setIsHovered1(false)}
+                  >
                     <button className="view-more-button">
                       Ver más
                     </button>
@@ -121,7 +127,7 @@ const HighLevelConsulting: React.FC = () => {
             <div className="parent">
               <div className="card">
                 <div className="glass"></div>
-                <div className="content">
+                <div className={`content ${isHovered2 ? 'faded' : ''}`}>
                   <span className="title">Empresas</span>
                   <span className="subtitle">
                     <Building2 className="inline w-5 h-5 mr-2" />
@@ -132,7 +138,11 @@ const HighLevelConsulting: React.FC = () => {
                   </p>
                 </div>
                 <div className="bottom">
-                  <div className="view-more">
+                  <div 
+                    className="view-more"
+                    onMouseEnter={() => setIsHovered2(true)}
+                    onMouseLeave={() => setIsHovered2(false)}
+                  >
                     <button className="view-more-button">
                       Ver más
                     </button>
@@ -213,6 +223,11 @@ const HighLevelConsulting: React.FC = () => {
         .content {
           padding: 85px 50px 0px 25px;
           transform: translate3d(0, 0, 26px);
+          transition: opacity 0.5s ease-in-out;
+        }
+
+        .content.faded {
+          opacity: 0;
         }
 
         .content .title {
