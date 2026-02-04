@@ -213,10 +213,6 @@ const ContactDetail: React.FC = () => {
                   <UserCheck size={14} className="text-[#135bec]" />
                   Atención personalizada
                 </div>
-                <div className="flex items-center gap-3">
-                  <ShieldCheck size={14} className="text-[#135bec]" />
-                  Confidencialidad garantizada
-                </div>
               </div>
             </div>
           </div>
