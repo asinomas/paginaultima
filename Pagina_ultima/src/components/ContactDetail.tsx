@@ -70,6 +70,7 @@ const ContactDetail: React.FC = () => {
 
               <p className="text-slate-500 text-lg mb-12 max-w-md leading-relaxed font-medium">
                 Estamos listos para transformar tus desafíos en grandes oportunidades.
+                Déjanos un mensaje y juntos tomemos la mejor decisión.
               </p>
 
               {/* INFO DE CONTACTO CON GRID + STAGGER */}
@@ -136,30 +137,77 @@ const ContactDetail: React.FC = () => {
             </div>
           </div>
 
-          {/* COLUMNA DERECHA – FORM (sin cambios funcionales) */}
-          <div className="bg-slate-50 p-12 rounded-[3rem]">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <input required placeholder="Nombre" className="w-full p-4 rounded-xl border" />
-              <input required placeholder="Email" className="w-full p-4 rounded-xl border" />
-              <textarea required rows={4} placeholder="Mensaje" className="w-full p-4 rounded-xl border" />
-              <button className="w-full bg-[#135bec] text-white py-4 rounded-xl flex justify-center gap-2">
-                Enviar <Send size={18} />
-              </button>
-            </form>
+          {/* COLUMNA DERECHA – FORMULARIO ORIGINAL */}
+          <div className="relative group">
+            <div className="bg-slate-50 p-8 lg:p-12 rounded-[3rem] border border-slate-100 relative overflow-hidden min-h-[500px] flex flex-col justify-center shadow-sm">
 
-            <div className="mt-6 text-sm text-slate-500 space-y-2">
-              <div className="flex gap-2 items-center">
-                <Clock size={14} /> Respuesta en menos de 24h
-              </div>
-              <div className="flex gap-2 items-center">
-                <UserCheck size={14} /> Atención personalizada
+              {isSubmitting && (
+                <div className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
+                  <img
+                    src="./images/hero-image-speed.webp"
+                    alt="Enviando"
+                    className="w-auto h-auto max-w-md object-contain opacity-20 -translate-y-10"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).style.display = 'none';
+                    }}
+                  />
+                </div>
+              )}
+
+              {isSent && (
+                <div className="absolute inset-0 bg-white/95 backdrop-blur-sm z-50 flex flex-col items-center justify-center text-center p-8 animate-[fadeIn_0.5s_ease-out]">
+                  <div className="size-24 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-8 border border-blue-200 shadow-lg shadow-blue-500/10">
+                    <CheckCircle2 size={52} strokeWidth={2.5} />
+                  </div>
+                  <h3 className="text-3xl font-black text-slate-900 mb-4 tracking-tight">
+                    ¡Mensaje Enviado!
+                  </h3>
+                  <p className="text-slate-500 text-lg max-w-[280px] mb-10 leading-relaxed">
+                    Gracias por confiar en nosotros. Te contactaremos a la brevedad.
+                  </p>
+                  <button
+                    onClick={() => setIsSent(false)}
+                    className="px-8 py-3 rounded-xl border border-slate-200 text-slate-400 font-bold text-xs uppercase tracking-widest hover:bg-slate-100 hover:text-slate-600 transition-all"
+                  >
+                    Enviar otro mensaje
+                  </button>
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+                {/* === EL FORMULARIO QUEDA EXACTAMENTE COMO LO TENÍAS === */}
+                <div className="space-y-2">
+                  <label htmlFor="contact-name" className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Nombre Completo</label>
+                  <input id="contact-name" name="name" autoComplete="name" required type="text" placeholder="Tu nombre" className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 focus:ring-2 focus:ring-[#135bec] focus:border-transparent outline-none transition-all placeholder:text-slate-300" />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="contact-email" className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Email Corporativo</label>
+                  <input id="contact-email" name="email" autoComplete="email" required type="email" placeholder="ejemplo@empresa.com" className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 focus:ring-2 focus:ring-[#135bec] focus:border-transparent outline-none transition-all placeholder:text-slate-300" />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="contact-message" className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Mensaje</label>
+                  <textarea id="contact-message" name="message" autoComplete="off" required rows={5} placeholder="Cuéntanos sobre tu proyecto..." className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 focus:ring-2 focus:ring-[#135bec] focus:border-transparent outline-none transition-all placeholder:text-slate-300 resize-none" />
+                </div>
+                <button type="submit" disabled={isSubmitting} className="w-full bg-[#135bec] text-white font-bold py-5 rounded-2xl shadow-xl shadow-[#135bec]/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3 disabled:opacity-50 mt-4 group/btn">
+                  {isSubmitting ? 'Enviando...' : (
+                    <>
+                      Enviar Mensaje
+                      <Send size={18} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+                    </>
+                  )}
+                </button>
+              </form>
+
+              <div className="mt-8 space-y-2 text-xs text-slate-500">
+                <div className="flex items-center gap-3"><Clock size={14} className="text-[#135bec]" /> Respuesta en menos de 24h</div>
+                <div className="flex items-center gap-3"><UserCheck size={14} className="text-[#135bec]" /> Atención personalizada</div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
 
-      {/* ANIMACIONES */}
       <style>{`
         .contact-item {
           opacity: 0;
@@ -169,6 +217,10 @@ const ContactDetail: React.FC = () => {
         .contact-item.animate-in {
           opacity: 1;
           transform: translateY(0);
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; transform: scale(0.95); }
+          to { opacity: 1; transform: scale(1); }
         }
       `}</style>
     </div>
