@@ -22,9 +22,10 @@ const HighLevelConsulting: React.FC = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* HEADER */}
-        <div className="mb-16 grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* LEFT COLUMN - Text Content */}
+        {/* Main Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+          
+          {/* LEFT COLUMN - Text Content Only */}
           <div>
             <span className="text-[11px] font-bold tracking-[0.2em] text-[#135bec] uppercase mb-4 block">
               Excelencia Operativa
@@ -34,7 +35,7 @@ const HighLevelConsulting: React.FC = () => {
               <span className="text-[#135bec] italic">Alto Nivel</span>
             </h3>
             <div className="w-16 h-1 bg-[#135bec] mb-8"></div>
-            <p className="text-lg text-slate-600 leading-relaxed mb-4">
+            <p className="text-lg text-slate-600 leading-relaxed mb-6">
               Conectamos organizaciones con profesionales TI validados para escalar productos, equipos y operaciones, listos para generar impacto real.
             </p>
             <p className="text-lg text-slate-600 leading-relaxed">
@@ -42,149 +43,152 @@ const HighLevelConsulting: React.FC = () => {
             </p>
           </div>
 
-          {/* RIGHT COLUMN - Collaboration Models */}
-          <div>
-            <h4 className="text-[11px] font-bold tracking-[0.2em] text-[#135bec] uppercase mb-4 block">
-              Modelos de Colaboración
-            </h4>
-            {/* Línea horizontal debajo del título */}
-            <div className="w-full h-[2px] bg-slate-300 mb-6"></div>
-            
-            <div className="flex flex-wrap gap-8">
-              {collaborationModels.map((model, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-6 group"
-                >
-                  <div className="w-1 h-6 bg-[#135bec] group-hover:h-8 transition-all duration-300"></div>
-                  <span className="text-base font-medium text-slate-700 group-hover:text-[#135bec] transition-colors duration-300">
-                    {model}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* TARJETAS - 3D UI Cards - Now full width below */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch justify-items-center max-w-3xl mx-auto">
-          {/* CARD 1 - Startups */}
-          <div className="parent">
-            <div className="card">
-              <div className="glass"></div>
-              <div className={`content ${isHovered1 ? 'faded' : ''}`}>
-                <span className="title">Startups</span>
-                <span className="subtitle">
-                  <Rocket className="inline w-5 h-5 mr-2" />
-                  Escala tu equipo rápido
-                </span>
-                <p className="description">
-                  Desarrollamos un roadmap claro para construir solidez para el futuro.
-                </p>
-              </div>
-              <div className="bottom">
-                <div 
-                  className="view-more"
-                  onMouseEnter={() => setIsHovered1(true)}
-                  onMouseLeave={() => setIsHovered1(false)}
-                >
-                  <button className="view-more-button">
-                    Ver más
-                  </button>
-                  <svg 
-                    className="svg"
-                    xmlns="http://www.w3.org/2000/svg" 
-                    viewBox="0 0 24 24" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round"
+          {/* RIGHT COLUMN - Models + Cards */}
+          <div className="flex flex-col">
+            {/* Collaboration Models Section */}
+            <div className="mb-12">
+              <h4 className="text-[11px] font-bold tracking-[0.2em] text-[#135bec] uppercase mb-4 block">
+                Modelos de Colaboración
+              </h4>
+              {/* Línea horizontal debajo del título */}
+              <div className="w-full h-[2px] bg-slate-300 mb-6"></div>
+              
+              <div className="flex flex-nowrap gap-4 xl:gap-6">
+                {collaborationModels.map((model, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center gap-3 group"
                   >
-                    <path d="m6 9 6 6 6-6"></path>
-                  </svg>
-                </div>
-                <div className="accordion-content">
-                  <ul className="space-y-3 text-sm">
-                    <li className="flex items-start gap-2">
-                      <span className="bullet">•</span>
-                      <span>Validación técnica sin overhead</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="bullet">•</span>
-                      <span>Flexibilidad (part-time / full-time)</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="bullet">•</span>
-                      <span>Ideal para MVPs y crecimiento acelerado</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className="logo">
-                <span className="circle circle3"></span>
-                <span className="circle circle4"></span>
-                <span className="circle circle5">
-                  <Rocket className="svg-icon" strokeWidth={2.5} />
-                </span>
+                    <div className="w-1 h-6 bg-[#135bec] group-hover:h-8 transition-all duration-300"></div>
+                    <span className="text-sm xl:text-base font-medium text-slate-700 group-hover:text-[#135bec] transition-colors duration-300 whitespace-nowrap">
+                      {model}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
 
-          {/* CARD 2 - Empresas & Corporaciones */}
-          <div className="parent">
-            <div className="card">
-              <div className="glass"></div>
-              <div className={`content ${isHovered2 ? 'faded' : ''}`}>
-                <span className="title">Empresas</span>
-                <span className="subtitle">
-                  <Building2 className="inline w-5 h-5 mr-2" />
-                  Reducción de costos y tiempos 
-                </span>
-                <p className="description">
-                  Generamos procesos de selección robustos específicos para cada empresa
-                </p>
-              </div>
-              <div className="bottom">
-                <div 
-                  className="view-more"
-                  onMouseEnter={() => setIsHovered2(true)}
-                  onMouseLeave={() => setIsHovered2(false)}
-                >
-                  <button className="view-more-button">
-                    Ver más
-                  </button>
-                  <svg 
-                    className="svg"
-                    xmlns="http://www.w3.org/2000/svg" 
-                    viewBox="0 0 24 24" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round"
-                  >
-                    <path d="m6 9 6 6 6-6"></path>
-                  </svg>
+            {/* 3D Cards Section */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* CARD 1 - Startups */}
+              <div className="parent">
+                <div className="card">
+                  <div className="glass"></div>
+                  <div className={`content ${isHovered1 ? 'faded' : ''}`}>
+                    <span className="title">Startups</span>
+                    <span className="subtitle">
+                      <Rocket className="inline w-5 h-5 mr-2" />
+                      Escala tu equipo rápido
+                    </span>
+                    <p className="description">
+                      Desarrollamos un roadmap claro para construir solidez para el futuro.
+                    </p>
+                  </div>
+                  <div className="bottom">
+                    <div 
+                      className="view-more"
+                      onMouseEnter={() => setIsHovered1(true)}
+                      onMouseLeave={() => setIsHovered1(false)}
+                    >
+                      <button className="view-more-button">
+                        Ver más
+                      </button>
+                      <svg 
+                        className="svg"
+                        xmlns="http://www.w3.org/2000/svg" 
+                        viewBox="0 0 24 24" 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round"
+                      >
+                        <path d="m6 9 6 6 6-6"></path>
+                      </svg>
+                    </div>
+                    <div className="accordion-content">
+                      <ul className="space-y-3 text-sm">
+                        <li className="flex items-start gap-2">
+                          <span className="bullet">•</span>
+                          <span>Validación técnica sin overhead</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="bullet">•</span>
+                          <span>Flexibilidad (part-time / full-time)</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="bullet">•</span>
+                          <span>Ideal para MVPs y crecimiento acelerado</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="logo">
+                    <span className="circle circle3"></span>
+                    <span className="circle circle4"></span>
+                    <span className="circle circle5">
+                      <Rocket className="svg-icon" strokeWidth={2.5} />
+                    </span>
+                  </div>
                 </div>
-                <div className="accordion-content">
-                  <ul className="space-y-3 text-sm">
-                    <li className="flex items-start gap-2">
-                      <span className="bullet">•</span>
-                      <span>Cumplimiento, documentación y governance</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="bullet">•</span>
-                      <span>Perfiles senior y especializados</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="bullet">•</span>
-                      <span>Acompañamiento y soporte continuo
-                      </span>
-                    </li>
-                  </ul>
-                </div>
               </div>
-              <div className="logo">
-                <span className="circle circle3"></span>
-                <span className="circle circle4"></span>
-                <span className="circle circle5">
-                  <Building2 className="svg-icon" strokeWidth={2.5} />
-                </span>
+
+              {/* CARD 2 - Empresas & Corporaciones */}
+              <div className="parent">
+                <div className="card">
+                  <div className="glass"></div>
+                  <div className={`content ${isHovered2 ? 'faded' : ''}`}>
+                    <span className="title">Empresas</span>
+                    <span className="subtitle">
+                      <Building2 className="inline w-5 h-5 mr-2" />
+                      Reducción de costos y tiempos 
+                    </span>
+                    <p className="description">
+                      Generamos procesos de selección robustos específicos para cada empresa
+                    </p>
+                  </div>
+                  <div className="bottom">
+                    <div 
+                      className="view-more"
+                      onMouseEnter={() => setIsHovered2(true)}
+                      onMouseLeave={() => setIsHovered2(false)}
+                    >
+                      <button className="view-more-button">
+                        Ver más
+                      </button>
+                      <svg 
+                        className="svg"
+                        xmlns="http://www.w3.org/2000/svg" 
+                        viewBox="0 0 24 24" 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round"
+                      >
+                        <path d="m6 9 6 6 6-6"></path>
+                      </svg>
+                    </div>
+                    <div className="accordion-content">
+                      <ul className="space-y-3 text-sm">
+                        <li className="flex items-start gap-2">
+                          <span className="bullet">•</span>
+                          <span>Cumplimiento, documentación y governance</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="bullet">•</span>
+                          <span>Perfiles senior y especializados</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="bullet">•</span>
+                          <span>Acompañamiento y soporte continuo
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="logo">
+                    <span className="circle circle3"></span>
+                    <span className="circle circle4"></span>
+                    <span className="circle circle5">
+                      <Building2 className="svg-icon" strokeWidth={2.5} />
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
