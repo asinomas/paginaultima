@@ -247,7 +247,7 @@ const HighLevelConsulting: React.FC = () => {
           color: rgba(255, 255, 255, 0.75);
           font-size: 13px;
           line-height: 1.5;
-          margin-top: 8px;
+          margin-top: 12px;
         }
 
         .bottom {
@@ -288,6 +288,7 @@ const HighLevelConsulting: React.FC = () => {
           color: #ffffff;
           font-weight: 700;
           font-size: 12px;
+          text-left;
           cursor: pointer;
         }
 
