@@ -131,33 +131,24 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
 
 
 
+
+
+
             
-            {/* COLUMNA DERECHA */}
-            <div className="lg:w-1/3 hidden lg:flex flex-col items-end gap-8">
+            {/* COLUMNA DERECHA <div className="lg:w-1/3 hidden lg:flex flex-col items-end gap-8">  */}
+            
 
 
 
   
 
               {/* AQUI VA LA  Imagen  <div className="w-full overflow-visible flex justify-center items-center">
-                <img
-                  src="./images/pc-software.webp"
-                  alt="PC con Codigos de Programacóin"
-                  loading="eager" 
-                  className="w-auto h-auto object-contain scale-[1.5]"
-                />
-              </div>
               
-              
-              
-              
-              
-              
-              
-              </div>
-          </div>
-        </div>
-      </section>*/}
+
+
+
+
+                 
              
               
 
