@@ -123,7 +123,9 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
 
 
               
-              {/* Imagen */}
+              {/* Imagen del hero de la sección 
+              
+              
               <div className="w-full overflow-visible flex justify-center items-center">
                 <img
                   src="./images/datos.jpg"
@@ -131,9 +133,15 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
                   loading="eager" 
                   className="w-auto h-auto object-cover scale-[1.5] grayscale-[0.5]"
                 />
-              </div>
+              </div>   
+              
+              
+              */}
+              
               
 
+
+              
               
 
             </div>
