@@ -8,6 +8,7 @@ const Stats: React.FC = () => {
       number: 48,
       prefix: '<',
       suffix: 'h',
+      duration: 2600,
       label: 'Tiempo de Respuesta',
       text: 'Contacto inicial, evaluación y presentación de candidatos en menos de 2 días.'
     },
@@ -15,6 +16,7 @@ const Stats: React.FC = () => {
       icon: 'groups',
       number: 100,
       suffix: '+',
+      duration: 3000,
       label: 'Proyectos Completados',
       text: 'Soluciones entregadas con éxito desde startups a grandes empresas.'
     },
@@ -22,6 +24,7 @@ const Stats: React.FC = () => {
       icon: 'tune',
       number: 100,
       suffix: '%',
+      duration: 2400,
       label: 'A Medida',
       text: 'Creamos un perfil según el contexto y objetivos, reduciendo tiempos de onboarding.'
     }
@@ -68,7 +71,10 @@ const Stats: React.FC = () => {
               {/* Valor con count-up */}
               <div className="text-6xl font-black text-white mb-3 tracking-tighter transition-colors duration-500 group-hover:text-blue-400">
                 {stat.prefix && <span>{stat.prefix}</span>}
-                <CountUp value={stat.number} />
+                <CountUp
+                  value={stat.number}
+                  duration={stat.duration}
+                />
                 {stat.suffix && <span>{stat.suffix}</span>}
               </div>
 
