@@ -80,6 +80,12 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
     }
   ];
 
+  const profiles = [
+    "Líder Técnico", "Scrum Master", "Dev Android", "Dev Java",
+    "BackEnd", "FrontEnd", "Fullstack", "Devops", "UX/UI",
+    "Ciberseguridad", "Mesa de Ayuda", "Python", "Dev IOS"
+  ];
+
   return (
     <div className="bg-slate-50 min-h-screen pt-16 pb-32 antialiased">
       {/* 1. HERO SECTION */}
@@ -121,6 +127,18 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
           <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">
             Servicios End-to-End
           </p>
+        </div>
+
+        {/* Burbujas de perfiles */}
+        <div className="mb-8 flex flex-wrap gap-3">
+          {profiles.map((profile, idx) => (
+            <span
+              key={idx}
+              className="bg-[#135bec]/10 text-[#135bec] px-4 py-2 rounded-full text-sm font-semibold hover:bg-[#135bec]/20 transition-colors cursor-default"
+            >
+              {profile}
+            </span>
+          ))}
         </div>
 
         <ScrollAnimation>
