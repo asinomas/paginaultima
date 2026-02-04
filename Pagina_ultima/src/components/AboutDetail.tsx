@@ -130,7 +130,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
 
       
       {/* SECCIÓN EQUIPO */}
-      <section className="container ml-auto max-w-7xl px-6 lg:px-8 py-10">
+      <section className="container mx-auto max-w-7xl px-6 lg:px-8 py-10">
        
         {/* Título centrado con líneas - el mb (margin-bottom) mb-8 es la distancia entre el titulo y el padding-top de la seccion que esta abajo */}
         <div className="text-center mb-4 flex flex-col items-center">
