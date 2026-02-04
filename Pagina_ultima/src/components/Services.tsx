@@ -217,7 +217,7 @@ const HighLevelConsulting: React.FC = () => {
         }
 
         .content {
-          padding: 85px 50px 0px 25px;
+          padding: 100px 50px 0px 25px;  /* Elevado: de 85px a 100px */
           transform: translate3d(0, 0, 26px);
           transition: opacity 0.5s ease-in-out;
         }
@@ -254,7 +254,7 @@ const HighLevelConsulting: React.FC = () => {
           padding: 10px 12px;
           transform-style: preserve-3d;
           position: absolute;
-          bottom: 18px;
+          bottom: 10px;  /* Descendido: de 18px a 10px */
           left: 18px;
           right: 18px;
           display: flex;
@@ -300,7 +300,7 @@ const HighLevelConsulting: React.FC = () => {
 
         .accordion-content {
           position: absolute;
-          bottom: 75px;
+          bottom: 70px;  /* Ajustado: de 75px a 70px para alineación */
           left: 25px;
           right: 25px;
           max-height: 0;
