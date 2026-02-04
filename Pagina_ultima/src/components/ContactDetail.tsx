@@ -35,10 +35,10 @@ const ContactDetail: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
           {/* COLUMNA IZQUIERDA - TEXTO + IMAGEN DE FONDO */}
-          <div className="relative h-full w-full rounded-[3rem] overflow-hidden blur-md">
+          <div className="relative h-full w-full rounded-[3rem] overflow-hidden">
             {/* Imagen de fondo ocupando toda la columna con borde redondo */}
             <div
-              className="absolute inset-0 bg-cover bg-center rounded-[3rem] overflow-hidden blur-md"
+              className="absolute inset-0 bg-cover bg-center rounded-[3rem] overflow-hidden blur-[20px]"
               style={{
                 backgroundImage: "url(/images/contact.webp)",
                 borderRadius: "3rem",
