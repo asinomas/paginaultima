@@ -87,14 +87,12 @@ const FAQSection: React.FC = () => {
           {/* LEFT COLUMN - Title and Description */}
           <div className="lg:sticky lg:top-24 lg:self-start">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
-              Frequently asked questions
+              Preguntas frecuentes 
             </h2>
             <p className="text-lg text-slate-600 leading-relaxed">
-              Can't find the answer you're looking for? Reach out to our{' '}
+              ¿No encuentras respuesta a lo qué estás buscando? Contacta a nuestro{' '}
               <a href="#contact" className="text-[#135bec] hover:underline font-medium">
-                customer support
-              </a>{' '}
-              team.
+                servicio al cliente</a>
             </p>
           </div>
 
