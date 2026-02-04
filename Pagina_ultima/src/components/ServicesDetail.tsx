@@ -4,7 +4,6 @@ import ServiceCard from './ServiceCard';
 import ServicesHeroLights from './ServicesHeroLights';
 import ScrollAnimation from './ScrollAnimation';
 
-
 interface ServicesDetailProps {
   onContactClick?: () => void;
 }
@@ -116,32 +115,15 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
               </button>
             </div>
 
-
-
-
-
-
-            
-            {/* COLUMNA DERECHA    className    lg:w-1/3 hidden lg:flex flex-col items-end gap-8   */}
-            
-
-
-
-  
-
-              {/* AQUI VA LA  Imagen       className   "w-full overflow-visible flex justify-center items-center"   */}
-              
-
-
-
-
-                 
-             
-              
-
-              
-
-            
+            {/* Columna derecha (puedes agregar imágenes o contenido aquí si lo deseas) */}
+            {/* <div className="lg:w-1/3 hidden lg:flex flex-col items-end gap-8">
+              <div className="w-full overflow-visible flex justify-center items-center">
+                <!-- Aquí tu imagen o contenido adicional -->
+              </div>
+            </div> */}
+          </div>
+        </div>
+      </section>
 
       {/* 2. SECCIÓN TÉCNICA */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8">
@@ -192,4 +174,3 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
 };
 
 export default ServicesDetail;
-
