@@ -351,6 +351,7 @@ const HighLevelConsulting: React.FC = () => {
           stroke-width: 2;
         }
 
+
         @media (max-width: 768px) {
           .card {
             height: auto;
