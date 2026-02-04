@@ -13,12 +13,21 @@ const FAQSection: React.FC = () => {
 
   const faqData: FAQItem[] = [
     {
-      question: "¿Qué hace cada perfil TI y por qué contratarlo a través de nuestro Consultorio TI?",
-      answer: "No solo ofrecemos perfiles tecnológicos. Entregamos profesionales evaluados, acompañados y alineados al negocio, listos para generar impacto real en tu empresa desde el primer día."
+      question: "¿Qué hacemos en BlackTI?",
+      answer: "En BlackTI entregamos células de trabajo de alto rendimiento listas para producir desde el primer día. Cubrimos todo el espectro: desde el diseño UX/UI y el desarrollo en Java, Python o Mobile, hasta la infraestructura DevOps y el blindaje en Ciberseguridad.
+        Tú pones la visión y nosotros el equipo experto que la hace realidad, sin fricciones y a escala.""
     },
     {
       question: "¿Qué diferencia a nuestro Consultorio TI de otras consultoras?",
-      answer: "Seleccionamos profesionales validados técnica y funcionalmente • Evaluamos habilidades blandas, comunicación y adaptación al equipo • Acompañamos al profesional y a la empresa durante toda la asignación • Ajustamos el perfil según el contexto y objetivos del negocio • Reducimos tiempos de onboarding y rotación"
+      answer: "Seleccionamos profesionales validados técnica y funcionalmente. 
+      Evaluamos habilidades blandas, comunicación y adaptación al equipo.
+      Acompañamos al profesional y a la empresa durante toda la asignación.
+      Ajustamos el perfil según el contexto y objetivos del negocio.
+      Reducimos tiempos de onboarding y rotación"
+    },
+    {
+      question: "¿Qué hace cada perfil TI y por qué contratarlo a través de nuestro Consultorio TI?", 
+      answer: "No solo ofrecemos perfiles tecnológicos. Entregamos profesionales evaluados, acompañados y alineados al negocio, listos para generar impacto real en tu empresa desde el primer día."
     },
     {
       question: "¿Qué aporta un Líder Técnico de nuestro Consultorio TI?",
