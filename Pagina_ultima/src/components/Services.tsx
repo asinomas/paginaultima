@@ -256,7 +256,7 @@ const HighLevelConsulting: React.FC = () => {
         }
 
         .content .description {
-          color: rgba(255, 255, 255, 0.75);
+          color: rgba(255, 255, 255, 0.85);
           font-size: 13px;
           line-height: 1.5;
           margin-top: 12px;
