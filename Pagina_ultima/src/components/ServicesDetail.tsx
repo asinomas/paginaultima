@@ -120,7 +120,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
                 </span>
               </h1>
               <p className="text-lg lg:text-xl text-slate-400 leading-relaxed max-w-2xl mb-10">
-                Nuestros profesionales pueden incorporarse bajo esquemas de outsourcing, staff augmentation o por proyecto, adaptándose a las necesidades específicas de cada empresa.
+                Nuestros profesionales pueden incorporarse bajo distintos esquemas, adaptándose a las necesidades específicas de cada empresa.
               </p>
               <button
                 onClick={onContactClick}
