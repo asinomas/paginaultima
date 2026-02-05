@@ -68,7 +68,7 @@ const TestimonialsSection: React.FC = () => {
 
       {/* Contenido */}
       <div className="relative z-10 container mx-auto max-w-6xl px-6 py-24">
-        <div className="relative flex items-center justify-center h-[30vh]">
+        <div className="relative flex items-center justify-center h-[40vh]">
         
           
           {/* Botón anterior - lado izquierdo */}
@@ -155,7 +155,7 @@ const TestimonialsSection: React.FC = () => {
 
           {/* CTA */}
           <div>
-            <p className="text-white/80 mb-6">¿Quieres ser parte de nuestros casos de éxito?</p>
+            <p className="text-white/80 text-base mb-6">¿Quieres ser parte de nuestros casos de éxito?</p>
             <a 
               href="#contacto"
               className="inline-block border-2 border-white/50 hover:border-white bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-full font-bold transition-all"
