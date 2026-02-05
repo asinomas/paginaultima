@@ -164,7 +164,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
 
           
           {/* Burbujas derecha: siempre alineadas */}
-          <div className="flex-1 flex flex-wrap gap-3 justify-end max-w-2xl content-start">
+          <div className="flex-1 flex flex-wrap gap-3 justify-end max-w-4xl content-start">
             {profiles.map((profile) => (
               <button
                 key={profile}
