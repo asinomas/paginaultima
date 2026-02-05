@@ -30,7 +30,7 @@ const About: React.FC = () => {
                 Liderando con <span className="text-blue-600 italic">Propósito</span> Real
               </h2>
               <p className="text-lg md:text-[17px] font-normal text-slate-500 tracking-tighter mb-6 leading-relaxed">
-                Nacimos para transformar la complejidad técnica en valor empresarial. Somos un equipo de alto rendimiento, con obsesión por el detalle y mentalidad <span className="text-lg md:text-[17px] font-bold text-slate-500 tracking-tighter mb-6 leading-relaxed">problem-solver</span>.
+              Somos un equipo de alto rendimiento, con obsesión por el detalle y mentalidad <span className="text-lg md:text-[17px] font-bold text-slate-500 tracking-tighter mb-6 leading-relaxed">problem-solver</span>.
               Nuestra experiencia se traduce en soluciones.
               </p>
               <div className="space-y-6 mb-12">
