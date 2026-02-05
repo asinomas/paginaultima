@@ -21,20 +21,16 @@ const FAQSection: React.FC = () => {
       answer: "Seleccionamos profesionales validados técnica y funcionalmente, evaluando habilidades blandas, comunicación y adaptación al equipo. Acompañamos al profesional y a la empresa durante toda la asignación, ajustando el perfil según el contexto y objetivos del negocio, reduciendo tiempos de onboarding y rotación."
     },
     {
-      question: "¿Qué hace cada perfil TI y por qué contratarlo a través de nuestro Consultorio TI?",
+      question: "¿Qué pasa si el profesional no se adapta a mi empresa?",
+      answer: "Realizaremos las gestiones para su remplazo sin costo en las primeras 2 semanas."
+    },
+    {
+      question: "¿Qué hace cada perfil TI y por qué contratarlo a través de nuestro Consultorio TI?", 
       answer: "No solo ofrecemos perfiles tecnológicos. Entregamos profesionales evaluados, acompañados y alineados al negocio, listos para generar impacto real en tu empresa desde el primer día."
     },
     {
-      question: "¿Qué aporta un Líder Técnico de nuestro Consultorio TI?",
-      answer: "Además de definir arquitectura y liderar decisiones técnicas, es un perfil con visión de negocio, capaz de alinear tecnología, plazos y objetivos empresariales."
-    },
-    {
-      question: "¿Qué?",
-      answer: "Atención."
-    },
-    {
-      question: "¿Qué?",
-      answer: "Capaz."
+      question: "¿Cuánto tiempo toma tener un profesional trabajando?",
+      answer: "Dependiendo del rol solicitado entre 48-72 horas desde el primer contacto."
     }
   ];
 
@@ -54,10 +50,10 @@ const FAQSection: React.FC = () => {
           
           {/* LEFT COLUMN - Title and Description */}
           <div className="lg:sticky lg:top-24 lg:self-start">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
               Preguntas frecuentes
             </h2>
-            <p className="text-lg text-slate-600 leading-relaxed">
+            <p className="text-base text-slate-600 leading-relaxed">
               ¿No encuentras respuesta a tu pregunta? No te preocupes, nuestro{' '}
               <a href="#contact" className="text-[#135bec] hover:underline font-medium">
                 servicio al cliente
