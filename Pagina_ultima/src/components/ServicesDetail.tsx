@@ -147,14 +147,14 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
 
         <div className="flex gap-8 relative">
           {/* Contenedor izquierdo dinámico */}
-          <div className="w-1/3 min-w-[280px] p-4">
+          <div className="w-1/3 min-w-[280px]">
             {displayProfile && (
               <div
                 className={`bg-slate-100 rounded-md shadow-sm p-4 transition-opacity duration-700 ${
                   isVisible ? "opacity-100" : "opacity-10"
                 }`}
               >
-                <p className="text-slate-800 text-sm font-medium max-h-[200px] overflow-y-auto">
+                <p className="text-slate-800 text-sm font-medium">
                   {profileDescriptions[displayProfile]}
                 </p>
               </div>
