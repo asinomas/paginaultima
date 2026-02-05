@@ -57,7 +57,7 @@ const TestimonialsSection: React.FC = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Imagen de fondo */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-[1px]"
         style={{ 
           backgroundImage: "url('/images/testimonials.webp')",
         }}
