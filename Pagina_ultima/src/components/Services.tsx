@@ -105,7 +105,7 @@ const HighLevelConsulting: React.FC = () => {
                       </svg>
                     </div>
                     <div className="accordion-content">
-                      <ul className="space-y-3 text-sm">
+                      <ul className="space-y-1 text-sm">
                         <li className="flex items-start gap-2">
                           <span className="bullet">•</span>
                           <span>Validación técnica sin overhead</span>
