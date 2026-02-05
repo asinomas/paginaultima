@@ -12,11 +12,11 @@ const About: React.FC = () => {
             <div className="w-full flex justify-center relative hidden md:flex">
               <img 
                 src="./images/team-talk-office.webp" 
-                className="h-[380px] w-full object-cover scale-[1.2] transition-transform duration-[1.5s] group-hover:scale-105 rounded-[2.5rem] blur-[1.5px]"
+                className="h-[380px] w-full object-cover scale-[1.2] transition-transform duration-[1.5s] group-hover:scale-105 rounded-[2.5rem] blur-[1.7px]"
                 alt="Grupo de oficina en reunión"
                 loading="lazy"
               />
-              <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-blue-100 rounded-full blur-[80px] -z-10"></div>
+              <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-blue-100 rounded-full blur-[10px] -z-10"></div>
             </div>
 
             {/* TEXTO A LA DERECHA */}
