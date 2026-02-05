@@ -172,8 +172,8 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
                   e.stopPropagation();
                   setActiveProfile(activeProfile === profile ? null : profile);
                 }}
-                className={`bg-[#135bec]/10 text-black px-4 py-0.5 rounded-full text-sm font-semibold hover:bg-[#135bec]/20 hover:scale-105 hover:shadow-md transition-all ${
-                  activeProfile === profile ? "bg-[#135bec]/20" : ""
+                className={`bg-slate-200 text-slate-800 px-4 py-1.5 rounded-full text-sm font-medium hover:bg-slate-300 hover:scale-105 hover:shadow-md transition-all ${
+                  activeProfile === profile ? "bg-slate-300" : ""
                 }`}
               >
                 {profile}
