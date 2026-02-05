@@ -63,7 +63,7 @@ const TestimonialsSection: React.FC = () => {
         }}
       >
         {/* Overlay oscuro */}
-        <div className="absolute inset-0 bg-gray-400"></div>
+        <div className="absolute inset-0 bg-gray-50"></div>
       </div>
 
       {/* Contenido */}
