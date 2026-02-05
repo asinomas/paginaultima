@@ -214,6 +214,6 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
       </section>
     </div>
   );
-
+  };
 
 export default ServicesDetail;
