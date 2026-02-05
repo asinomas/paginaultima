@@ -21,16 +21,17 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
   const profiles = [
     "Tech Lead",
     "Scrum Master",
-    "Dev Android/iOS",
+    "Ciberseguridad",
+    "DevOps",
     "Dev Java",
+    "Python",
     "BackEnd",
     "FrontEnd",
     "Fullstack",
-    "DevOps",
     "UX/UI",
-    "Ciberseguridad",
+    "Dev Android/iOS",
     "Mesa de Ayuda",
-    "Python",
+    
   ];
 
   const profileDescriptions: Record<string, string> = {
