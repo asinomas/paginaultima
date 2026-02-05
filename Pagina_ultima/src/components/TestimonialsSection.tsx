@@ -68,7 +68,7 @@ const TestimonialsSection: React.FC = () => {
 
       {/* Contenido */}
       <div className="relative z-10 container mx-auto max-w-6xl px-6 py-24">
-        <div className="relative flex items-center justify-center h-[50vh]">
+        <div className="relative flex items-center justify-center h-[30vh]">
         
           
           {/* Botón anterior - lado izquierdo */}
