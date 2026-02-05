@@ -118,7 +118,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
         className="container mx-auto max-w-7xl px-6 lg:px-8 mb-12"
       >
         <div className="mb-4 flex items-center justify-start max-w-[600px]">
-          <span className="text-sm font-semibold text-slate-500 mr-4">
+          <span className="text-[10px] font-bold tracking-[0.4em] text-slate-400 uppercase mb-6 border-b border-slate-200 pb-2">  
             Perfiles especializados
           </span>
           <div className="flex-1 h-[0.5px] bg-slate-300"></div>
