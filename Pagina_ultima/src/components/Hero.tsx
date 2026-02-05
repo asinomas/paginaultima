@@ -166,7 +166,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                   delay: ANIMATION_TIMINGS.fast 
                 }}
               >
-                Arquitectura para <span className="font-normal text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">startups</span>.{' '}
+                Desarrollo para <span className="font-normal text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">startups</span>.{' '}
                 Optimización para <span className="font-normal text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">empresas</span>.{' '}
                 Acompañamiento en cada <span className="font-normal text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">etapa</span>.
               </motion.p>
