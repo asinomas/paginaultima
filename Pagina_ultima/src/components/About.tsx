@@ -4,12 +4,12 @@ import ScrollAnimation from './ScrollAnimation';
 const About: React.FC = () => {
   return (
     <ScrollAnimation>
-      <section className="bg-white py-32 overflow-hidden rounded-[2.5rem]">
+      <section className="bg-white py-32 overflow-hidden">
         <div className="container mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             
             {/* IMAGEN A LA IZQUIERDA */}
-            <div className="w-full justify-center relative hidden md:flex shadow-xl border border-slate-100">
+            <div className="w-full justify-center relative hidden md:flex shadow-xl border border-slate-100 rounded-[2.5rem]">
               <img 
                 src="./images/team-talk-office.webp" 
                 className="h-[450px] w-full object-cover transition-transform duration-[1.5s] group-hover:scale-105 rounded-[2.5rem] blur-[0.7px]"
