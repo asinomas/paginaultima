@@ -90,8 +90,8 @@ const TestimonialsSection: React.FC = () => {
             </svg>
           </button>
 
-          {/* Contenido del testimonio - centrado */}
-          <div className="max-w-3xl text-center px-20">
+          {/* Contenido del testimonio - alineado a la izquierda */}
+          <div className="max-w-3xl text-left px-20">
             {/* Nombre y rol */}
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
               {currentTestimonial.name}
@@ -101,11 +101,11 @@ const TestimonialsSection: React.FC = () => {
             </p>
 
             {/* Quote con comillas grandes */}
-            <div className="relative mb-10">
-              <div className="text-7xl md:text-8xl text-white/20 font-serif absolute -top-6 left-1/2 transform -translate-x-1/2">
+            <div className="relative mb-10 flex items-start gap-4">
+              <div className="text-6xl md:text-7xl text-white/30 font-serif leading-none pt-2">
                 "
               </div>
-              <blockquote className="text-lg md:text-xl text-white leading-relaxed relative z-10 pt-8">
+              <blockquote className="text-lg md:text-xl text-white leading-relaxed">
                 {currentTestimonial.quote}
               </blockquote>
             </div>
@@ -156,9 +156,9 @@ const TestimonialsSection: React.FC = () => {
             <p className="text-white/80 mb-6">¿Quieres ser parte de nuestros casos de éxito?</p>
             <a 
               href="#contacto"
-              className="inline-block bg-[#135bec] text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl"
+              className="inline-block border-2 border-white/50 hover:border-white bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-full font-bold transition-all"
             >
-              Quiero ser parte
+              Solicitar Consultoría
             </a>
           </div>
         </div>
