@@ -142,7 +142,7 @@ const HighLevelConsulting: React.FC = () => {
                       Reducción de costos y tiempos 
                     </span>
                     <p className="description">
-                      Generamos procesos de selección robustos específicos para cada empresa
+                      Generamos procesos de selección específicos para cada empresa
                     </p>
                   </div>
                   <div className="bottom">
@@ -321,7 +321,10 @@ const HighLevelConsulting: React.FC = () => {
           transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
           opacity: 0;
           transform: translate3d(0, 0, 26px);
-          color: rgba(255, 255, 255, 0.95);
+          color: rgba(255, 255, 255, 1);
+          font-weight: 500;
+          line-height:1.6;
+          
         }
 
         .view-more:hover ~ .accordion-content {
