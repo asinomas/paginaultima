@@ -52,6 +52,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
 
   const [activeProfile, setActiveProfile] = useState<string | null>(null);
   const [displayProfile, setDisplayProfile] = useState<string | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
   
   const [transitioning, setTransitioning] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
