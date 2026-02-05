@@ -73,7 +73,6 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
   }, []);
 
   // Control fade-out / fade-in al cambiar de perfil
-  useEffect(() => {
     useEffect(() => {
   if (activeProfile === displayProfile) return;
 
