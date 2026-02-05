@@ -52,9 +52,12 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
 
   const [activeProfile, setActiveProfile] = useState<string | null>(null);
   const [displayProfile, setDisplayProfile] = useState<string | null>(null);
+  
   const [transitioning, setTransitioning] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
+
+  
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -70,20 +73,38 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
 
   // Control fade-out / fade-in al cambiar de perfil
   useEffect(() => {
-    if (activeProfile !== displayProfile) {
-      if (displayProfile) {
-        setTransitioning(true);
-        const timeout = setTimeout(() => {
-          setDisplayProfile(activeProfile);
-          setTransitioning(false);
-        }, 300); // Duración fade-out
-        return () => clearTimeout(timeout);
-      } else {
-        setDisplayProfile(activeProfile);
-      }
-    }
-  }, [activeProfile, displayProfile]);
+    useEffect(() => {
+  if (activeProfile === displayProfile) return;
 
+  // Fade-out si hay algo visible
+  if (isVisible) {
+    setIsVisible(false);
+
+    const timeout = setTimeout(() => {
+      setDisplayProfile(activeProfile);
+      if (activeProfile) {
+        requestAnimationFrame(() => {
+          setIsVisible(true); // Fade-in
+        });
+      }
+    }, 300); // duración fade-out
+
+    return () => clearTimeout(timeout);
+  }
+
+  // Primer click (no había nada antes)
+  if (activeProfile) {
+    setDisplayProfile(activeProfile);
+    requestAnimationFrame(() => {
+      setIsVisible(true); // Fade-in inicial
+    });
+  } else {
+    setDisplayProfile(null);
+  }
+}, [activeProfile]);
+
+
+    
   return (
     <div className="bg-slate-50 min-h-screen pt-16 pb-32 antialiased">
       {/* HERO SECTION */}
