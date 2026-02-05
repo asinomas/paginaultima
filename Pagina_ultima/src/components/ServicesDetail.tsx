@@ -145,7 +145,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
           <div className="flex-1 h-[0.5px] bg-slate-300"></div>
         </div>
 
-        <div className="flex gap-8 relative">
+        <div className="flex gap-8 relative items-start">
           {/* Contenedor izquierdo dinámico */}
           <div className="w-1/3 min-w-[280px] h-32">
             {displayProfile && (
@@ -164,7 +164,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
 
           
           {/* Burbujas derecha: siempre alineadas */}
-          <div className="flex-1 flex flex-wrap gap-3 justify-end max-w-[calc(100%-300px)]">
+          <div className="flex-1 flex flex-wrap gap-3 justify-end max-w-2xl content-start">
             {profiles.map((profile) => (
               <button
                 key={profile}
