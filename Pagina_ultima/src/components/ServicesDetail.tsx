@@ -35,7 +35,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
   ];
 
   const profileDescriptions: Record<string, string> = {
-    "Tech Lead": "Además de definir arquitectura y liderar decisiones técnicas, es un perfil con visión de negocio, capaz de alinear tecnología, plazos y objetivos empresariales.",
+    "Tech Lead": "Definie arquitectura y liderar decisiones técnicas con visión de negocio, capaz de alinear tecnología, plazos y objetivos empresariales.",
     "Scrum Master": "No solo aplica Scrum: mejora la madurez ágil del equipo, facilita la comunicación con stakeholders y acelera la entrega de valor.",
     Ciberseguridad: "Trabaja de forma preventiva, no reactiva, protegiendo los activos digitales y la reputación de la empresa.",
     DevOps: "Optimiza infraestructura y procesos, reduce fallas en producción y mejora la continuidad operativa mediante automatización real.",
@@ -45,7 +45,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
     FrontEnd: "Más que interfaces atractivas, entrega experiencias de usuario funcionales, alineadas a la identidad de la empresa.",
     Fullstack: "Perfil integral que reduce dependencias, acelera desarrollos y mantiene coherencia técnica en todo el producto.",
     "UX/UI": "Diseña pensando en el usuario final y en los objetivos del negocio, aumentando adopción y satisfacción del cliente.",
-    "Dev Android/iOS": "Nuestros desarrolladores mobile están enfocados en productos reales, con experiencia en rendimiento, seguridad y experiencia de usuario en entornos productivos.",
+    "Dev Android/iOS": "Nuestros desarrolladores mobile están enfocados en la creación de apps nativas, seguras y escalables en entornos productivos.",
     "Mesa de Ayuda": "Atención cercana, tiempos de respuesta definidos y continuidad operativa sin fricción para el usuario final.",
     
   };
