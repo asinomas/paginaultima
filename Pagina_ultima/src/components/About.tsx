@@ -9,7 +9,7 @@ const About: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             
             {/* IMAGEN A LA IZQUIERDA */}
-            <div className="w-full flex justify-center relative hidden md:flex">
+            <div className="w-full flex justify-center relative hidden md:flex shadow-xl border border-slate-100">
               <img 
                 src="./images/team-talk-office.webp" 
                 className="h-[385px] w-full object-cover transition-transform duration-[1.5s] group-hover:scale-105 rounded-[2.5rem] blur-[0.7px]"
