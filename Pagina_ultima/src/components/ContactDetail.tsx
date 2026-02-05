@@ -42,7 +42,8 @@ const ContactDetail: React.FC = () => {
               style={{ backgroundImage: "url(/images/contact.webp)", borderRadius: "3rem" }}
             ></div>
 
-            <div className="relative z-10 flex flex-col justify-center h-full p-6 lg:p-0">
+            {/* Aquí aplicamos el padding-left para mover los textos */}
+            <div className="relative z-10 flex flex-col justify-center h-full p-6 lg:p-0 lg:pl-[25%]">
               <h4 className="text-[#135bec] font-bold uppercase tracking-[0.2em] text-[11px] mb-4">Hablemos hoy</h4>
 
               <h2 className="text-5xl lg:text-6xl font-black text-slate-900 mb-8 tracking-tighter leading-tight">
@@ -57,7 +58,7 @@ const ContactDetail: React.FC = () => {
 
               {/* Contact Info */}
               <div className="space-y-6">
-                {/* EMAIL + TELEFONO (responsive) */}
+                {/* EMAIL + TELEFONO */}
                 <motion.div
                   className="flex flex-col lg:flex-row lg:items-start lg:gap-8"
                   initial="hidden"
