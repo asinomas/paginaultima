@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 interface Testimonial {
   name: string;
@@ -37,78 +37,114 @@ const testimonials: Testimonial[] = [
 ];
 
 const TestimonialsSection: React.FC = () => {
-  return (
-    <section className="py-24 bg-gradient-to-br from-slate-50 to-blue-50">
-      <div className="container mx-auto max-w-7xl px-6">
-        <h2 
-          id="testimonials-heading" 
-          className="text-4xl md:text-5xl font-bold text-center mb-4 text-slate-900"
-        >
-          Lo que dicen nuestros clientes
-        </h2>
-        <p className="text-center text-slate-600 mb-16 max-w-2xl mx-auto">
-          Empresas de todos los tamaños confían en nosotros para sus proyectos de transformación
-        </p>
-        
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <article 
-              key={index}
-              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100"
-            >
-              {/* Header con avatar y nombre */}
-              <div className="flex items-center gap-4 mb-6">
-                <img 
-                  src={testimonial.avatar} 
-                  alt="" 
-                  className="w-16 h-16 rounded-full"
-                  width="64"
-                  height="64"
-                />
-                <div>
-                  <p className="font-bold text-slate-900 text-lg">{testimonial.name}</p>
-                  <p className="text-sm text-slate-600">
-                    {testimonial.role} en {testimonial.company}
-                  </p>
-                </div>
-              </div>
-              
-              {/* Quote */}
-              <blockquote className="text-slate-700 italic mb-6 leading-relaxed">
-                "{testimonial.quote}"
-              </blockquote>
-              
-              {/* Rating */}
-              <div 
-                className="flex gap-1" 
-                role="img" 
-                aria-label={`Valoración: ${testimonial.rating} de 5 estrellas`}
-              >
-                {[...Array(5)].map((_, i) => (
-                  <svg 
-                    key={i} 
-                    className="w-5 h-5 text-yellow-400" 
-                    fill="currentColor" 
-                    viewBox="0 0 20 20"
-                    aria-hidden="true"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-            </article>
-          ))}
-        </div>
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-        {/* CTA adicional */}
-        <div className="text-center mt-16">
-          <p className="text-slate-600 mb-6">¿Quieres ser parte de nuestros casos de éxito?</p>
-          <a 
-            href="#contacto"
-            className="inline-block bg-[#135bec] text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl"
-          >
-            Solicitar Consultoría
-          </a>
+  const nextTestimonial = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const prevTestimonial = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+    );
+  };
+
+  const currentTestimonial = testimonials[currentIndex];
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Imagen de fondo */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ 
+          backgroundImage: "url('./public/images/testimonials.webp')",
+        }}
+      >
+        {/* Overlay oscuro */}
+        <div className="absolute inset-0 bg-black/70"></div>
+      </div>
+
+      {/* Contenido */}
+      <div className="relative z-10 container mx-auto max-w-5xl px-6 py-24">
+        <div className="text-center">
+          {/* Nombre y rol */}
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">
+            {currentTestimonial.name}
+          </h2>
+          <p className="text-xl text-gray-300 mb-12">
+            {currentTestimonial.role}
+          </p>
+
+          {/* Quote con comillas grandes */}
+          <div className="relative max-w-4xl mx-auto mb-16">
+            <div className="text-8xl md:text-9xl text-white/20 font-serif absolute -top-8 left-0">
+              "
+            </div>
+            <blockquote className="text-xl md:text-2xl text-white leading-relaxed px-8 md:px-16 relative z-10">
+              {currentTestimonial.quote}
+            </blockquote>
+          </div>
+
+          {/* Controles de navegación */}
+          <div className="flex items-center justify-center gap-8">
+            <button
+              onClick={prevTestimonial}
+              className="w-14 h-14 rounded-full border-2 border-white/50 hover:border-white hover:bg-white/10 transition-all flex items-center justify-center group"
+              aria-label="Testimonio anterior"
+            >
+              <svg 
+                className="w-6 h-6 text-white" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2} 
+                  d="M15 19l-7-7 7-7" 
+                />
+              </svg>
+            </button>
+
+            {/* Indicadores de puntos */}
+            <div className="flex gap-3">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`w-3 h-3 rounded-full transition-all ${
+                    index === currentIndex 
+                      ? 'bg-white w-8' 
+                      : 'bg-white/40 hover:bg-white/60'
+                  }`}
+                  aria-label={`Ir al testimonio ${index + 1}`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={nextTestimonial}
+              className="w-14 h-14 rounded-full border-2 border-white/50 hover:border-white hover:bg-white/10 transition-all flex items-center justify-center group"
+              aria-label="Siguiente testimonio"
+            >
+              <svg 
+                className="w-6 h-6 text-white" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2} 
+                  d="M9 5l7 7-7 7" 
+                />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </section>
