@@ -152,7 +152,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
             {displayProfile && (
               <div
                 className={`bg-slate-100 rounded-md shadow-sm p-4 transition-opacity duration-500 ${
-                  transitioning ? "opacity-0" : "opacity-100"
+                  isVisible ? "opacity-0" : "opacity-100"
                 }`}
               >
                 <p className="text-slate-800 text-sm font-medium max-h-[200px] overflow-y-auto">
@@ -162,6 +162,8 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
             )}
           </div>
 
+
+          
           {/* Burbujas derecha: siempre alineadas */}
           <div className="flex-1 flex flex-wrap gap-3 justify-end max-w-[calc(100%-300px)]">
             {profiles.map((profile) => (
