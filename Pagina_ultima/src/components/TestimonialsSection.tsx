@@ -63,12 +63,12 @@ const TestimonialsSection: React.FC = () => {
         }}
       >
         {/* Overlay oscuro */}
-        <div className="absolute inset-0 bg-gray/80"></div>
+        <div className="absolute inset-0 bg-gray-400"></div>
       </div>
 
       {/* Contenido */}
       <div className="relative z-10 container mx-auto max-w-6xl px-6 py-24">
-        <div className="relative flex items-center justify-center min-h-[40vh]">
+        <div className="relative flex items-center justify-center min-h-[30vh]">
         
           
           {/* Botón anterior - lado izquierdo */}
