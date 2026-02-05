@@ -150,8 +150,8 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
           <div className="w-1/3 min-w-[280px] p-4">
             {displayProfile && (
               <div
-                className={`bg-slate-100 rounded-md shadow-sm p-4 transition-opacity duration-500 ${
-                  isVisible ? "opacity-0" : "opacity-100"
+                className={`bg-slate-100 rounded-md shadow-sm p-4 transition-opacity duration-700 ${
+                  isVisible ? "opacity-100" : "opacity-10"
                 }`}
               >
                 <p className="text-slate-800 text-sm font-medium max-h-[200px] overflow-y-auto">
@@ -212,7 +212,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
         </ScrollAnimation>
       </section>
     </div>
-  );
-  })
+   );
+  };
 
 export default ServicesDetail;
