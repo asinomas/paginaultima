@@ -314,7 +314,7 @@ const HighLevelConsulting: React.FC = () => {
         .accordion-content {
           position: absolute;
           bottom: 70px;
-          left: 25px;
+          left: 15px;
           right: 25px;
           max-height: 0;
           overflow: hidden;
