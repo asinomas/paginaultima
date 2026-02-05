@@ -63,12 +63,12 @@ const TestimonialsSection: React.FC = () => {
         }}
       >
         {/* Overlay oscuro */}
-        <div className="absolute inset-0 bg-gray/50"></div>
+        <div className="absolute inset-0 bg-gray/80"></div>
       </div>
 
       {/* Contenido */}
       <div className="relative z-10 container mx-auto max-w-6xl px-6 py-24">
-        <div className="relative flex items-center justify-center min-h-[50vh]">
+        <div className="relative flex items-center justify-center min-h-[40vh]">
         
           
           {/* Botón anterior - lado izquierdo */}
@@ -104,7 +104,7 @@ const TestimonialsSection: React.FC = () => {
 
             {/* Quote con comillas grandes */}
             <div className="relative mb-10 flex items-start gap-4">
-              <div className="text-6xl md:text-7xl text-white/30 font-serif leading-none pt-2">
+              <div className="text-6xl md:text-7xl text-white/70 font-serif leading-none pt-2">
                 "
               </div>
               <blockquote className="text-lg md:text-xl text-white leading-relaxed">
