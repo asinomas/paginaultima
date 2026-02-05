@@ -59,7 +59,7 @@ const TestimonialsSection: React.FC = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ 
-          backgroundImage: "url('./public/images/testimonials.webp')",
+          backgroundImage: "url('/images/testimonials.webp')",
         }}
       >
         {/* Overlay oscuro */}
