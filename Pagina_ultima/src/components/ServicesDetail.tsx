@@ -150,7 +150,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
           <div className="w-1/3 min-w-[280px] h-32">
             {displayProfile && (
               <div
-                className={`bg-slate-100 rounded-md shadow-sm p-4 h-full transition-opacity duration-700 ${
+                className={`bg-slate-100 rounded-xl shadow-sm p-4 h-full transition-opacity duration-700 ${
                   isVisible ? "opacity-100" : "opacity-10"
                 }`}
               >
