@@ -67,83 +67,99 @@ const TestimonialsSection: React.FC = () => {
       </div>
 
       {/* Contenido */}
-      <div className="relative z-10 container mx-auto max-w-5xl px-6 py-24">
-        <div className="text-center">
-          {/* Nombre y rol */}
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">
-            {currentTestimonial.name}
-          </h2>
-          <p className="text-xl text-gray-300 mb-12">
-            {currentTestimonial.role}
-          </p>
+      <div className="relative z-10 container mx-auto max-w-6xl px-6 py-24">
+        <div className="relative flex items-center justify-center min-h-[60vh]">
+          {/* Botón anterior - lado izquierdo */}
+          <button
+            onClick={prevTestimonial}
+            className="absolute left-0 w-14 h-14 rounded-full border-2 border-white/50 hover:border-white hover:bg-white/10 transition-all flex items-center justify-center group"
+            aria-label="Testimonio anterior"
+          >
+            <svg 
+              className="w-6 h-6 text-white" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d="M15 19l-7-7 7-7" 
+              />
+            </svg>
+          </button>
 
-          {/* Quote con comillas grandes */}
-          <div className="relative max-w-4xl mx-auto mb-16">
-            <div className="text-8xl md:text-9xl text-white/20 font-serif absolute -top-8 left-0">
-              "
+          {/* Contenido del testimonio - centrado */}
+          <div className="max-w-3xl text-center px-20">
+            {/* Nombre y rol */}
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+              {currentTestimonial.name}
+            </h2>
+            <p className="text-lg text-gray-300 mb-10">
+              {currentTestimonial.role} en {currentTestimonial.company}
+            </p>
+
+            {/* Quote con comillas grandes */}
+            <div className="relative mb-10">
+              <div className="text-7xl md:text-8xl text-white/20 font-serif absolute -top-6 left-1/2 transform -translate-x-1/2">
+                "
+              </div>
+              <blockquote className="text-lg md:text-xl text-white leading-relaxed relative z-10 pt-8">
+                {currentTestimonial.quote}
+              </blockquote>
             </div>
-            <blockquote className="text-xl md:text-2xl text-white leading-relaxed px-8 md:px-16 relative z-10">
-              {currentTestimonial.quote}
-            </blockquote>
           </div>
 
-          {/* Controles de navegación */}
-          <div className="flex items-center justify-center gap-8">
-            <button
-              onClick={prevTestimonial}
-              className="w-14 h-14 rounded-full border-2 border-white/50 hover:border-white hover:bg-white/10 transition-all flex items-center justify-center group"
-              aria-label="Testimonio anterior"
+          {/* Botón siguiente - lado derecho */}
+          <button
+            onClick={nextTestimonial}
+            className="absolute right-0 w-14 h-14 rounded-full border-2 border-white/50 hover:border-white hover:bg-white/10 transition-all flex items-center justify-center group"
+            aria-label="Siguiente testimonio"
+          >
+            <svg 
+              className="w-6 h-6 text-white" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
             >
-              <svg 
-                className="w-6 h-6 text-white" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M15 19l-7-7 7-7" 
-                />
-              </svg>
-            </button>
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d="M9 5l7 7-7 7" 
+              />
+            </svg>
+          </button>
+        </div>
 
-            {/* Indicadores de puntos */}
-            <div className="flex gap-3">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-all ${
-                    index === currentIndex 
-                      ? 'bg-white w-8' 
-                      : 'bg-white/40 hover:bg-white/60'
-                  }`}
-                  aria-label={`Ir al testimonio ${index + 1}`}
-                />
-              ))}
-            </div>
+        {/* Indicadores y CTA - abajo */}
+        <div className="text-center mt-12">
+          {/* Indicadores de puntos */}
+          <div className="flex gap-3 justify-center mb-8">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-3 h-3 rounded-full transition-all ${
+                  index === currentIndex 
+                    ? 'bg-white w-8' 
+                    : 'bg-white/40 hover:bg-white/60'
+                }`}
+                aria-label={`Ir al testimonio ${index + 1}`}
+              />
+            ))}
+          </div>
 
-            <button
-              onClick={nextTestimonial}
-              className="w-14 h-14 rounded-full border-2 border-white/50 hover:border-white hover:bg-white/10 transition-all flex items-center justify-center group"
-              aria-label="Siguiente testimonio"
+          {/* CTA */}
+          <div>
+            <p className="text-white/80 mb-6">¿Quieres ser parte de nuestros casos de éxito?</p>
+            <a 
+              href="#contacto"
+              className="inline-block bg-[#135bec] text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl"
             >
-              <svg 
-                className="w-6 h-6 text-white" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M9 5l7 7-7 7" 
-                />
-              </svg>
-            </button>
+              Quiero ser parte
+            </a>
           </div>
         </div>
       </div>
