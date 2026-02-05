@@ -87,7 +87,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
                 El Gen BlackTI <span className="text-[#135bec] italic">Excelencia</span>
               </h1>
               <p className="text-lg md:text[17px] font-normal text-slate-500 tracking-tighter mb-6 leading-relaxed">
-                Somos una startup que trasciende la simple implementación técnica. Nacimos para transformar la complejidad técnica en valor empresarial, sumergiéndonos en la cultura de nuestros clientes para convertir obstáculos en motores de crecimiento sin perder la continuidad operativa.
+                Nacimos para transformar la complejidad técnica en valor empresarial. Somos una startup que trasciende la simple implementación técnica, nos sumergimos en la cultura de nuestros clientes para convertir obstáculos en motores de crecimiento sin perder la continuidad operativa.
               </p>
               <div className="space-y-6 mb-12">
                 <p className="text-lg leading-relaxed text-slate-500 tracking-tighter font-normal md:text[17px] mb-6">
