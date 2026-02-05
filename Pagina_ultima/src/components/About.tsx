@@ -5,7 +5,7 @@ const About: React.FC = () => {
   return (
     <ScrollAnimation>
       <section className="bg-white py-32 overflow-hidden">
-        <div className="container mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="container mx-auto max-w-7xl px-6 lg:px-8 rounded-[2.5rem] ">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             
             {/* IMAGEN A LA IZQUIERDA */}
