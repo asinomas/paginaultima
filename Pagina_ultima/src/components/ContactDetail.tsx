@@ -43,7 +43,7 @@ const ContactDetail: React.FC = () => {
             ></div>
 
             {/* Aquí aplicamos el padding-left para mover los textos */}
-            <div className="relative z-10 flex flex-col justify-center h-full p-6 lg:p-0 lg:pl-[25%]">
+            <div className="relative z-10 flex flex-col justify-center h-full p-6 lg:p-0 lg:pl-[15%]">
               <h4 className="text-[#135bec] font-bold uppercase tracking-[0.2em] text-[11px] mb-4">Hablemos hoy</h4>
 
               <h2 className="text-5xl lg:text-6xl font-black text-slate-900 mb-8 tracking-tighter leading-tight">
