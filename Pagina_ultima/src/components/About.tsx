@@ -16,7 +16,7 @@ const About: React.FC = () => {
                 alt="Grupo de oficina en reunión"
                 loading="lazy"
               />
-              <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-blue-100 rounded-full blur-[10px] -z-10"></div>
+              <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-blue-100 rounded-full blur-[3px] -z-10"></div>
             </div>
 
             {/* TEXTO A LA DERECHA */}
