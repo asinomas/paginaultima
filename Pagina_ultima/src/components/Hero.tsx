@@ -141,19 +141,19 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: ANIMATION_TIMINGS.slow }}
               >
-                <span style={{ color: COLORS.primary }} className="italic drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
+                <span style={{ color: COLORS.primary }} className="italic">
                   Construyendo{' '}
                 </span>
-                <span className="text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">el futuro</span>
+                <span className="text-white">el futuro</span>
                 <br />
-                <span className="text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">de tu </span>
-                <span style={{ color: COLORS.primary }} className="italic drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
+                <span className="text-white">de tu </span>
+                <span style={{ color: COLORS.primary }} className="italic">
                   Negocio
                 </span>
               </motion.h1>
 
               <motion.p
-                className="mt-6 text-lg md:text-2xl text-slate-200 max-w-2xl mx-auto drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]"
+                className="mt-6 text-lg md:text-2xl text-slate-200 max-w-2xl mx-auto"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
@@ -161,9 +161,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                   delay: ANIMATION_TIMINGS.fast,
                 }}
               >
-                Desarrollo para <span className="font-normal text-white">startups</span>.{' '}
-                Optimización para <span className="font-normal text-white">empresas</span>.{' '}
-                Acompañamiento en cada <span className="font-normal text-white">etapa</span>.
+                Desarrollo para startups. Optimización para empresas. Acompañamiento en cada etapa.
               </motion.p>
 
               <motion.div
@@ -177,34 +175,9 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               >
                 <button
                   onClick={() => onNavigate('contact')}
-                  className="
-                    px-8 py-4 
-                    bg-gradient-to-r from-blue-600 to-blue-500
-                    text-white font-bold rounded-2xl 
-                    hover:from-blue-500 hover:to-blue-400
-                    hover:shadow-lg hover:shadow-blue-500/50
-                    hover:scale-105
-                    transition-all duration-300
-                  "
+                  className="px-8 py-4 bg-blue-600 text-white rounded-2xl"
                 >
                   Solicitar Consultoría
-                </button>
-
-                <button
-                  onClick={() => onNavigate('services')}
-                  className="
-                    px-8 py-4 
-                    border border-slate-700 
-                    bg-gradient-to-r from-slate-900/50 to-slate-800/50
-                    text-white rounded-2xl 
-                    hover:border-slate-600 
-                    hover:from-slate-800/80 hover:to-slate-700/80
-                    hover:shadow-lg hover:shadow-slate-700/30
-                    hover:scale-105
-                    transition-all duration-300
-                  "
-                >
-                  Servicios
                 </button>
               </motion.div>
             </motion.div>
@@ -212,15 +185,13 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         </div>
       </div>
 
+      {/* FRANJA DE LOGOS CON ANIMACIÓN */}
       {!prefersReducedMotion && (
         <motion.div
           className="mt-6 border-t border-slate-700/40 bg-slate-900/30 pt-6 pb-6 overflow-hidden relative z-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{
-            duration: 0.6,
-            delay: ANIMATION_TIMINGS.slow + 0.1,
-          }}
+          transition={{ duration: 0.6, delay: ANIMATION_TIMINGS.slow }}
         >
           <p className="text-center text-slate-300 text-[10px] font-bold uppercase tracking-[0.5em] mb-4">
             Han confiado en nosotros
@@ -236,6 +207,41 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         </motion.div>
       )}
 
+      {/* FRANJA DE LOGOS SIN ANIMACIÓN */}
+      {prefersReducedMotion && (
+        <div className="mt-6 border-t border-slate-700/40 bg-slate-900/30 pt-6 pb-6 overflow-hidden relative z-10">
+          <p className="text-center text-slate-300 text-[10px] font-bold uppercase tracking-[0.5em] mb-4">
+            Han confiado en nosotros
+          </p>
+
+          <div className="flex justify-center flex-wrap gap-8 md:gap-12 px-8">
+            {BASE_LOGOS.map((logo, i) => {
+              const graySrc = logo.src.replace('.png', '-gris.png');
+
+              return (
+                <img
+                  key={i}
+                  src={graySrc}
+                  alt={logo.name}
+                  loading="lazy"
+                  className="
+                    h-8 md:h-10 w-auto object-contain
+                    max-w-[140px] md:max-w-[180px]
+                    transition-all duration-500
+                  "
+                  onMouseEnter={e => {
+                    e.currentTarget.src = logo.src;
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.src = graySrc;
+                  }}
+                />
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       <style>{`
         @keyframes infinite-scroll {
           from { transform: translateX(0); }
@@ -245,7 +251,6 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           display: flex;
           width: max-content;
           animation: infinite-scroll ${ANIMATION_TIMINGS.carousel}s linear infinite;
-          will-change: transform;
         }
         .animate-infinite-scroll:hover {
           animation-play-state: paused;
