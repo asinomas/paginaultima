@@ -32,7 +32,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       onMouseLeave={() => setIsExpanded(false)}
     >
       {/* CONTENIDO BASE */}
-      <div className="p-10 relative z-10">
+      <div
+           className={`
+            p-10 relative z-10
+            transition-opacity duration-300
+            ${isExpanded ? 'opacity-0 pointer-events-none' : 'opacity-100'}
+           `}
+          >
+        
         {/* ICONO DE FONDO */}
         <div className="
           absolute -top-6 -right-6 text-slate-100
