@@ -36,34 +36,30 @@ const Logo = memo(({ logo }: { logo: { name: string; src: string } }) => {
   useEffect(() => {
     const handleScroll = () => {
       if (!logoRef.current) return;
-      
+
       const rect = logoRef.current.getBoundingClientRect();
       const viewportWidth = window.innerWidth;
-      
-      // Zona de fade: 15% del viewport a cada lado
       const fadeZone = viewportWidth * 0.15;
-      
+
       let newOpacity = 1;
-      
-      // Fade in desde la derecha
+
       if (rect.right > viewportWidth - fadeZone) {
         const distanceFromEdge = viewportWidth - rect.left;
         newOpacity = Math.min(1, distanceFromEdge / fadeZone);
       }
-      
-      // Fade out por la izquierda
+
       if (rect.left < fadeZone) {
         newOpacity = Math.max(0, rect.right / fadeZone);
       }
-      
+
       setOpacity(newOpacity);
     };
 
-    // Ejecutar en cada frame de la animación
     const interval = setInterval(handleScroll, 50);
-    
     return () => clearInterval(interval);
   }, []);
+
+  const graySrc = logo.src.replace('.png', '-gris.png');
 
   return (
     <div
@@ -77,23 +73,26 @@ const Logo = memo(({ logo }: { logo: { name: string; src: string } }) => {
       style={{ opacity }}
     >
       <img
-        src={logo.src}
+        src={graySrc}
         alt={logo.name}
         loading="lazy"
         className="
           h-8 md:h-10 w-auto object-contain
           max-w-[140px] md:max-w-[180px]
-          filter grayscale
-          hover:grayscale-0
           transition-all duration-500
         "
+        onMouseEnter={e => {
+          e.currentTarget.src = logo.src;
+        }}
+        onMouseLeave={e => {
+          e.currentTarget.src = graySrc;
+        }}
       />
     </div>
   );
 });
 
 const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
-  // Detectar preferencia de animaciones del sistema
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   return (
@@ -102,7 +101,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       aria-labelledby="hero-heading"
     >
       {/* Imagen de fondo */}
-      <div 
+      <div
         className="absolute inset-0"
         style={{
           backgroundImage: 'url(/images/foto-hero.jpg)',
@@ -111,12 +110,12 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           backgroundRepeat: 'no-repeat',
         }}
       >
-        {/* Overlay oscuro para mejorar legibilidad */}
-        <div 
-           className="absolute inset-0"
-            style={{
-                    backgroundColor: `${COLORS.bgDark}40`,
-                    filter: 'brightness(0.30)', }}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundColor: `${COLORS.bgDark}40`,
+            filter: 'brightness(0.30)',
+          }}
         />
       </div>
 
@@ -124,15 +123,11 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
       <div className="container mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <div className="flex items-center justify-center min-h-[65vh]">
-          
-          {/* VERSIÓN CON ANIMACIONES */}
+
           {!prefersReducedMotion && (
             <motion.div
               initial={{ opacity: 0, y: 30 }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{
                 opacity: { duration: ANIMATION_TIMINGS.slow },
                 y: { duration: ANIMATION_TIMINGS.slow },
@@ -157,27 +152,27 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 </span>
               </motion.h1>
 
-              <motion.p 
+              <motion.p
                 className="mt-6 text-lg md:text-2xl text-slate-200 max-w-2xl mx-auto drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  duration: ANIMATION_TIMINGS.medium, 
-                  delay: ANIMATION_TIMINGS.fast 
+                transition={{
+                  duration: ANIMATION_TIMINGS.medium,
+                  delay: ANIMATION_TIMINGS.fast,
                 }}
               >
-                Desarrollo para <span className="font-normal text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">startups</span>.{' '}
-                Optimización para <span className="font-normal text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">empresas</span>.{' '}
-                Acompañamiento en cada <span className="font-normal text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">etapa</span>.
+                Desarrollo para <span className="font-normal text-white">startups</span>.{' '}
+                Optimización para <span className="font-normal text-white">empresas</span>.{' '}
+                Acompañamiento en cada <span className="font-normal text-white">etapa</span>.
               </motion.p>
 
-              <motion.div 
+              <motion.div
                 className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  duration: ANIMATION_TIMINGS.medium, 
-                  delay: ANIMATION_TIMINGS.medium 
+                transition={{
+                  duration: ANIMATION_TIMINGS.medium,
+                  delay: ANIMATION_TIMINGS.medium,
                 }}
               >
                 <button
@@ -214,76 +209,17 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               </motion.div>
             </motion.div>
           )}
-
-          {/* VERSIÓN SIN ANIMACIONES */}
-          {prefersReducedMotion && (
-            <div className="text-center">
-              <h1
-                id="hero-heading"
-                className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight"
-              >
-                <span style={{ color: COLORS.primary }} className="italic drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
-                  Construyendo{' '}
-                </span>
-                <span className="text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">el futuro</span>
-                <br />
-                <span className="text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">de tu </span>
-                <span style={{ color: COLORS.primary }} className="italic drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
-                  Negocio
-                </span>
-              </h1>
-
-              <p className="mt-6 text-lg md:text-2xl text-slate-200 max-w-2xl mx-auto">
-                Arquitectura para <span className="font-normal text-white">startups</span>.{' '}
-                Optimización para <span className="font-normal text-white">empresas</span>.{' '}
-                Acompañamiento en cada <span className="font-normal text-white">etapa</span>.
-              </p>
-
-              <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-                <button
-                  onClick={() => onNavigate('contact')}
-                  className="
-                    px-8 py-4 
-                    bg-gradient-to-r from-blue-600 to-blue-500
-                    text-white font-bold rounded-2xl 
-                    hover:from-blue-500 hover:to-blue-400
-                    hover:shadow-lg hover:shadow-blue-500/50
-                    transition-all duration-300
-                  "
-                >
-                  Solicitar Consultoría
-                </button>
-
-                <button
-                  onClick={() => onNavigate('services')}
-                  className="
-                    px-8 py-4 
-                    border border-slate-700 
-                    bg-gradient-to-r from-slate-900/50 to-slate-800/50
-                    text-white rounded-2xl 
-                    hover:border-slate-600 
-                    hover:from-slate-800/80 hover:to-slate-700/80
-                    hover:shadow-lg hover:shadow-slate-700/30
-                    transition-all duration-300
-                  "
-                >
-                  Servicios
-                </button>
-              </div>
-            </div>
-          )}
         </div>
       </div>
 
-      {/* FRANJA DE LOGOS - Con fade individual en cada logo */}
       {!prefersReducedMotion && (
-        <motion.div 
+        <motion.div
           className="mt-6 border-t border-slate-700/40 bg-slate-900/30 pt-6 pb-6 overflow-hidden relative z-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ 
-            duration: 0.6, 
-            delay: ANIMATION_TIMINGS.slow + 0.1 
+          transition={{
+            duration: 0.6,
+            delay: ANIMATION_TIMINGS.slow + 0.1,
           }}
         >
           <p className="text-center text-slate-300 text-[10px] font-bold uppercase tracking-[0.5em] mb-4">
@@ -298,39 +234,6 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             </div>
           </div>
         </motion.div>
-      )}
-
-      {/* FRANJA DE LOGOS - Versión sin animaciones */}
-      {prefersReducedMotion && (
-        <div className="mt-6 border-t border-slate-700/40 bg-slate-900/30 pt-6 pb-6 overflow-hidden relative z-10">
-          <p className="text-center text-slate-300 text-[10px] font-bold uppercase tracking-[0.5em] mb-4">
-            Han confiado en nosotros
-          </p>
-
-          <div className="relative">
-            <div className="flex justify-center flex-wrap gap-8 md:gap-12 px-8">
-              {BASE_LOGOS.map((logo, i) => (
-                <div
-                  key={i}
-                  className="flex-shrink-0 flex items-center justify-center"
-                >
-                  <img
-                    src={logo.src}
-                    alt={logo.name}
-                    loading="lazy"
-                    className="
-                      h-8 md:h-10 w-auto object-contain
-                      max-w-[140px] md:max-w-[180px]
-                      filter grayscale opacity-70
-                      hover:grayscale-0 hover:opacity-100
-                      transition-all duration-500
-                    "
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
       )}
 
       <style>{`
