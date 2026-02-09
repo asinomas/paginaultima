@@ -33,6 +33,38 @@ const testimonials: Testimonial[] = [
     quote: "Su consultoría en ciberseguridad nos ayudó a certificar ISO 27001. Excelente conocimiento técnico y atención personalizada.",
     avatar: "https://ui-avatars.com/api/?name=Roberto+Silva&background=f59e0b&color=fff",
     rating: 5
+  },
+   {
+    name: "Andrea Fuentes",
+    role: "Product Manager",
+    company: "SaaS Growth",
+    quote: "Trabajar con BlackTI fue clave para escalar nuestro producto. Entendieron el negocio y entregaron soluciones técnicas reales.",
+    avatar: "https://ui-avatars.com/api/?name=Andrea+Fuentes&background=6366f1&color=fff",
+    rating: 5
+  },
+  {
+    name: "Javier Rojas",
+    role: "Head of Engineering",
+    company: "E-Commerce LATAM",
+    quote: "El equipo se integró como parte de la compañía. Velocidad, calidad y comunicación constante. Difícil de encontrar hoy.",
+    avatar: "https://ui-avatars.com/api/?name=Javier+Rojas&background=0ea5e9&color=fff",
+    rating: 5
+  },
+  {
+    name: "Valentina Pérez",
+    role: "COO",
+    company: "HealthTech Solutions",
+    quote: "Gracias a BlackTI optimizamos procesos críticos y reducimos tiempos de entrega. Su enfoque estratégico marcó la diferencia.",
+    avatar: "https://ui-avatars.com/api/?name=Valentina+Perez&background=ec4899&color=fff",
+    rating: 5
+  },
+  {
+    name: "Daniel Ortega",
+    role: "Founder",
+    company: "AI Startup",
+    quote: "Nos ayudaron desde la arquitectura hasta el equipo técnico. Sin ellos no habríamos llegado al mercado tan rápido.",
+    avatar: "https://ui-avatars.com/api/?name=Daniel+Ortega&background=22c55e&color=fff",
+    rating: 5
   }
 ];
 
