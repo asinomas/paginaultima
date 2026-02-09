@@ -95,7 +95,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: 'url(/images/foto-hero.jpg)',
+          backgroundImage: 'url(/images/foto-hero.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
