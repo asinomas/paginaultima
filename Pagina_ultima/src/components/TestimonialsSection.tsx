@@ -54,7 +54,7 @@ const TestimonialsSection: React.FC = () => {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section className="relative py-32 overflow-hidden border-y border-white/5">
+    <section className="relative py-16 overflow-hidden border-y border-white/5">
       {/* Imagen de fondo */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-[1px]"
@@ -65,7 +65,7 @@ const TestimonialsSection: React.FC = () => {
 
       {/* Contenido */}
       <div className="relative z-10 container mx-auto max-w-6xl px-6">
-        <div className="relative flex items-center justify-center h-[40vh]">
+        <div className="relative flex items-center justify-center h-[36vh]">
           
           {/* Botón anterior */}
           <button
@@ -88,11 +88,11 @@ const TestimonialsSection: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
               {currentTestimonial.name}
             </h2>
-            <p className="text-lg text-gray-300 mb-10">
+            <p className="text-lg text-gray-300 mb-8">
               {currentTestimonial.role} en {currentTestimonial.company}
             </p>
 
-            <div className="relative mb-10 flex items-start gap-4">
+            <div className="relative mb-8 flex items-start gap-4">
               <div className="text-6xl md:text-7xl text-white/70 font-serif leading-none pt-2">
                 "
               </div>
@@ -120,8 +120,8 @@ const TestimonialsSection: React.FC = () => {
         </div>
 
         {/* Indicadores + CTA */}
-        <div className="text-center mt-12">
-          <div className="flex gap-3 justify-center mb-8">
+        <div className="text-center mt-10">
+          <div className="flex gap-3 justify-center mb-6">
             {testimonials.map((_, index) => (
               <button
                 key={index}
@@ -136,12 +136,12 @@ const TestimonialsSection: React.FC = () => {
             ))}
           </div>
 
-          <p className="text-white/80 text-base mb-6">
+          <p className="text-white/80 text-base mb-4">
             ¿Quieres ser parte de nuestros casos de éxito?
           </p>
           <a
             href="#contacto"
-            className="inline-block border-2 border-white/50 hover:border-white bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-full font-bold transition-all"
+            className="inline-block border-2 border-white/50 hover:border-white bg-white/10 hover:bg-white/20 text-white px-7 py-3 rounded-full font-bold transition-all"
           >
             Solicitar Consultoría
           </a>
