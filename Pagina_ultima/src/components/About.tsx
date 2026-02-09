@@ -9,12 +9,19 @@ const About: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             
             {/* IMAGEN A LA IZQUIERDA */}
-            <div className="w-full justify-center relative hidden md:flex shadow-2xl border border-slate-100 rounded-[2.5rem]">
+            <div className="w-full justify-center relative hidden md:flex shadow-2xl border border-slate-100 rounded-[2.5rem] overflow-hidden">
               <img 
-                src="./images/team-talk-office.webp" 
-                className="h-[450px] w-full object-cover transition-transform duration-[1.5s] group-hover:scale-105 rounded-[2.5rem] blur-[0.5px]"
+                src="./images/team-talk-office.webp"
                 alt="Grupo de oficina en reunión"
                 loading="lazy"
+                className="
+                  h-[450px]
+                  w-full
+                  object-cover
+                  block
+                  rounded-[2.5rem]
+                  blur-[0.5px]
+                "
               />
               <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-blue-100 rounded-full blur-[1px] -z-10"></div>
             </div>
@@ -26,18 +33,22 @@ const About: React.FC = () => {
                   Cubrimos todo el ecosistema TI
                 </span>
               </div>
+
               <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-8 leading-[1.1]">
                 Liderando con <span className="text-blue-600 italic">Propósito</span> Real
               </h2>
+
               <p className="text-lg md:text-[17px] font-normal text-slate-500 tracking-tighter mb-6 leading-relaxed">
-              Somos un equipo de alto rendimiento, con obsesión por el detalle y mentalidad <span className="text-lg md:text-[17px] font-bold text-slate-500 tracking-tighter mb-6 leading-relaxed">problem-solver</span>.
-              Nuestra experiencia se traduce en soluciones.
+                Somos un equipo de alto rendimiento, con obsesión por el detalle y mentalidad{" "}
+                <span className="font-bold">problem-solver</span>. Nuestra experiencia se traduce en soluciones.
               </p>
+
               <div className="space-y-6 mb-12">
-                <p className="text-lg leading-relaxed text-slate-500 tracking-tighter font-normal md:text-[17px] mb-6">
+                <p className="text-lg leading-relaxed text-slate-500 tracking-tighter font-normal md:text-[17px]">
                   Ofrecemos el ecosistema completo para que un producto digital no solo nazca, sino que escale y sea seguro
                 </p>
               </div>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
                 {['Optimización', 'Seguridad', 'Escalabilidad', 'Transparencia'].map((item) => (
                   <div key={item} className="flex items-center gap-3">
@@ -49,6 +60,7 @@ const About: React.FC = () => {
                 ))}
               </div>
             </div>
+
           </div>
         </div>
       </section>
