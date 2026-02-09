@@ -65,12 +65,12 @@ const TestimonialsSection: React.FC = () => {
 
       {/* Contenido */}
       <div className="relative z-10 container mx-auto max-w-6xl px-6">
-        <div className="relative flex items-center justify-center h-[36vh]">
+        <div className="relative h-[36vh]">
           
           {/* Botón anterior */}
           <button
             onClick={prevTestimonial}
-            className="absolute left-0 w-14 h-14 rounded-full border-2 border-white/50 hover:border-white hover:bg-white/10 transition-all flex items-center justify-center"
+            className="absolute left-0 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full border-2 border-white/50 hover:border-white hover:bg-white/10 transition-all flex items-center justify-center"
             aria-label="Testimonio anterior"
           >
             <svg
@@ -84,28 +84,30 @@ const TestimonialsSection: React.FC = () => {
           </button>
 
           {/* Testimonio */}
-          <div className="max-w-3xl text-left px-20">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
-              {currentTestimonial.name}
-            </h2>
-            <p className="text-lg text-gray-300 mb-8">
-              {currentTestimonial.role} en {currentTestimonial.company}
-            </p>
+          <div className="h-full flex items-center justify-center">
+            <div className="max-w-3xl text-left px-20">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                {currentTestimonial.name}
+              </h2>
+              <p className="text-lg text-gray-300 mb-8">
+                {currentTestimonial.role} en {currentTestimonial.company}
+              </p>
 
-            <div className="relative mb-8 flex items-start gap-4">
-              <div className="text-6xl md:text-7xl text-white/70 font-serif leading-none pt-2">
-                "
+              <div className="relative mb-8 flex items-start gap-4">
+                <div className="text-6xl md:text-7xl text-white/70 font-serif leading-none pt-2">
+                  "
+                </div>
+                <blockquote className="text-lg md:text-xl text-white leading-relaxed">
+                  {currentTestimonial.quote}
+                </blockquote>
               </div>
-              <blockquote className="text-lg md:text-xl text-white leading-relaxed">
-                {currentTestimonial.quote}
-              </blockquote>
             </div>
           </div>
 
           {/* Botón siguiente */}
           <button
             onClick={nextTestimonial}
-            className="absolute right-0 w-14 h-14 rounded-full border-2 border-white/50 hover:border-white hover:bg-white/10 transition-all flex items-center justify-center"
+            className="absolute right-0 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full border-2 border-white/50 hover:border-white hover:bg-white/10 transition-all flex items-center justify-center"
             aria-label="Siguiente testimonio"
           >
             <svg
