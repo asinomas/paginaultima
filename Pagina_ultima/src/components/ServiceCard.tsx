@@ -71,7 +71,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           </h4>
 
           <p
-            className="text-slate-500 leading-relaxed text-sm mb-6"
+            className="text-slate-500 leading-relaxed text-sm mb-2"
             onMouseEnter={() => setIsExpanded(true)}
           >
             {description}
