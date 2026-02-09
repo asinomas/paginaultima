@@ -116,7 +116,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           <Icon size={180} strokeWidth={1} />
         </div>
 
-        <div className="relative z-10 px-10 py-10">
+        <div className="relative z-10 px-10 pb-10 pt-16">
           {detailsTitle && (
             <h5 className="text-xs font-bold text-slate-900 mb-4 uppercase tracking-wider">
               {detailsTitle}
