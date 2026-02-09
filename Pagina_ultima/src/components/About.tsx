@@ -10,19 +10,17 @@ const About: React.FC = () => {
             
             {/* IMAGEN A LA IZQUIERDA */}
             <div className="w-full justify-center relative hidden md:flex shadow-2xl border border-slate-100 rounded-[2.5rem] overflow-hidden">
+              {/* Imagen real */}
               <img 
                 src="./images/team-talk-office.webp"
                 alt="Grupo de oficina en reunión"
                 loading="lazy"
-                className="
-                  h-[450px]
-                  w-full
-                  object-cover
-                  block
-                  rounded-[2.5rem]
-                  blur-[0.5px]
-                "
+                className="h-[450px] w-full object-cover block rounded-[2.5rem]"
               />
+              {/* Capa de blur separada */}
+              <div className="absolute inset-0 rounded-[2.5rem] bg-white/0 backdrop-blur-[0.5px] pointer-events-none"></div>
+              
+              {/* Luz decorativa */}
               <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-blue-100 rounded-full blur-[1px] -z-10"></div>
             </div>
 
