@@ -25,7 +25,7 @@ const FAQSection: React.FC = () => {
       answer: "Realizaremos las gestiones para su remplazo sin costo en las primeras 2 semanas."
     },
     {
-      question: "¿Qué hace cada perfil TI y por qué contratarlo a través de nuestro BlackTI?",
+      question: "¿Qué hace cada perfil TI y por qué contratarlo a través de BlackTI?",
       answer: "No solo ofrecemos perfiles tecnológicos. Entregamos profesionales evaluados, acompañados y alineados al negocio, listos para generar impacto real en tu empresa desde el primer día."
     },
     {
@@ -63,7 +63,7 @@ const FAQSection: React.FC = () => {
           </div>
 
           {/* RIGHT COLUMN - FAQ Items */}
-          <div className="space-y-4 -mt-6 lg:-mt-0">
+          <div className="space-y-4 pt-6 lg:pt-0"> {/* ← agregamos pt-6 en móviles, cero en lg */}
             {faqData.map((item, index) => (
               <div
                 key={index}
