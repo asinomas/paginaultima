@@ -136,7 +136,9 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
                   >
                     <span>Excelencia</span>
                     <span>Compromiso</span>
+                    <span>Transparencia</span>
                     <span>Compañía</span>
+                    <span>Resultados</span>
                   </TextLoop>
                 ) : (
                   <span className="text-[#135bec] italic">Excelencia</span>
