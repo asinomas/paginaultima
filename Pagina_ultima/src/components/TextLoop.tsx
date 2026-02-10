@@ -9,7 +9,7 @@ interface TextLoopProps {
 
 const TextLoop: React.FC<TextLoopProps> = ({
   children,
-  interval = 2800, // más lento para que se vea natural
+  interval = 2500, // más lento para que se vea natural
   className = '',
 }) => {
   const [index, setIndex] = useState(0);
