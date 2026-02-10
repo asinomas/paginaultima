@@ -5,7 +5,7 @@ import OfficeDetails from './OfficeDetails';
 import { OFFICE_LOCATIONS } from '../constants';
 import { OfficeLocation } from '../types';
 import ScrollAnimation from './ScrollAnimation';
-import { TextLoop } from '@/components/core/text-loop';
+import TextLoop from './TextLoop';
 
 // IMPORTAR LA IMAGEN DESDE PUBLIC
 import fotoAbout from '/images/foto-about.webp';
