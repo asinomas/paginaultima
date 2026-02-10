@@ -25,7 +25,7 @@ const FAQSection: React.FC = () => {
       answer: "Realizaremos las gestiones para su remplazo sin costo en las primeras 2 semanas."
     },
     {
-      question: "¿Qué hace cada perfil TI y por qué contratarlo a través de BlackTI?",
+      question: "¿Qué hace cada perfil TI y por qué contratarlo a través de nuestro Consultorio TI?", 
       answer: "No solo ofrecemos perfiles tecnológicos. Entregamos profesionales evaluados, acompañados y alineados al negocio, listos para generar impacto real en tu empresa desde el primer día."
     },
     {
@@ -47,9 +47,9 @@ const FAQSection: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-          
+
           {/* LEFT COLUMN - Title and Description */}
-          <div className="lg:sticky lg:top-24 lg:self-start">
+          <div className="lg:sticky lg:top-24 lg:self-start mt-12 lg:mt-24">
             <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
               Preguntas frecuentes
             </h2>
@@ -63,7 +63,7 @@ const FAQSection: React.FC = () => {
           </div>
 
           {/* RIGHT COLUMN - FAQ Items */}
-          <div className="space-y-4 pt-6 lg:pt-0"> {/* ← agregamos pt-6 en móviles, cero en lg */}
+          <div className="space-y-4">
             {faqData.map((item, index) => (
               <div
                 key={index}
@@ -84,7 +84,7 @@ const FAQSection: React.FC = () => {
                     )}
                   </span>
                 </button>
-                
+
                 <div
                   className={`overflow-hidden transition-all duration-300 ease-in-out ${
                     openIndex === index ? 'max-h-96 opacity-100 mb-6' : 'max-h-0 opacity-0'
@@ -97,7 +97,7 @@ const FAQSection: React.FC = () => {
               </div>
             ))}
           </div>
-          
+
         </div>
       </div>
     </section>
