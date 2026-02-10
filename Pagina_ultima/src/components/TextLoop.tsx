@@ -5,42 +5,12 @@ interface TextLoopProps {
   children: React.ReactNode[];
   interval?: number;
   className?: string;
-  transition?: {
-    duration?: number;
-    ease?: any;
-  };
-  variants?: {
-    initial: any;
-    animate: any;
-    exit: any;
-  };
 }
 
 const TextLoop: React.FC<TextLoopProps> = ({
   children,
-  interval = 2600,
+  interval = 3800, // más lento para que se vea natural
   className = '',
-  transition = {
-    duration: 0.45,
-    ease: 'easeInOut',
-  },
-  variants = {
-    initial: {
-      y: 12,
-      opacity: 0,
-      filter: 'blur(2px)',
-    },
-    animate: {
-      y: 0,
-      opacity: 1,
-      filter: 'blur(0px)',
-    },
-    exit: {
-      y: -12,
-      opacity: 0,
-      filter: 'blur(2px)',
-    },
-  },
 }) => {
   const [index, setIndex] = useState(0);
 
@@ -53,6 +23,14 @@ const TextLoop: React.FC<TextLoopProps> = ({
 
     return () => clearInterval(timer);
   }, [children, interval]);
+
+  const variants = {
+    initial: { opacity: 0, y: 4 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -4 },
+  };
+
+  const transition = { duration: 0.6, ease: 'easeInOut' };
 
   return (
     <span className={`relative inline-block ${className}`}>
