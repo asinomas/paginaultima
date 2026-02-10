@@ -9,21 +9,21 @@ interface TextLoopProps {
   variants?: any;
 }
 
-export const TextLoop: React.FC<TextLoopProps> = ({
+const TextLoop: React.FC<TextLoopProps> = ({
   children,
   interval = 2500,
-  className,
+  className = '',
   transition,
   variants,
 }) => {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const id = setInterval(() => {
+    const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % children.length);
     }, interval);
 
-    return () => clearInterval(id);
+    return () => clearInterval(timer);
   }, [children.length, interval]);
 
   return (
@@ -44,3 +44,5 @@ export const TextLoop: React.FC<TextLoopProps> = ({
     </span>
   );
 };
+
+export default TextLoop;
