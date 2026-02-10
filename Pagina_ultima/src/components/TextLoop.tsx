@@ -1,30 +1,58 @@
-import { AnimatePresence, motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 
 interface TextLoopProps {
   children: React.ReactNode[];
   interval?: number;
   className?: string;
-  transition?: any;
-  variants?: any;
+  transition?: {
+    duration?: number;
+    ease?: any;
+  };
+  variants?: {
+    initial: any;
+    animate: any;
+    exit: any;
+  };
 }
 
 const TextLoop: React.FC<TextLoopProps> = ({
   children,
-  interval = 2500,
+  interval = 2600,
   className = '',
-  transition,
-  variants,
+  transition = {
+    duration: 0.45,
+    ease: 'easeInOut',
+  },
+  variants = {
+    initial: {
+      y: 12,
+      opacity: 0,
+      filter: 'blur(2px)',
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+      filter: 'blur(0px)',
+    },
+    exit: {
+      y: -12,
+      opacity: 0,
+      filter: 'blur(2px)',
+    },
+  },
 }) => {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
+    if (!children || children.length <= 1) return;
+
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % children.length);
     }, interval);
 
     return () => clearInterval(timer);
-  }, [children.length, interval]);
+  }, [children, interval]);
 
   return (
     <span className={`relative inline-block ${className}`}>
@@ -36,7 +64,7 @@ const TextLoop: React.FC<TextLoopProps> = ({
           animate="animate"
           exit="exit"
           transition={transition}
-          className="inline-block whitespace-nowrap"
+          className="inline-block whitespace-nowrap will-change-transform"
         >
           {children[index]}
         </motion.span>
