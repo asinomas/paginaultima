@@ -60,7 +60,7 @@ const ContactDetail: React.FC = () => {
               <div className="space-y-6">
                 {/* EMAIL + TELEFONO */}
                 <motion.div
-                  className="flex flex-col lg:flex-row lg:items-start lg:gap-8"
+                  className="flex flex-col gap-6"
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
