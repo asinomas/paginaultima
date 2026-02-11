@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useIsDesktop } from '../hooks/useIsDesktop';
 
 /* =========================
    Tipos
@@ -22,6 +23,7 @@ const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const isDesktop = useIsDesktop();
 
   /* =========================
      Scroll listener (passive)
@@ -37,6 +39,30 @@ const Navbar: React.FC<NavbarProps> = ({
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  /* =========================
+     Auto close mobile menu on desktop
+  ========================= */
+  useEffect(() => {
+    if (isDesktop) {
+      setIsMobileMenuOpen(false);
+    }
+  }, [isDesktop]);
+
+  /* =========================
+     Lock body scroll when mobile menu is open
+  ========================= */
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
 
   /* =========================
      Navegación
