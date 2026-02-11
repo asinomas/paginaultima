@@ -86,7 +86,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
             <img
               src="/images/foto-service-hero.png"
               alt=""
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover grayscale brightness-95 contrast-105"
             />
             
             {/* Imagen efecto difuminado */}
