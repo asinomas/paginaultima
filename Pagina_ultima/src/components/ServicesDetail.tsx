@@ -28,14 +28,14 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
     "Scrum Master": "No solo aplica Scrum: mejora la madurez ágil del equipo, facilita la comunicación con stakeholders y acelera la entrega de valor.",
     Ciberseguridad: "Trabaja de forma preventiva, no reactiva, protegiendo los activos digitales y la reputación de la empresa.",
     DevOps: "Optimiza infraestructura y procesos, reduce fallas en producción y mejora la continuidad operativa mediante automatización real.",
-    "Dev Java": "Aporta estabilidad, escalabilidad y buenas prácticas en sistemas empresariales críticos.",
-    Python: "Capaz de automatizar procesos y desarrollar soluciones eficientes.",
-    BackEnd: "Desarrolla APIs seguras y escalables.",
-    FrontEnd: "Entrega experiencias alineadas a la identidad de la empresa.",
-    Fullstack: "Perfil integral que acelera desarrollos.",
-    "UX/UI": "Diseña pensando en el usuario final y en los objetivos del negocio.",
-    "Dev Android/iOS": "Desarrollo de apps nativas seguras.",
-    "Mesa de Ayuda": "Atención cercana y continuidad operativa.",
+    "Dev Java": "Aporta estabilidad, escalabilidad y buenas prácticas en sistemas empresariales críticos, con experiencia en entornos corporativos.",
+    Python: "Capaz de automatizar procesos, analizar datos y desarrollar soluciones inteligentes que generan eficiencia y ahorro.",
+    BackEnd: "No solo desarrolla APIs: entiende el negocio, prioriza seguridad, rendimiento y escalabilidad desde el diseño.",
+    FrontEnd: "Más que interfaces atractivas, entrega experiencias de usuario funcionales, alineadas a la identidad de la empresa.",
+    Fullstack: "Perfil integral que reduce dependencias, acelera desarrollos y mantiene coherencia técnica en todo el producto.",
+    "UX/UI": "Diseña pensando en el usuario final y en los objetivos del negocio, aumentando adopción y satisfacción del cliente.",
+    "Dev Android/iOS": "Nuestros desarrolladores mobile están enfocados en la creación de apps nativas, seguras y escalables en entornos productivos.",
+    "Mesa de Ayuda": "Atención cercana, tiempos de respuesta definidos y continuidad operativa sin fricción para el usuario final.",
   };
 
   const [activeProfile, setActiveProfile] = useState<string | null>(null);
