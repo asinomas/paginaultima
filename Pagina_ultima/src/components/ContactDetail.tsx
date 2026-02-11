@@ -38,7 +38,7 @@ const ContactDetail: React.FC = () => {
           {/* IZQUIERDA */}
           <div className="relative h-full w-full rounded-[3rem] overflow-hidden">
             <div
-              className="absolute inset-0 bg-cover bg-center rounded-[3rem] overflow-hidden blur-[6px] sm:blur-none scale-[1.4]"
+              className="absolute inset-0 bg-cover bg-center rounded-[3rem] overflow-hidden blur-[6px] scale-[1.4]"
               style={{ backgroundImage: "url(/images/contact.webp)", borderRadius: "3rem" }}
             ></div>
 
