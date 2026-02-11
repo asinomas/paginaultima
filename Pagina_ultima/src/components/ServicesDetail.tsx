@@ -19,18 +19,9 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
   ];
 
   const profiles = [
-    "Tech Lead",
-    "Scrum Master",
-    "Ciberseguridad",
-    "DevOps",
-    "Dev Java",
-    "Python",
-    "BackEnd",
-    "FrontEnd",
-    "Fullstack",
-    "UX/UI",
-    "Dev Android/iOS",
-    "Mesa de Ayuda",
+    "Tech Lead", "Scrum Master", "Ciberseguridad", "DevOps", "Dev Java",
+    "Python", "BackEnd", "FrontEnd", "Fullstack", "UX/UI",
+    "Dev Android/iOS", "Mesa de Ayuda",
   ];
 
   const profileDescriptions: Record<string, string> = {
@@ -90,18 +81,18 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
         <div className="relative overflow-hidden rounded-[3rem] bg-[#0b0e14] p-12 lg:p-24">
           <ServicesHeroLights />
 
-          {/* IMAGEN ABSOLUTA (NO AFECTA EL CONTENEDOR) */}
+          {/* Imagen decorativa absoluta */}
           <div className="hidden lg:block absolute top-0 right-0 h-full w-[40%] pointer-events-none">
             <img
               src="/images/foto-service-hero.png"
-              alt="Equipo colaborando"
+              alt="Equipo BlackTI colaborando en un espacio moderno"
               className="h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#0b0e14] via-[#0b0e14]/40 to-transparent" />
           </div>
 
-          {/* CONTENIDO ORIGINAL */}
-          <div className="relative z-10 flex flex-col items-center lg:items-start text-center lg:text-left max-w-3xl">
+          {/* Contenido */}
+          <div className="relative z-10 max-w-3xl">
             <h1 className="text-4xl lg:text-7xl font-black text-white leading-tight mb-8 tracking-tighter">
               Talento TI para <br />
               <span className="text-[#135bec] italic drop-shadow-[0_0_15px_rgba(19,91,236,0.3)]">
@@ -122,6 +113,56 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
             </button>
           </div>
         </div>
+      </section>
+
+      {/* PERFILES */}
+      <section ref={containerRef} className="container mx-auto max-w-7xl px-6 lg:px-8 mb-12">
+        <div className="mb-4 flex items-center max-w-[600px]">
+          <span className="text-[10px] font-bold tracking-[0.4em] text-slate-400 uppercase border-b pb-2">
+            Perfiles especializados
+          </span>
+          <div className="flex-1 h-px bg-slate-300 ml-4" />
+        </div>
+
+        <div className="flex gap-4 items-start">
+          <div className="w-1/3 min-w-[280px] h-32">
+            {displayProfile && (
+              <div className={`bg-slate-100 rounded-xl p-4 h-full transition-opacity duration-700 ${isVisible ? "opacity-100" : "opacity-10"}`}>
+                <p className="text-slate-800 text-sm font-medium">
+                  {profileDescriptions[displayProfile]}
+                </p>
+              </div>
+            )}
+          </div>
+
+          <div className="flex-1 flex flex-wrap gap-3 justify-end max-w-4xl">
+            {profiles.map((profile) => (
+              <button
+                key={profile}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveProfile(activeProfile === profile ? null : profile);
+                }}
+                className={`bg-slate-200 px-4 py-1.5 rounded-full text-sm font-medium hover:scale-105 transition ${
+                  activeProfile === profile ? "bg-slate-300" : ""
+                }`}
+              >
+                {profile}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICIOS */}
+      <section className="container mx-auto max-w-7xl px-6 lg:px-8">
+        <ScrollAnimation>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {specialties.map((item, idx) => (
+              <ServiceCard key={idx} {...item} buttonText="Detalles del servicio" detailsTitle="" />
+            ))}
+          </div>
+        </ScrollAnimation>
       </section>
     </div>
   );
