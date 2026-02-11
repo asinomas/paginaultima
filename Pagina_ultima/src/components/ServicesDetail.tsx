@@ -85,121 +85,43 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
 
   return (
     <div className="bg-slate-50 min-h-screen pt-16 pb-32 antialiased">
-      {/* HERO SECTION */}
+      {/* HERO */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8 mb-24">
         <div className="relative overflow-hidden rounded-[3rem] bg-[#0b0e14] p-12 lg:p-24">
           <ServicesHeroLights />
 
-          <div className="relative z-10 flex flex-col lg:flex-row items-center gap-12">
-            {/* TEXTO */}
-            <div className="lg:w-2/3 text-center lg:text-left">
-              <h1 className="text-4xl lg:text-7xl font-black text-white leading-tight mb-8 tracking-tighter">
-                Talento TI para <br />
-                <span className="text-[#135bec] italic drop-shadow-[0_0_15px_rgba(19,91,236,0.3)]">
-                  Impulsar tu Empresa
-                </span>
-              </h1>
-
-              <p className="text-lg lg:text-xl text-slate-400 leading-relaxed max-w-2xl mb-10">
-                Nuestros profesionales pueden incorporarse bajo distintos esquemas,
-                adaptándose a las necesidades específicas de cada empresa.
-              </p>
-
-              <button
-                onClick={onContactClick}
-                className="rounded-2xl bg-[#135bec] px-10 py-5 text-base font-bold text-white shadow-2xl shadow-[#135bec]/30 hover:scale-105 active:scale-95 transition-all"
-              >
-                Iniciar Transformación
-              </button>
-            </div>
-
-            {/* IMAGEN DERECHA */}
-            <div className="hidden lg:block lg:w-1/3 relative">
-              <div className="relative h-[420px] w-full">
-                <img
-                  src="./images/foto-service-hero.png"
-                  alt="Equipo BlackTI colaborando en unespacio moderno"
-                  className="absolute inset-0 h-full w-full object-cover rounded-2xl"
-                />
-
-                {/* Degradado izquierda → derecha */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0b0e14] via-[#0b0e14]/40 to-transparent rounded-2xl" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PERFILES ESPECIALIZADOS */}
-      <section ref={containerRef} className="container mx-auto max-w-7xl px-6 lg:px-8 mb-12">
-        <div className="mb-4 flex items-center justify-start max-w-[600px]">
-          <span className="text-[10px] font-bold tracking-[0.4em] text-slate-400 uppercase mb-6 border-b border-slate-200 pb-2">
-            Perfiles especializados
-          </span>
-          <div className="flex-1 h-[0.5px] bg-slate-300"></div>
-        </div>
-
-        <div className="flex gap-4 relative items-start">
-          <div className="w-1/3 min-w-[280px] h-32">
-            {displayProfile && (
-              <div
-                className={`bg-slate-100 rounded-xl shadow-sm p-4 h-full transition-opacity duration-700 ${
-                  isVisible ? "opacity-100" : "opacity-10"
-                }`}
-              >
-                <p className="text-slate-800 text-sm font-medium">
-                  {profileDescriptions[displayProfile]}
-                </p>
-              </div>
-            )}
+          {/* IMAGEN ABSOLUTA (NO AFECTA EL CONTENEDOR) */}
+          <div className="hidden lg:block absolute top-0 right-0 h-full w-[40%] pointer-events-none">
+            <img
+              src="/images/foto-service-hero.png"
+              alt="Equipo colaborando"
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0b0e14] via-[#0b0e14]/40 to-transparent" />
           </div>
 
-          <div className="flex-1 flex flex-wrap gap-3 justify-end max-w-4xl content-start">
-            {profiles.map((profile) => (
-              <button
-                key={profile}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setActiveProfile(activeProfile === profile ? null : profile);
-                }}
-                className={`bg-slate-200 text-slate-800 px-4 py-1.5 rounded-full text-sm font-medium hover:bg-slate-300 hover:scale-105 hover:shadow-md transition-all ${
-                  activeProfile === profile ? "bg-slate-300" : ""
-                }`}
-              >
-                {profile}
-              </button>
-            ))}
+          {/* CONTENIDO ORIGINAL */}
+          <div className="relative z-10 flex flex-col items-center lg:items-start text-center lg:text-left max-w-3xl">
+            <h1 className="text-4xl lg:text-7xl font-black text-white leading-tight mb-8 tracking-tighter">
+              Talento TI para <br />
+              <span className="text-[#135bec] italic drop-shadow-[0_0_15px_rgba(19,91,236,0.3)]">
+                Impulsar tu Empresa
+              </span>
+            </h1>
+
+            <p className="text-lg lg:text-xl text-slate-400 leading-relaxed max-w-2xl mb-10">
+              Nuestros profesionales pueden incorporarse bajo distintos esquemas,
+              adaptándose a las necesidades específicas de cada empresa.
+            </p>
+
+            <button
+              onClick={onContactClick}
+              className="rounded-2xl bg-[#135bec] px-10 py-5 text-base font-bold text-white shadow-2xl shadow-[#135bec]/30 hover:scale-105 active:scale-95 transition-all"
+            >
+              Iniciar Transformación
+            </button>
           </div>
         </div>
-      </section>
-
-      {/* SERVICIOS */}
-      <section className="container mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
-          <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Nuestra <span className="text-[#135bec] italic">Especialización</span>
-          </h2>
-          <div className="h-0.5 flex-1 bg-slate-200 hidden md:block mx-10" />
-          <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">
-            Servicios End-to-End
-          </p>
-        </div>
-
-        <ScrollAnimation>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {specialties.map((item, idx) => (
-              <ServiceCard
-                key={idx}
-                Icon={item.icon}
-                title={item.title}
-                description={item.description}
-                details={item.details}
-                buttonText="Detalles del servicio"
-                detailsTitle=""
-              />
-            ))}
-          </div>
-        </ScrollAnimation>
       </section>
     </div>
   );
