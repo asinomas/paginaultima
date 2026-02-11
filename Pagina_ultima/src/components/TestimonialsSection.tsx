@@ -89,7 +89,7 @@ const TestimonialsSection: React.FC = () => {
     <section className="relative py-16 overflow-hidden border-y border-white/5">
       {/* Imagen de fondo */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-[1px] grayscale brightness-70 contrast-120"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-[1px] grayscale brightness-70 contrast-90"
         style={{ backgroundImage: "url('/images/testimonials.webp')" }}
       >
         <div className="absolute inset-0 bg-gray-900/50" />
