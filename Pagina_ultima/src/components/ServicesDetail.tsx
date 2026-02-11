@@ -87,7 +87,8 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
               alt=""
               className="h-full w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0b0e14] via-[#0b0e14]/70 to-transparent" />
+            {/* Imagen difuminado */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0b0e14] via-[#0b0e14] to-transparent" />
           </div>
 
           <div className="relative z-10 max-w-3xl">
