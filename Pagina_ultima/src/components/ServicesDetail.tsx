@@ -80,6 +80,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
         <div className="relative overflow-hidden rounded-[3rem] bg-[#0b0e14] p-12 lg:p-24">
           <ServicesHeroLights />
 
+          
           {/* Imagen decorativa derecha */}
           <div className="hidden lg:block absolute inset-y-0 right-0 w-[45%] pointer-events-none">
             <img
@@ -87,10 +88,13 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
               alt=""
               className="h-full w-full object-cover"
             />
-            {/* Imagen difuminado */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0b0e14] via-[#0b0e14] to-transparent" />
+            
+            {/* Imagen efecto difuminado */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0b0e14] via-[#0b0e14]/50 to-transparent" />
           </div>
 
+
+          
           <div className="relative z-10 max-w-3xl">
             <h1 className="text-4xl lg:text-7xl font-black text-white leading-tight mb-8">
               Talento TI para <br />
