@@ -117,7 +117,7 @@ const ContactDetail: React.FC = () => {
                   </div>
                   <div className="max-w-md">
                     <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Oficina Central</p>
-                    <p className="text-slate-900 font-bold text-lg">{DIRECCION}</p>
+                    <p className="text-slate-900 font-bold text-lg whitespace-pre-line">{DIRECCION.replace(", Región", ",\nRegión")}</p>
                   </div>
                 </motion.a>
               </div>
