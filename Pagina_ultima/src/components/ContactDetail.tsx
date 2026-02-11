@@ -115,7 +115,7 @@ const ContactDetail: React.FC = () => {
                   <div className="size-14 rounded-2xl bg-slate-50 flex items-center justify-center text-[#135bec] group-hover:bg-[#135bec] group-hover:text-white transition-all duration-300">
                     <MapPin size={24} />
                   </div>
-                  <div>
+                  <div className="max-w-md">
                     <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Oficina Central</p>
                     <p className="text-slate-900 font-bold text-lg">{DIRECCION}</p>
                   </div>
