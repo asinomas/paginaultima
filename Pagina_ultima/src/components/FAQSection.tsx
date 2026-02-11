@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { motion, AnimatePresence } from 'framer-motion';
 
 interface FAQItem {
   question: string;
@@ -49,7 +48,7 @@ const FAQSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           
-          {/* LEFT COLUMN */}
+          {/* LEFT COLUMN - Title and Description */}
           <div className="lg:sticky lg:top-24 lg:self-start">
             <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
               Preguntas frecuentes
@@ -67,60 +66,43 @@ const FAQSection: React.FC = () => {
           <div className="space-y-4">
             {faqData.map((item, index) => {
               const isOpen = openIndex === index;
-              const contentId = `faq-content-${index}`;
-              const buttonId = `faq-button-${index}`;
-
               return (
                 <div key={index} className="border-b border-slate-200 last:border-b-0">
                   <button
-                    id={buttonId}
                     onClick={() => toggleAccordion(index)}
                     aria-expanded={isOpen}
-                    aria-controls={contentId}
-                    className="w-full py-6 flex items-start justify-between gap-4 text-left hover:text-[#135bec] transition-colors duration-200 group"
+                    className={`w-full py-6 flex items-start justify-between gap-4 text-left transition-colors duration-200 ${
+                      isOpen ? 'text-[#135bec]' : 'text-slate-900 hover:text-[#135bec]'
+                    }`}
                   >
-                    <span className={`text-lg font-semibold transition-colors duration-200 ${
-                      isOpen ? 'text-[#135bec]' : 'text-slate-900'
-                    }`}>
-                      {item.question}
-                    </span>
-                    <motion.span
-                      animate={{ rotate: isOpen ? 180 : 0, backgroundColor: isOpen ? '#135bec' : undefined }}
+                    <span className="text-lg font-semibold">{item.question}</span>
+                    <span
                       className={`flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full transition-all duration-300 ${
-                        isOpen ? 'bg-[#135bec]' : 'bg-slate-100 group-hover:bg-[#135bec]'
+                        isOpen ? 'bg-[#135bec] rotate-180' : 'bg-slate-100'
                       }`}
                     >
                       {isOpen ? (
                         <Minus className="w-4 h-4 text-white" />
                       ) : (
-                        <Plus className="w-4 h-4 text-slate-600 group-hover:text-white" />
+                        <Plus className="w-4 h-4 text-slate-600" />
                       )}
-                    </motion.span>
+                    </span>
                   </button>
 
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        key="content"
-                        id={contentId}
-                        role="region"
-                        aria-labelledby={buttonId}
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3, ease: 'easeInOut' }}
-                        className="overflow-hidden"
-                      >
-                        <p className="text-base text-slate-600 leading-relaxed pr-10 mt-2">
-                          {item.answer}
-                        </p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                      isOpen ? 'max-h-96 opacity-100 mt-4 mb-6' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <p className="text-base text-slate-600 leading-relaxed pr-10">
+                      {item.answer}
+                    </p>
+                  </div>
                 </div>
               );
             })}
           </div>
+
         </div>
       </div>
     </section>
