@@ -137,7 +137,7 @@ const AboutDetail: React.FC<AboutDetailProps> = ({ onContactClick, onNavigate })
               <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl group">
                 <img 
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" 
-                  className="h-[600px] w-full object-cover scale-x-[-1] transition-transform duration-[2s] group-hover:scale-[1.05] group-hover:scale-x-[-1.05]"
+                  className="h-[600px] w-full object-cover scale-x-[-1] transition-transform duration-[2s] group-hover:scale-[1.05] group-hover:scale-x-[-1.05] grayscale brightness-95 contrast-105"
                   alt="Quienes somos"
                   loading="lazy"
                 />
