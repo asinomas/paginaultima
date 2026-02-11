@@ -31,7 +31,6 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
     "UX/UI",
     "Dev Android/iOS",
     "Mesa de Ayuda",
-    
   ];
 
   const profileDescriptions: Record<string, string> = {
@@ -47,24 +46,16 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
     "UX/UI": "Diseña pensando en el usuario final y en los objetivos del negocio, aumentando adopción y satisfacción del cliente.",
     "Dev Android/iOS": "Nuestros desarrolladores mobile están enfocados en la creación de apps nativas, seguras y escalables en entornos productivos.",
     "Mesa de Ayuda": "Atención cercana, tiempos de respuesta definidos y continuidad operativa sin fricción para el usuario final.",
-    
   };
 
   const [activeProfile, setActiveProfile] = useState<string | null>(null);
   const [displayProfile, setDisplayProfile] = useState<string | null>(null);
   const [isVisible, setIsVisible] = useState(false);
-  
-  const [transitioning, setTransitioning] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-
-  
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        containerRef.current &&
-        !containerRef.current.contains(event.target as Node)
-      ) {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
         setActiveProfile(null);
       }
     };
@@ -72,56 +63,48 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Control fade-out / fade-in al cambiar de perfil
-    useEffect(() => {
-  if (activeProfile === displayProfile) return;
+  useEffect(() => {
+    if (activeProfile === displayProfile) return;
 
-  // Fade-out si hay algo visible
-  if (isVisible) {
-    setIsVisible(false);
+    if (isVisible) {
+      setIsVisible(false);
+      const timeout = setTimeout(() => {
+        setDisplayProfile(activeProfile);
+        if (activeProfile) requestAnimationFrame(() => setIsVisible(true));
+      }, 300);
+      return () => clearTimeout(timeout);
+    }
 
-    const timeout = setTimeout(() => {
+    if (activeProfile) {
       setDisplayProfile(activeProfile);
-      if (activeProfile) {
-        requestAnimationFrame(() => {
-          setIsVisible(true); // Fade-in
-        });
-      }
-    }, 300); // duración fade-out
+      requestAnimationFrame(() => setIsVisible(true));
+    } else {
+      setDisplayProfile(null);
+    }
+  }, [activeProfile]);
 
-    return () => clearTimeout(timeout);
-  }
-
-  // Primer click (no había nada antes)
-  if (activeProfile) {
-    setDisplayProfile(activeProfile);
-    requestAnimationFrame(() => {
-      setIsVisible(true); // Fade-in inicial
-    });
-  } else {
-    setDisplayProfile(null);
-  }
-}, [activeProfile]);
-
-
-    
   return (
     <div className="bg-slate-50 min-h-screen pt-16 pb-32 antialiased">
       {/* HERO SECTION */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8 mb-24">
-        <div className="relative overflow-hidden rounded-[3rem] bg-[#0b0e14] p-12 lg:p-24 text-center lg:text-left">
+        <div className="relative overflow-hidden rounded-[3rem] bg-[#0b0e14] p-12 lg:p-24">
           <ServicesHeroLights />
+
           <div className="relative z-10 flex flex-col lg:flex-row items-center gap-12">
-            <div className="lg:w-2/3">
+            {/* TEXTO */}
+            <div className="lg:w-2/3 text-center lg:text-left">
               <h1 className="text-4xl lg:text-7xl font-black text-white leading-tight mb-8 tracking-tighter">
                 Talento TI para <br />
                 <span className="text-[#135bec] italic drop-shadow-[0_0_15px_rgba(19,91,236,0.3)]">
                   Impulsar tu Empresa
                 </span>
               </h1>
+
               <p className="text-lg lg:text-xl text-slate-400 leading-relaxed max-w-2xl mb-10">
-                Nuestros profesionales pueden incorporarse bajo distintos esquemas, adaptándose a las necesidades específicas de cada empresa.
+                Nuestros profesionales pueden incorporarse bajo distintos esquemas,
+                adaptándose a las necesidades específicas de cada empresa.
               </p>
+
               <button
                 onClick={onContactClick}
                 className="rounded-2xl bg-[#135bec] px-10 py-5 text-base font-bold text-white shadow-2xl shadow-[#135bec]/30 hover:scale-105 active:scale-95 transition-all"
@@ -129,24 +112,34 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
                 Iniciar Transformación
               </button>
             </div>
+
+            {/* IMAGEN DERECHA */}
+            <div className="hidden lg:block lg:w-1/3 relative">
+              <div className="relative h-[420px] w-full">
+                <img
+                  src="./images/foto-service-hero.png"
+                  alt="Equipo BlackTI colaborando en unespacio moderno"
+                  className="absolute inset-0 h-full w-full object-cover rounded-2xl"
+                />
+
+                {/* Degradado izquierda → derecha */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0b0e14] via-[#0b0e14]/40 to-transparent rounded-2xl" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* PERFILES ESPECIALIZADOS */}
-      <section
-        ref={containerRef}
-        className="container mx-auto max-w-7xl px-6 lg:px-8 mb-12"
-      >
+      <section ref={containerRef} className="container mx-auto max-w-7xl px-6 lg:px-8 mb-12">
         <div className="mb-4 flex items-center justify-start max-w-[600px]">
-          <span className="text-[10px] font-bold tracking-[0.4em] text-slate-400 uppercase mb-6 border-b border-slate-200 pb-2">  
+          <span className="text-[10px] font-bold tracking-[0.4em] text-slate-400 uppercase mb-6 border-b border-slate-200 pb-2">
             Perfiles especializados
           </span>
           <div className="flex-1 h-[0.5px] bg-slate-300"></div>
         </div>
 
         <div className="flex gap-4 relative items-start">
-          {/* Contenedor izquierdo dinámico */}
           <div className="w-1/3 min-w-[280px] h-32">
             {displayProfile && (
               <div
@@ -161,9 +154,6 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
             )}
           </div>
 
-
-          
-          {/* Burbujas derecha: siempre alineadas */}
           <div className="flex-1 flex flex-wrap gap-3 justify-end max-w-4xl content-start">
             {profiles.map((profile) => (
               <button
@@ -183,7 +173,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
         </div>
       </section>
 
-      {/* SECCIÓN DE SERVICIOS */}
+      {/* SERVICIOS */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
@@ -212,7 +202,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
         </ScrollAnimation>
       </section>
     </div>
-   );
-  };
+  );
+};
 
 export default ServicesDetail;
