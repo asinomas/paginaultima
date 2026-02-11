@@ -25,7 +25,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
   ];
 
   const profileDescriptions: Record<string, string> = {
-    "Tech Lead": "Definie arquitectura y liderar decisiones técnicas con visión de negocio, capaz de alinear tecnología, plazos y objetivos empresariales.",
+    "Tech Lead": "Define arquitectura y liderar decisiones técnicas con visión de negocio, capaz de alinear tecnología, plazos y objetivos empresariales.",
     "Scrum Master": "No solo aplica Scrum: mejora la madurez ágil del equipo, facilita la comunicación con stakeholders y acelera la entrega de valor.",
     Ciberseguridad: "Trabaja de forma preventiva, no reactiva, protegiendo los activos digitales y la reputación de la empresa.",
     DevOps: "Optimiza infraestructura y procesos, reduce fallas en producción y mejora la continuidad operativa mediante automatización real.",
