@@ -1,5 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Terminal, Lightbulb, Network, Lock, Cloud, BarChart3 } from "lucide-react";
+import {
+  Terminal,
+  Lightbulb,
+  Network,
+  Lock,
+  Cloud,
+  BarChart3,
+} from "lucide-react";
 import ServiceCard from "./ServiceCard";
 import ServicesHeroLights from "./ServicesHeroLights";
 import ScrollAnimation from "./ScrollAnimation";
@@ -8,35 +15,131 @@ interface ServicesDetailProps {
   onContactClick?: () => void;
 }
 
-const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => {} }) => {
+const ServicesDetail: React.FC<ServicesDetailProps> = ({
+  onContactClick = () => {},
+}) => {
+  /* =========================
+     SERVICIOS
+  ========================= */
   const specialties = [
-    { icon: Terminal, title: "Consultoría TI", description: "Asesoramiento experto de nuestro equipo para optimizar su infraestructura y procesos tecnológicos mediante auditorías profundas.", details: ["Auditorías profundas de infraestructura", "Optimización de procesos y flujos de trabajo", "Evaluación de arquitecturas existentes", "Recomendaciones de seguridad y escalabilidad", "Plan de mejora continua"] },
-    { icon: Lightbulb, title: "Estrategia Digital", description: "Transformamos su visión en resultados tangibles mediante planes de digitalización avanzados alineados con su negocio.", details: ["Planes de digitalización estratégicos", "Implementación de KPIs y métricas de éxito", "Gestión del cambio organizacional", "Soporte en marketing digital"] },
-    { icon: Network, title: "Gestión de Proyectos", description: "Ejecución precisa y eficiente de iniciativas complejas con metodologías ágiles que garantizan tiempos de entrega.", details: ["Implementación de metodologías Scrum, Kanban", "Reporting ejecutivo", "Planificación y seguimiento de proyectos", "Coordinación de equipos"] },
-    { icon: Lock, title: "Ciberseguridad", description: "Protección integral de sus activos digitales mediante firewalls avanzados y protocolos de encriptación de alto grado.", details: ["Auditorías de seguridad y pentesting", "Implementación de políticas de seguridad ISO 27001 y compliance", "Firewall y encriptación de datos", "Monitoreo 24/7 y respuesta ante incidentes"] },
-    { icon: Cloud, title: "Soluciones Cloud", description: "Migración y gestión de infraestructuras en la nube para mejorar la escalabilidad y reducir costes.", details: ["Migración a AWS, Azure, Google Cloud", "Arquitecturas cloud-native y serverless", "Implementación de DevOps y CI/CD", "Gestión y monitoreo continuo de recursos cloud"] },
-    { icon: BarChart3, title: "Análisis de Datos", description: "Convertimos sus datos en decisiones inteligentes mediante herramientas de Business Intelligence y Big Data.", details: ["Implementación de Business Intelligence y Big Data (Power BI, Tableau)", "Desarrollo de pipelines de datos ETL/ELT", "Análisis predictivo y machine learning", "Dashboards ejecutivos", "Gobierno de datos y calidad de información"] },
+    {
+      icon: Terminal,
+      title: "Consultoría TI",
+      description:
+        "Asesoramiento experto para optimizar infraestructura y procesos tecnológicos.",
+      details: [
+        "Auditorías de infraestructura",
+        "Optimización de procesos",
+        "Evaluación de arquitectura",
+        "Recomendaciones de seguridad",
+        "Plan de mejora continua",
+      ],
+    },
+    {
+      icon: Lightbulb,
+      title: "Estrategia Digital",
+      description:
+        "Planes de digitalización alineados a objetivos de negocio.",
+      details: [
+        "Roadmaps digitales",
+        "KPIs y métricas",
+        "Gestión del cambio",
+        "Soporte en marketing digital",
+      ],
+    },
+    {
+      icon: Network,
+      title: "Gestión de Proyectos",
+      description:
+        "Ejecución eficiente de proyectos con metodologías ágiles.",
+      details: [
+        "Scrum y Kanban",
+        "Reporting ejecutivo",
+        "Planificación",
+        "Coordinación de equipos",
+      ],
+    },
+    {
+      icon: Lock,
+      title: "Ciberseguridad",
+      description:
+        "Protección integral de los activos digitales de la empresa.",
+      details: [
+        "Auditorías de seguridad",
+        "Pentesting",
+        "Firewalls",
+        "Monitoreo 24/7",
+      ],
+    },
+    {
+      icon: Cloud,
+      title: "Soluciones Cloud",
+      description:
+        "Infraestructura cloud escalable y optimizada en costos.",
+      details: [
+        "AWS / Azure / GCP",
+        "Arquitecturas cloud-native",
+        "DevOps y CI/CD",
+        "Monitoreo continuo",
+      ],
+    },
+    {
+      icon: BarChart3,
+      title: "Análisis de Datos",
+      description:
+        "Datos convertidos en decisiones estratégicas.",
+      details: [
+        "Power BI / Tableau",
+        "ETL / ELT",
+        "Análisis predictivo",
+        "Dashboards ejecutivos",
+      ],
+    },
   ];
 
+  /* =========================
+     PERFILES
+  ========================= */
   const profiles = [
-    "Tech Lead", "Scrum Master", "Ciberseguridad", "DevOps", "Dev Java",
-    "Python", "BackEnd", "FrontEnd", "Fullstack", "UX/UI",
-    "Dev Android/iOS", "Mesa de Ayuda",
+    "Tech Lead",
+    "Scrum Master",
+    "Ciberseguridad",
+    "DevOps",
+    "Dev Java",
+    "Python",
+    "BackEnd",
+    "FrontEnd",
+    "Fullstack",
+    "UX/UI",
+    "Dev Android/iOS",
+    "Mesa de Ayuda",
   ];
 
   const profileDescriptions: Record<string, string> = {
-    "Tech Lead": "Define arquitectura y liderar decisiones técnicas con visión de negocio, capaz de alinear tecnología, plazos y objetivos empresariales.",
-    "Scrum Master": "No solo aplica Scrum: mejora la madurez ágil del equipo, facilita la comunicación con stakeholders y acelera la entrega de valor.",
-    Ciberseguridad: "Trabaja de forma preventiva, no reactiva, protegiendo los activos digitales y la reputación de la empresa.",
-    DevOps: "Optimiza infraestructura y procesos, reduce fallas en producción y mejora la continuidad operativa mediante automatización real.",
-    "Dev Java": "Aporta estabilidad, escalabilidad y buenas prácticas en sistemas empresariales críticos, con experiencia en entornos corporativos.",
-    Python: "Capaz de automatizar procesos, analizar datos y desarrollar soluciones inteligentes que generan eficiencia y ahorro.",
-    BackEnd: "No solo desarrolla APIs: entiende el negocio, prioriza seguridad, rendimiento y escalabilidad desde el diseño.",
-    FrontEnd: "Más que interfaces atractivas, entrega experiencias de usuario funcionales, alineadas a la identidad de la empresa.",
-    Fullstack: "Perfil integral que reduce dependencias, acelera desarrollos y mantiene coherencia técnica en todo el producto.",
-    "UX/UI": "Diseña pensando en el usuario final y en los objetivos del negocio, aumentando adopción y satisfacción del cliente.",
-    "Dev Android/iOS": "Nuestros desarrolladores mobile están enfocados en la creación de apps nativas, seguras y escalables en entornos productivos.",
-    "Mesa de Ayuda": "Atención cercana, tiempos de respuesta definidos y continuidad operativa sin fricción para el usuario final.",
+    "Tech Lead":
+      "Define arquitectura, lidera decisiones técnicas y alinea tecnología con objetivos de negocio.",
+    "Scrum Master":
+      "Facilita equipos ágiles y maximiza la entrega de valor.",
+    Ciberseguridad:
+      "Protege los activos digitales de forma preventiva.",
+    DevOps:
+      "Automatiza procesos y mejora la estabilidad productiva.",
+    "Dev Java":
+      "Desarrolla sistemas empresariales robustos y escalables.",
+    Python:
+      "Automatiza procesos y crea soluciones eficientes.",
+    BackEnd:
+      "Diseña APIs seguras y eficientes.",
+    FrontEnd:
+      "Construye interfaces enfocadas en experiencia de usuario.",
+    Fullstack:
+      "Perfil integral adaptable a múltiples capas.",
+    "UX/UI":
+      "Diseño centrado en el usuario y la conversión.",
+    "Dev Android/iOS":
+      "Aplicaciones móviles nativas y seguras.",
+    "Mesa de Ayuda":
+      "Soporte continuo y cercano.",
   };
 
   const [activeProfile, setActiveProfile] = useState<string | null>(null);
@@ -44,14 +147,21 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  /* =========================
+     EFECTOS
+  ========================= */
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target as Node)
+      ) {
         setActiveProfile(null);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    return () =>
+      document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   useEffect(() => {
@@ -61,8 +171,9 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
       setIsVisible(false);
       const timeout = setTimeout(() => {
         setDisplayProfile(activeProfile);
-        if (activeProfile) requestAnimationFrame(() => setIsVisible(true));
-      }, 300);
+        if (activeProfile)
+          requestAnimationFrame(() => setIsVisible(true));
+      }, 250);
       return () => clearTimeout(timeout);
     }
 
@@ -74,40 +185,42 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
     }
   }, [activeProfile]);
 
+  /* =========================
+     RENDER
+  ========================= */
   return (
-    <div className="bg-slate-50 min-h-screen pt-16 pb-32 antialiased">
-      {/* HERO */}
+    <div className="bg-slate-50 min-h-screen pt-16 pb-32">
+      {/* ================= HERO ================= */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8 mb-24">
         <div className="relative overflow-hidden rounded-[3rem] bg-[#0b0e14] p-12 lg:p-24">
           <ServicesHeroLights />
 
-          {/* Imagen decorativa absoluta */}
+          {/* Imagen decorativa derecha */}
           <div className="hidden lg:block absolute top-0 right-0 h-full w-[40%] pointer-events-none">
             <img
               src="/images/foto-service-hero.png"
-              alt="Equipo BlackTI colaborando en un espacio moderno"
+              alt="Equipo colaborando"
               className="h-full w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0b0e14] via-[#0b0e14]/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0b0e14] via-[#0b0e14]/50 to-transparent" />
           </div>
 
-          {/* Contenido */}
           <div className="relative z-10 max-w-3xl">
-            <h1 className="text-4xl lg:text-7xl font-black text-white leading-tight mb-8 tracking-tighter">
+            <h1 className="text-4xl lg:text-7xl font-black text-white mb-8">
               Talento TI para <br />
-              <span className="text-[#135bec] italic drop-shadow-[0_0_15px_rgba(19,91,236,0.3)]">
+              <span className="text-[#135bec] italic">
                 Impulsar tu Empresa
               </span>
             </h1>
 
-            <p className="text-lg lg:text-xl text-slate-400 leading-relaxed max-w-2xl mb-10">
-              Nuestros profesionales pueden incorporarse bajo distintos esquemas,
-              adaptándose a las necesidades específicas de cada empresa.
+            <p className="text-lg text-slate-400 mb-10 max-w-2xl">
+              Nuestros profesionales se integran a tu equipo bajo
+              distintos esquemas de contratación.
             </p>
 
             <button
               onClick={onContactClick}
-              className="rounded-2xl bg-[#135bec] px-10 py-5 text-base font-bold text-white shadow-2xl shadow-[#135bec]/30 hover:scale-105 active:scale-95 transition-all"
+              className="rounded-2xl bg-[#135bec] px-10 py-5 font-bold text-white hover:scale-105 transition"
             >
               Iniciar Transformación
             </button>
@@ -115,51 +228,64 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
         </div>
       </section>
 
-      {/* PERFILES */}
-      <section ref={containerRef} className="container mx-auto max-w-7xl px-6 lg:px-8 mb-12">
-        <div className="mb-4 flex items-center max-w-[600px]">
-          <span className="text-[10px] font-bold tracking-[0.4em] text-slate-400 uppercase border-b pb-2">
-            Perfiles especializados
-          </span>
-          <div className="flex-1 h-px bg-slate-300 ml-4" />
+      {/* ================= PERFILES ================= */}
+      <section
+        ref={containerRef}
+        className="container mx-auto max-w-7xl px-6 lg:px-8 mb-24"
+      >
+        <h2 className="text-3xl font-black mb-10">
+          Perfiles Disponibles
+        </h2>
+
+        <div className="flex flex-wrap gap-3 mb-8">
+          {profiles.map((profile) => (
+            <button
+              key={profile}
+              onClick={() =>
+                setActiveProfile(
+                  activeProfile === profile ? null : profile
+                )
+              }
+              className={`rounded-xl px-5 py-2 text-sm font-semibold transition ${
+                activeProfile === profile
+                  ? "bg-[#135bec] text-white"
+                  : "bg-slate-200 hover:bg-slate-300"
+              }`}
+            >
+              {profile}
+            </button>
+          ))}
         </div>
 
-        <div className="flex gap-4 items-start">
-          <div className="w-1/3 min-w-[280px] h-32">
-            {displayProfile && (
-              <div className={`bg-slate-100 rounded-xl p-4 h-full transition-opacity duration-700 ${isVisible ? "opacity-100" : "opacity-10"}`}>
-                <p className="text-slate-800 text-sm font-medium">
-                  {profileDescriptions[displayProfile]}
-                </p>
-              </div>
-            )}
+        {displayProfile && (
+          <div
+            className={`max-w-3xl transition-all duration-300 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4"
+            }`}
+          >
+            <p className="text-lg text-slate-700">
+              {profileDescriptions[displayProfile]}
+            </p>
           </div>
-
-          <div className="flex-1 flex flex-wrap gap-3 justify-end max-w-4xl">
-            {profiles.map((profile) => (
-              <button
-                key={profile}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setActiveProfile(activeProfile === profile ? null : profile);
-                }}
-                className={`bg-slate-200 px-4 py-1.5 rounded-full text-sm font-medium hover:scale-105 transition ${
-                  activeProfile === profile ? "bg-slate-300" : ""
-                }`}
-              >
-                {profile}
-              </button>
-            ))}
-          </div>
-        </div>
+        )}
       </section>
 
-      {/* SERVICIOS */}
+      {/* ================= SERVICIOS ================= */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8">
         <ScrollAnimation>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {specialties.map((item, idx) => (
-              <ServiceCard key={idx} {...item} buttonText="Detalles del servicio" detailsTitle="" />
+              <ServiceCard
+                key={idx}
+                Icon={item.icon}
+                title={item.title}
+                description={item.description}
+                details={item.details}
+                buttonText="Detalles del servicio"
+                detailsTitle=""
+              />
             ))}
           </div>
         </ScrollAnimation>
