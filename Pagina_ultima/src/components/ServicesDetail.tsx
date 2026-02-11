@@ -90,7 +90,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
             />
             
             {/* Imagen efecto difuminado */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0b0e14] via-[#0b0e14]/85 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0b0e14] via-[#0b0e14]/55 to-transparent" />
           </div>
 
 
