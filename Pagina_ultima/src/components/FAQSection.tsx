@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Plus, Minus } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface FAQItem {
   question: string;
@@ -8,7 +9,8 @@ interface FAQItem {
 }
 
 const FAQSection: React.FC = () => {
-  const { ref, isVisible } = useScrollAnimation();
+  const { ref: scrollRef, isVisible } = useScrollAnimation();
+  const containerRef = useRef<HTMLDivElement>(null);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const faqData: FAQItem[] = [
@@ -35,17 +37,28 @@ const FAQSection: React.FC = () => {
   ];
 
   const toggleAccordion = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+    setOpenIndex(prev => (prev === index ? null : index));
   };
+
+  // Cierra todas las preguntas si hago click fuera del contenedor
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setOpenIndex(null);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <section
-      ref={ref}
+      ref={scrollRef}
       className={`bg-white py-24 md:py-32 transition-all duration-1000 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8" ref={containerRef}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           
           {/* LEFT COLUMN - Title and Description */}
@@ -66,6 +79,7 @@ const FAQSection: React.FC = () => {
           <div className="space-y-4">
             {faqData.map((item, index) => {
               const isOpen = openIndex === index;
+
               return (
                 <div key={index} className="border-b border-slate-200 last:border-b-0">
                   <button
@@ -89,15 +103,23 @@ const FAQSection: React.FC = () => {
                     </span>
                   </button>
 
-                  <div
-                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                      isOpen ? 'max-h-96 opacity-100 mt-4 mb-6' : 'max-h-0 opacity-0'
-                    }`}
-                  >
-                    <p className="text-base text-slate-600 leading-relaxed pr-10">
-                      {item.answer}
-                    </p>
-                  </div>
+                  {/* AnimatePresence para que solo una respuesta abierta se vea animada */}
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        key="content"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.4, ease: 'easeInOut' }}
+                        className="overflow-hidden mt-4 mb-6"
+                      >
+                        <p className="text-base text-slate-600 leading-relaxed pr-10">
+                          {item.answer}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               );
             })}
