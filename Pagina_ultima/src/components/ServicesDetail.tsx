@@ -121,7 +121,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
           <span className="text-[10px] font-bold tracking-[0.4em] text-slate-400 uppercase mb-6 border-b border-slate-300 pb-2">
             Perfiles especializados
           </span>
-          <div className="flex-1 bg-slate-300"></div>
+          <div className="flex-1 h-[1px] bg-slate-300"></div>
         </div>
 
         <div className="flex gap-4 relative items-start">
