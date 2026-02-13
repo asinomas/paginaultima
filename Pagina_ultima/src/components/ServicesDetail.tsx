@@ -115,7 +115,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
         </div>
       </section>
 
-      {/* PERFILES ESPECIALIZADOS (NO TOCADO) */}
+      {/* PERFILES ESPECIALIZADOS */}
       <section ref={containerRef} className="container mx-auto max-w-7xl px-6 lg:px-8 mb-12">
         <div className="mb-4 flex items-center justify-start max-w-[600px]">
           <span className="text-[10px] font-bold tracking-[0.4em] text-slate-400 uppercase mb-6 border-b border-slate-300 pb-2 whitespace-nowrap">
@@ -154,7 +154,7 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
         </div>
       </section>
 
-      {/* SERVICIOS END-TO-END (INTOCADO) */}
+      {/* SERVICIOS END-TO-END */}
       <section className="container mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
