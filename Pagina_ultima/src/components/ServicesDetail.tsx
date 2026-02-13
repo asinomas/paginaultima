@@ -118,10 +118,10 @@ const ServicesDetail: React.FC<ServicesDetailProps> = ({ onContactClick = () => 
       {/* PERFILES ESPECIALIZADOS (NO TOCADO) */}
       <section ref={containerRef} className="container mx-auto max-w-7xl px-6 lg:px-8 mb-12">
         <div className="mb-4 flex items-center justify-start max-w-[600px]">
-          <span className="text-[10px] font-bold tracking-[0.4em] text-slate-400 uppercase mb-6 border-b border-slate-300 pb-2 whitespace-nowrap">
+          <span className="text-[10px] font-bold tracking-[0.4em] text-slate-400 uppercase mb-6 border-slate-300 pb-2 whitespace-nowrap">
             Perfiles especializados
           </span>
-          <div className="flex-1 bg-slate-300"></div>
+          <div className="flex-1 h-px bg-slate-300"></div>
         </div>
 
         <div className="flex gap-4 relative items-start">
